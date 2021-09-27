@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
 // import { format, utcToZonedTime } from 'date-fns-tz'
 
-import PreviewImage from '../components/preview-image'
+import PreviewImage from "../components/preview-image";
 
-import './office-contact.css'
+import "./office-contact.css";
 
 function SecondaryAddress(props) {
   if (!props.address.streetSecondary) {
@@ -12,15 +12,15 @@ function SecondaryAddress(props) {
   }
   return (
     <>
-      {props.address.streetSecondary}<br />
+      {props.address.streetSecondary}
+      <br />
     </>
-  )
+  );
 }
 
-
-const OfficeContact = ({office}) => {
-  const {images, contactInfo, description} = office
-  const address = contactInfo.address
+const OfficeContact = ({ office }) => {
+  const { images, contactInfo, description } = office;
+  const address = contactInfo.address;
 
   return (
     <article className={`rec-office`}>
@@ -34,29 +34,27 @@ const OfficeContact = ({office}) => {
             {contactInfo.email}
           </a>
 
-          <a href={`tel:1-${contactInfo.phone}`} className={`rec-office__phone`}>+1 {contactInfo.phone}</a>
+          <a href={`tel:1-${contactInfo.phone}`} className={`rec-office__phone`}>
+            +1 {contactInfo.phone}
+          </a>
         </section>
         <address>
-          {address.street}<br />
+          {address.street}
+          <br />
           <SecondaryAddress address={address} />
-          {address.city}, {address.stateProvince} {address.postalCode}<br />
+          {address.city}, {address.stateProvince} {address.postalCode}
+          <br />
           {address.country}
         </address>
-        <p>
-          {description}
-        </p>
+        <p>{description}</p>
       </section>
       <section className={`rec-office__images`}>
-        {
-          images.map((image) => {
-            return (
-              <PreviewImage key={image.asset._id} imageAsset={image} />
-            )
-          })
-        }
+        {images.map((image) => {
+          return <PreviewImage key={image.asset._id} imageAsset={image} />;
+        })}
       </section>
     </article>
-  )
-}
+  );
+};
 
-export default OfficeContact
+export default OfficeContact;

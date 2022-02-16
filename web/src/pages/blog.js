@@ -1,17 +1,17 @@
-import React from 'react'
+import React from "react";
 
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import PostPreview from '../components/post-preview'
+import SEO from "../components/seo";
+import Layout from "../components/layout";
+import PostPreview from "../components/post-preview";
 
-import useBlogSettings from '../hooks/use-blog-settings'
-import useBlogPostBasics from '../hooks/use-blog-post-basics'
+import useBlogSettings from "../hooks/use-blog-settings";
+import useBlogPostBasics from "../hooks/use-blog-post-basics";
 
-import './pages.css'
+import "./pages.css";
 
 export default () => {
-  const settings = useBlogSettings()
-  const posts = useBlogPostBasics()
+  const settings = useBlogSettings();
+  const posts = useBlogPostBasics();
 
   return (
     <Layout>
@@ -22,16 +22,11 @@ export default () => {
           <p>{settings.subtitle}</p>
         </header>
         <section className={`rec-preview-container`}>
-          {posts.map(({node: post}) => {
-            return (
-              <PostPreview
-                key={post._id}
-                post={post}
-              />
-            )
+          {posts.map(({ node: post }) => {
+            return <PostPreview key={post._id} post={post} />;
           })}
         </section>
       </article>
     </Layout>
-  )
-}
+  );
+};

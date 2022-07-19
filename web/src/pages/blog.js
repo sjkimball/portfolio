@@ -9,7 +9,7 @@ import useBlogPostBasics from "../hooks/use-blog-post-basics";
 
 import "./pages.css";
 
-export default () => {
+const Blog = ({ data }) => {
   const settings = useBlogSettings();
   const posts = useBlogPostBasics();
 
@@ -30,3 +30,5 @@ export default () => {
     </Layout>
   );
 };
+
+export default Blog;

@@ -8,7 +8,7 @@ import useProjectBasics from "../hooks/use-project-basics";
 
 import "./pages.css";
 
-export default () => {
+const Work = ({ data }) => {
   const projects = useProjectBasics();
   return (
     <Layout>
@@ -27,3 +27,5 @@ export default () => {
     </Layout>
   );
 };
+
+export default Work;

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gatsby build",
     "clean-cache": "gatsby clean",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -o",
     "dev": "npm run clean-cache && npm run develop",
     "lint": "eslint .",
     "format": "prettier-eslint --write \"**/*.js\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",

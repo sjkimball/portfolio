@@ -1,5 +1,4 @@
 {
   "packages": ["web", "studio"],
-  "useNx": true,
-  "version": "1.0.0"
+  "version": "0.0.0"
 }

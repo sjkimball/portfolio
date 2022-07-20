@@ -1,14 +1,17 @@
 {
   "private": true,
   "name": "sanity-gatsby-portfolio-web",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "author": "Sanity <hello@sanity.io>",
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "build": "gatsby build",
-    "clean-cache": "gatsby clean",
-    "develop": "gatsby develop -o",
-    "dev": "npm run clean-cache && npm run develop",
+    "develop": "gatsby develop",
+    "empty-cache": "gatsby clean",
     "lint": "eslint .",
+    "start": "npm run empty-cache && npm run develop",
     "format": "prettier-eslint --write \"**/*.js\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },

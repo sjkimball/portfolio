@@ -12,3 +12,5 @@
 
 # Local Netlify folder
 .netlify
+
+studio/staging/

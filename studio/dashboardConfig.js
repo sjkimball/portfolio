@@ -19,14 +19,14 @@ export default {
               sites: [
                 {
                   buildHookId: '5ec4198043537101c3a54b36',
-                  title: 'Sanity Studio',
-                  name: 'red-eye-coyote-studio',
+                  title: 'Portfolio Content',
+                  name: 'sjkimball-portfolio',
                   apiId: 'ee7886a0-c036-4516-be96-6c456bf9c7bf'
                 },
                 {
                   buildHookId: '5ec419820244c70183681e4f',
-                  title: 'Portfolio Website',
-                  name: 'red-eye-coyote',
+                  title: 'Website',
+                  name: 'sjkimball',
                   apiId: '30ae73c5-72e5-468b-9083-c9f60e9c8752'
                 }
               ]
@@ -36,22 +36,22 @@ export default {
         data: [
           {
             title: 'GitHub repo',
-            value: 'https://github.com/sjkimball/red-eye-coyote',
+            value: 'https://github.com/sjkimball/portfolio',
             category: 'Code'
           },
           {
             title: 'Frontend',
-            value: 'https://red-eye-coyote.netlify.app',
+            value: 'https://sjkimball.me/',
             category: 'apps'
           }
         ]
       }
     },
-    {name: 'project-users', layout: {height: 'auto'}},
+    { name: 'project-users', layout: { height: 'auto' } },
     {
       name: 'document-list',
-      options: {title: 'Recent projects', order: '_createdAt desc', types: ['project']},
-      layout: {width: 'medium'}
+      options: { title: 'Recent projects', order: '_createdAt desc', types: ['project'] },
+      layout: { width: 'medium' }
     }
   ]
-}
+};

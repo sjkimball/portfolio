@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "build-dictionary": "style-dictionary build --config ./style-dictionary/config.json",
     "develop": "gatsby develop",
     "empty-cache": "gatsby clean",
     "lint": "eslint .",
@@ -51,6 +52,7 @@
     "postcss-import": "^14.0.2",
     "postcss-preset-env": "^7.4.0",
     "prettier-eslint-cli": "^6.0.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "style-dictionary": "^3.7.1"
   }
 }

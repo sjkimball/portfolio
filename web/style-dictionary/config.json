@@ -1,0 +1,33 @@
+{
+  "source": ["./style-dictionary/properties/**/*.json"],
+  "platforms": {
+    "scss": {
+      "transformGroup": "scss",
+      "buildPath": "./src/style-dictionary-dist/",
+      "prefix": "token",
+      "files": [
+        {
+          "destination": "variables.scss",
+          "format": "scss/variables"
+        }
+      ]
+    },
+    "web": {
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "size/px",
+        "color/css",
+        "font/flutter/literal"
+      ],
+      "buildPath": "./src/style-dictionary-dist/",
+      "prefix": "token",
+      "files": [
+        {
+          "destination": "variables.css",
+          "format": "css/variables"
+        }
+      ]
+    }
+  }
+}

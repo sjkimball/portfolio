@@ -13,19 +13,15 @@
       ]
     },
     "web": {
-      "transforms": [
-        "attribute/cti",
-        "name/cti/kebab",
-        "size/px",
-        "color/css",
-        "font/flutter/literal"
-      ],
+      "transformGroup": "custom/web",
       "buildPath": "./src/style-dictionary-dist/",
-      "prefix": "token",
       "files": [
         {
           "destination": "variables.css",
-          "format": "css/variables"
+          "format": "css/variables",
+          "options": {
+            "outputReferences": true
+          }
         }
       ]
     }

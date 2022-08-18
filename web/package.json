@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "build-dictionary": "style-dictionary build --config ./style-dictionary/config.json",
+    "build-dictionary": "node ./style-dictionary/build.js",
+    "clean-dictionary": "style-dictionary clean --config ./style-dictionary/config.json",
     "develop": "gatsby develop",
     "empty-cache": "gatsby clean",
     "lint": "eslint .",

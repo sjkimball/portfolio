@@ -9,8 +9,8 @@
   "scripts": {
     "build": "gatsby build",
     "build-dictionary": "node ./style-dictionary/build.js",
-    "clean-dictionary": "style-dictionary clean --config ./style-dictionary/config.json",
-    "develop": "gatsby develop",
+    "clean-dictionary": "rm -rf src/style-dictionary-dist",
+    "develop": "npm run build-dictionary && gatsby develop",
     "empty-cache": "gatsby clean",
     "lint": "eslint .",
     "start": "npm run empty-cache && npm run develop",

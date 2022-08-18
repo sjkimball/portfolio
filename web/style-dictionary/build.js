@@ -1,6 +1,6 @@
 const StyleDictionary = require("style-dictionary");
 
-console.log("Build started…");
+console.log("Building style-dictionary…");
 console.log("\n===============================");
 
 // REGISTER CUSTOM TRANSFORMS

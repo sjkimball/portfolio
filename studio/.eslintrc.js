@@ -1,9 +1,8 @@
 module.exports = {
-  extends: ['standard', 'standard-react'],
+  extends: ['react-app', 'prettier'],
   parser: 'babel-eslint',
   rules: {
-    'react/prop-types': 0,
-    'object-curly-spacing': ['error', 'never']
+    'react/prop-types': 0
   },
   settings: {
     react: {
@@ -11,4 +10,4 @@ module.exports = {
       version: '16.8.6'
     }
   }
-}
+};

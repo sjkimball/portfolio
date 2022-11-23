@@ -17,7 +17,6 @@
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
-    "asset-source-unsplash",
     "media"
   ],
   "parts": [
@@ -32,10 +31,6 @@
     {
       "implements": "part:@sanity/dashboard/config",
       "path": "./dashboardConfig.js"
-    },
-    {
-      "implements": "part:@sanity/form-builder/input/image/asset-sources",
-      "path": "./parts/assetSources.js"
     },
     {
       "name": "part:@sanity/base/new-document-structure",

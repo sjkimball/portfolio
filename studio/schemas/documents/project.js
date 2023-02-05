@@ -105,7 +105,7 @@ export default {
       name: 'projectDesc',
       title: 'Project Description',
       description: 'Detailed description of the project.',
-      type: 'blockContent',
+      type: 'projectContent',
     },
     {
       name: 'productImgs',

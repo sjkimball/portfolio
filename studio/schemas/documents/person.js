@@ -26,9 +26,12 @@ export default {
       name: 'jobTitle',
       title: 'Job Title',
       type: 'reference',
-      to: {
-        type: 'jobTitle',
-      },
+      to: [
+        {
+          type: 'jobTitle',
+        },
+      ],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'office',

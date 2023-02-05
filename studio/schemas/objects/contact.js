@@ -2,6 +2,10 @@ export default {
   name: 'contact',
   title: 'Contact Information',
   type: 'object',
+  options: {
+    collapsible: true,
+    collapsed: true,
+  },
   fields: [
     {
       name: 'website',

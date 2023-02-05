@@ -155,9 +155,21 @@ export default {
       name: 'projectMembers',
       title: 'Project Members',
       type: 'array',
-      of: [{ type: 'projectMember' }],
+      of: [{ type: 'reference', to: [{ type: 'person' }] }],
       validation: (Rule) =>
         Rule.required().error('Add at least one contributor.'),
+    },
+  ],
+  orderings: [
+    {
+      title: 'Client, A-Z',
+      name: 'clientAsc',
+      by: [{ field: 'client.name', direction: 'asc' }],
+    },
+    {
+      title: 'Client, Z-A',
+      name: 'clientDesc',
+      by: [{ field: 'client.name', direction: 'desc' }],
     },
   ],
   preview: {

@@ -10,12 +10,7 @@ import address from './objects/address';
 import blockContent from './objects/blockContent';
 import contact from './objects/contact';
 import figure from './objects/mainImage';
-import featuredPeople from './objects/featuredPeople';
-import featuredPosts from './objects/featuredPosts';
-import featuredProjects from './objects/featuredProjects';
 import hero from './objects/hero';
-import personDoc from './objects/personDoc';
-import projectMember from './objects/projectMember';
 import simplePortableText from './objects/simplePortableText';
 import socialAccount from './objects/socialAccount';
 // Documents
@@ -47,19 +42,14 @@ export default createSchema({
     client,
     companyInfo,
     contact,
-    featuredPeople,
-    featuredPosts,
-    featuredProjects,
     mainImage,
     hero,
     jobTitle,
     office,
     page,
     person,
-    personDoc,
     post,
     project,
-    projectMember,
     simplePortableText,
     siteSettings,
     socialAccount,

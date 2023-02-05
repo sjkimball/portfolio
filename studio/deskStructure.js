@@ -44,6 +44,12 @@ export default () =>
         .icon(FaHome)
         .child(S.document().schemaType('page').documentId('frontpage')),
       S.divider(),
+      S.listItem()
+        .title('Pages')
+        .icon(FaRegFileAlt)
+        .child(
+          S.documentTypeList('page').title('Pages')
+        ),
       blog,
       pageBuilder,
       S.divider(),

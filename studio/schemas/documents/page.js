@@ -13,7 +13,12 @@ export default {
       title: 'Content',
       description: 'Add content sections to page. 💀 is a zombie, ✅ is alive.',
       type: 'array',
-      of: [{ type: 'hero' }],
+      of: [
+        { type: 'hero' },
+        { type: 'projectGroup' },
+        { type: 'postGroup' },
+        { type: 'peopleGroup' },
+      ],
     },
   ],
   preview: {

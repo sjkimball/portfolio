@@ -9,9 +9,12 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import address from './objects/address';
 import blockContent from './objects/blockContent';
 import contact from './objects/contact';
-import figure from './objects/mainImage';
+import mainImage from './objects/mainImage';
 import hero from './objects/hero';
-import simplePortableText from './objects/simplePortableText';
+import projectContent from './objects/projectContent';
+import projectGroup from './objects/projectGroup';
+import postGroup from './objects/postGroup';
+import peopleGroup from './objects/peopleGroup';
 import socialAccount from './objects/socialAccount';
 // Documents
 import blogSettings from './documents/blogSettings';
@@ -25,7 +28,6 @@ import post from './documents/post';
 import project from './documents/project';
 import siteSettings from './documents/siteSettings';
 import socialMediaService from './documents/socialMediaService';
-import mainImage from './objects/mainImage';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -42,6 +44,9 @@ export default createSchema({
     client,
     companyInfo,
     contact,
+    projectGroup,
+    postGroup,
+    peopleGroup,
     mainImage,
     hero,
     jobTitle,
@@ -50,7 +55,7 @@ export default createSchema({
     person,
     post,
     project,
-    simplePortableText,
+    projectContent,
     siteSettings,
     socialAccount,
     socialMediaService,

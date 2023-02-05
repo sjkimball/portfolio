@@ -26,16 +26,15 @@ export default {
     {
       name: 'heroImage',
       type: 'mainImage',
-      options: {
-        collapsible: true,
-        collapsed: false,
-      },
     },
     {
       name: 'disabled',
       type: 'boolean',
     },
   ],
+  initialValue: {
+    disabled: false,
+  },
   preview: {
     select: {
       disabled: 'disabled',

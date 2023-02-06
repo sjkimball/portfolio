@@ -1,5 +1,3 @@
-import S from '@sanity/desk-tool/structure-builder';
-
 import {
   FaCog,
   FaHome,
@@ -28,7 +26,7 @@ const hiddenDocTypes = (listItem) =>
     'socialMediaService',
   ].includes(listItem.getId());
 
-export default () =>
+export default (S) =>
   S.list()
     .title('Content')
     .items([
@@ -44,16 +42,16 @@ export default () =>
         .icon(FaHome)
         .child(S.document().schemaType('page').documentId('frontpage')),
       S.divider(),
-      blog,
-      pageBuilder,
+      blog(S),
+      pageBuilder(S),
       S.divider(),
-      portfolio,
+      portfolio(S),
       S.divider(),
       S.listItem()
         .title('Company Information')
         .icon(FaRegIdCard)
         .child(S.editor().schemaType('companyInfo').documentId('companyInfo')),
-      staff,
+      staff(S),
       S.documentTypeListItem('office').title('Offices').icon(FaRegBuilding),
       ...S.documentTypeListItems().filter(hiddenDocTypes),
     ]);

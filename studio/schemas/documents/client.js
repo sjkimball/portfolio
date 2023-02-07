@@ -17,7 +17,8 @@ export default {
       type: 'slug',
       options: {
         source: 'name',
-        maxLength: 96,
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
       },
     },
     {
@@ -36,14 +37,6 @@ export default {
   preview: {
     select: {
       title: 'name',
-      contactInfo: 'contactInfo',
-    },
-    prepare(selection) {
-      const { title, contactInfo } = selection;
-      return {
-        title: title,
-        subtitle: `${contactInfo.address.city}`,
-      };
     },
   },
 };

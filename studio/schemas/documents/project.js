@@ -1,21 +1,4 @@
-import sanityClient from 'part:@sanity/base/client';
 import { FaProjectDiagram } from 'react-icons/fa';
-
-function createSlug(doc) {
-  const client = sanityClient({
-    projectId: 'slrn1bhr',
-    dataset: 'production',
-    apiVersion: '2020-05-19',
-    token: '',
-    useCdn: true,
-  });
-  const query = `*[_type == "project" && references($_id) && !(_id in path("drafts.**"))]{'clientName': client->name}`;
-  const params = { _id: doc.client._ref };
-  return client.fetch(query, params).then((res) => {
-    console.log('This is the result', res);
-    return `${res[0].clientName}-${res.length++}`;
-  });
-}
 
 export default {
   name: 'project',
@@ -54,24 +37,25 @@ export default {
       name: 'client',
       title: 'Client',
       type: 'reference',
+      to: [{ type: 'client' }],
       validation: (Rule) =>
         Rule.required().error('Every project needs a client.'),
-      to: [{ type: 'client' }],
     },
     {
       name: 'title',
       title: 'Title',
-      description: 'For internal use only. This is not public facing.',
       type: 'string',
       validation: (Rule) =>
-        Rule.required().min(10).max(30).error('Say more with less.'),
+        Rule.required().min(10).max(100).error('Say more with less.'),
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: {
-        source: (doc) => createSlug(doc),
+        source: 'title',
+        maxLength: 200,
+        slugify: (input) => input.toLowerCase().replace(/\s+/g, '-'),
       },
       validation: (Rule) =>
         Rule.required().error('A slug must be generated prior to publishing.'),

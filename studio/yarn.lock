@@ -1692,10 +1692,22 @@
     get-random-values-esm "^1.0.0"
     lodash "^4.17.21"
 
-"@sanity/cli@3.2.6", "@sanity/cli@^3.2.6":
+"@sanity/cli@3.2.6":
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-3.2.6.tgz#8aa30f50d8f3ee7ec09ed0558a43d7f621b08447"
   integrity sha512-TnTf55Cwh2mLjdEOxjU58suGdWIQWf9sy7JjVb/NwSuRvdqsg2eSBdQm3GYgRIpk27UK4ukN7Hn0ZA7l4Q4WbA==
+  dependencies:
+    "@babel/traverse" "^7.19.0"
+    chalk "^4.1.2"
+    esbuild "^0.16.5"
+    esbuild-register "^3.4.1"
+    get-it "^5.2.1"
+    pkg-dir "^5.0.0"
+
+"@sanity/cli@^3.2.6":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-3.3.1.tgz#9fc15e7f52630f2e489f39f5a7c09da94a62576b"
+  integrity sha512-Z7bwyO9s0gv8em4EPwruQZIQqB3fH9NjB0ZOdmyraPmQ3OBtQJeIQu2HZ45JYVMK52f01QdSIf1GORaYLwZv8Q==
   dependencies:
     "@babel/traverse" "^7.19.0"
     chalk "^4.1.2"

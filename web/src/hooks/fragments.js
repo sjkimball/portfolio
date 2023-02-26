@@ -1,26 +1,53 @@
 import { graphql } from 'gatsby';
 
 export const imageData = graphql`
-  fragment imageData on SanityFigure {
+  fragment imageData on SanityMainImage {
     asset {
-		  _id
-		  metadata {
-		  	lqip
-		  }
-		}
-		altText
-		caption
-		hotspot {
-		  x
-		  y
-		  height
-		  width
-		}
-		crop {
-		  top
-		  bottom
-		  left
-		  right
-		}
+      _id
+      metadata {
+        lqip
+      }
+    }
+    altText
+    caption
+    hotspot {
+      x
+      y
+      height
+      width
+    }
+    crop {
+      top
+      bottom
+      left
+      right
+    }
+  }
+`;
+
+export const heroImageData = graphql`
+  fragment heroImageData on SanityHero {
+    heroImage {
+      asset {
+        _id
+        metadata {
+          lqip
+        }
+      }
+      altText
+      caption
+      hotspot {
+        x
+        y
+        height
+        width
+      }
+      crop {
+        top
+        bottom
+        left
+        right
+      }
+    }
   }
 `;

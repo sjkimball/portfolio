@@ -4,13 +4,14 @@ const useLandingPage = () => {
   const data = useStaticQuery(graphql`
     query LandingPage {
       page: sanityPage(_id: { regex: "/(drafts.|)frontpage/" }) {
-        heading
-        subheading
+        title
         content {
-          ... on SanityImage {
+          ... on SanityHero {
             _key
             _type
-            ...imageData
+            heading
+            tagline
+            ...heroImageData
           }
         }
       }

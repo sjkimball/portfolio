@@ -10,18 +10,12 @@ export default {
       name: 'caption',
       title: 'Caption',
       type: 'string',
-      options: {
-        isHighlighted: true,
-      },
     },
     {
       name: 'altText',
       title: 'Alternative Text',
       description: 'Important for SEO and accessibility.',
       type: 'string',
-      options: {
-        isHighlighted: true,
-      },
       validation: (Rule) =>
         Rule.error('You have to fill out the alternative text.')
           .min(10)

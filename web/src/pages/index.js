@@ -20,7 +20,6 @@ const isFigure = (item) => {
 
 const IndexPage = () => {
   const { content } = useLandingPage();
-  const figures = content.filter(isDisabled).filter(isFigure);
 
   useEffect(() => {
     messageTl();

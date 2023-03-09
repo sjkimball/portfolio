@@ -31,7 +31,7 @@ export default (S) =>
     .title('Content')
     .items([
       S.listItem()
-        .title('Settings')
+        .title('Site Settings')
         .icon(FaCog)
         .child(
           S.editor().schemaType('siteSettings').documentId('siteSettings')

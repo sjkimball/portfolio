@@ -19,6 +19,7 @@ import page from './documents/page';
 import person from './documents/person';
 import post from './documents/post';
 import project from './documents/project';
+import route from './documents/route';
 import siteSettings from './documents/siteSettings';
 import socialMediaService from './documents/socialMediaService';
 
@@ -41,6 +42,7 @@ export default [
   post,
   project,
   projectContent,
+  route,
   siteSettings,
   socialAccount,
   socialMediaService,

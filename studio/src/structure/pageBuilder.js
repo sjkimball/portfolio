@@ -1,4 +1,5 @@
 import { FaRegFileAlt } from 'react-icons/fa';
+import { FaLink } from 'react-icons/fa';
 
 const pageBuilder = (S) =>
   S.listItem()
@@ -7,9 +8,13 @@ const pageBuilder = (S) =>
       S.list()
         .title('Page Builder')
         .items([
-          // S.listItem().title('Routes'),
+          S.listItem()
+            .title('Routes')
+            .icon(FaLink)
+            .child(S.documentList().title('Routes').filter('_type == "route"')),
           S.listItem()
             .title('Pages')
+            .icon(FaRegFileAlt)
             .child(S.documentList().title('Pages').filter('_type == "page"')),
         ])
     );

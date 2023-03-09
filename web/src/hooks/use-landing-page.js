@@ -1,24 +1,19 @@
 import { graphql, useStaticQuery } from 'gatsby';
+import PageInfo from '../graphql-fragments/PageInfo';
 
 const useLandingPage = () => {
   const data = useStaticQuery(graphql`
     query LandingPage {
       page: sanityPage(_id: { regex: "/(drafts.|)frontpage/" }) {
+        ...PageInfo
+      }
+      site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
         title
-        content {
-          ... on SanityHero {
-            _key
-            _type
-            heading
-            tagline
-            ...heroImageData
-          }
-        }
       }
     }
   `);
 
-  return data.page;
+  return data;
 };
 
 export default useLandingPage;

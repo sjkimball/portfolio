@@ -37,7 +37,7 @@ export default (S) =>
         .child(
           S.editor().schemaType('siteSettings').documentId('siteSettings')
         ),
-      S.documentListItem()
+      S.listItem()
         .title('Frontpage')
         .schemaType('page')
         .icon(FaHome)

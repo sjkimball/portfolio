@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import { imageUrlFor } from '../lib/image-url'
-import { imageSrcSet, imageSizes } from '../lib/image-sizing'
+import { imageUrlFor } from '../lib/image-url';
+import { imageSrcSet, imageSizes } from '../lib/image-sizing';
 
-const PreviewImage = ({imageAsset, showCaption, imageType}) => {
-   function assignClass (imageType) {
+const PreviewImage = ({ imageAsset, showCaption, imageType }) => {
+  function assignClass(imageType) {
     switch (imageType) {
       case 'avatar':
         return 'avatar-image';
@@ -13,9 +13,9 @@ const PreviewImage = ({imageAsset, showCaption, imageType}) => {
         return 'cover-image';
         break;
       default:
-        return 'preview-image'
+        return 'preview-image';
     }
-  }  
+  }
 
   const renderedImage = (
     <img
@@ -26,13 +26,11 @@ const PreviewImage = ({imageAsset, showCaption, imageType}) => {
       }}
       srcSet={imageSrcSet(imageAsset, imageType)}
       sizes={imageSizes(imageType)}
-      src={imageUrlFor(imageAsset)
-        .auto('format')
-      }
+      src={imageUrlFor(imageAsset).auto('format')}
       alt={imageAsset.altText}
       className={assignClass(imageType)}
     />
-  )
+  );
 
   if (showCaption === true) {
     return (
@@ -40,12 +38,10 @@ const PreviewImage = ({imageAsset, showCaption, imageType}) => {
         {renderedImage}
         <figcaption>{imageAsset.caption}</figcaption>
       </figure>
-    )
+    );
   } else {
-    return (
-      renderedImage
-    )
+    return renderedImage;
   }
-}
+};
 
-export default PreviewImage
+export default PreviewImage;

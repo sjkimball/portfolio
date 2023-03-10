@@ -5,19 +5,9 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Project from '../components/project';
 
-const ProjectTemplate = ({ data }) => {
-  const project = data.sanityProject;
-
-  return (
-    <Layout>
-      <Project project={project} />
-    </Layout>
-  );
-};
-
 export const query = graphql`
-  query ($slug: String!) {
-    sanityProject(slug: { current: { eq: $slug } }) {
+  query ($id: String!) {
+    project: sanityProject(id: { eq: $id }) {
       title
       sector
       projectSummary
@@ -46,5 +36,14 @@ export const query = graphql`
     }
   }
 `;
+
+const ProjectTemplate = ({ data }) => {
+  const project = data.project;
+  return (
+    <Layout>
+      <Project project={project} />
+    </Layout>
+  );
+};
 
 export default ProjectTemplate;

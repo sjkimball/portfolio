@@ -37,7 +37,7 @@ const Page = (props) => {
   return (
     <Layout>
       <SEO title={site.title} />
-      <div>content</div>
+      <div>{page.title}</div>
     </Layout>
   );
 };

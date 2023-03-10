@@ -4,100 +4,148 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-exports.createPages = async ({ actions: { createPage }, graphql, reporter }) => {
-	const allProjects = await graphql(`
-		{
-			allSanityProject(filter: { visibility: { eq:true }}) {
-				edges {
-					node {
-						slug {
-							current
-						}
-					}
-				}
-			}
-		}
-	`);
+async function createLandingPages(
+  pathPrefix = '/',
+  graphql,
+  actions,
+  reporter
+) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityRoute(
+        filter: { slug: { current: { ne: null } }, page: { id: { ne: null } } }
+      ) {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
 
-	if (allProjects.error) {
-		reporter.panic('There was a problem loading the project.');
-		return;
-	}
+  if (result.errors) throw result.errors;
 
-	const allPosts = await graphql(`
-		{
-			allSanityPost {
-			  edges {
-			    node {
-			      slug {
-			        current
-			      }
-			    }
-			  }
-			}
-		}
-	`);
+  const routeEdges = (result.data.allSanityRoute || {}).edges || [];
+  routeEdges.forEach((edge) => {
+    const { id, slug = {} } = edge.node;
+    const path = `${pathPrefix}/${slug.current}/`;
+    reporter.info(`Creating landing page: ${path}`);
+    createPage({
+      path,
+      component: require.resolve('./src/templates/page.js'),
+      context: { id },
+    });
+  });
+}
 
-	if (allPosts.error) {
-		reporter.panic('There was a problem loading the post.');
-		return;
-	}
+async function createProjects(pathPrefix = '/', graphql, actions, reporter) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityProject(filter: { visibility: { eq: true } }) {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+            client {
+              slug {
+                current
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
 
-	const allPeople = await graphql(`
-		{
-			allSanityPerson(filter: { featured: { eq:true }}) {
-			  edges {
-			    node {
-			      slug {
-			        current
-			      }
-			    }
-			  }
-			}
-		}
-	`);
+  if (result.error) throw result.errors;
 
-	if (allPeople.error) {
-		reporter.panic('There was a problem loading the person.');
-		return;
-	}
+  const projectEdges = (result.data.allSanityProject || {}).edges || [];
+  projectEdges.forEach((edge) => {
+    const { id, slug, client = {} } = edge.node;
+    const path = `${pathPrefix}/${client.slug.current}/${slug.current}/`;
+    reporter.info(`Creating project page: ${path}`);
+    createPage({
+      path,
+      component: require.resolve('./src/templates/project.js'),
+      context: { id },
+    });
+  });
+}
 
+async function createPosts(pathPrefix = '/', graphql, actions, reporter) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityPost {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
 
-	const projects = allProjects.data.allSanityProject.edges;
-	const posts = allPosts.data.allSanityPost.edges;
-	const people = allPeople.data.allSanityPerson.edges;
+  if (result.errors) throw result.errors;
 
+  const postEdges = (result.data.allSanityPost || {}).edges || [];
+  postEdges.forEach((edge) => {
+    const { id, slug = {} } = edge.node;
+    const path = `${pathPrefix}/${slug.current}/`;
+    reporter.info(`Creating post page: ${path}`);
+    createPage({
+      path,
+      component: require.resolve('./src/templates/post.js'),
+      context: { id },
+    });
+  });
+}
 
-	projects.forEach(({ node: project }) => {
+async function createProfiles(pathPrefix = '/', graphql, actions, reporter) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityPerson(filter: { featured: { eq: true } }) {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
 
-		createPage({
-			path: `/work/${project.slug.current}`,
-			component: require.resolve('./src/templates/project.js'),
-			context: {
-					slug: project.slug.current
-				}
-		});
-	});
+  if (result.errors) throw result.errors;
+  const profileEdges = (result.data.allSanityPerson || {}).edges || [];
+  profileEdges.forEach((edge) => {
+    const { id, slug = {} } = edge.node;
+    const path = `${pathPrefix}/${slug.current}/`;
+    reporter.info(`Creating profile page: ${path}`);
+    createPage({
+      path,
+      component: require.resolve('./src/templates/profile.js'),
+      context: { id },
+    });
+  });
+}
 
-	posts.forEach(({ node: post }) => {
-
-		createPage({
-			path: `/blog/${post.slug.current}`,
-			component: require.resolve('./src/templates/post.js'),
-			context: {
-					slug: post.slug.current
-				}
-		});
-	});
-
-	people.forEach(({ node: person }) => {
-
-		createPage({
-			path: `/about/${person.slug.current}`,
-			component: require.resolve('./src/templates/profile.js'),
-			context: {
-					slug: person.slug.current
-				}
-		});
-	});
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  await createLandingPages('', graphql, actions, reporter);
+  await createProjects('/work', graphql, actions, reporter);
+  await createPosts('/blog', graphql, actions, reporter);
+  await createProfiles('/about', graphql, actions, reporter);
 };

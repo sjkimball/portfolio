@@ -18,7 +18,8 @@
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
     "asset-source-unsplash",
-    "media"
+    "media",
+    "rec-logo"
   ],
   "parts": [
     {

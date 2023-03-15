@@ -5,44 +5,43 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Post from '../components/post';
 
-const PostTemplate = ({ data }) => {
-	const post = data.post;
-
-	return (
-		<Layout>
-			<Post post={post} />
-		</Layout>
-	);
-};
-
 export const query = graphql`
-	query ($slug: String!) {
-	  post: sanityPost(slug: {current: {eq: $slug}}) {
-			slug {
-				current
-			}
-			authors {				
-				name
-				jobTitle {
-					name
-				}
-				profileImg {
-					...imageData
-				}
-				slug {
-					current
-				}
-			}
-			title
-			subtitle
-			publishedAt
-			keywords
-	    coverImg {
-				...imageData
-	    }
-			_rawBody(resolveReferences: {maxDepth: 10})
-		}
+  query ($id: String!) {
+    post: sanityPost(id: { eq: $id }) {
+      slug {
+        current
+      }
+      authors {
+        name
+        jobTitle {
+          name
+        }
+        profileImg {
+          ...imageData
+        }
+        slug {
+          current
+        }
+      }
+      title
+      subtitle
+      publishedAt
+      keywords
+      coverImg {
+        ...imageData
+      }
+      _rawBody(resolveReferences: { maxDepth: 10 })
+    }
   }
 `;
+
+const PostTemplate = ({ data }) => {
+  const post = data.post;
+  return (
+    <Layout>
+      <Post post={post} />
+    </Layout>
+  );
+};
 
 export default PostTemplate;

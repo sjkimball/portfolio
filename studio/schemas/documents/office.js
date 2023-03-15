@@ -7,39 +7,37 @@ export default {
       name: 'images',
       title: 'Office Images',
       type: 'array',
-      of: [
-        {type: 'figure'}
-      ],
+      of: [{ type: 'mainImage' }],
       options: {
-        layout: 'grid'
+        layout: 'grid',
       },
-      validation: Rule => Rule.length(2)
+      validation: (Rule) => Rule.length(2),
     },
     {
       name: 'description',
       title: 'Description',
       type: 'text',
-      rows: 3
+      rows: 3,
     },
     {
       name: 'contactInfo',
       title: 'Contact Information',
-      type: 'contact'
-    }
+      type: 'contact',
+    },
   ],
   preview: {
     select: {
       title: 'contactInfo.address.city',
       subtitle: 'contactInfo.address.stateProvince',
-      media: 'images.0.asset'
+      media: 'images.0.asset',
     },
-    prepare (selection) {
-      const {title, subtitle, media} = selection
+    prepare(selection) {
+      const { title, subtitle, media } = selection;
       return {
         title: title,
         subtitle: subtitle,
-        media: media
-      }
-    }
-  }
-}
+        media: media,
+      };
+    },
+  },
+};

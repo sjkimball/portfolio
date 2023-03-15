@@ -1,19 +1,16 @@
-import S from '@sanity/desk-tool/structure-builder'
+import { FaUserFriends } from 'react-icons/fa';
 
-import {FaUserFriends} from 'react-icons/fa'
+const staff = (S) =>
+  S.listItem()
+    .title('Staff')
+    .icon(FaUserFriends)
+    .child(
+      S.list()
+        .title('Staff')
+        .items([
+          S.documentTypeListItem('person').title('Staff Members'),
+          S.documentTypeListItem('jobTitle').title('Job Titles'),
+        ])
+    );
 
-const staff = S.listItem()
-  .title('Staff')
-  .icon(FaUserFriends)
-  .child(
-    S.list()
-      .title('Staff')
-      .items([
-        S.documentTypeListItem('person')
-          .title('Staff Members'),
-        S.documentTypeListItem('jobTitle')
-          .title('Job Titles')
-      ])
-  )
-
-export default staff
+export default staff;

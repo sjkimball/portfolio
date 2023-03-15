@@ -3,32 +3,35 @@ export default {
   title: 'Person',
   type: 'document',
   initialValue: {
-    featured: false
+    featured: false,
   },
   fields: [
     {
       name: 'featured',
       type: 'boolean',
-      title: 'Featured'
+      title: 'Featured',
     },
     {
       name: 'name',
       title: 'Name',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'profileImg',
       title: 'Profile Image',
-      type: 'figure'
+      type: 'mainImage',
     },
     {
       name: 'jobTitle',
       title: 'Job Title',
       type: 'reference',
-      to: {
-        type: 'jobTitle'
-      }
+      to: [
+        {
+          type: 'jobTitle',
+        },
+      ],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'office',
@@ -36,28 +39,26 @@ export default {
       type: 'reference',
       to: [
         {
-          type: 'office'
-        }
-      ]
+          type: 'office',
+        },
+      ],
     },
     {
       name: 'bio',
       title: 'Bio',
       type: 'blockContent',
-      validation: Rule => Rule.required().error('Bio is a required field')
+      validation: (Rule) => Rule.required().error('Bio is a required field'),
     },
     {
       name: 'contactInfo',
       title: 'Contact Info',
-      type: 'contact'
+      type: 'contact',
     },
     {
       name: 'socialAccounts',
       title: 'Social Accounts',
       type: 'array',
-      of: [
-        {type: 'socialAccount'}
-      ]
+      of: [{ type: 'socialAccount' }],
     },
     {
       name: 'slug',
@@ -66,16 +67,19 @@ export default {
       type: 'slug',
       options: {
         source: 'name',
-        maxLength: 96
+        maxLength: 96,
       },
-      validation: Rule => Rule.required().error('Looks like you may have forgotten to generate a slug.:(')
-    }
+      validation: (Rule) =>
+        Rule.required().error(
+          'Looks like you may have forgotten to generate a slug.:('
+        ),
+    },
   ],
   preview: {
     select: {
       title: 'name',
       subtitle: 'jobTitle.name',
-      media: 'profileImg.asset'
-    }
-  }
-}
+      media: 'profileImg.asset',
+    },
+  },
+};

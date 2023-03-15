@@ -5,50 +5,45 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Project from '../components/project';
 
-const ProjectTemplate = ({ data }) => {
-	const project = data.sanityProject;
-
-	return (
-		<Layout>
-			<Project
-				project={project}
-			/>
-		</Layout>
-	);
-};
-
 export const query = graphql`
-	query ($slug: String!) {
-		sanityProject(slug: {current: {eq: $slug}}) {
-		  title
-		  sector
-		  projectSummary
-		  _rawProjectDesc(resolveReferences: {maxDepth: 10})
-		  coverImg {
-				...imageData
-		  }
-		  productImgs {
-				...imageData
-		  }
-		  client {
-		    name
-		  }
-		  office {
-		  	contactInfo {
-			    address {
-			    	city
-			    }
-		  	}
-		  }
-		  disciplines
-		  projectMembers {
-		  	person {
-					name
-				}
-		  	_key
-		  }
-		}
-	}
+  query ($id: String!) {
+    project: sanityProject(id: { eq: $id }) {
+      title
+      sector
+      projectSummary
+      _rawProjectDesc(resolveReferences: { maxDepth: 10 })
+      coverImg {
+        ...imageData
+      }
+      productImgs {
+        ...imageData
+      }
+      client {
+        name
+      }
+      office {
+        contactInfo {
+          address {
+            city
+          }
+        }
+      }
+      disciplines
+      projectMembers {
+        name
+        _key
+      }
+    }
+  }
 `;
+
+const ProjectTemplate = ({ data }) => {
+  const project = data.project;
+  return (
+    <Layout>
+      <Project project={project} />
+    </Layout>
+  );
+};
 
 export default ProjectTemplate;

@@ -7,25 +7,23 @@ export default {
     {
       name: 'companyName',
       title: 'Company Name',
-      type: 'string'
+      type: 'string',
     },
     {
       name: 'about',
       title: 'About',
-      type: 'simplePortableText'
+      type: 'blockContent',
     },
     {
       name: 'contactInfo',
       title: 'Contact Information',
-      type: 'contact'
+      type: 'contact',
     },
     {
       name: 'socialAccounts',
       title: 'Social Accounts',
       type: 'array',
-      of: [
-        {type: 'socialAccount'}
-      ]
-    }
-  ]
-}
+      of: [{ type: 'socialAccount' }],
+    },
+  ],
+};

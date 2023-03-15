@@ -1,12 +1,17 @@
-import S from '@sanity/desk-tool/structure-builder'
+import {
+  FaCog,
+  FaHome,
+  FaRegFileAlt,
+  FaRegBuilding,
+  FaRegIdCard,
+} from 'react-icons/fa';
 
-import {FaCog, FaHome, FaRegFileAlt, FaRegBuilding, FaRegIdCard} from 'react-icons/fa'
+import portfolio from './src/structure/portfolio';
+import pageBuilder from './src/structure/pageBuilder';
+import blog from './src/structure/blog';
+import staff from './src/structure/staff';
 
-import portfolio from './src/structure/portfolio'
-import blog from './src/structure/blog'
-import staff from './src/structure/staff'
-
-const hiddenDocTypes = listItem =>
+const hiddenDocTypes = (listItem) =>
   ![
     'blogSettings',
     'client',
@@ -17,53 +22,37 @@ const hiddenDocTypes = listItem =>
     'person',
     'post',
     'project',
+    'route',
     'siteSettings',
-    'socialMediaService'
-  ].includes(listItem.getId())
+    'socialMediaService',
+  ].includes(listItem.getId());
 
-export default () =>
+export default (S) =>
   S.list()
     .title('Content')
     .items([
       S.listItem()
-        .title('Settings')
+        .title('Site Settings')
         .icon(FaCog)
         .child(
-          S.editor()
-            .schemaType('siteSettings')
-            .documentId('siteSettings')
+          S.editor().schemaType('siteSettings').documentId('siteSettings')
         ),
-      S.documentListItem()
+      S.listItem()
         .title('Frontpage')
         .schemaType('page')
         .icon(FaHome)
-        .child(
-          S.document()
-            .schemaType('page')
-            .documentId('frontpage')
-        ),
+        .child(S.document().schemaType('page').documentId('frontpage')),
       S.divider(),
-      S.listItem()
-        .title('Pages')
-        .icon(FaRegFileAlt)
-        .child(
-          S.documentTypeList('page').title('Pages')
-        ),
-      blog,
+      blog(S),
+      pageBuilder(S),
       S.divider(),
-      portfolio,
+      portfolio(S),
       S.divider(),
       S.listItem()
         .title('Company Information')
         .icon(FaRegIdCard)
-        .child(
-          S.editor()
-            .schemaType('companyInfo')
-            .documentId('companyInfo')
-        ),
-      staff,
-      S.documentTypeListItem('office')
-        .title('Offices')
-        .icon(FaRegBuilding),
-      ...S.documentTypeListItems().filter(hiddenDocTypes)
-    ])
+        .child(S.editor().schemaType('companyInfo').documentId('companyInfo')),
+      staff(S),
+      S.documentTypeListItem('office').title('Offices').icon(FaRegBuilding),
+      ...S.documentTypeListItems().filter(hiddenDocTypes),
+    ]);

@@ -39,6 +39,7 @@ export default defineConfig({
               apiId: 'ee7886a0-c036-4516-be96-6c456bf9c7bf',
               buildHookId: '6412bfbefacaca46cd12b968',
               name: 'sjkimball-portfolio',
+              branch: 'staging',
             },
           ],
         }),

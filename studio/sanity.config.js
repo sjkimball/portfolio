@@ -5,6 +5,9 @@ import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import schemas from './schemas/schema';
 import deskStructure from './deskStructure';
+import { Logo } from './plugins/rec-logo/Logo';
+
+const dataset = process.env.SANITY_STUDIO_API_DATASET;
 
 export default defineConfig({
   title: 'portfolio',
@@ -13,20 +16,7 @@ export default defineConfig({
   plugins: [
     dashboardTool({
       widgets: [
-        projectInfoWidget({
-          data: [
-            {
-              title: 'GitHub repo',
-              value: 'https://github.com/sjkimball/portfolio',
-              category: 'Code',
-            },
-            {
-              title: 'Frontend',
-              value: 'https://sjkimball.me/',
-              category: 'apps',
-            },
-          ],
-        }),
+        projectInfoWidget(),
         netlifyWidget({
           title: 'Netlify Deploys',
           description:
@@ -55,5 +45,10 @@ export default defineConfig({
   ],
   schema: {
     types: schemas,
+  },
+  studio: {
+    components: {
+      logo: Logo,
+    },
   },
 });

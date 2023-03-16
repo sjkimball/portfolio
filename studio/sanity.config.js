@@ -34,6 +34,12 @@ export default defineConfig({
               buildHookId: '5ec4198043537101c3a54b36',
               name: 'sjkimball-portfolio',
             },
+            {
+              title: 'Studio - Staging',
+              apiId: 'ee7886a0-c036-4516-be96-6c456bf9c7bf',
+              buildHookId: '6412bfbefacaca46cd12b968',
+              name: 'sjkimball-portfolio',
+            },
           ],
         }),
       ],

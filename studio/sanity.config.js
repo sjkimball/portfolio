@@ -12,7 +12,7 @@ const dataset = process.env.SANITY_STUDIO_API_DATASET;
 export default defineConfig({
   title: 'portfolio',
   projectId: 'slrn1bhr',
-  dataset: 'production',
+  dataset: dataset,
   plugins: [
     dashboardTool({
       widgets: [

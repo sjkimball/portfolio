@@ -29,6 +29,13 @@ export default defineConfig({
               name: 'sjkimball',
             },
             {
+              title: 'Frontend - Staging',
+              apiId: '30ae73c5-72e5-468b-9083-c9f60e9c8752',
+              buildHookId: '64156c8dcfc66b1d8a3b7ab6',
+              name: 'sjkimball',
+              branch: 'staging',
+            },
+            {
               title: 'Studio',
               apiId: 'ee7886a0-c036-4516-be96-6c456bf9c7bf',
               buildHookId: '5ec4198043537101c3a54b36',

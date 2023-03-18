@@ -1,5 +1,4 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import PageInfo from '../graphql-fragments/PageInfo';
 
 const useLandingPage = () => {
   const data = useStaticQuery(graphql`

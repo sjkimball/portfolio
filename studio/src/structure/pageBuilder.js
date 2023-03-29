@@ -15,7 +15,12 @@ const pageBuilder = (S) =>
           S.listItem()
             .title('Pages')
             .icon(FaRegFileAlt)
-            .child(S.documentList().title('Pages').filter('_type == "page"')),
+            .child(
+              S.documentList()
+                .title('Pages')
+                .filter('_type == "page"')
+                .defaultOrdering([{ field: 'indexPage', direction: 'desc' }])
+            ),
         ])
     );
 

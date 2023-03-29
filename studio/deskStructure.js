@@ -16,6 +16,7 @@ const hiddenDocTypes = (listItem) =>
     'blogSettings',
     'client',
     'companyInfo',
+    'indexPage',
     'jobTitle',
     'office',
     'page',
@@ -38,10 +39,9 @@ export default (S) =>
           S.editor().schemaType('siteSettings').documentId('siteSettings')
         ),
       S.listItem()
-        .title('Frontpage')
-        .schemaType('page')
+        .title('Index Page')
         .icon(FaHome)
-        .child(S.document().schemaType('page').documentId('frontpage')),
+        .child(S.document().schemaType('indexPage').documentId('indexPage')),
       S.divider(),
       blog(S),
       pageBuilder(S),

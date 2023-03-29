@@ -13,6 +13,7 @@ import socialAccount from './objects/socialAccount';
 import blogSettings from './documents/blogSettings';
 import client from './documents/client';
 import companyInfo from './documents/companyInfo';
+import indexPage from './documents/indexPage';
 import jobTitle from './documents/jobTitle';
 import office from './documents/office';
 import page from './documents/page';
@@ -30,6 +31,7 @@ export default [
   client,
   companyInfo,
   contact,
+  indexPage,
   projectGroup,
   postGroup,
   peopleGroup,

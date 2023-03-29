@@ -20,10 +20,24 @@ export default {
         { type: 'peopleGroup' },
       ],
     },
+    {
+      name: 'indexPage',
+      title: 'Use this page as an index page?',
+      type: 'boolean',
+      initialValue: false,
+    },
   ],
   preview: {
     select: {
       title: 'title',
+      indexPage: 'indexPage',
+    },
+    prepare(selection) {
+      const { title, indexPage } = selection;
+      return {
+        title: title,
+        subtitle: `${indexPage ? 'Index Page' : ''}`,
+      };
     },
   },
 };

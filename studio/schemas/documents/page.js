@@ -15,6 +15,7 @@ export default {
       type: 'array',
       of: [
         { type: 'hero' },
+        { type: 'splashImage' },
         { type: 'projectGroup' },
         { type: 'postGroup' },
         { type: 'peopleGroup' },

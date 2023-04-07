@@ -8,6 +8,7 @@ import projectContent from './objects/projectContent';
 import projectGroup from './objects/projectGroup';
 import postGroup from './objects/postGroup';
 import peopleGroup from './objects/peopleGroup';
+import splashImage from './objects/splashImage';
 import socialAccount from './objects/socialAccount';
 // Documents
 import blogSettings from './documents/blogSettings';
@@ -47,5 +48,6 @@ export default [
   route,
   siteSettings,
   socialAccount,
+  splashImage,
   socialMediaService,
 ];

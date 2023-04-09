@@ -10,7 +10,7 @@ export default {
       type: 'boolean',
     },
     {
-      name: 'posts',
+      name: 'content',
       title: 'Posts',
       type: 'array',
       of: [
@@ -21,10 +21,6 @@ export default {
               type: 'post',
             },
           ],
-          options: {
-            // filter: 'featured == $featured',
-            // filterParams: { featured: true },
-          },
         },
       ],
       validation: (Rule) => Rule.max(6),

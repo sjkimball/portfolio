@@ -11,7 +11,7 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'people',
+      name: 'content',
       title: 'People',
       type: 'array',
       of: [
@@ -22,10 +22,6 @@ export default {
               type: 'person',
             },
           ],
-          options: {
-            // filter: 'featured == $featured',
-            // filterParams: {featured: true}
-          },
         },
       ],
       validation: (Rule) => Rule.max(6),

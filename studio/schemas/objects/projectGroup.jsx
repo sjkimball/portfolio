@@ -14,7 +14,7 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'projects',
+      name: 'content',
       title: 'Projects',
       description: 'Choose from our projects.',
       type: 'array',

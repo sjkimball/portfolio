@@ -19,6 +19,7 @@ export default {
         { type: 'projectGroup' },
         { type: 'postGroup' },
         { type: 'peopleGroup' },
+        { type: 'officeGroup' },
       ],
     },
     {

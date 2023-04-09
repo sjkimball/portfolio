@@ -4,6 +4,7 @@ import blockContent from './objects/blockContent';
 import contact from './objects/contact';
 import mainImage from './objects/mainImage';
 import hero from './objects/hero';
+import officeGroup from './objects/officeGroup';
 import projectContent from './objects/projectContent';
 import projectGroup from './objects/projectGroup';
 import postGroup from './objects/postGroup';
@@ -33,6 +34,7 @@ export default [
   companyInfo,
   contact,
   indexPage,
+  officeGroup,
   projectGroup,
   postGroup,
   peopleGroup,

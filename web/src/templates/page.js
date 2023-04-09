@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '../containers/layout';
 import SEO from '../components/seo';
+import GraphQLErrorList from '../components/graphql-error-list';
 
 import Astronaut from '../components/astronaut';
 import SplashImage from '../components/splashImage';
@@ -30,6 +31,14 @@ export const query = graphql`
 const Page = (props) => {
   const { data, errors } = props;
 
+  if (errors) {
+    return (
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
+    );
+  }
+
   const site = (data || {}).site;
 
   if (!site) {
@@ -40,7 +49,7 @@ const Page = (props) => {
 
   const page = data.page || data.route.page;
 
-  //Inspect page elements and determine what components to render.
+  //Inspect page content and determine what components to render.
   const content = (page._rawContent || [])
     .filter((c) => !c.disabled)
     .map((c, i) => {
@@ -67,8 +76,11 @@ const Page = (props) => {
       return el;
     });
 
+  const menuItems = page.navMenu && (page.navMenu.items || []);
+  const pageTitle = data.route && !data.route.useSiteTitle && page.title;
+
   return (
-    <Layout>
+    <Layout navMenuItems={menuItems}>
       <SEO title={site.title} />
       <h2>{page.title}</h2>
       {content}

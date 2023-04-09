@@ -6,6 +6,9 @@ import SEO from '../components/seo';
 
 import Astronaut from '../components/astronaut';
 import SplashImage from '../components/splashImage';
+import ThumbnailGrid from '../components/thumbnail-grid';
+
+import '../pages/pages.css';
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -37,8 +40,6 @@ const Page = (props) => {
 
   const page = data.page || data.route.page;
 
-  console.log('page data at page template', page);
-
   //Inspect page elements and determine what components to render.
   const content = (page._rawContent || [])
     .filter((c) => !c.disabled)
@@ -51,6 +52,15 @@ const Page = (props) => {
         case 'splashImage':
           el = <SplashImage key={c._key} {...c} />;
           break;
+        case 'projectGroup':
+          el = <ThumbnailGrid key={c._key} {...c} />;
+          break;
+        case 'postGroup':
+          el = <ThumbnailGrid key={c._key} {...c} />;
+          break;
+        case 'officeGroup':
+          el = <ThumbnailGrid key={c._key} {...c} />;
+          break;
         default:
           el = null;
       }
@@ -60,6 +70,7 @@ const Page = (props) => {
   return (
     <Layout>
       <SEO title={site.title} />
+      <h2>{page.title}</h2>
       {content}
     </Layout>
   );

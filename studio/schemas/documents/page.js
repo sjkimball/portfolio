@@ -9,6 +9,13 @@ export default {
       type: 'string',
     },
     {
+      name: 'navMenu',
+      type: 'reference',
+      title: 'Navigation menu',
+      to: [{ type: 'navigationMenu' }],
+      description: 'Which nav menu should be shown, if any?',
+    },
+    {
       name: 'content',
       title: 'Content',
       description: 'Add content sections to page. 💀 is a zombie, ✅ is alive.',

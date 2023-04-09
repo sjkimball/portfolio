@@ -9,6 +9,14 @@ const pageBuilder = (S) =>
         .title('Page Builder')
         .items([
           S.listItem()
+            .title('Navigation Menus')
+            .icon(FaLink)
+            .child(
+              S.documentList()
+                .title('Navigation Menus')
+                .filter('_type == "navigationMenu"')
+            ),
+          S.listItem()
             .title('Routes')
             .icon(FaLink)
             .child(S.documentList().title('Routes').filter('_type == "route"')),

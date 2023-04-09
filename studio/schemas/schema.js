@@ -1,6 +1,7 @@
 // Objects
 import address from './objects/address';
 import blockContent from './objects/blockContent';
+import cta from './objects/cta';
 import contact from './objects/contact';
 import mainImage from './objects/mainImage';
 import hero from './objects/hero';
@@ -17,6 +18,7 @@ import client from './documents/client';
 import companyInfo from './documents/companyInfo';
 import indexPage from './documents/indexPage';
 import jobTitle from './documents/jobTitle';
+import navMenu from './documents/navMenu';
 import office from './documents/office';
 import page from './documents/page';
 import person from './documents/person';
@@ -33,7 +35,9 @@ export default [
   client,
   companyInfo,
   contact,
+  cta,
   indexPage,
+  navMenu,
   officeGroup,
   projectGroup,
   postGroup,

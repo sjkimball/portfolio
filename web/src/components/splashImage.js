@@ -4,8 +4,6 @@ import './splashImage.css';
 
 const SplashImage = (props) => {
   const { messageOverlay: message, image } = props;
-  console.log('message', message);
-  console.log('image', image);
   const imageUrl = imageUrlFor(image);
   return (
     <svg
@@ -23,7 +21,7 @@ const SplashImage = (props) => {
           <rect width="100%" height="100%" rx="10%" fill="white" />
         </mask>
         <filter id="floodFilter" filterUnits="userSpaceOnUse">
-          <feFlood flood-color="blue" flood-opacity="0.5" />
+          <feFlood floodColor="blue" floodOpacity="0.5" />
         </filter>
       </defs>
 

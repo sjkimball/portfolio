@@ -82,7 +82,6 @@ const Page = (props) => {
   return (
     <Layout navMenuItems={menuItems}>
       <SEO title={site.title} />
-      <h2>{page.title}</h2>
       {content}
     </Layout>
   );

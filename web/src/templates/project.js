@@ -2,11 +2,12 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
+import Layout from '../containers/layout';
 import Project from '../components/project';
+import GraphQLErrorList from '../components/graphql-error-list';
 
 export const query = graphql`
-  query ($id: String!) {
+  query ($id: String!, $parentRouteID: String!) {
     project: sanityProject(id: { eq: $id }) {
       title
       sector
@@ -34,13 +35,32 @@ export const query = graphql`
         _key
       }
     }
+    parentRoute: sanityRoute(id: { eq: $parentRouteID }) {
+      page {
+        navMenu {
+          ...NavMenu
+        }
+      }
+    }
   }
 `;
 
-const ProjectTemplate = ({ data }) => {
+const ProjectTemplate = (props) => {
+  const { data, errors } = props;
+
+  if (errors) {
+    return (
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
+    );
+  }
+
   const project = data.project;
+  const page = data.parentRoute.page;
+  const menuItems = page.navMenu && (page.navMenu.items || []);
   return (
-    <Layout>
+    <Layout navMenuItems={menuItems}>
       <Project project={project} />
     </Layout>
   );

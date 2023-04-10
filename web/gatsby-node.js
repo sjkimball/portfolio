@@ -62,20 +62,25 @@ async function createProjects(pathPrefix = '/', graphql, actions, reporter) {
           }
         }
       }
+      parentRoute: sanityRoute(page: { title: { eq: "Work" } }) {
+        id
+      }
     }
   `);
 
   if (result.error) throw result.errors;
 
   const projectEdges = (result.data.allSanityProject || {}).edges || [];
+  const parentRoute = result.data.parentRoute;
   projectEdges.forEach((edge) => {
     const { id, slug, client = {} } = edge.node;
+    const parentRouteID = parentRoute.id;
     const path = `${pathPrefix}/${client.slug.current}/${slug.current}/`;
     reporter.info(`Creating project page: ${path}`);
     createPage({
       path,
       component: require.resolve('./src/templates/project.js'),
-      context: { id },
+      context: { id, parentRouteID },
     });
   });
 }
@@ -94,20 +99,25 @@ async function createPosts(pathPrefix = '/', graphql, actions, reporter) {
           }
         }
       }
+      parentRoute: sanityRoute(page: { title: { eq: "Blog" } }) {
+        id
+      }
     }
   `);
 
   if (result.errors) throw result.errors;
 
   const postEdges = (result.data.allSanityPost || {}).edges || [];
+  const parentRoute = result.data.parentRoute;
   postEdges.forEach((edge) => {
     const { id, slug = {} } = edge.node;
+    const parentRouteID = parentRoute.id;
     const path = `${pathPrefix}/${slug.current}/`;
     reporter.info(`Creating post page: ${path}`);
     createPage({
       path,
       component: require.resolve('./src/templates/post.js'),
-      context: { id },
+      context: { id, parentRouteID },
     });
   });
 }
@@ -126,19 +136,24 @@ async function createProfiles(pathPrefix = '/', graphql, actions, reporter) {
           }
         }
       }
+      parentRoute: sanityRoute(page: { title: { eq: "About" } }) {
+        id
+      }
     }
   `);
 
   if (result.errors) throw result.errors;
   const profileEdges = (result.data.allSanityPerson || {}).edges || [];
+  const parentRoute = result.data.parentRoute;
   profileEdges.forEach((edge) => {
     const { id, slug = {} } = edge.node;
+    const parentRouteID = parentRoute.id;
     const path = `${pathPrefix}/${slug.current}/`;
     reporter.info(`Creating profile page: ${path}`);
     createPage({
       path,
       component: require.resolve('./src/templates/profile.js'),
-      context: { id },
+      context: { id, parentRouteID },
     });
   });
 }

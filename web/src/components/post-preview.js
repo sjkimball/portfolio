@@ -10,7 +10,8 @@ import './preview.css';
 
 const PostPreview = (props) => {
   const { coverImg, publishedAt, title, slug, subtitle } = props;
-  const formattedDate = format(parseISO(publishedAt), 'MMMM d, yyyy');
+  const parsedDate = parseISO(publishedAt);
+  const formattedDate = format(parsedDate, 'MMMM d, yyyy');
   return (
     <Link to={`/blog/${slug.current}`} className={`preview preview--light`}>
       <h4>{title}</h4>

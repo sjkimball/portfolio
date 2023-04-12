@@ -4,14 +4,14 @@ import { Link } from 'gatsby';
 
 import PreviewImage from '../components/preview-image';
 
-import { format, parseISO } from 'date-fns';
+import { format, zonedTimeToUtc } from 'date-fns-tz';
 
 import './preview.css';
 
 const PostPreview = (props) => {
   const { coverImg, publishedAt, title, slug, subtitle } = props;
-  const parsedDate = parseISO(publishedAt);
-  const formattedDate = format(parsedDate, 'MMMM d, yyyy');
+  const utcTime = zonedTimeToUtc(publishedAt);
+  const formattedDate = format(utcTime, 'MMMM d, yyyy');
   return (
     <Link to={`/blog/${slug.current}`} className={`preview preview--light`}>
       <h4>{title}</h4>

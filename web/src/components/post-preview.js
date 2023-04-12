@@ -8,9 +8,9 @@ import { format, parseISO } from 'date-fns';
 
 import './preview.css';
 
-const PostPreview = ({ content }) => {
-  console.log('content in project preview', content);
-  const { coverImg, publishedAt, title, slug, subtitle } = content;
+const PostPreview = (props) => {
+  const { coverImg, publishedAt, title, slug, subtitle } = props;
+  console.log('Cover Image in post preview', coverImg);
   const formattedDate = format(parseISO(publishedAt), 'MMMM d, yyyy');
   return (
     <Link to={`/blog/${slug.current}`} className={`preview preview--light`}>

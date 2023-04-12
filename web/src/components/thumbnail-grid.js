@@ -12,16 +12,16 @@ const ThumbnailGrid = (props) => {
       let el = null;
       switch (c._type) {
         case 'project':
-          el = <ProjectPreview key={i} content={c} />;
+          el = <ProjectPreview key={i} {...c} />;
           break;
         case 'post':
-          el = <PostPreview key={i} content={c} />;
+          el = <PostPreview key={i} {...c} />;
           break;
         case 'person':
-          el = <ProfilePreview key={i} content={c} />;
+          el = <ProfilePreview key={i} {...c} />;
           break;
         case 'office':
-          el = <Office key={i} content={c} />;
+          el = <Office key={i} {...c} />;
           break;
         default:
           el = null;

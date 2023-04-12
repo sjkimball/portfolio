@@ -18,8 +18,8 @@ function SecondaryAddress(props) {
   );
 }
 
-const Office = ({ content }) => {
-  const { images, contactInfo, description } = content;
+const Office = (props) => {
+  const { images, contactInfo, description } = props;
   const address = contactInfo.address;
 
   return (

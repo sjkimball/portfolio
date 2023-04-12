@@ -6,8 +6,8 @@ import PreviewImage from '../components/preview-image';
 
 import './preview.css';
 
-const ProjectPreview = ({ content }) => {
-  const { client, coverImg, slug, title } = content;
+const ProjectPreview = (props) => {
+  const { client, coverImg, slug, title } = props;
   return (
     <Link
       to={`/work/${client.slug.current}/${slug.current}`}

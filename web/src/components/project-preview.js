@@ -7,6 +7,7 @@ import PreviewImage from '../components/preview-image';
 import './preview.css';
 
 const ProjectPreview = (props) => {
+  console.log('props in project preview', props);
   const { client, coverImg, slug, title } = props;
   return (
     <Link

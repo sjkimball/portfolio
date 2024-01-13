@@ -6,6 +6,7 @@ import ProfilePreview from './profile-preview';
 import Office from './office';
 
 const ThumbnailGrid = (props) => {
+  const title = props.title || '';
   const content = (props.content || [])
     .filter((c) => !c.disabled)
     .map((c, i) => {
@@ -29,7 +30,12 @@ const ThumbnailGrid = (props) => {
       return el;
     });
 
-  return <section className={`rec-preview-container`}>{content}</section>;
+  return (
+    <>
+      <h3>{title}</h3>
+      <section className={`rec-preview-container`}>{content}</section>
+    </>
+  );
 };
 
 export default ThumbnailGrid;

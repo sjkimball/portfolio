@@ -6,7 +6,8 @@ import SEO from '../components/seo';
 import GraphQLErrorList from '../components/graphql-error-list';
 
 import Astronaut from '../components/astronaut';
-import SplashImage from '../components/splashImage';
+import HeroText from '../components/heroText';
+import MessageImage from '../components/messageImage';
 import ThumbnailGrid from '../components/thumbnail-grid';
 
 import '../pages/pages.css';
@@ -54,11 +55,11 @@ const Page = (props) => {
     .map((c, i) => {
       let el = null;
       switch (c._type) {
-        case 'hero':
-          el = <Astronaut />;
+        case 'heroText':
+          el = <HeroText key={c._key} {...c} />;
           break;
-        case 'splashImage':
-          el = <SplashImage key={c._key} {...c} />;
+        case 'messageImage':
+          el = <MessageImage key={c._key} {...c} />;
           break;
         case 'projectGroup':
           el = <ThumbnailGrid key={c._key} {...c} />;

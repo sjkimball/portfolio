@@ -734,7 +734,10 @@ pre tt:after {
     column-gap: 16px;
     align-items: center;
   }
-  .splashFigure {
+  .messageImage {
     grid-column: 1/7;
+  }
+  .heroText {
+    grid-column: 8/13;
   }
 }

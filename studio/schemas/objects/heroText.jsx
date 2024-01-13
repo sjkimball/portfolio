@@ -1,33 +1,23 @@
 import React from 'react';
 
 export default {
-  name: 'hero',
-  title: 'Hero',
+  title: 'Hero Text',
+  name: 'heroText',
   type: 'object',
-  options: {
-    collapsible: true,
-    collapsed: true,
-  },
   fields: [
     {
-      name: 'label',
-      title: 'Label',
-      type: 'string',
+      title: 'Headline',
+      name: 'headline',
+      type: 'text',
+      validation: (Rule) => Rule.required(),
     },
     {
-      name: 'heading',
-      title: 'Heading',
-      type: 'string',
-    },
-    {
+      title: 'Tagline',
       name: 'tagline',
       type: 'text',
     },
     {
-      name: 'heroImage',
-      type: 'mainImage',
-    },
-    {
+      title: 'Disable?',
       name: 'disabled',
       type: 'boolean',
     },
@@ -38,15 +28,11 @@ export default {
   preview: {
     select: {
       disabled: 'disabled',
-      heading: 'heading',
-      tagline: 'tagline',
-      media: 'heroImage.image',
     },
     prepare(selection) {
-      const { disabled, heading, tagline, media } = selection;
+      const { disabled } = selection;
       return {
-        title: `Hero - ${heading}`,
-        subtitle: tagline,
+        title: `Hero Text`,
         media: (
           <span style={{ fontSize: '1.5rem' }}>
             {disabled || disabled == null ? '🚫' : '✅'}

@@ -1,14 +1,14 @@
 import React from 'react';
 import { imageUrlFor } from '../lib/image-url';
-import './splashImage.css';
+import './messageImage.css';
 
-const SplashImage = (props) => {
+const MessageImage = (props) => {
   const { messageOverlay: message, image } = props;
   const imageUrl = imageUrlFor(image);
   return (
-    <figure className="splashFigure">
+    <figure className="messageImage">
       <svg
-        id="splashSvg"
+        id="miSvg"
         viewBox="0 0 3000 3000"
         preserveAspectRatio="xMidYMid meet"
         style={{
@@ -19,33 +19,20 @@ const SplashImage = (props) => {
       >
         <defs>
           <mask id="imageMask">
-            <rect width="100%" height="100%" fill="white" />
-            <text
-              x="50%"
-              y="50%"
-              fill="black"
-              fontSize="50vw"
-              fontWeight="bold"
-              textAnchor="middle"
-              dominantBaseline="central"
-            >
+            <rect />
+            <text x="50%" y="50%">
               {message}
             </text>
           </mask>
           <filter id="floodFilter">
-            <feFlood floodColor="blue" floodOpacity="0.5" />
+            <feFlood />
           </filter>
         </defs>
 
-        <rect
-          width="100%"
-          height="100%"
-          filter="url(#floodFilter)"
-          mask="url(#imageMask)"
-        />
+        <rect filter="url(#floodFilter)" mask="url(#imageMask)" />
       </svg>
       <figcaption>This is the splash image.</figcaption>
     </figure>
   );
 };
-export default SplashImage;
+export default MessageImage;

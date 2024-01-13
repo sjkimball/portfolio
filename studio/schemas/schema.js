@@ -4,14 +4,13 @@ import blockContent from './objects/blockContent';
 import cta from './objects/cta';
 import contact from './objects/contact';
 import mainImage from './objects/mainImage';
-import headline from './objects/headline';
-import hero from './objects/hero';
+import heroText from './objects/heroText';
 import officeGroup from './objects/officeGroup';
 import projectContent from './objects/projectContent';
 import projectGroup from './objects/projectGroup';
 import postGroup from './objects/postGroup';
 import peopleGroup from './objects/peopleGroup';
-import splashImage from './objects/splashImage';
+import messageImage from './objects/messageImage';
 import socialAccount from './objects/socialAccount';
 // Documents
 import blogSettings from './documents/blogSettings';
@@ -37,25 +36,24 @@ export default [
   companyInfo,
   contact,
   cta,
+  heroText,
   indexPage,
-  navMenu,
-  officeGroup,
-  projectGroup,
-  postGroup,
-  peopleGroup,
-  mainImage,
-  headline,
-  hero,
   jobTitle,
+  mainImage,
+  messageImage,
+  navMenu,
   office,
+  officeGroup,
   page,
+  peopleGroup,
   person,
   post,
+  postGroup,
   project,
   projectContent,
+  projectGroup,
   route,
   siteSettings,
   socialAccount,
-  splashImage,
   socialMediaService,
 ];

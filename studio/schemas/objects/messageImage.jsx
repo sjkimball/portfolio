@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default {
-  name: 'splashImage',
-  title: 'Splash Image',
+  name: 'messageImage',
+  title: 'Message Image',
   type: 'object',
   options: {
     collapsible: true,
@@ -39,7 +39,7 @@ export default {
     prepare(selection) {
       const { disabled, message, media } = selection;
       return {
-        title: `Splash Image - ${message}`,
+        title: `Message Image - ${message}`,
         media: (
           <span style={{ fontSize: '1.5rem' }}>
             {disabled || disabled == null ? '🚫' : '✅'}

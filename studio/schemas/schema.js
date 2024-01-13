@@ -4,6 +4,7 @@ import blockContent from './objects/blockContent';
 import cta from './objects/cta';
 import contact from './objects/contact';
 import mainImage from './objects/mainImage';
+import headline from './objects/headline';
 import hero from './objects/hero';
 import officeGroup from './objects/officeGroup';
 import projectContent from './objects/projectContent';
@@ -43,6 +44,7 @@ export default [
   postGroup,
   peopleGroup,
   mainImage,
+  headline,
   hero,
   jobTitle,
   office,

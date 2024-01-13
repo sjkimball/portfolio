@@ -23,11 +23,11 @@ class Header extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { menuVisible: prevVisibilty } = prevState;
+    const { menuVisible: prevVisibility } = prevState;
     const { menuVisible } = this.state;
-    if (menuVisible && menuVisible !== prevVisibilty) {
+    if (menuVisible && menuVisible !== prevVisibility) {
       this.primaryTl.play();
-    } else if (!menuVisible && menuVisible !== prevVisibilty) {
+    } else if (!menuVisible && menuVisible !== prevVisibility) {
       this.primaryTl.reverse(0);
     }
   }

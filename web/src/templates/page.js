@@ -46,7 +46,6 @@ const Page = (props) => {
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
     );
   }
-
   const page = data.page || data.route.page;
 
   //Inspect page content and determine what components to render.
@@ -82,6 +81,7 @@ const Page = (props) => {
   return (
     <Layout navMenuItems={menuItems}>
       <SEO title={site.title} />
+      {!page.indexPage ? <h2>{pageTitle}</h2> : ''}
       {content}
     </Layout>
   );

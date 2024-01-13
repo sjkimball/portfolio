@@ -141,7 +141,22 @@
 
 @media screen and (min-width: 1240px) {
   .mainNav {
-    margin-right: auto;
-    margin-left: auto;
+    max-width: none;
+  }
+  .header-logo h1 {
+    font-size: 69px;
+  }
+  .rec-nav-links {
+    gap: 16px;
+  }
+  .rec-nav-links li {
+    display: flex;
+    align-items: center;
+    height: 48px;
+  }
+  .nav-link {
+    font-size: 23px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }

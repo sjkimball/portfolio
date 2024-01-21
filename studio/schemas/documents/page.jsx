@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default {
   name: 'page',
   title: 'Pages',
@@ -17,12 +19,12 @@ export default {
     },
     {
       name: 'content',
-      title: 'Content',
+      title: 'Page Content',
       description: 'Add content sections to page. 💀 is a zombie, ✅ is alive.',
       type: 'array',
       of: [
-        { type: 'heroText' },
-        { type: 'messageImage' },
+        { type: 'hero' },
+        { type: 'twoUpContainer' },
         { type: 'projectGroup' },
         { type: 'postGroup' },
         { type: 'peopleGroup' },

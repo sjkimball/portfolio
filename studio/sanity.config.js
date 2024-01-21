@@ -1,17 +1,17 @@
 import { defineConfig } from 'sanity';
 import { dashboardTool, projectInfoWidget } from '@sanity/dashboard';
 import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
-import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import schemas from './schemas/schema';
-import deskStructure from './deskStructure';
-import { Logo } from './plugins/rec-logo/Logo';
+import structure from './src/structure/structure';
+import { structureTool } from 'sanity/structure';
 
+const projectId = process.env.SANITY_STUDIO_PROJECT_ID;
 const dataset = process.env.SANITY_STUDIO_API_DATASET;
 
 export default defineConfig({
-  title: 'portfolio',
-  projectId: 'slrn1bhr',
+  title: 'Portfolio',
+  projectId: projectId,
   dataset: dataset,
   plugins: [
     dashboardTool({
@@ -52,8 +52,8 @@ export default defineConfig({
         }),
       ],
     }),
-    deskTool({
-      structure: deskStructure,
+    structureTool({
+      structure,
     }),
     visionTool(),
   ],
@@ -61,8 +61,6 @@ export default defineConfig({
     types: schemas,
   },
   studio: {
-    components: {
-      logo: Logo,
-    },
+    components: {},
   },
 });

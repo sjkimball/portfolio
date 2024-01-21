@@ -20,15 +20,16 @@ const portfolio = (S) =>
                     .child(
                       S.documentList()
                         .title('Featured Projects')
-                        .filter('_type == "project" && featured == true')
+                        .apiVersion('2023-06-20')
+                        .filter('_type == "project" && featured == true'),
                     ),
                   S.documentTypeListItem('project').title('All Projects'),
-                ])
+                ]),
             ),
           S.listItem()
             .title('Clients')
             .child(S.documentTypeList('client').title('Clients')),
-        ])
+        ]),
     );
 
 export default portfolio;

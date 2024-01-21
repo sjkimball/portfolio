@@ -6,10 +6,10 @@ import {
   FaRegIdCard,
 } from 'react-icons/fa';
 
-import portfolio from './src/structure/portfolio';
-import pageBuilder from './src/structure/pageBuilder';
-import blog from './src/structure/blog';
-import staff from './src/structure/staff';
+import portfolio from './portfolio';
+import pageBuilder from './pageBuilder';
+import blog from './blog';
+import staff from './staff';
 
 const hiddenDocTypes = (listItem) =>
   ![
@@ -18,6 +18,7 @@ const hiddenDocTypes = (listItem) =>
     'companyInfo',
     'indexPage',
     'jobTitle',
+    'navigationMenu',
     'office',
     'page',
     'person',
@@ -36,7 +37,7 @@ export default (S) =>
         .title('Site Settings')
         .icon(FaCog)
         .child(
-          S.editor().schemaType('siteSettings').documentId('siteSettings')
+          S.editor().schemaType('siteSettings').documentId('siteSettings'),
         ),
       S.listItem()
         .title('Index Page')

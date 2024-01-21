@@ -12,7 +12,7 @@ const blog = (S) =>
             .title('Blog Settings')
             .icon(FaCog)
             .child(
-              S.editor().schemaType('blogSettings').documentId('blogSettings')
+              S.editor().schemaType('blogSettings').documentId('blogSettings'),
             ),
           S.listItem()
             .title('Posts')
@@ -25,15 +25,18 @@ const blog = (S) =>
                     .child(
                       S.documentList()
                         .title('Featured Posts')
+                        .apiVersion('2023-06-20')
                         .filter('_type == "post" && featured == true')
                         .child((documentId) =>
-                          S.document().documentId(documentId).schemaType('post')
-                        )
+                          S.document()
+                            .documentId(documentId)
+                            .schemaType('post'),
+                        ),
                     ),
                   S.documentTypeListItem('post').title('All Posts'),
-                ])
+                ]),
             ),
-        ])
+        ]),
     );
 
 export default blog;

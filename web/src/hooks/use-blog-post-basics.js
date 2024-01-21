@@ -3,7 +3,7 @@ import {graphql, useStaticQuery} from 'gatsby'
 const useBlogPostBasics = () => {
   const data = useStaticQuery(graphql`
 		query allPosts {
-			posts: allSanityPost(sort: {fields: publishedAt, order: DESC}) {
+			posts: allSanityPost(sort: {publishedAt: DESC}) {
 		    edges {
 		      node {
 		      	_id

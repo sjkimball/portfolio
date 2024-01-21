@@ -2,15 +2,15 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../containers/layout';
+import TwoUpContainer from '../containers/two-up';
+
 import SEO from '../components/seo';
 import GraphQLErrorList from '../components/graphql-error-list';
-
-import Astronaut from '../components/astronaut';
-import HeroText from '../components/heroText';
-import MessageImage from '../components/messageImage';
 import ThumbnailGrid from '../components/thumbnail-grid';
+import Hero from '../components/hero';
 
 import '../pages/pages.css';
+import ProjectGrid from '../components/projectGrid';
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -55,14 +55,14 @@ const Page = (props) => {
     .map((c, i) => {
       let el = null;
       switch (c._type) {
-        case 'heroText':
-          el = <HeroText key={c._key} {...c} />;
+        case 'hero':
+          el = <Hero key={c._key} {...c} />;
           break;
-        case 'messageImage':
-          el = <MessageImage key={c._key} {...c} />;
+        case 'twoUpContainer':
+          el = <TwoUpContainer key={c._key} {...c} />;
           break;
         case 'projectGroup':
-          el = <ThumbnailGrid key={c._key} {...c} />;
+          el = <ProjectGrid key={c._key} {...c} />;
           break;
         case 'postGroup':
           el = <ThumbnailGrid key={c._key} {...c} />;
@@ -78,11 +78,12 @@ const Page = (props) => {
 
   const menuItems = page.navMenu && (page.navMenu.items || []);
   const pageTitle = data.route && !data.route.useSiteTitle && page.title;
+  const isIndex = page.indexPage;
 
   return (
     <Layout navMenuItems={menuItems}>
       <SEO title={site.title} />
-      {!page.indexPage ? <h2>{pageTitle}</h2> : ''}
+      {!isIndex ? <h2>{pageTitle}</h2> : ''}
       {content}
     </Layout>
   );

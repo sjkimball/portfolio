@@ -1,18 +1,17 @@
 export default {
   name: 'jobTitle',
-  title: 'Job Titles',
+  title: 'Job Title',
   type: 'document',
   fields: [
     {
       title: 'Name',
       name: 'name',
-      type: 'string'
-    }
+      type: 'string',
+    },
   ],
-  hidden: true,
   preview: {
     select: {
-      title: 'name'
-    }
-  }
-}
+      title: 'name',
+    },
+  },
+};

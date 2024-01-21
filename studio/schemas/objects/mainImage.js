@@ -4,6 +4,7 @@ export default {
   type: 'image',
   options: {
     hotspot: true,
+    collapsible: true,
   },
   fields: [
     {

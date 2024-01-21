@@ -730,14 +730,5 @@ pre tt:after {
   }
   .mainContainer {
     height: calc(100vh - 112px);
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 16px;
-    align-items: center;
-  }
-  .messageImage {
-    grid-column: 1/7;
-  }
-  .heroText {
-    grid-column: 8/13;
   }
 }

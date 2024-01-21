@@ -110,7 +110,6 @@ async function createProjects(pathPrefix = '/', graphql, actions, reporter) {
 
 //   const postEdges = (result.data.allSanityPost || {}).edges || [];
 //   const parentRoute = result.data.parentRoute;
-//   console.log('parentRoute', parentRoute);
 //   postEdges.forEach((edge) => {
 //     const { id, slug = {} } = edge.node;
 //     const parentRouteID = parentRoute.id;

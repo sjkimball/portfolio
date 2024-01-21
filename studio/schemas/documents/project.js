@@ -5,6 +5,20 @@ export default {
   title: 'Project',
   icon: FaProjectDiagram,
   type: 'document',
+  groups: [
+    {
+      name: 'admin',
+      title: 'Admin',
+    },
+    {
+      name: 'projectInfo',
+      title: 'Project Info',
+    },
+    {
+      name: 'team',
+      title: 'Team',
+    },
+  ],
   initialValue: {
     visibility: false,
     featured: false,
@@ -25,6 +39,7 @@ export default {
       title: 'Visibility',
       description: 'Determines whether the project is visible to the public.',
       type: 'boolean',
+      group: 'admin',
     },
     {
       name: 'featured',
@@ -32,6 +47,22 @@ export default {
       description:
         'Determines whether the project should be near top of publicly visible projects.',
       type: 'boolean',
+      group: 'admin',
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      description:
+        'Add a custom slug or use Generate button to create based on project title.',
+      options: {
+        source: 'title',
+        maxLength: 200,
+        slugify: (input) => input.toLowerCase().replace(/\s+/g, '-'),
+      },
+      validation: (Rule) =>
+        Rule.required().error('A slug must be generated prior to publishing.'),
+      group: 'admin',
     },
     {
       name: 'client',
@@ -40,6 +71,7 @@ export default {
       to: [{ type: 'client' }],
       validation: (Rule) =>
         Rule.required().error('Every project needs a client.'),
+      group: 'projectInfo',
     },
     {
       name: 'title',
@@ -47,31 +79,7 @@ export default {
       type: 'string',
       validation: (Rule) =>
         Rule.required().min(10).max(100).error('Say more with less.'),
-    },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 200,
-        slugify: (input) => input.toLowerCase().replace(/\s+/g, '-'),
-      },
-      validation: (Rule) =>
-        Rule.required().error('A slug must be generated prior to publishing.'),
-    },
-    {
-      name: 'office',
-      title: 'Office',
-      type: 'reference',
-      validation: (Rule) => Rule.required().error('Office is required'),
-      to: [{ type: 'office' }],
-    },
-    {
-      name: 'coverImg',
-      title: 'Cover Image',
-      type: 'mainImage',
-      validation: (Rule) => Rule.required(),
+      group: 'projectInfo',
     },
     {
       name: 'projectSummary',
@@ -84,55 +92,28 @@ export default {
           .min(40)
           .max(140)
           .error('Summaries need to be between 40 and 140 characters long.'),
+      group: 'projectInfo',
     },
     {
       name: 'projectDesc',
       title: 'Project Description',
       description: 'Detailed description of the project.',
       type: 'projectContent',
+      group: 'projectInfo',
     },
     {
-      name: 'productImgs',
-      title: 'Product Images',
-      type: 'array',
-      of: [
-        {
-          type: 'mainImage',
-        },
-      ],
-      options: {
-        layout: 'grid',
-      },
-    },
-    {
-      name: 'area',
-      title: 'Area',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Visual Communication', value: 'Visual Communication' },
-          { title: 'Product Design', value: 'Product Design' },
-          { title: 'Environmental Design', value: 'Environmental Design' },
-        ],
-      },
+      name: 'designArea',
+      title: 'Design Area',
+      type: 'designArea',
+      group: 'projectInfo',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'disciplines',
       title: 'Disciplines',
       description: 'Select all that apply.',
-      type: 'array',
-      of: [{ type: 'string' }],
-      options: {
-        list: [
-          { title: 'Brand Identity', value: 'Brand Identity' },
-          { title: 'User Interface', value: 'User Interface' },
-          { title: 'User Experience', value: 'User Experience' },
-          { title: 'Responsive Web App', value: 'Responsive Web App' },
-          { title: 'Apparel', value: 'Apparel' },
-          { title: 'Illustration', value: 'Illustration' },
-          { title: 'UI Refresh', value: 'UI Refresh' },
-        ],
-      },
+      type: 'designDiscipline',
+      group: 'projectInfo',
     },
     {
       name: 'sector',
@@ -146,6 +127,36 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
+      group: 'projectInfo',
+    },
+    {
+      name: 'coverImg',
+      title: 'Cover Image',
+      type: 'mainImage',
+      validation: (Rule) => Rule.required(),
+      group: 'projectInfo',
+    },
+    {
+      name: 'productImgs',
+      title: 'Product Images',
+      type: 'array',
+      of: [
+        {
+          type: 'mainImage',
+        },
+      ],
+      options: {
+        layout: 'grid',
+      },
+      group: 'projectInfo',
+    },
+    {
+      name: 'office',
+      title: 'Office',
+      type: 'reference',
+      to: [{ type: 'office' }],
+      validation: (Rule) => Rule.required().error('Office is required'),
+      group: 'team',
     },
     {
       name: 'projectMembers',
@@ -154,6 +165,7 @@ export default {
       of: [{ type: 'reference', to: [{ type: 'person' }] }],
       validation: (Rule) =>
         Rule.required().error('Add at least one contributor.'),
+      group: 'team',
     },
   ],
   orderings: [
@@ -170,8 +182,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'client.name',
-      subtitle: 'title',
+      title: 'title',
+      subtitle: 'client.name',
       media: 'coverImg.asset',
     },
   },

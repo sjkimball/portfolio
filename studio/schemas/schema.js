@@ -5,8 +5,8 @@ import cta from './objects/cta';
 import contact from './objects/contact';
 import designArea from './objects/designArea';
 import designDiscipline from './objects/designDiscipline';
+import hero from './objects/hero';
 import mainImage from './objects/mainImage';
-import heroText from './objects/heroText';
 import officeGroup from './objects/officeGroup';
 import projectContent from './objects/projectContent';
 import projectGroup from './objects/projectGroup';
@@ -15,6 +15,7 @@ import peopleGroup from './objects/peopleGroup';
 import messageImage from './objects/messageImage';
 import socialAccount from './objects/socialAccount';
 import twoUpContainer from './objects/containers/twoUp';
+
 // Documents
 import blogSettings from './documents/blogSettings';
 import client from './documents/client';
@@ -39,7 +40,9 @@ export default [
   companyInfo,
   contact,
   cta,
-  heroText,
+  designArea,
+  designDiscipline,
+  hero,
   indexPage,
   jobTitle,
   mainImage,
@@ -59,4 +62,5 @@ export default [
   siteSettings,
   socialAccount,
   socialMediaService,
+  twoUpContainer,
 ];

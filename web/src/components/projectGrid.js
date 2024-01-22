@@ -1,32 +1,51 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import ProjectPreview from './project-preview';
 
-// import GraphQLErrorList from '../components/graphql-error-list';
+import './projectGrid.css';
+
+function groupObjectBy(key, arr) {
+  return arr.reduce((cache, project) => {
+    const property = project[key];
+    if (property in cache) {
+      return { ...cache, [property]: cache[property].concat(project) };
+    }
+    return { ...cache, [property]: [project] };
+  }, {});
+}
+
+function convertCamelCase(string) {
+  const result = string.replace(/(A-Z)/g, ' $1');
+  const finalResult = result.charAt(0).toUpperCase() + result.slice(1);
+  return finalResult;
+}
+
+function createProjectSections(groupedObj) {
+  return Object.keys(groupedObj).map((key) => {
+    return (
+      <section key={key} className="project-section">
+        <h3>{convertCamelCase(key)}</h3>
+        <div className="project-container">
+          {groupedObj[key].map((project) => {
+            return <ProjectPreview key={project._id} {...project} />;
+          })}
+        </div>
+      </section>
+    );
+  });
+}
 
 const ProjectGrid = (props) => {
-  // console.log('props in project grid', props);
-  const data = useStaticQuery(graphql`
-    query {
-      projects: allSanityProject(filter: { visibility: { eq: true } }) {
-        edges {
-          node {
-            id
-            title
-          }
-        }
-      }
-    }
-  `);
-  console.log('data', data.projects.edges);
-  //   const { data, errors } = props;
+  const { projects, _key: key } = props;
 
-  //   if (errors) {
-  //     return (
-  //       <Layout>
-  //         <GraphQLErrorList errors={errors} />
-  //       </Layout>
-  //     );
-  //   }
+  const groupByDesignArea = groupObjectBy('designArea', projects);
+
+  const projectGroups = createProjectSections(groupByDesignArea);
+
+  return (
+    <section key={key} className="project-group">
+      {projectGroups}
+    </section>
+  );
 };
 
 export default ProjectGrid;

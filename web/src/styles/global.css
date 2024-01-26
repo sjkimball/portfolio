@@ -240,7 +240,9 @@ textarea {
   font: inherit;
 }
 html {
-  font: 112.5%/1.45em georgia, serif;
+  font:
+    112.5%/1.45em georgia,
+    serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -287,8 +289,18 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--heading-font), -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+  font-family:
+    var(--heading-font),
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
     sans-serif;
   text-rendering: optimizeLegibility;
 }
@@ -674,61 +686,4 @@ pre code:after,
 pre tt:before,
 pre tt:after {
   content: '';
-}
-
-/*Mobile styles*/
-.mainHeader,
-.mainContainer,
-.mainFooter {
-  padding-right: var(--spacer);
-  padding-left: var(--spacer);
-}
-.mainContainer,
-.mainFooter {
-  display: grid;
-  row-gap: var(--spacer);
-}
-.mainHeader {
-  height: 48px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-.mainFooter {
-  color: var(--gray2);
-  padding-top: var(--spacer-lg);
-  padding-bottom: 48px;
-  grid-template-columns: 1fr 1fr;
-  column-gap: var(--spacer);
-}
-@media screen and (min-width: 600px) {
-  .mainHeader,
-  .mainContainer,
-  .mainFooter {
-    padding-left: calc(var(--spacer) * 2);
-    padding-right: calc(var(--spacer) * 2);
-  }
-  .mainHeader {
-    height: 64px;
-    display: flex;
-    align-items: center;
-  }
-}
-@media screen and (min-width: 1240px) {
-  body {
-    margin-left: 120px;
-    margin-right: 120px;
-  }
-  .mainHeader,
-  .mainContainer,
-  .mainFooter {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  .mainHeader {
-    height: 112px;
-  }
-  .mainContainer {
-    height: calc(100vh - 112px);
-  }
 }

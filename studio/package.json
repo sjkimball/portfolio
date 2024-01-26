@@ -23,13 +23,16 @@
     "@sanity/color-input": "^3.1.0",
     "@sanity/components": "^2.14.0",
     "@sanity/dashboard": "^3.1.6",
+    "@sanity/icons": "^2.8.0",
     "@sanity/ui": "^2.0.1",
     "@sanity/vision": "^3.25.0",
     "date-fns": "^3.2.0",
+    "easymde": "2.18.1-172.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
+    "react-is": "18.3.0-next-fecc288b7-20221025",
     "sanity": "^3.25.0",
     "sanity-plugin-dashboard-widget-document-list": "^1.0.1",
     "sanity-plugin-dashboard-widget-netlify": "^2.0.1",
@@ -47,5 +50,8 @@
     "eslint-plugin-promise": "^6.1.1",
     "prettier": "^3.2.4",
     "prettier-eslint-cli": "^8.0.1"
+  },
+  "peerDependencies": {
+    "easymde": "2"
   }
 }

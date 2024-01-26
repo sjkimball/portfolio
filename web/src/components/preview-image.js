@@ -3,7 +3,8 @@ import React from 'react';
 import { imageUrlFor } from '../lib/image-url';
 import { imageSrcSet, imageSizes } from '../lib/image-sizing';
 
-const PreviewImage = ({ imageAsset, showCaption, imageType }) => {
+const PreviewImage = (props) => {
+  const { imageAsset, showCaption, imageType } = props;
   function assignClass(imageType) {
     switch (imageType) {
       case 'avatar':

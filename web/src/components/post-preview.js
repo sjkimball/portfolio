@@ -9,7 +9,7 @@ import { format, zonedTimeToUtc } from 'date-fns-tz';
 import './preview.css';
 
 const PostPreview = (props) => {
-  const { coverImg, publishedAt, title, slug, subtitle } = props;
+  const { cover, publishedAt, title, slug, subtitle } = props;
   console.log('publishedAt', publishedAt);
   const utcTime = zonedTimeToUtc(publishedAt, 'America/Chicago');
   const formattedDate = format(utcTime, 'MMMM d, yyyy');
@@ -18,7 +18,7 @@ const PostPreview = (props) => {
       <h4>{title}</h4>
       <time dateTime={formattedDate}>{formattedDate}</time>
       <p>{subtitle}</p>
-      {<PreviewImage imageAsset={coverImg} />}
+      {<PreviewImage imageAsset={cover} />}
     </Link>
   );
 };

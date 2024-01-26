@@ -4,7 +4,7 @@ import React from 'react';
 
 import PreviewImage from './preview-image';
 
-import './office-contact.css';
+import './office.css';
 
 function SecondaryAddress(props) {
   if (!props.address.streetSecondary) {

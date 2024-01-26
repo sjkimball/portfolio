@@ -39,13 +39,7 @@ class Header extends React.Component {
   };
 
   render() {
-    const {
-      siteTitle,
-      darkMode,
-      featuredStaff,
-      navMenuItems = [],
-      showNav,
-    } = this.props;
+    const { siteTitle, darkMode, navMenuItems = [], showNav } = this.props;
     const iconClass = darkMode
       ? 'rec-button-icon--white'
       : 'rec-button-icon--black';

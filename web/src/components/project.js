@@ -1,35 +1,22 @@
 import React from 'react';
 
-import { Link } from 'gatsby';
-
-import BlockContent from '@sanity/block-content-to-react';
-
 import PreviewImage from '../components/preview-image';
 import Markdown from 'react-markdown';
 
-import './contentLayout.css';
+import '../styles/contentLayout.css';
 
-const serializer = {
-  container: 'section',
-  types: {
-    figure: (props) => {
-      return <PreviewImage imageAsset={props.node} showCaption />;
-    },
-  },
-};
-
-const Project = ({ project }) => {
+const Project = (props) => {
   const {
     client,
     sector,
-    projectSummary,
-    _rawProjectDesc,
-    coverImg,
-    productImgs,
+    subtitle,
+    description,
+    cover,
+    productImages,
     office,
     disciplines,
-    projectMembers,
-  } = project;
+    members,
+  } = props.project;
 
   return (
     <article className={`rec-article rec-project`}>
@@ -45,21 +32,19 @@ const Project = ({ project }) => {
                 </li>
               ) : (
                 <li key={index} value={discipline}>{`${discipline}, `}</li>
-              )
+              ),
             )}
           </ul>
         </section>
-        <h3>{projectSummary}</h3>
-        <PreviewImage imageAsset={coverImg} imageType={`cover`} />
+        <h3>{subtitle}</h3>
+        <PreviewImage imageAsset={cover} imageType={`cover`} />
       </header>
       <section className={'rec-article__body rec-project__body'}>
-        <BlockContent
+        <section className={`rec-project__description`}>
           <Markdown>{description}</Markdown>
-          blocks={_rawProjectDesc}
-          serializers={serializer}
-        />
+        </section>
         <section className={`rec-project__gallery`}>
-          {productImgs.map((image) => {
+          {productImages.map((image) => {
             return <PreviewImage key={image.asset._id} imageAsset={image} />;
           })}
         </section>
@@ -95,7 +80,7 @@ const Project = ({ project }) => {
           <section>
             <h6>Partner</h6>
             <ul>
-              {projectMembers.map((member) => (
+              {members.map((member) => (
                 <li key={member._key} value={member.name}>
                   {member.name}
                 </li>

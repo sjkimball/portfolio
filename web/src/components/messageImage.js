@@ -31,7 +31,7 @@ const MessageImage = (props) => {
 
         <rect filter="url(#floodFilter)" mask="url(#imageMask)" />
       </svg>
-      <figcaption>This is the splash image.</figcaption>
+      {/* <figcaption>{image.caption}</figcaption> */}
     </figure>
   );
 };

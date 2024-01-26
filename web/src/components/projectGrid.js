@@ -1,4 +1,5 @@
 import React from 'react';
+import { toHeaderCase } from 'js-convert-case';
 import ProjectPreview from './project-preview';
 
 import './projectGrid.css';
@@ -13,17 +14,11 @@ function groupObjectBy(key, arr) {
   }, {});
 }
 
-function convertCamelCase(string) {
-  const result = string.replace(/(A-Z)/g, ' $1');
-  const finalResult = result.charAt(0).toUpperCase() + result.slice(1);
-  return finalResult;
-}
-
 function createProjectSections(groupedObj) {
   return Object.keys(groupedObj).map((key) => {
     return (
       <section key={key} className="project-section">
-        <h3>{convertCamelCase(key)}</h3>
+        <h3>{toHeaderCase(key)}</h3>
         <div className="project-container">
           {groupedObj[key].map((project) => {
             return <ProjectPreview key={project._id} {...project} />;

@@ -6,7 +6,8 @@ import useCompanyInfo from '../hooks/use-company-info';
 import Header from './header';
 import Footer from './footer';
 
-import './layout.css';
+import '../styles/global.css';
+import '../styles/layout.css';
 
 const Layout = ({
   children,
@@ -16,7 +17,7 @@ const Layout = ({
   siteTitle,
   navMenuItems,
 }) => {
-  const { companyInfo, featuredStaff } = useCompanyInfo();
+  const { companyInfo } = useCompanyInfo();
   const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
     const location = window.location.pathname;
@@ -35,7 +36,6 @@ const Layout = ({
         navMenuItems={navMenuItems}
         siteTitle={siteTitle}
         darkMode={darkMode}
-        featuredStaff={featuredStaff}
       />
       <main id={`mainContainer`} className={`mainContainer`}>
         {children}

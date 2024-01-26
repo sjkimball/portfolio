@@ -7,7 +7,7 @@ import Office from './office';
 
 const ThumbnailGrid = (props) => {
   const title = props.title || '';
-  const content = (props.content || [])
+  const content = (props.content || props.projects || [])
     .filter((c) => !c.disabled)
     .map((c, i) => {
       let el = null;
@@ -32,7 +32,6 @@ const ThumbnailGrid = (props) => {
 
   return (
     <>
-      <h3>{title}</h3>
       <section className={`rec-preview-container`}>{content}</section>
     </>
   );

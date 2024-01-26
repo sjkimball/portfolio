@@ -31,7 +31,7 @@ export const query = graphql`
       coverImg {
         ...imageData
       }
-      _rawBody(resolveReferences: { maxDepth: 10 })
+      body
     }
     parentRoute: sanityRoute(id: { eq: $parentRouteID }) {
       page {

@@ -11,6 +11,7 @@ import Hero from '../components/hero';
 
 import '../pages/pages.css';
 import ProjectGrid from '../components/projectGrid';
+import MarkdownBlock from '../components/markdownBlock';
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -63,6 +64,9 @@ const Page = (props) => {
           break;
         case 'projectGroup':
           el = <ProjectGrid key={c._key} {...c} />;
+          break;
+        case 'markdownBlock':
+          el = <MarkdownBlock key={c._key} {...c} />;
           break;
         case 'postGroup':
           el = <ThumbnailGrid key={c._key} {...c} />;

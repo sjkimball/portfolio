@@ -2,6 +2,7 @@ import { defineConfig } from 'sanity';
 import { dashboardTool, projectInfoWidget } from '@sanity/dashboard';
 import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
 import { visionTool } from '@sanity/vision';
+import { markdownSchema } from 'sanity-plugin-markdown';
 import schemas from './schemas/schema';
 import structure from './src/structure/structure';
 import { structureTool } from 'sanity/structure';
@@ -56,6 +57,7 @@ export default defineConfig({
       structure,
     }),
     visionTool(),
+    markdownSchema(),
   ],
   schema: {
     types: schemas,

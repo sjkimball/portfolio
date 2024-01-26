@@ -5,6 +5,7 @@ import { Link } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 
 import PreviewImage from '../components/preview-image';
+import Markdown from 'react-markdown';
 
 import './contentLayout.css';
 
@@ -53,7 +54,7 @@ const Project = ({ project }) => {
       </header>
       <section className={'rec-article__body rec-project__body'}>
         <BlockContent
-          className={`rec-project__description`}
+          <Markdown>{description}</Markdown>
           blocks={_rawProjectDesc}
           serializers={serializer}
         />

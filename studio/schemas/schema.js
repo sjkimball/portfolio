@@ -12,6 +12,7 @@ import projectContent from './objects/projectContent';
 import projectGroup from './objects/projectGroup';
 import postGroup from './objects/postGroup';
 import peopleGroup from './objects/peopleGroup';
+import markdownBlock from './objects/markdownBlock';
 import messageImage from './objects/messageImage';
 import socialAccount from './objects/socialAccount';
 import twoUpContainer from './objects/containers/twoUp';
@@ -46,6 +47,7 @@ export default [
   indexPage,
   jobTitle,
   mainImage,
+  markdownBlock,
   messageImage,
   navMenu,
   office,

@@ -44,10 +44,9 @@ export default {
       ],
     },
     {
-      name: 'bio',
+      name: 'biography',
       title: 'Bio',
-      type: 'blockContent',
-      validation: (Rule) => Rule.required().error('Bio is a required field'),
+      type: 'markdown',
     },
     {
       name: 'contactInfo',
@@ -71,7 +70,7 @@ export default {
       },
       validation: (Rule) =>
         Rule.required().error(
-          'Looks like you may have forgotten to generate a slug.:('
+          'Looks like you may have forgotten to generate a slug.:(',
         ),
     },
   ],

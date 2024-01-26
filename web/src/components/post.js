@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {Link} from 'gatsby'
+import Markdown from 'react-markdown';
 
 import BlockContent from '@sanity/block-content-to-react'
 
@@ -82,7 +83,7 @@ const Post = ({post}) => {
         <PreviewImage imageAsset={coverImg} imageType={`cover`}/>
       </header>
       <section className={`rec-article__body rec-post__body`}>
-        <BlockContent
+        <Markdown>{body}</Markdown>
           className={`rec-post__description`}
           blocks={_rawBody}
           serializers={serializers}

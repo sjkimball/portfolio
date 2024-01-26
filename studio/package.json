@@ -33,6 +33,7 @@
     "sanity": "^3.25.0",
     "sanity-plugin-dashboard-widget-document-list": "^1.0.1",
     "sanity-plugin-dashboard-widget-netlify": "^2.0.1",
+    "sanity-plugin-markdown": "^4.1.1",
     "sanity-plugin-media": "^2.2.5",
     "styled-components": "^6.1.8"
   },

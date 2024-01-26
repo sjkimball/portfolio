@@ -20,7 +20,7 @@ export const query = graphql`
           }
         }
       }
-      _rawBio
+      biography
       _id
     }
     parentRoute: sanityRoute(id: { eq: $parentRouteID }) {

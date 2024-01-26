@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BlockContent from '@sanity/block-content-to-react';
+import Markdown from 'react-markdown';
 
 import PreviewImage from '../components/preview-image';
 
@@ -33,7 +33,7 @@ const Profile = ({ profile, relatedProjects }) => {
 				<PreviewImage imageAsset={profileImg} imageType={`square`} />
 			</header>
 			<section className="rec-article__body rec-profile__body">
-				<BlockContent blocks={_rawBio} serializers={serializer} renderContainerOnSingleChild={true} className={`rec-profile__bio`}/>
+        <Markdown>{biography}</Markdown>
 			</section>
 		</article>
 	);

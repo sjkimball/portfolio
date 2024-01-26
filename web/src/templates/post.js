@@ -28,7 +28,7 @@ export const query = graphql`
       subtitle
       publishedAt
       keywords
-      coverImg {
+      cover {
         ...imageData
       }
       body

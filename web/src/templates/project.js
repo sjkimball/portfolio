@@ -11,12 +11,12 @@ export const query = graphql`
     project: sanityProject(id: { eq: $id }) {
       title
       sector
-      projectSummary
-      _rawProjectDesc(resolveReferences: { maxDepth: 10 })
-      coverImg {
+      subtitle
+      description
+      cover {
         ...imageData
       }
-      productImgs {
+      productImages {
         ...imageData
       }
       client {
@@ -30,7 +30,7 @@ export const query = graphql`
         }
       }
       disciplines
-      projectMembers {
+      members {
         name
         _key
       }

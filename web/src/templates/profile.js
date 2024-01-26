@@ -49,7 +49,7 @@ const ProfileTemplate = (props) => {
   const menuItems = page.navMenu && (page.navMenu.items || []);
   return (
     <Layout navMenuItems={menuItems}>
-      <Profile profile={profile} />
+      <Profile {...profile} />
     </Layout>
   );
 };

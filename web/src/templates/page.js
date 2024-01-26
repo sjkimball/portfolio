@@ -9,8 +9,11 @@ import GraphQLErrorList from '../components/graphql-error-list';
 import ThumbnailGrid from '../components/thumbnail-grid';
 import Hero from '../components/hero';
 
-import '../pages/pages.css';
+import '../styles/pages.css';
 import ProjectGrid from '../components/projectGrid';
+import PeopleGrid from '../components/peopleGrid';
+import PostGrid from '../components/postGrid';
+import OfficeGrid from '../components/officeGrid';
 import MarkdownBlock from '../components/markdownBlock';
 
 export const query = graphql`
@@ -45,7 +48,7 @@ const Page = (props) => {
 
   if (!site) {
     throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
+      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.',
     );
   }
   const page = data.page || data.route.page;
@@ -65,14 +68,17 @@ const Page = (props) => {
         case 'projectGroup':
           el = <ProjectGrid key={c._key} {...c} />;
           break;
+        case 'peopleGroup':
+          el = <PeopleGrid key={c._key} {...c} />;
+          break;
         case 'markdownBlock':
           el = <MarkdownBlock key={c._key} {...c} />;
           break;
         case 'postGroup':
-          el = <ThumbnailGrid key={c._key} {...c} />;
+          el = <PostGrid key={c._key} {...c} />;
           break;
         case 'officeGroup':
-          el = <ThumbnailGrid key={c._key} {...c} />;
+          el = <OfficeGrid key={c._key} {...c} />;
           break;
         default:
           el = null;

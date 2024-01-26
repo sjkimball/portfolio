@@ -4,46 +4,37 @@ export default {
   name: 'postGroup',
   title: 'Post Group',
   type: 'object',
+  initialValue: {
+    disabled: false,
+  },
   fields: [
     {
-      name: 'disabled',
-      type: 'boolean',
-    },
-    {
-      name: 'content',
+      name: 'posts',
       title: 'Posts',
       type: 'array',
       of: [
         {
           type: 'reference',
-          to: [
-            {
-              type: 'post',
-            },
-          ],
+          to: [{ type: 'post' }],
         },
       ],
-      validation: (Rule) => Rule.max(6),
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
     },
   ],
-  initialValue: {
-    disabled: false,
-  },
   preview: {
     select: {
       disabled: 'disabled',
-      post0: 'posts.0.title',
-      post1: 'posts.1.title',
-      post2: 'posts.2.title',
-      post3: 'posts.3.title',
+      posts: 'posts',
     },
-    prepare: ({ disabled, post0, post1, post2, post3 }) => {
-      const posts = [post0, post1, post2].filter(Boolean);
-      const subtitle = posts.length > 0 ? posts.join(', ') : '';
-      const hasMorePosts = Boolean(post3);
+    prepare: ({ disabled, posts }) => {
+      const numberOfPosts = posts.length;
+      const subtitle = `${numberOfPosts} ${numberOfPosts > 1 ? 'posts' : 'post'}`;
       return {
         title: 'Post Group',
-        subtitle: hasMorePosts ? `${subtitle}…` : subtitle,
+        subtitle: subtitle,
         media: (
           <span style={{ fontSize: '1.5rem' }}>
             {disabled || disabled == null ? '💀' : '✅'}

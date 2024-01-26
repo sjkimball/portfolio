@@ -9,12 +9,7 @@ export default {
   },
   fields: [
     {
-      name: 'disabled',
-      type: 'boolean',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'content',
+      name: 'offices',
       title: 'Offices',
       description: 'Choose from our offices.',
       type: 'array',
@@ -25,10 +20,28 @@ export default {
         },
       ],
     },
+    {
+      name: 'disabled',
+      type: 'boolean',
+    },
   ],
   preview: {
     select: {
       disabled: 'disabled',
+      offices: 'offices',
+    },
+    prepare: ({ disabled, offices }) => {
+      const numberOfOffices = offices.length;
+      const subtitle = `${numberOfOffices} ${numberOfOffices > 1 ? 'offices' : 'office'}`;
+      return {
+        title: 'Office Group',
+        subtitle: subtitle,
+        media: (
+          <span style={{ fontSize: '1.5rem' }}>
+            {disabled || disabled == null ? '💀' : '✅'}
+          </span>
+        ),
+      };
     },
   },
 };

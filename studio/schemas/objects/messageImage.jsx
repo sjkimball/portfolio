@@ -22,29 +22,17 @@ export default {
           `A message overlay should be no longer than 10 characters.`
         ),
     },
-    {
-      name: 'disabled',
-      type: 'boolean',
-    },
   ],
-  initialValue: {
-    disabled: false,
-  },
   preview: {
     select: {
-      disabled: 'disabled',
       message: 'messageOverlay',
-      media: 'image.image',
+      media: 'image',
     },
     prepare(selection) {
-      const { disabled, message, media } = selection;
+      const { message, media } = selection;
       return {
         title: `Message Image - ${message}`,
-        media: (
-          <span style={{ fontSize: '1.5rem' }}>
-            {disabled || disabled == null ? '🚫' : '✅'}
-          </span>
-        ),
+        media: media,
       };
     },
   },

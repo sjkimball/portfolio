@@ -4,12 +4,14 @@ export default {
   title: 'Navigation Menu',
   fields: [
     {
-      type: 'string',
       name: 'title',
+      title: 'Title',
+      type: 'string',
     },
     {
-      type: 'array',
       name: 'items',
+      title: 'Navigation Items',
+      type: 'array',
       of: [{ type: 'cta' }],
     },
   ],

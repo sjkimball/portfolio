@@ -1,9 +1,11 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
 const useCompanyInfo = () => {
-	const data = useStaticQuery(graphql`
-		query companyInfo {
-      companyInfo: sanityCompanyInfo(_id: {regex: "/(drafts.|)companyInfo/"}) {
+  const data = useStaticQuery(graphql`
+    query companyInfo {
+      companyInfo: sanityCompanyInfo(
+        _id: { regex: "/(drafts.|)companyInfo/" }
+      ) {
         socialAccounts {
           service {
             name
@@ -14,19 +16,10 @@ const useCompanyInfo = () => {
         companyName
         _rawAbout
       }
-      featuredStaff: allSanityPerson(filter: {featured: {eq: true}}) {
-        edges {
-          node {
-            slug {
-              current
-            }
-          }
-        }
-      }
     }
-	`);
+  `);
 
-	return data;
+  return data;
 };
 
 export default useCompanyInfo;

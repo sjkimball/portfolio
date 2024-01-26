@@ -6,6 +6,7 @@ export default {
     list: [
       { title: 'Visual Communication', value: 'visualCommunication' },
       { title: 'Product Design', value: 'productDesign' },
+      { title: 'Environmental Design', value: 'environmentalDesign' },
     ],
   },
 };

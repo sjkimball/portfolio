@@ -5,6 +5,19 @@ export default {
   title: 'Project',
   icon: FaProjectDiagram,
   type: 'document',
+  initialValue: {
+    visibility: false,
+    featured: false,
+    cover: {
+      _type: 'mainImage',
+      asset: {
+        _type: 'reference',
+        _ref: 'image-316e2b9591cd93c7c36db93a570410bdd5ba7ad9-2400x1344-jpg',
+      },
+      altText: 'This is placeholder alt text',
+      caption: 'This is a placeholder caption',
+    },
+  },
   groups: [
     {
       name: 'admin',
@@ -19,20 +32,6 @@ export default {
       title: 'Team',
     },
   ],
-  initialValue: {
-    visibility: false,
-    featured: false,
-    sector: 'private',
-    coverImg: {
-      _type: 'mainImage',
-      asset: {
-        _type: 'reference',
-        _ref: 'image-316e2b9591cd93c7c36db93a570410bdd5ba7ad9-2400x1344-jpg',
-      },
-      altText: 'This is placeholder alt text',
-      caption: 'This is a placeholder caption',
-    },
-  },
   fields: [
     {
       name: 'visibility',
@@ -82,23 +81,22 @@ export default {
       group: 'projectInfo',
     },
     {
-      name: 'projectSummary',
-      title: 'Project Summary',
-      description: 'Overview of the project.',
-      type: 'text',
-      rows: 3,
+      name: 'subtitle',
+      title: 'Subtitle',
+      description: 'Keep in short and sweet like an old skool tweet.',
+      type: 'string',
       validation: (Rule) =>
         Rule.required()
           .min(40)
-          .max(140)
-          .error('Summaries need to be between 40 and 140 characters long.'),
+          .max(120)
+          .error('Subtitles need to be between 40 and 120 characters long.'),
       group: 'projectInfo',
     },
     {
-      name: 'projectDesc',
+      name: 'description',
       title: 'Project Description',
       description: 'Detailed description of the project.',
-      type: 'projectContent',
+      type: 'markdown',
       group: 'projectInfo',
     },
     {
@@ -118,26 +116,18 @@ export default {
     {
       name: 'sector',
       title: 'Sector',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Private', value: 'private' },
-          { title: 'Public', value: 'public' },
-        ],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
+      type: 'sector',
       group: 'projectInfo',
     },
     {
-      name: 'coverImg',
+      name: 'cover',
       title: 'Cover Image',
       type: 'mainImage',
       validation: (Rule) => Rule.required(),
       group: 'projectInfo',
     },
     {
-      name: 'productImgs',
+      name: 'productImages',
       title: 'Product Images',
       type: 'array',
       of: [
@@ -155,11 +145,11 @@ export default {
       title: 'Office',
       type: 'reference',
       to: [{ type: 'office' }],
-      validation: (Rule) => Rule.required().error('Office is required'),
+      validation: (Rule) => Rule.required(),
       group: 'team',
     },
     {
-      name: 'projectMembers',
+      name: 'members',
       title: 'Project Members',
       type: 'array',
       of: [{ type: 'reference', to: [{ type: 'person' }] }],
@@ -182,9 +172,9 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
-      subtitle: 'client.name',
-      media: 'coverImg.asset',
+      title: 'client.name',
+      subtitle: 'title',
+      media: 'cover.asset',
     },
   },
 };

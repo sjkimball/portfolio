@@ -29,6 +29,7 @@ export default {
         { type: 'postGroup' },
         { type: 'peopleGroup' },
         { type: 'officeGroup' },
+        { type: 'markdownBlock' },
       ],
     },
     {

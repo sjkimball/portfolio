@@ -3,7 +3,7 @@ import React from 'react';
 import PreviewImage from '../components/preview-image';
 import Markdown from 'react-markdown';
 
-import '../styles/contentLayout.css';
+import '../styles/layout.css';
 
 const Project = (props) => {
   const {

@@ -1,4 +1,8 @@
 /*Mobile styles*/
+.mainHeader {
+  background-color: var(--sk-sys-surface);
+  color: var(--sk-sys-on-surface);
+}
 .mainHeader--light {
   background-color: white;
   color: var(--gray5);

@@ -3,7 +3,7 @@ import React from 'react';
 import Markdown from 'react-markdown';
 import PreviewImage from '../components/preview-image';
 
-import '../styles/contentLayout.css';
+import '../styles/layout.css';
 
 const Profile = (props) => {
   const { profileImg, name, office, biography } = props;

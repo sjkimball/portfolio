@@ -6,17 +6,15 @@ import useCompanyInfo from '../hooks/use-company-info';
 import Header from './header';
 import Footer from './footer';
 
+import '../styles/_variables.css';
 import '../styles/global.css';
 import '../styles/layout.css';
 
-const Layout = ({
-  children,
-  onHideNav,
-  onShowNav,
-  showNav,
-  siteTitle,
-  navMenuItems,
-}) => {
+const Layout = (props) => {
+  console.dir(props);
+  // console.log(`Props in Layout component: ${props}`);
+  const { children, onHideNav, onShowNav, showNav, siteTitle, navMenuItems } =
+    props;
   const { companyInfo } = useCompanyInfo();
   const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {

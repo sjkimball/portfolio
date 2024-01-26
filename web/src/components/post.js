@@ -4,7 +4,7 @@ import PreviewImage from '../components/preview-image';
 import Markdown from 'react-markdown';
 import { format, parseISO } from 'date-fns';
 
-import '../styles/contentLayout.css';
+import '../styles/layout.css';
 
 function getAvatar(author, prefix, index) {
   return (

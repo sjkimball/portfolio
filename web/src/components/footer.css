@@ -1,14 +1,14 @@
 .mainFooter {
   display: flex;
   justify-content: space-between;
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: var(--sk-spacing-xl);
+  padding-bottom: var(--sk-spacing-xl);
 }
 .mainFooter__links {
   display: flex;
   list-style-type: none;
   margin-left: 0;
-  gap: 0 16px;
+  gap: 0 var(--sk-spacing-md);
   order: 2;
 }
 .mainFooter__links a {

@@ -191,6 +191,35 @@
 
   /* Paragraph Spacing */
   --sk-ps-0: '0';
+
+  /* Absolute Dimensions */
+  --sk-dimension-0000: 0px;
+  --sk-dimension-0001: 1px;
+  --sk-dimension-0002: 2px;
+  --sk-dimension-0004: 4px;
+  --sk-dimension-0008: 8px;
+  --sk-dimension-0010: 10px;
+  --sk-dimension-0012: 12px;
+  --sk-dimension-0016: 16px;
+  --sk-dimension-0018: 18px;
+  --sk-dimension-0024: 24px;
+  --sk-dimension-0032: 32px;
+  --sk-dimension-0048: 48px;
+  --sk-dimension-0064: 64px;
+  --sk-dimension-0100: 100px;
+  --sk-dimension-0600: 600px;
+  --sk-dimension-0900: 900px;
+  --sk-dimension-1200: 1200px;
+  --sk-dimension-1440: 1440px;
+  --sk-dimension-1600: 1600px;
+
+  /* Spacing Dimensions */
+  --sk-spacing-xs: var(--sk-dimension-0004);
+  --sk-spacing-sm: var(--sk-dimension-0008);
+  --sk-spacing-md: var(--sk-dimension-0016);
+  --sk-spacing-lg: var(--sk-dimension-0032);
+  --sk-spacing-xl: var(--sk-dimension-0048);
+  --sk-spacing-xxl: var(--sk-dimension-0064);
 }
 
 [data-theme='dark'] {

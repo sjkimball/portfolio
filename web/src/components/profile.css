@@ -1,7 +1,7 @@
 .sk-profile {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0 32px;
+  gap: 0 var(--sk-spacing-lg);
 }
 .sk-profile__header {
   grid-column: 1/3;

@@ -29,7 +29,7 @@
   padding-right: var(--sk-spacing-sm);
   padding-bottom: var(--sk-spacing-sm);
   padding-left: var(--sk-spacing-sm);
-  background-color: lightgray;
+  background-color: var(--sk-sys-surface-container-low);
   border-radius: 4px;
 }
 .sk-project__disciplines {

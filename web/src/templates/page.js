@@ -1,20 +1,18 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from '../containers/layout';
-import TwoUpContainer from '../containers/two-up';
-
 import SEO from '../components/seo';
 import GraphQLErrorList from '../components/graphql-error-list';
-import ThumbnailGrid from '../components/thumbnail-grid';
-import Hero from '../components/hero';
-
-import '../styles/pages.css';
+import Layout from '../containers/layout';
+import TwoUpContainer from '../containers/two-up';
 import ProjectGrid from '../components/projectGrid';
+import Hero from '../components/hero';
 import PeopleGrid from '../components/peopleGrid';
 import PostGrid from '../components/postGrid';
 import OfficeGrid from '../components/officeGrid';
 import MarkdownBlock from '../components/markdownBlock';
+
+import '../styles/pages.css';
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -93,7 +91,7 @@ const Page = (props) => {
   return (
     <Layout navMenuItems={menuItems}>
       <SEO title={site.title} />
-      {!isIndex ? <h2>{pageTitle}</h2> : ''}
+      {!isIndex ? <h2 className="display-lg">{pageTitle}</h2> : ''}
       {content}
     </Layout>
   );

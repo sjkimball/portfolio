@@ -11,8 +11,6 @@ import '../styles/global.css';
 import '../styles/layout.css';
 
 const Layout = (props) => {
-  console.dir(props);
-  // console.log(`Props in Layout component: ${props}`);
   const { children, onHideNav, onShowNav, showNav, siteTitle, navMenuItems } =
     props;
   const { companyInfo } = useCompanyInfo();

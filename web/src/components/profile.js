@@ -4,23 +4,26 @@ import Markdown from 'react-markdown';
 import PreviewImage from '../components/preview-image';
 
 import '../styles/layout.css';
+import './profile.css';
 
 const Profile = (props) => {
   const { profileImg, name, office, biography } = props;
 
   return (
-    <article className={`rec-article rec-article--dark rec-profile`}>
-      <header className={`rec-article__header rec-profile__header`}>
-        <h2>
+    <article className={`sk-profile`}>
+      <header className={`sk-profile__header`}>
+        <h2 className="display-lg">
           {name}
           <br />
           <span>{office.contactInfo.address.city}</span>
         </h2>
-        <PreviewImage imageAsset={profileImg} imageType={`square`} />
       </header>
-      <section className="rec-article__body rec-profile__body">
+      <section className="sk-profile__body">
         <Markdown>{biography}</Markdown>
       </section>
+      <aside className="sk-profile__headshot">
+        <PreviewImage imageAsset={profileImg} imageType={`square`} />
+      </aside>
     </article>
   );
 };

@@ -5,6 +5,7 @@ import Markdown from 'react-markdown';
 import { format, parseISO } from 'date-fns';
 
 import '../styles/layout.css';
+import './post.css';
 
 function getAvatar(author, prefix, index) {
   return (
@@ -61,21 +62,20 @@ const Post = ({ post }) => {
   const formattedDate = format(parseISO(publishedAt), 'MMMM d, yyyy');
   const preppedAuthors = showAuthors(authors, prefix);
   return (
-    <article className={`rec-article rec-post`}>
-      <header className={`rec-article__header rec-post__header`}>
-        <h2>{title}</h2>
-        <time dateTime={publishedAt}>{formattedDate}</time>
-        <h3>{subtitle}</h3>
-        <div className={`rec-article__authors`}>{preppedAuthors}</div>
+    <article className="sk-post">
+      <header className="sk-post__header">
+        <h2 className="display-md">{title}</h2>
+        <time className="body-lg" dateTime={publishedAt}>
+          {formattedDate}
+        </time>
+        <h3 className="headline-xs">{subtitle}</h3>
+        <div className="sk-post__authors">{preppedAuthors}</div>
         <PreviewImage imageAsset={cover} imageType={`cover`} />
       </header>
-      <section className={`rec-article__body rec-post__body`}>
+      <section className="sk-post__body">
         <Markdown>{body}</Markdown>
       </section>
-      <footer
-        id={`rec-post__footer`}
-        className={`rec-article__footer`}
-      ></footer>
+      <footer className="sk-post__footer"></footer>
     </article>
   );
 };

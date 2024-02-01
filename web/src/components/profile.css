@@ -1,0 +1,17 @@
+.sk-profile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 32px;
+}
+.sk-profile__header {
+  grid-column: 1/3;
+  grid-row: 1;
+}
+.sk-profile__body {
+  grid-column: 1/2;
+  grid-row: 2;
+}
+.sk-profile__headshot {
+  grid-column: 2/3;
+  grid-row: 1/4;
+}

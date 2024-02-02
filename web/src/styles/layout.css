@@ -1,6 +1,5 @@
 /*Mobile styles*/
-.mainContainer,
-.mainFooter {
+.mainContainer {
   padding-right: var(--spacer);
   padding-left: var(--spacer);
 }
@@ -9,37 +8,23 @@
   row-gap: var(--spacer);
 }
 .mainHeader {
-  height: 48px;
   position: sticky;
   top: 0;
   z-index: 10;
 }
 @media screen and (min-width: 600px) {
-  .mainHeader,
-  .mainContainer,
-  .mainFooter {
+  .mainContainer {
     padding-left: calc(var(--spacer) * 2);
     padding-right: calc(var(--spacer) * 2);
   }
-  .mainHeader {
-    height: 64px;
-    display: flex;
-    align-items: center;
-  }
 }
-
 @media screen and (min-width: 1240px) {
   body {
     margin-left: 120px;
     margin-right: 120px;
   }
-  .mainHeader,
-  .mainContainer,
   .mainFooter {
     padding-right: 0;
     padding-left: 0;
-  }
-  .mainHeader {
-    height: 112px;
   }
 }

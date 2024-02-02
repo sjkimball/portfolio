@@ -39,19 +39,16 @@ class Header extends React.Component {
   };
 
   render() {
-    const { siteTitle, darkMode, navMenuItems = [], showNav } = this.props;
-    const iconClass = darkMode
-      ? 'rec-button-icon--white'
-      : 'rec-button-icon--black';
-    const headerClass = darkMode ? 'mainHeader--dark' : 'mainHeader--light';
+    const { siteTitle, navMenuItems = [] } = this.props;
+    // const headerClass = darkMode ? 'mainHeader--dark' : 'mainHeader--light';
     return (
-      <header id={`mainHeader`} className={`mainHeader ${headerClass}`}>
-        <nav className={`mainNav`} role="navigation">
-          <Link to="/" className={`header-logo`}>
+      <header id="mainHeader" className="mainHeader">
+        <nav className="mainNav" role="navigation">
+          <Link to="/" className="mainNav__logo">
             <h1>SK</h1>
           </Link>
-          {showNav && navMenuItems && (
-            <ul id={`nav-links`} className={`rec-nav-links`}>
+          {navMenuItems && (
+            <ul id="nav-links" className="sk-nav-links">
               {navMenuItems.map((item, index) => (
                 <li key={index}>
                   <Link
@@ -67,19 +64,42 @@ class Header extends React.Component {
             </ul>
           )}
 
-          <button className={`rec-button`} onClick={this.showMenu}>
+          <button className="mainNav__menuButton" onClick={this.showMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              className={`rec-button-icon ${iconClass}`}
+              viewBox="0 0 100 100"
+              className="menuButton__icon"
             >
-              <line id={`top`} x1="1.5" y1="2" x2="22.5" y2="2" />
-              <line id={`middle`} x1="1.5" y1="12" x2="22.5" y2="12" />
-              <line id={`bottom`} x1="1.5" y1="22" x2="22.5" y2="22" />
+              <g>
+                <line
+                  id="top"
+                  className="icon__line"
+                  x1="5"
+                  y1="16"
+                  x2="95"
+                  y2="16"
+                />
+                <line
+                  id="middle"
+                  className="icon__line"
+                  x1="5"
+                  y1="51"
+                  x2="95"
+                  y2="51"
+                />
+                <line
+                  id="bottom"
+                  className="icon__line"
+                  x1="5"
+                  y1="86"
+                  x2="95"
+                  y2="86"
+                />
+              </g>
             </svg>
           </button>
         </nav>
-        <HeaderMask siteTitle="SK" darkMode={darkMode} />
+        <HeaderMask siteTitle="SK" showNav={this.state.menuVisible} />
       </header>
     );
   }

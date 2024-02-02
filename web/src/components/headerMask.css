@@ -1,0 +1,43 @@
+#headerMask {
+  height: 64px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -10;
+}
+#defaultText {
+  fill: var(--sk-sys-on-background);
+}
+#revealText {
+  /* Dark mode 'on-background' color */
+  fill: var(--sk-neutral-900);
+}
+.headerMask__text {
+  font-family: var(--sk-font-display);
+  font-size: 40px;
+  line-height: 40px;
+  margin: 0;
+  font-weight: var(--sk-fw-black);
+  transform: translate(16px, 46px);
+}
+#defaultBackground {
+  fill: transparent;
+  width: 100%;
+  height: 64px;
+}
+#revealBackground {
+  /* Dark mode 'background' color */
+  fill: var(--sk-neutral-100);
+  width: 100%;
+  height: 64px;
+}
+#theMask {
+  width: 100%;
+  height: 64px;
+}
+@media screen and (min-width: 600px) {
+  .headerMask {
+    display: none;
+  }
+}

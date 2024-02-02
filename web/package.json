@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "gatsby",
+  "name": "sam_kimball_portfolio",
   "version": "1.0.0",
   "author": "Sam Kimball",
   "engines": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0",
     "empty-cache": "gatsby clean",
     "lint": "eslint .",
     "start": "npm run empty-cache && npm run develop",

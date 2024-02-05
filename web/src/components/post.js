@@ -4,7 +4,6 @@ import PreviewImage from '../components/preview-image';
 import Markdown from 'react-markdown';
 import { format, parseISO } from 'date-fns';
 
-import '../styles/layout.css';
 import './post.css';
 
 function getAvatar(author, prefix, index) {
@@ -64,11 +63,9 @@ const Post = ({ post }) => {
   return (
     <article className="sk-post">
       <header className="sk-post__header">
-        <h2 className="display-md">{title}</h2>
-        <time className="body-lg" dateTime={publishedAt}>
-          {formattedDate}
-        </time>
-        <h3 className="headline-xs">{subtitle}</h3>
+        <h2>{title}</h2>
+        <h3>{subtitle}</h3>
+        <time dateTime={publishedAt}>{formattedDate}</time>
         <div className="sk-post__authors">{preppedAuthors}</div>
         <PreviewImage imageAsset={cover} imageType={`cover`} />
       </header>

@@ -89,9 +89,13 @@ const Page = (props) => {
   const isIndex = page.indexPage;
 
   return (
-    <Layout navMenuItems={menuItems}>
+    <Layout
+      id="layout"
+      navMenuItems={menuItems}
+      isIndex={isIndex}
+      pageTitle={pageTitle}
+    >
       <SEO title={site.title} />
-      {!isIndex ? <h2 className="display-lg">{pageTitle}</h2> : ''}
       {content}
     </Layout>
   );

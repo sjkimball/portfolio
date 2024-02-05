@@ -1,5 +1,14 @@
-.project-group {
+.projectGrid {
+  display: grid;
+  grid-auto-flow: row;
+  gap: var(--sk-spacing-md) 0;
 }
-.project-container {
-  display: flex;
+.projectGrid__section h3 {
+  display: none;
+  font: var(--sk-headline-md);
+}
+.projectSection__container {
+  display: grid;
+  grid-auto-flow: row;
+  gap: var(--sk-spacing-lg) 0;
 }

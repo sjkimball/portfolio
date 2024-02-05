@@ -17,9 +17,9 @@ function groupObjectBy(key, arr) {
 function createProjectSections(groupedObj) {
   return Object.keys(groupedObj).map((key) => {
     return (
-      <section key={key} className="project-section">
-        <h3 className="headline-md">{toHeaderCase(key)}</h3>
-        <div className="project-container">
+      <section key={key} className="projectGrid__section">
+        <h3>{toHeaderCase(key)}</h3>
+        <div className="projectSection__container">
           {groupedObj[key].map((project) => {
             return <ProjectPreview key={project._id} {...project} />;
           })}
@@ -37,7 +37,7 @@ const ProjectGrid = (props) => {
   const projectGroups = createProjectSections(groupByDesignArea);
 
   return (
-    <section key={key} className="project-group">
+    <section key={key} className="projectGrid">
       {projectGroups}
     </section>
   );

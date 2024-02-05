@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700;900&family=Red+Hat+Text:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&family=Red+Hat+Text:wght@400;500;700&display=swap');
 
 :root {
   --sk-white: white;
@@ -188,6 +188,61 @@
   --sk-fs-8: calc(var(--sk-fs-7) * var(--sk-fs-scale));
   --sk-fs-9: calc(var(--sk-fs-8) * var(--sk-fs-scale));
   --sk-fs-10: calc(var(--sk-fs-9) * var(--sk-fs-scale));
+
+  /* Font Styles */
+
+  /* Display */
+  --sk-display-lg: var(--sk-fw-display)
+    calc(var(--sk-fs-10) * var(--sk-nr-display)) / 120% var(--sk-font-display);
+
+  --sk-display-md: var(--sk-fw-display)
+    calc(var(--sk-fs-9) * var(--sk-nr-display)) / 120% var(--sk-font-display);
+
+  --sk-display-sm: var(--sk-fw-display)
+    calc(var(--sk-fs-8) * var(--sk-nr-display)) / 120% var(--sk-font-display);
+
+  /* Headline */
+  --sk-headline-lg: var(--sk-fw-headline)
+    calc(var(--sk-fs-7) * var(--sk-nr-headline)) / 120% var(--sk-font-headline);
+
+  --sk-headline-md: var(--sk-fw-headline)
+    calc(var(--sk-fs-6) * var(--sk-nr-headline)) / 120% var(--sk-font-headline);
+
+  --sk-headline-sm: var(--sk-fw-headline)
+    calc(var(--sk-fs-5) * var(--sk-nr-headline)) / 120% var(--sk-font-headline);
+
+  --sk-headline-xs: var(--sk-fw-headline)
+    calc(var(--sk-fs-4) * var(--sk-nr-headline)) / 120% var(--sk-font-headline);
+
+  /* Title */
+  --sk-title-lg: var(--sk-fw-title) calc(var(--sk-fs-4) * var(--sk-nr-title)) /
+    120% var(--sk-font-title);
+
+  --sk-title-md: var(--sk-fw-title) calc(var(--sk-fs-3) * var(--sk-nr-title)) /
+    120% var(--sk-font-title);
+
+  --sk-title-sm: var(--sk-fw-title) calc(var(--sk-fs-2) * var(--sk-nr-title)) /
+    120% var(--sk-font-title);
+
+  /* Label */
+  --sk-label-lg: var(--sk-fw-label) calc(var(--sk-fs-2) * var(--sk-nr-label)) /
+    120% var(--sk-font-label);
+
+  --sk-label-md: var(--sk-fw-label) calc(var(--sk-fs-1) * var(--sk-nr-label)) /
+    120% var(--sk-font-label);
+
+  --sk-label-sm: var(--sk-fw-label) calc(var(--sk-fs-0) * var(--sk-nr-label)) /
+    120% var(--sk-font-label);
+
+  /* Body */
+  --sk-body-lg: var(--sk-fw-body) calc(var(--sk-fs-3) * var(--sk-nr-body)) /
+    20px var(--sk-font-body);
+
+  --sk-body-md: var(--sk-fw-body) calc(var(--sk-fs-2) * var(--sk-nr-body)) /
+    120% var(--sk-font-body);
+
+  --sk-body-sm: var(--sk-fw-body) calc(var(--sk-fs-1) * var(--sk-nr-body)) /
+    120% var(--sk-font-body);
 
   /* Paragraph Spacing */
   --sk-ps-0: '0';

@@ -18,8 +18,7 @@ export default {
     {
       name: 'media',
       title: 'Media',
-      type: 'array',
-      of: [{ type: 'mainImage' }, { type: 'messageImage' }],
+      type: 'mainImage',
     },
     {
       name: 'disabled',

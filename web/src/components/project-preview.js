@@ -11,9 +11,9 @@ const ProjectPreview = (props) => {
   return (
     <Link
       to={`/work/${client.slug.current}/${slug.current}`}
-      className={`preview`}
+      className="preview"
     >
-      <h4 className="title-lg">{title}</h4>
+      <h4>{client.name}</h4>
       {<PreviewImage imageAsset={cover} />}
     </Link>
   );

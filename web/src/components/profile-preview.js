@@ -11,7 +11,7 @@ const ProfilePreview = (props) => {
   const profileSlug = slug.current;
   const officeName = office.contactInfo.address.city;
   return (
-    <Link to={`/about/${profileSlug}`} className={`preview preview--dark`}>
+    <Link to={`/about/${profileSlug}`} className="preview">
       <h4>{name}</h4>
       <h5>{officeName}</h5>
       <PreviewImage imageAsset={profileImg} imageType={`square`} />

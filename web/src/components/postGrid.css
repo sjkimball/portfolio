@@ -1,1 +1,14 @@
-/* Stylesheet for PostGrid */
+.postGrid {
+  display: grid;
+  grid-auto-flow: row;
+  gap: var(--sk-spacing-md) 0;
+}
+.postGrid__section h3 {
+  display: none;
+  font: var(--sk-headline-md);
+}
+.postSection__container {
+  display: grid;
+  grid-auto-flow: row;
+  gap: var(--sk-spacing-lg) 0;
+}

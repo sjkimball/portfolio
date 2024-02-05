@@ -23,12 +23,12 @@ const Office = (props) => {
   const address = contactInfo.address;
 
   return (
-    <article className={`rec-office`}>
-      <header className={`rec-office__header`}>
+    <article className={`sk-office`}>
+      <header className={`sk-office__header`}>
         <h4>{address.city}</h4>
         {/* <time>Current time</time> */}
       </header>
-      <section className={`rec-office__info`}>
+      <section className={`sk-office__info`}>
         <section>
           <a
             href={`mailto:${contactInfo.email}`}
@@ -54,7 +54,7 @@ const Office = (props) => {
         </address>
         <p>{description}</p>
       </section>
-      <section className={`rec-office__images`}>
+      <section className={`sk-office__images`}>
         {images.map((image) => {
           return <PreviewImage key={image.asset._id} imageAsset={image} />;
         })}

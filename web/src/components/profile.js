@@ -12,7 +12,7 @@ const Profile = (props) => {
   return (
     <article className={`sk-profile`}>
       <header className={`sk-profile__header`}>
-        <h2 className="display-lg">
+        <h2>
           {name}
           <br />
           <span>{office.contactInfo.address.city}</span>
@@ -24,6 +24,7 @@ const Profile = (props) => {
       <aside className="sk-profile__headshot">
         <PreviewImage imageAsset={profileImg} imageType={`square`} />
       </aside>
+      <button>Download Resume</button>
     </article>
   );
 };

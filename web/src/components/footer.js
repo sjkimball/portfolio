@@ -2,15 +2,8 @@ import React from 'react';
 
 import './footer.css';
 
-const Footer = ({ darkMode, companyInfo }) => {
-  let footerClass;
-
-  // use class toggle instead
-  if (darkMode === true) {
-    footerClass = 'mainFooter--dark';
-  } else {
-    footerClass = 'mainFooter--light';
-  }
+const Footer = (props) => {
+  const { companyInfo } = props;
   const companyName = companyInfo.companyName;
   const links = companyInfo.socialAccounts;
 
@@ -19,7 +12,7 @@ const Footer = ({ darkMode, companyInfo }) => {
       <ul className="mainFooter__links">
         {links.map((link, index) => {
           return (
-            <li key={index} className="body-md">
+            <li key={index}>
               <a href={link.url} target="_blank" rel="noopener noreferrer">
                 {link.service.name}
               </a>

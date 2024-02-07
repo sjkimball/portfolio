@@ -1,72 +1,104 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import PreviewImage from '../components/preview-image';
 import Markdown from 'react-markdown';
+import { Link } from 'gatsby';
 import { format, parseISO } from 'date-fns';
 
 import './post.css';
 
-function getAvatar(author, prefix, index) {
-  return (
-    <a key={index} href={`${prefix}${author.slug.current}`}>
-      <PreviewImage
-        key={index}
-        imageAsset={author.profileImg}
-        imageType={`avatar`}
-      />
-    </a>
-  );
+function createAvatarLinks(authorArray) {
+  return authorArray.map((author, i) => (
+    <Link key={i} to={`/about/${author.slug.current}`} className="authorAvatar">
+      <PreviewImage imageAsset={author.profileImg} imageType={`avatar`} />
+    </Link>
+  ));
 }
 
-function getName(author, prefix, index) {
-  return (
-    <a key={index} href={`${prefix}${author.slug.current}`}>
-      <span>{author.name}</span>
-    </a>
-  );
-}
-
-function showAuthors(authorArray, prefix) {
+function prepNameLinks(authorArray) {
   if (authorArray.length == 1) {
     return (
-      <>
-        {getAvatar(authorArray[0], prefix)}
-        <p>By {getName(authorArray[0], prefix)}</p>
-      </>
+      <p>
+        By&nbsp;
+        <Link
+          to={`/about/${authorArray[0].slug.current}`}
+          className="authorName"
+        >
+          {authorArray[0].name}
+        </Link>
+      </p>
     );
-  } else {
+  } else if (authorArray.length == 2) {
+    const secondAuthor = authorArray.slice(1);
+    const firstAuthor = authorArray.slice(0, 1);
     return (
-      <>
-        <div>
-          {authorArray.map((author) => {
-            return getAvatar(author, prefix);
-          })}
-        </div>
-        <p>
-          By&nbsp;
-          {authorArray.map((author, i) => [
-            i > 0 && i !== authorArray.length - 1 && ', ',
-            i > 0 && ', ' && i == authorArray.length - 1 && ' and ',
-            getName(author, prefix),
-          ])}
-        </p>
-      </>
+      <p>
+        By&nbsp;
+        <Link
+          to={`/about/${firstAuthor[0].slug.current}`}
+          className="authorName"
+        >
+          {firstAuthor[0].name}
+        </Link>
+        <span> and </span>
+        <Link
+          to={`/about/${secondAuthor[0].slug.current}`}
+          className="authorName"
+        >
+          {secondAuthor[0].name}
+        </Link>
+      </p>
+    );
+  } else if (authorArray.length > 2) {
+    const lastAuthor = authorArray.slice(authorArray.length - 1);
+    const otherAuthors = authorArray.slice(0, authorArray.length - 1);
+    return (
+      <p>
+        By&nbsp;
+        {otherAuthors.map((author, i) => {
+          return (
+            <Fragment key={i}>
+              <Link to={`/about/${author.slug.current}`} className="authorName">
+                {author.name}
+              </Link>
+              <span>, </span>
+            </Fragment>
+          );
+        })}
+        <span>and </span>
+        <Link
+          to={`/about/${lastAuthor[0].slug.current}`}
+          className="authorName"
+        >
+          {lastAuthor[0].name}
+        </Link>
+      </p>
     );
   }
 }
 
+function createAuthors(authorArray) {
+  const avatarLinks = createAvatarLinks(authorArray);
+  const nameLinks = prepNameLinks(authorArray);
+  return (
+    <>
+      <div className="authorAvatars">{avatarLinks}</div>
+      {nameLinks}
+    </>
+  );
+}
+
 const Post = ({ post }) => {
-  const prefix = '/about/';
   const { authors, body, cover, keywords, publishedAt, title, subtitle } = post;
   const formattedDate = format(parseISO(publishedAt), 'MMMM d, yyyy');
-  const preppedAuthors = showAuthors(authors, prefix);
+  const authorSection = createAuthors(authors);
   return (
     <article className="sk-post">
       <header className="sk-post__header">
         <h2>{title}</h2>
         <h3>{subtitle}</h3>
         <time dateTime={publishedAt}>{formattedDate}</time>
-        <div className="sk-post__authors">{preppedAuthors}</div>
+        <section className="sk-post__authors">{authorSection}</section>
         <PreviewImage imageAsset={cover} imageType={`cover`} />
       </header>
       <section className="sk-post__body">

@@ -24,7 +24,6 @@ export default {
       type: 'array',
       of: [
         { type: 'hero' },
-        { type: 'twoUpContainer' },
         { type: 'projectGroup' },
         { type: 'postGroup' },
         { type: 'peopleGroup' },

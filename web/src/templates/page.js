@@ -4,7 +4,6 @@ import { graphql } from 'gatsby';
 import SEO from '../components/seo';
 import GraphQLErrorList from '../components/graphql-error-list';
 import Layout from '../containers/layout';
-import TwoUpContainer from '../containers/two-up';
 import ProjectGrid from '../components/projectGrid';
 import Hero from '../components/hero';
 import PeopleGrid from '../components/peopleGrid';
@@ -59,9 +58,6 @@ const Page = (props) => {
       switch (c._type) {
         case 'hero':
           el = <Hero key={c._key} {...c} />;
-          break;
-        case 'twoUpContainer':
-          el = <TwoUpContainer key={c._key} {...c} />;
           break;
         case 'projectGroup':
           el = <ProjectGrid key={c._key} {...c} />;

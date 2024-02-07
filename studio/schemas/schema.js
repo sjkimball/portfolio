@@ -16,7 +16,6 @@ import markdownBlock from './objects/markdownBlock';
 import messageImage from './objects/messageImage';
 import sector from './objects/sector';
 import socialAccount from './objects/socialAccount';
-import twoUpContainer from './objects/containers/twoUp';
 
 // Documents
 import blogSettings from './documents/blogSettings';
@@ -66,5 +65,4 @@ export default [
   siteSettings,
   socialAccount,
   socialMediaService,
-  twoUpContainer,
 ];

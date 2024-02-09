@@ -101,10 +101,10 @@ const Post = ({ post }) => {
         <section className="sk-post__authors">{authorSection}</section>
         <PreviewImage imageAsset={cover} imageType={`cover`} />
       </header>
-      <section className="sk-post__body">
+      <section className="sk-post__body markdown">
         <Markdown>{body}</Markdown>
       </section>
-      <footer className="sk-post__footer"></footer>
+      {/* <footer className="sk-post__footer"></footer> */}
     </article>
   );
 };

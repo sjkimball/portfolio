@@ -1,0 +1,17 @@
+.peopleGrid {
+  display: grid;
+  grid-auto-flow: row;
+  gap: var(--sk-spacing-lg) 0;
+}
+@media screen and (min-width: 600px) {
+  .peopleGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: unset;
+    gap: var(--sk-spacing-lg) var(--sk-spacing-md);
+  }
+}
+@media screen and (min-width: 1040px) {
+  .peopleGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

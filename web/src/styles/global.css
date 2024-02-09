@@ -597,3 +597,10 @@ pre tt:before,
 pre tt:after {
   content: '';
 }
+.markdown p {
+  font: var(--sk-body-lg);
+  margin-bottom: 20px;
+}
+.markdown > *:last-child {
+  margin-bottom: 0;
+}

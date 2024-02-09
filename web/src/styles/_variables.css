@@ -236,7 +236,7 @@
 
   /* Body */
   --sk-body-lg: var(--sk-fw-body) calc(var(--sk-fs-3) * var(--sk-nr-body)) /
-    20px var(--sk-font-body);
+    120% var(--sk-font-body);
 
   --sk-body-md: var(--sk-fw-body) calc(var(--sk-fs-2) * var(--sk-nr-body)) /
     120% var(--sk-font-body);
@@ -315,4 +315,25 @@
   --sk-sys-surface-container-lowest: var(--sk-neutral-40);
   --sk-sys-surface-bright: var(--sk-neutral-240);
   --sk-sys-surface-dim: var(--sk-neutral-60);
+}
+
+@media screen and (min-width: 600px) {
+  :root {
+    --sk-fs-root: 17px;
+  }
+}
+@media screen and (min-width: 800px) {
+  :root {
+    --sk-fs-root: 18px;
+  }
+}
+@media screen and (min-width: 1040px) {
+  :root {
+    --sk-fs-root: 19px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  :root {
+    --sk-fs-root: 20px;
+  }
 }

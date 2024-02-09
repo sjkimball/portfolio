@@ -6,7 +6,7 @@ import './markdownBlock.css';
 const MarkdownBlock = (props) => {
   const { title, mdBlockContent: markdown } = props;
   return (
-    <section className="markdown-block">
+    <section className="markdown markdown-block">
       <Markdown>{markdown}</Markdown>
     </section>
   );

@@ -1,14 +1,33 @@
 .projectGrid {
   display: grid;
   grid-auto-flow: row;
-  gap: var(--sk-spacing-md) 0;
+  gap: var(--sk-spacing-lg) 0;
+}
+.projectGrid__section {
+  display: grid;
+  gap: var(--sk-spacing-sm) 0;
 }
 .projectGrid__section h3 {
   display: none;
-  font: var(--sk-headline-md);
+  font: var(--sk-headline-sm);
 }
 .projectSection__container {
   display: grid;
   grid-auto-flow: row;
   gap: var(--sk-spacing-lg) 0;
+}
+@media screen and (min-width: 600px) {
+  .projectGrid__section h3 {
+    display: block;
+  }
+  .projectSection__container {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: unset;
+    gap: var(--sk-spacing-lg) var(--sk-spacing-md);
+  }
+}
+@media screen and (min-width: 1040px) {
+  .projectSection__container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

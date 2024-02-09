@@ -1,14 +1,29 @@
 .postGrid {
   display: grid;
   grid-auto-flow: row;
-  gap: var(--sk-spacing-md) 0;
+  gap: var(--sk-spacing-lg) 0;
 }
 .postGrid__section h3 {
   display: none;
-  font: var(--sk-headline-md);
+  font: var(--sk-headline-sm);
 }
 .postSection__container {
   display: grid;
   grid-auto-flow: row;
   gap: var(--sk-spacing-lg) 0;
+}
+@media screen and (min-width: 600px) {
+  .postGrid__section h3 {
+    display: block;
+  }
+  .postGrid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: unset;
+    gap: var(--sk-spacing-lg) var(--sk-spacing-md);
+  }
+}
+@media screen and (min-width: 1040px) {
+  .postGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

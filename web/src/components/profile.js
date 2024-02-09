@@ -18,7 +18,7 @@ const Profile = (props) => {
           <span>{office.contactInfo.address.city}</span>
         </h2>
       </header>
-      <section className="sk-profile__body">
+      <section className="sk-profile__body markdown">
         <Markdown>{biography}</Markdown>
       </section>
       <aside className="sk-profile__headshot">

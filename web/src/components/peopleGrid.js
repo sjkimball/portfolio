@@ -7,15 +7,13 @@ import './peopleGrid.css';
 const PeopleGrid = (props) => {
   const { people, _key: key } = props;
 
-  return (
-    <section key={key} className="people-group">
-      {people.length < 2 ? (
-        <Profile {...people[0]} />
-      ) : (
-        people.map((person) => {
-          return <ProfilePreview key={person._id} {...person} />;
-        })
-      )}
+  return people.length < 2 ? (
+    <Profile {...people[0]} />
+  ) : (
+    <section key={key} className="peopleGrid">
+      {people.map((person) => (
+        <ProfilePreview key={person._id} {...person} />
+      ))}
     </section>
   );
 };

@@ -3,8 +3,9 @@ import { dashboardTool, projectInfoWidget } from '@sanity/dashboard';
 import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
 import { visionTool } from '@sanity/vision';
 import { structureTool } from 'sanity/structure';
-import { markdownSchema } from 'sanity-plugin-markdown';
 import { media } from 'sanity-plugin-media';
+import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash';
+import { markdownSchema } from 'sanity-plugin-markdown';
 import schemas from './schemas/schema';
 import structure from './src/structure/structure';
 
@@ -58,8 +59,9 @@ export default defineConfig({
       structure,
     }),
     visionTool(),
-    markdownSchema(),
     media(),
+    unsplashImageAsset(),
+    markdownSchema(),
   ],
   schema: {
     types: schemas,

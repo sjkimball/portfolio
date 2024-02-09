@@ -70,8 +70,7 @@ export default {
           to: [{ type: 'person' }],
         },
       ],
-      validation: (Rule) =>
-        Rule.min(1).error('Post must have at least one author.'),
+      validation: (Rule) => Rule.min(1).unique(),
     },
     {
       name: 'publishedAt',

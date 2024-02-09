@@ -11,7 +11,7 @@ export default {
       options: {
         layout: 'grid',
       },
-      validation: (Rule) => Rule.length(2),
+      validation: (Rule) => Rule.min(2).max(4),
     },
     {
       name: 'description',

@@ -9,6 +9,19 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'subtitle',
+      title: 'Subtitle',
+      type: 'string',
+      description: 'Optional',
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'markdown',
+      description: 'Optional',
     },
     {
       name: 'navMenu',

@@ -4,6 +4,8 @@ export const PageInfo = graphql`
   fragment PageInfo on SanityPage {
     id
     title
+    subtitle
+    description
     indexPage
     navMenu {
       ...NavMenu

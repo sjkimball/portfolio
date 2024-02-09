@@ -82,6 +82,8 @@ const Page = (props) => {
 
   const menuItems = page.navMenu && (page.navMenu.items || []);
   const pageTitle = data.route && !data.route.useSiteTitle && page.title;
+  const pageSubtitle = page.subtitle;
+  const pageDescription = page.description;
   const isIndex = page.indexPage;
 
   return (
@@ -90,6 +92,8 @@ const Page = (props) => {
       navMenuItems={menuItems}
       isIndex={isIndex}
       pageTitle={pageTitle}
+      pageSubtitle={pageSubtitle}
+      pageDescription={pageDescription}
     >
       <SEO title={site.title} />
       {content}

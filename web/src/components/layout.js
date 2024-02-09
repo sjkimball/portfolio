@@ -5,14 +5,24 @@ import useCompanyInfo from '../hooks/use-company-info';
 
 import Header from './header';
 import Footer from './footer';
+import PageHeader from './pageHeader';
 
 import '../styles/_variables.css';
 import '../styles/global.css';
 import '../styles/layout.css';
 
 const Layout = (props) => {
-  const { children, siteTitle, navMenuItems, isIndex, pageTitle } = props;
+  const {
+    children,
+    navMenuItems,
+    isIndex,
+    pageTitle,
+    pageSubtitle,
+    pageDescription,
+  } = props;
+
   const { companyInfo } = useCompanyInfo();
+
   const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
     const location = window.location.pathname;
@@ -24,14 +34,25 @@ const Layout = (props) => {
     }
   });
 
+  const pageHeader =
+    pageTitle !== (null || undefined) ? (
+      <PageHeader
+        title={pageTitle}
+        subtitle={pageSubtitle}
+        description={pageDescription}
+      />
+    ) : (
+      ''
+    );
+
   return (
     <>
-      <Header navMenuItems={navMenuItems} siteTitle={siteTitle} />
+      <Header navMenuItems={navMenuItems} />
       {isIndex ? (
         <main className="index__main">{children}</main>
       ) : (
         <main className="mainContainer">
-          <h2 className={`pageTitle pageTitle--${pageTitle}`}>{pageTitle}</h2>
+          {pageHeader}
           {children}
         </main>
       )}

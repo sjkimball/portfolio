@@ -14,7 +14,7 @@ const useCompanyInfo = () => {
           username
         }
         companyName
-        _rawAbout
+        about
       }
     }
   `);

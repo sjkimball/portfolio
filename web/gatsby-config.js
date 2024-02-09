@@ -36,6 +36,14 @@ module.exports = {
         icon: `src/images/red_eye_coyote_icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-plugin-sanity-image',
+      options: {
+        ...clientConfig.sanity,
+        customImageTypes: ['mainImage'],
+        altFieldName: 'altText',
+      },
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-image',
   ],

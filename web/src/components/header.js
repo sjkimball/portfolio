@@ -39,7 +39,7 @@ class Header extends React.Component {
   };
 
   render() {
-    const { siteTitle, navMenuItems = [] } = this.props;
+    const { navMenuItems = [] } = this.props;
     // const headerClass = darkMode ? 'mainHeader--dark' : 'mainHeader--light';
     return (
       <header id="mainHeader" className="mainHeader">

@@ -12,7 +12,7 @@ export default {
     {
       name: 'about',
       title: 'About',
-      type: 'blockContent',
+      type: 'markdown',
     },
     {
       name: 'contactInfo',

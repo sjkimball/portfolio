@@ -6,7 +6,7 @@ import Markdown from 'react-markdown';
 import '../styles/layout.css';
 import './project.css';
 
-const Project = (props) => {
+const Project = ({ project }) => {
   const {
     client,
     sector,
@@ -17,7 +17,7 @@ const Project = (props) => {
     office,
     disciplines,
     members,
-  } = props.project;
+  } = project;
 
   return (
     <article className="sk-project">
@@ -34,7 +34,7 @@ const Project = (props) => {
             ))}
           </ul>
         </div>
-        <PreviewImage imageAsset={cover} imageType={`cover`} />
+        <PreviewImage imageAsset={cover} />
       </header>
       <section className="sk-project__body">
         <section className="sk-project__description markdown">

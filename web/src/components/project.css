@@ -88,7 +88,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: var(--sk-spacing-sm) var(--sk-spacing-lg);
   }
-  .sk-project__header img {
+  .sk-project__header .preview {
     grid-row: 3;
     grid-column: 1/3;
   }

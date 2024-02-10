@@ -2,19 +2,20 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 
-import PreviewImage from '../components/preview-image';
+import PreviewImage from './preview-image';
 
 import './preview.css';
 
 const ProjectPreview = (props) => {
-  const { client, cover, slug, title } = props;
+  const { client, cover, slug, title, id } = props;
+
   return (
     <Link
       to={`/work/${client.slug.current}/${slug.current}`}
-      className="preview"
+      className="projectPreview"
     >
-      <h4>{client.name}</h4>
-      {<PreviewImage imageAsset={cover} />}
+      <h4>{title}</h4>
+      <PreviewImage imageAsset={cover} imageType="preview" />
     </Link>
   );
 };

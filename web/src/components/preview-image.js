@@ -5,18 +5,19 @@ import { imageSrcSet, imageSizes } from '../lib/image-sizing';
 
 const PreviewImage = (props) => {
   const { imageAsset, showCaption, imageType } = props;
-  function assignClass(imageType) {
-    switch (imageType) {
-      case 'avatar':
-        return 'avatar-image';
-        break;
-      case 'cover':
-        return 'cover-image';
-        break;
-      default:
-        return 'preview-image';
-    }
-  }
+
+  // function assignClass(imageType) {
+  //   switch (imageType) {
+  //     case 'avatar':
+  //       return 'avatar-image';
+  //       break;
+  //     case 'cover':
+  //       return 'cover-image';
+  //       break;
+  //     default:
+  //       return 'preview-letterbox';
+  //   }
+  // }
 
   const renderedImage = (
     <img
@@ -29,20 +30,16 @@ const PreviewImage = (props) => {
       sizes={imageSizes(imageType)}
       src={imageUrlFor(imageAsset).auto('format')}
       alt={imageAsset.altText}
-      className={assignClass(imageType)}
+      className="preview__image"
     />
   );
 
-  if (showCaption === true) {
-    return (
-      <figure>
-        {renderedImage}
-        <figcaption>{imageAsset.caption}</figcaption>
-      </figure>
-    );
-  } else {
-    return renderedImage;
-  }
+  return (
+    <figure className={`preview preview--letterbox`}>
+      {renderedImage}
+      {showCaption ? <figcaption>{imageAsset.caption}</figcaption> : ''}
+    </figure>
+  );
 };
 
 export default PreviewImage;

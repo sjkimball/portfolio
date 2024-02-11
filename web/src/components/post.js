@@ -1,16 +1,17 @@
 import React, { Fragment } from 'react';
-
-import PreviewImage from '../components/preview-image';
-import Markdown from 'react-markdown';
 import { Link } from 'gatsby';
 import { format, parseISO } from 'date-fns';
+import Markdown from 'react-markdown';
+
+import CoverImage from './coverImage';
+import AvatarImage from './avatarImage';
 
 import './post.css';
 
 function createAvatarLinks(authorArray) {
   return authorArray.map((author, i) => (
     <Link key={i} to={`/about/${author.slug.current}`} className="authorAvatar">
-      <PreviewImage imageAsset={author.profileImg} imageType={`avatar`} />
+      <AvatarImage imageAsset={author.profileImg} />
     </Link>
   ));
 }
@@ -99,7 +100,7 @@ const Post = ({ post }) => {
         <h3>{subtitle}</h3>
         <time dateTime={publishedAt}>{formattedDate}</time>
         <section className="sk-post__authors">{authorSection}</section>
-        <PreviewImage imageAsset={cover} imageType={`cover`} />
+        <CoverImage imageAsset={cover} />
       </header>
       <section className="sk-post__body markdown">
         <Markdown>{body}</Markdown>

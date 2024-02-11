@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 
-import PreviewImage from './preview-image';
+import PreviewImage from './previewImage';
 
-import './preview.css';
+import './projectPreview.css';
 
 const ProjectPreview = (props) => {
   const { client, cover, slug, title, id } = props;

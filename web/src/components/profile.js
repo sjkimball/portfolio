@@ -1,17 +1,16 @@
 import React from 'react';
-
 import Markdown from 'react-markdown';
-import PreviewImage from '../components/preview-image';
 
-import '../styles/layout.css';
+import CoverImage from './coverImage';
+
 import './profile.css';
 
 const Profile = (props) => {
   const { profileImg, name, office, biography } = props;
 
   return (
-    <article className={`sk-profile`}>
-      <header className={`sk-profile__header`}>
+    <article className="sk-profile">
+      <header className="sk-profile__header">
         <h2>
           {name}
           <br />
@@ -22,9 +21,9 @@ const Profile = (props) => {
         <Markdown>{biography}</Markdown>
       </section>
       <aside className="sk-profile__headshot">
-        <PreviewImage imageAsset={profileImg} imageType={`square`} />
+        <CoverImage imageAsset={profileImg} />
       </aside>
-      <button>Download Resume</button>
+      {/* <button>Download Resume</button> */}
     </article>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
-
-import PreviewImage from '../components/preview-image';
 import Markdown from 'react-markdown';
 
-import '../styles/layout.css';
+import CoverImage from './coverImage';
+import PreviewImage from './previewImage';
+
 import './project.css';
 
 const Project = ({ project }) => {
@@ -24,17 +24,17 @@ const Project = ({ project }) => {
       <header className="sk-project__header">
         <h2>{client.name}</h2>
         <h3>{subtitle}</h3>
-        <div className={`rec-project__disciplines`}>
+        <div className="sk-project__disciplines">
           <h6 hidden>Disciplines</h6>
           <ul className="sk-project__tags">
             {disciplines.map((discipline, index) => (
-              <li key={index} value={discipline} className="body-sm">
+              <li key={index} value={discipline}>
                 {discipline}
               </li>
             ))}
           </ul>
         </div>
-        <PreviewImage imageAsset={cover} />
+        <CoverImage imageAsset={cover} />
       </header>
       <section className="sk-project__body">
         <section className="sk-project__description markdown">

@@ -1,0 +1,20 @@
+.profilePreview {
+  cursor: pointer;
+  display: grid;
+  text-decoration: none;
+  color: inherit;
+  gap: var(--sk-spacing-xs) 0;
+  grid-auto-flow: row;
+  grid-template-rows: 1fr min-content min-content;
+}
+.profilePreview h4 {
+  font: var(--sk-title-md);
+  grid-row: 2;
+}
+.profilePreview h5 {
+  font: var(--sk-title-sm);
+  grid-row: 3;
+}
+.profilePreview .preview {
+  grid-row: 1;
+}

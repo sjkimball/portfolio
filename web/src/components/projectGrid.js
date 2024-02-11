@@ -1,6 +1,6 @@
 import React from 'react';
 import { toHeaderCase } from 'js-convert-case';
-import ProjectPreview from './project-preview';
+import ProjectPreview from './projectPreview';
 
 import './projectGrid.css';
 

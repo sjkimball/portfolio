@@ -34,7 +34,7 @@
   border-radius: 4px;
   margin-bottom: 0;
 }
-.sk-project__header img {
+.sk-project__header .cover {
   justify-self: center;
 }
 /* Project Body */
@@ -63,9 +63,6 @@
 .sk-project__gallery {
   grid-row: 3;
 }
-.sk-project__gallery .preview-image {
-  margin-bottom: 0;
-}
 
 @media screen and (min-width: 600px) {
   /* Project Body */
@@ -88,7 +85,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: var(--sk-spacing-sm) var(--sk-spacing-lg);
   }
-  .sk-project__header .preview {
+  .sk-project__header .cover {
     grid-row: 3;
     grid-column: 1/3;
   }

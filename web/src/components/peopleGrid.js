@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfilePreview from './profile-preview';
+import ProfilePreview from './profilePreview';
 import Profile from './profile';
 
 import './peopleGrid.css';

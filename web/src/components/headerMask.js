@@ -4,7 +4,11 @@ import './headerMask.css';
 
 const HeaderMask = ({ siteTitle }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" id="headerMask">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      id="headerMask"
+      className="headerMask"
+    >
       <defs>
         <text id="defaultText" className="headerMask__text">
           {siteTitle}

@@ -42,19 +42,19 @@ class Header extends React.Component {
     const { navMenuItems = [] } = this.props;
     // const headerClass = darkMode ? 'mainHeader--dark' : 'mainHeader--light';
     return (
-      <header id="mainHeader" className="mainHeader">
-        <nav className="mainNav" role="navigation">
-          <Link to="/" className="mainNav__logo">
+      <header id="mainHeader" className="header">
+        <nav className="header__nav" role="navigation">
+          <Link to="/" className="nav__logo">
             <h1>SK</h1>
           </Link>
           {navMenuItems && (
-            <ul id="nav-links" className="sk-nav-links">
+            <ul id="mainHeader__nav__links" className="nav__links">
               {navMenuItems.map((item, index) => (
                 <li key={index}>
                   <Link
                     to={item.route}
-                    className={`nav-link`}
-                    activeClassName={`nav-link--active`}
+                    className={`links__link`}
+                    activeClassName={`links__link-active`}
                     partiallyActive={true}
                   >
                     {item.title}
@@ -64,11 +64,11 @@ class Header extends React.Component {
             </ul>
           )}
 
-          <button className="mainNav__menuButton" onClick={this.showMenu}>
+          <button className="nav__button" onClick={this.showMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 100 100"
-              className="menuButton__icon"
+              className="button__icon"
             >
               <g>
                 <line

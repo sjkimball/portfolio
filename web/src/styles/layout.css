@@ -3,7 +3,7 @@
   grid-template-columns: var(--sk-spacing-md) auto var(--sk-spacing-md);
   grid-template-rows: 90px auto;
 }
-.mainHeader {
+#mainHeader {
   position: sticky;
   top: 0;
   z-index: 10;
@@ -47,7 +47,7 @@
     gap: var(--sk-spacing-lg) 0;
   }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1040px) {
   #gatsby-focus-wrapper {
     grid-template-columns: var(--sk-spacing-xl) auto var(--sk-spacing-xl);
   }

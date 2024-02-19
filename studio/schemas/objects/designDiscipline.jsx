@@ -12,4 +12,6 @@ export default {
       { title: 'Brand Identity', value: 'brandIdentity' },
     ],
   },
+  validation: (Rule) =>
+    Rule.required().min(1).error('Choose at least 1 discipline.'),
 };

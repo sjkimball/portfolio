@@ -26,7 +26,7 @@ const hiddenDocTypes = (listItem) =>
     'project',
     'route',
     'siteSettings',
-    'socialMediaService',
+    'media.tag',
   ].includes(listItem.getId());
 
 export default (S) =>

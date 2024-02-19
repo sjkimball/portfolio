@@ -20,10 +20,9 @@ export default {
       type: 'contact',
     },
     {
-      name: 'socialAccounts',
-      title: 'Social Accounts',
-      type: 'array',
-      of: [{ type: 'socialAccount' }],
+      name: 'socialMediaAccounts',
+      title: 'Social Media Accounts',
+      type: 'socialMediaAccounts',
     },
   ],
 };

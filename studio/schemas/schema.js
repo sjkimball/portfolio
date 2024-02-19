@@ -15,7 +15,7 @@ import peopleGroup from './objects/peopleGroup';
 import markdownBlock from './objects/markdownBlock';
 import messageImage from './objects/messageImage';
 import sector from './objects/sector';
-import socialAccount from './objects/socialAccount';
+import socialMediaAccounts from './objects/socialMediaAccounts';
 
 // Documents
 import blogSettings from './documents/blogSettings';
@@ -31,7 +31,6 @@ import post from './documents/post';
 import project from './documents/project';
 import route from './documents/route';
 import siteSettings from './documents/siteSettings';
-import socialMediaService from './documents/socialMediaService';
 
 export default [
   address,
@@ -63,6 +62,5 @@ export default [
   route,
   sector,
   siteSettings,
-  socialAccount,
-  socialMediaService,
+  socialMediaAccounts,
 ];

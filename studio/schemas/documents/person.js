@@ -1,3 +1,6 @@
+import { LinkedInUrl } from '../../components/LinkedInUrl';
+import { MyCustomStringInput } from '../../components/MyCustomStringInput';
+
 export default {
   name: 'person',
   title: 'Person',
@@ -5,59 +8,23 @@ export default {
   initialValue: {
     featured: false,
   },
-  fields: [
+  groups: [
     {
-      name: 'featured',
-      type: 'boolean',
-      title: 'Featured',
+      name: 'admin',
+      title: 'Admin',
     },
+    {
+      name: 'personalInfo',
+      title: 'Personal Info',
+    },
+  ],
+  fields: [
     {
       name: 'name',
       title: 'Name',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'profileImg',
-      title: 'Profile Image',
-      type: 'mainImage',
-    },
-    {
-      name: 'jobTitle',
-      title: 'Job Title',
-      type: 'reference',
-      to: [
-        {
-          type: 'jobTitle',
-        },
-      ],
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'office',
-      title: 'Office',
-      type: 'reference',
-      to: [
-        {
-          type: 'office',
-        },
-      ],
-    },
-    {
-      name: 'biography',
-      title: 'Bio',
-      type: 'markdown',
-    },
-    {
-      name: 'contactInfo',
-      title: 'Contact Info',
-      type: 'contact',
-    },
-    {
-      name: 'socialAccounts',
-      title: 'Social Accounts',
-      type: 'array',
-      of: [{ type: 'socialAccount' }],
+      group: 'personalInfo',
     },
     {
       name: 'slug',
@@ -72,6 +39,54 @@ export default {
         Rule.required().error(
           'Looks like you may have forgotten to generate a slug.:(',
         ),
+      group: 'admin',
+    },
+    {
+      name: 'profileImg',
+      title: 'Profile Image',
+      type: 'mainImage',
+      group: 'personalInfo',
+    },
+    {
+      name: 'biography',
+      title: 'Bio',
+      type: 'markdown',
+      group: 'personalInfo',
+    },
+    {
+      name: 'socialMediaAccounts',
+      title: 'Social Media Accounts',
+      type: 'socialMediaAccounts',
+      group: 'personalInfo',
+    },
+    {
+      name: 'contactInfo',
+      title: 'Contact Info',
+      type: 'contact',
+      group: 'personalInfo',
+    },
+    {
+      name: 'office',
+      title: 'Office',
+      type: 'reference',
+      to: [
+        {
+          type: 'office',
+        },
+      ],
+      group: 'admin',
+    },
+    {
+      name: 'jobTitle',
+      title: 'Job Title',
+      type: 'reference',
+      to: [
+        {
+          type: 'jobTitle',
+        },
+      ],
+      validation: (Rule) => Rule.required(),
+      group: 'admin',
     },
   ],
   preview: {

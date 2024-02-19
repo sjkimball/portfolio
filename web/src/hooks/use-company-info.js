@@ -6,12 +6,10 @@ const useCompanyInfo = () => {
       companyInfo: sanityCompanyInfo(
         _id: { regex: "/(drafts.|)companyInfo/" }
       ) {
-        socialAccounts {
-          service {
-            name
-          }
-          url
-          username
+        socialMediaAccounts {
+          behance
+          github
+          linkedin
         }
         companyName
         about

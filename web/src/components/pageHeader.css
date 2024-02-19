@@ -32,3 +32,8 @@
     grid-row: 1/4;
   }
 }
+@media screen and (min-width: 1040px) {
+  .pageHeader {
+    padding-top: var(--sk-spacing-md);
+  }
+}

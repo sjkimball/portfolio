@@ -1,13 +1,13 @@
 .header {
   display: grid;
-  grid-template-columns: var(--sk-spacing-md) auto var(--sk-spacing-md);
-  height: 64px;
+  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  background-color: var(--sk-sys-background);
 }
 .header__nav {
   grid-column: 2/3;
   grid-row: 1;
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   position: relative;
   width: 100%;
@@ -55,7 +55,7 @@
   opacity: 0.95;
   padding-top: 2rem;
   position: absolute;
-  top: 64px;
+  top: 90px;
   width: calc(100% + var(--sk-spacing-md) * 2);
 }
 .links__link {
@@ -84,7 +84,6 @@
 @media screen and (min-width: 600px) {
   .header {
     grid-template-columns: var(--sk-spacing-lg) auto var(--sk-spacing-lg);
-    background-color: var(--sk-sys-background);
   }
   .header__nav {
     position: unset;

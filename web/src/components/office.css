@@ -23,8 +23,12 @@
   margin-bottom: 0;
 }
 .sk-office__info a {
+  cursor: pointer;
   color: inherit;
   display: block;
+}
+.sk-office__info a:hover {
+  text-decoration: underline;
 }
 .sk-office__info address {
   font-style: normal;
@@ -44,12 +48,10 @@
 }
 
 @media screen and (min-width: 600px) {
-}
-
-@media screen and (min-width: 800px) {
   .sk-office {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--sk-spacing-md) var(--sk-spacing-lg);
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content min-content 1fr;
+    gap: var(--sk-spacing-md) var(--sk-spacing-xl);
   }
   .sk-office__header {
     grid-column: 1;
@@ -67,7 +69,6 @@
 @media screen and (min-width: 1040px) {
   .sk-office {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: min-content min-content 1fr;
     gap: 0 var(--sk-spacing-md);
   }
   /* Header */

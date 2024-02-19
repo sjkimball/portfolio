@@ -26,22 +26,12 @@ const Office = (props) => {
     <section className="sk-office">
       <header className="sk-office__header">
         <h4>{address.city}</h4>
-        {/* <time>Current time</time> */}
       </header>
       <section className="sk-office__info">
         <section className="info__links">
           <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
           <a href={`tel:1-${contactInfo.phone}`}>+1 {contactInfo.phone}</a>
         </section>
-        <address>
-          {address.street}
-          <br />
-          <SecondaryAddress address={address} />
-          {address.city}, {address.stateProvince} {address.postalCode}
-          <br />
-          {address.country}
-        </address>
-        <p>{description}</p>
       </section>
       <section className="sk-office__images">
         {images.map((image) => {

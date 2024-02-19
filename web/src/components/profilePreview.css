@@ -17,4 +17,5 @@
 }
 .profilePreview .preview {
   grid-row: 1;
+  aspect-ratio: 1/1;
 }

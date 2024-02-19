@@ -5,7 +5,7 @@
   "main": "package.json",
   "author": "Sanity <hello@sanity.io>",
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   },
   "scripts": {
     "deploy": "npm run graphql-deploy && npm run sanity-deploy",

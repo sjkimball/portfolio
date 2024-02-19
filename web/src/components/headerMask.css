@@ -1,12 +1,6 @@
 .headerMask {
   height: 100%;
-}
-#defaultText {
-  fill: var(--sk-sys-on-background);
-}
-#revealText {
-  /* Dark mode 'on-background' color */
-  fill: var(--sk-neutral-900);
+  width: 100%;
 }
 .headerMask__text {
   font-family: var(--sk-font-display);
@@ -14,20 +8,18 @@
   line-height: 40px;
   margin: 0;
   font-weight: var(--sk-fw-black);
-  transform: translate(16px, 46px);
+  transform: translate(16px, 57px);
 }
-#defaultBackground {
-  fill: transparent;
-  width: 100%;
-  height: 64px;
+.headerMask__text--light {
+  fill: var(--sk-sys-on-background);
 }
-#revealBackground {
+.headerMask__text--dark {
+  /* Dark mode 'on-background' color */
+  fill: var(--sk-neutral-900);
+}
+.headerMask__bkgd--dark {
   /* Dark mode 'background' color */
   fill: var(--sk-neutral-100);
   width: 100%;
-  height: 64px;
-}
-#theMask {
-  width: 100%;
-  height: 64px;
+  height: 90px;
 }

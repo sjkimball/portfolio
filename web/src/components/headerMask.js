@@ -10,15 +10,21 @@ const HeaderMask = ({ siteTitle }) => {
       className="headerMask"
     >
       <defs>
-        <text id="defaultText" className="headerMask__text">
+        <text
+          id="defaultText"
+          className="headerMask__text headerMask__text--light"
+        >
           {siteTitle}
         </text>
-        <text id="revealText" className="headerMask__text">
+        <text
+          id="revealText"
+          className="headerMask__text headerMask__text--dark"
+        >
           {siteTitle}
         </text>
-        <rect id="revealBackground" />
-        <mask id="theMask">
-          <rect id="black" width="100%" height="64" fill="#000" />
+        <rect id="revealBackground" className="headerMask__bkgd--dark" />
+        <mask id="theMask" className="headerMask__mask">
+          <rect id="black" width="100%" height="90px" />
         </mask>
       </defs>
       <use href="#defaultText" />

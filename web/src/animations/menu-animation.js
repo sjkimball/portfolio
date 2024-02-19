@@ -32,7 +32,7 @@ const iconTl = () => {
 const maskTl = () => {
   gsap.set('#black', {
     fill: '#fff',
-    transformOrigin: 'left center',
+    transformOrigin: 'center',
   });
   const tl = gsap.timeline({ duration: 0.25 });
   tl.from('#black', {
@@ -43,14 +43,13 @@ const maskTl = () => {
 
 const linksTl = () => {
   const tl = gsap.timeline({ duration: 0.5 });
-  tl.set('#nav-links', { clearProps: true });
-  tl.set('.nav-link', { clearProps: true });
-  tl.to('#nav-links', {
+  tl.set('#mainHeader__nav__links', { clearProps: true });
+  tl.set('.links__link', { clearProps: true });
+  tl.to('#mainHeader__nav__links', {
     display: 'flex',
-    height: 'calc(100vh - 64px)',
-    paddingTop: '2rem',
+    height: 'calc(100vh - 90px)',
   });
-  tl.to('.nav-link', {
+  tl.to('.links__link', {
     opacity: 1,
     stagger: 0.2,
   });

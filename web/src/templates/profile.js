@@ -6,6 +6,10 @@ import Layout from '../containers/layout';
 import Profile from '../components/profile';
 import GraphQLErrorList from '../components/graphql-error-list';
 
+import '../styles/_variables.css';
+import '../styles/global.css';
+import '../styles/layout.css';
+
 export const query = graphql`
   query ($id: String!, $parentRouteID: String!) {
     profile: sanityPerson(id: { eq: $id }) {

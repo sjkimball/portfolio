@@ -4,14 +4,16 @@ import { graphql } from 'gatsby';
 import SEO from '../components/seo';
 import GraphQLErrorList from '../components/graphql-error-list';
 import Layout from '../containers/layout';
-import ProjectGrid from '../components/projectGrid';
 import Hero from '../components/hero';
+import ProjectGrid from '../components/projectGrid';
 import PeopleGrid from '../components/peopleGrid';
 import PostGrid from '../components/postGrid';
 import OfficeGrid from '../components/officeGrid';
 import MarkdownBlock from '../components/markdownBlock';
 
-import '../styles/pages.css';
+import '../styles/_variables.css';
+import '../styles/global.css';
+import '../styles/layout.css';
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {

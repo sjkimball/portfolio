@@ -7,10 +7,6 @@ import Header from './header';
 import Footer from './footer';
 import PageHeader from './pageHeader';
 
-import '../styles/_variables.css';
-import '../styles/global.css';
-import '../styles/layout.css';
-
 const Layout = (props) => {
   const {
     children,

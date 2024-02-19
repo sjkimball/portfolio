@@ -6,6 +6,19 @@ import PreviewImage from './previewImage';
 
 import './project.css';
 
+function acronymPrep(discipline) {
+  function capitalizeAcronym(match, string) {
+    return match.toUpperCase();
+  }
+  return discipline.replace(/\b(?:Ux|Ui)/g, capitalizeAcronym);
+}
+
+function convertCamelToTitle(camelString) {
+  const str = camelString.replace(/([a-z])([A-Z])/g, '$1 $2');
+  const titleStr = str.charAt(0).toUpperCase() + str.slice(1);
+  return acronymPrep(titleStr);
+}
+
 const Project = ({ project }) => {
   const {
     client,
@@ -29,7 +42,7 @@ const Project = ({ project }) => {
           <ul className="sk-project__tags">
             {disciplines.map((discipline, index) => (
               <li key={index} value={discipline}>
-                {discipline}
+                {convertCamelToTitle(discipline)}
               </li>
             ))}
           </ul>
@@ -48,14 +61,14 @@ const Project = ({ project }) => {
         </section>
         <section>
           <h6>Sector</h6>
-          <p>{sector}</p>
+          <p>{convertCamelToTitle(sector)}</p>
         </section>
         <section className="sk-project__disciplines">
           <h6>Disciplines</h6>
           <ul>
             {disciplines.map((discipline, index) => (
               <li key={index} value={discipline}>
-                {discipline}
+                {convertCamelToTitle(discipline)}
               </li>
             ))}
           </ul>

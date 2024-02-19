@@ -1,12 +1,9 @@
 {
   "private": true,
-  "name": "sanity",
+  "name": "sam_kimball_studio",
   "version": "1.0.0",
   "main": "package.json",
-  "author": "Sanity <hello@sanity.io>",
-  "engines": {
-    "node": "20.x"
-  },
+  "author": "Sam Kimball",
   "scripts": {
     "deploy": "npm run graphql-deploy && npm run sanity-deploy",
     "format": "prettier-eslint --write \"**/*.js\" \"!node_modules/**\"",

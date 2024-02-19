@@ -1,23 +1,25 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
 const useLandingPage = () => {
-	const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query LandingPage {
-      page: sanityPage(_id: {regex: "/(drafts.|)frontpage/"}) {
-        heading
-        subheading
-        content {
-          ... on SanityFigure {
-            _key
-            _type
-            ...imageData
-          }          
+      page: sanityIndexPage(_id: { regex: "/(drafts.|)indexPage/" }) {
+        page {
+          ...PageInfo
         }
       }
+      site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+        title
+      }
     }
-	`);
+  `);
 
-	return data.page;
+  const newObject = {
+    page: data.page.page,
+    site: data.site,
+  };
+
+  return newObject;
 };
 
 export default useLandingPage;

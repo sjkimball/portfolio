@@ -4,43 +4,48 @@ export default {
   type: 'document',
   initialValue: {
     featured: false,
-    coverImg: {
-      _type: 'figure',
+    cover: {
+      _type: 'mainImage',
       asset: {
         _type: 'reference',
-        _ref: 'image-316e2b9591cd93c7c36db93a570410bdd5ba7ad9-2400x1344-jpg'
+        _ref: 'image-316e2b9591cd93c7c36db93a570410bdd5ba7ad9-2400x1344-jpg',
       },
       altText: 'This is placeholder alt text',
-      caption: 'This is a placeholer caption'
-    }
+      caption: 'This is a placeholder caption.',
+    },
   },
   fields: [
     {
       name: 'featured',
       type: 'boolean',
-      title: 'Featured'
+      title: 'Featured',
     },
     {
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'subtitle',
       title: 'Subtitle',
-      type: 'text',
-      rows: 3
+      type: 'string',
+      description: 'Keep in short and sweet like an old skool tweet.',
+      validation: (Rule) =>
+        Rule.required()
+          .min(40)
+          .max(120)
+          .error('Subtitles need to be between 40 and 120 characters long.'),
     },
     {
-      name: 'coverImg',
+      name: 'cover',
       title: 'Cover Image',
-      type: 'figure'
+      type: 'mainImage',
     },
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent'
+      type: 'markdown',
     },
     {
       name: 'keywords',
@@ -48,12 +53,12 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'string'
-        }
+          type: 'string',
+        },
       ],
       options: {
-        layout: 'tags'
-      }
+        layout: 'tags',
+      },
     },
     {
       name: 'authors',
@@ -62,17 +67,15 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [
-            {type: 'person'}
-          ]
-        }
+          to: [{ type: 'person' }],
+        },
       ],
-      validation: Rule => Rule.min(1).error('Post must have at least one author.')
+      validation: (Rule) => Rule.min(1).unique(),
     },
     {
       name: 'publishedAt',
       title: 'Published at',
-      type: 'datetime'
+      type: 'datetime',
     },
     {
       name: 'slug',
@@ -80,36 +83,16 @@ export default {
       type: 'slug',
       options: {
         source: 'title',
-        maxLength: 96
+        maxLength: 96,
       },
-      validation: Rule => Rule.required()
-    }
+      validation: (Rule) => Rule.required(),
+    },
   ],
   preview: {
     select: {
       title: 'title',
-      author0: 'authors.0.name',
-      author1: 'authors.1.name',
-      author2: 'authors.2.name',
-      author3: 'authors.3.name',
-      media: 'coverImg.asset'
+      subtitle: 'subtitle',
+      media: 'cover.asset',
     },
-    prepare ({
-      title,
-      author0,
-      author1,
-      author2,
-      author3,
-      media
-    }) {
-      const authors = [author0, author1, author2].filter(Boolean)
-      const subtitle = authors.length > 0 ? `by ${authors.join(', ')}` : ''
-      const hasMoreAuthors = Boolean(author3)
-      return {
-        title: title,
-        subtitle: hasMoreAuthors ? `${subtitle}…` : subtitle,
-        media: media
-      }
-    }
-  }
-}
+  },
+};

@@ -2,47 +2,70 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
+import Layout from '../containers/layout';
 import Post from '../components/post';
+import GraphQLErrorList from '../components/graphql-error-list';
 
-const PostTemplate = ({ data }) => {
-	const post = data.post;
-
-	return (
-		<Layout>
-			<Post post={post} />
-		</Layout>
-	);
-};
+import '../styles/_variables.css';
+import '../styles/global.css';
+import '../styles/layout.css';
 
 export const query = graphql`
-	query ($slug: String!) {
-	  post: sanityPost(slug: {current: {eq: $slug}}) {
-			slug {
-				current
-			}
-			authors {				
-				name
-				jobTitle {
-					name
-				}
-				profileImg {
-					...imageData
-				}
-				slug {
-					current
-				}
-			}
-			title
-			subtitle
-			publishedAt
-			keywords
-	    coverImg {
-				...imageData
-	    }
-			_rawBody(resolveReferences: {maxDepth: 10})
-		}
+  query ($id: String!, $parentRouteID: String!) {
+    post: sanityPost(id: { eq: $id }) {
+      slug {
+        current
+      }
+      authors {
+        name
+        jobTitle {
+          name
+        }
+        profileImg {
+          ...imageData
+        }
+        slug {
+          current
+        }
+      }
+      title
+      subtitle
+      publishedAt
+      keywords
+      cover {
+        ...imageData
+      }
+      body
+    }
+    parentRoute: sanityRoute(id: { eq: $parentRouteID }) {
+      page {
+        navMenu {
+          ...NavMenu
+        }
+      }
+    }
   }
 `;
+
+const PostTemplate = (props) => {
+  const { data, errors } = props;
+
+  if (errors) {
+    return (
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
+    );
+  }
+
+  const post = data.post;
+  const page = data.parentRoute.page;
+  const menuItems = page.navMenu && (page.navMenu.items || []);
+  return (
+    <Layout navMenuItems={menuItems}>
+      <Post post={post} />
+    </Layout>
+  );
+};
 
 export default PostTemplate;

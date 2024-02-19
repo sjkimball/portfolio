@@ -1,112 +1,104 @@
-import React from 'react'
+import React from 'react';
+import Markdown from 'react-markdown';
 
-import {Link} from 'gatsby'
+import CoverImage from './coverImage';
+import PreviewImage from './previewImage';
 
-import BlockContent from '@sanity/block-content-to-react'
+import './project.css';
 
-import PreviewImage from '../components/preview-image'
-
-import './contentLayout.css'
-
-const serializer = {
-  container: 'section',
-  types: {
-    figure: props => {
-      return (
-        <PreviewImage imageAsset={props.node} showCaption />
-      )
-    }
+function acronymPrep(discipline) {
+  function capitalizeAcronym(match, string) {
+    return match.toUpperCase();
   }
+  return discipline.replace(/\b(?:Ux|Ui)/g, capitalizeAcronym);
 }
 
-const Project = ({project}) => {
+function convertCamelToTitle(camelString) {
+  const str = camelString.replace(/([a-z])([A-Z])/g, '$1 $2');
+  const titleStr = str.charAt(0).toUpperCase() + str.slice(1);
+  return acronymPrep(titleStr);
+}
+
+const Project = ({ project }) => {
   const {
     client,
     sector,
-    projectSummary,
-    _rawProjectDesc,
-    coverImg,
-    productImgs,
+    subtitle,
+    description,
+    cover,
+    productImages,
     office,
     disciplines,
-    projectMembers
-  } = project
-  
+    members,
+  } = project;
+
   return (
-    <article className={`rec-article rec-project`}>
-      <header className={`rec-article__header rec-project__header`}>
-        <h2>
-          {client.name}
-        </h2>
-        <section className={`rec-project__disciplines`}>
+    <article className="sk-project">
+      <header className="sk-project__header">
+        <h2>{client.name}</h2>
+        <h3>{subtitle}</h3>
+        <div className="sk-project__disciplines">
           <h6 hidden>Disciplines</h6>
-          <ul className={`rec-tags rec-project__tags`}>
-            {disciplines.map((discipline, index) =>
-              (index == disciplines.length - 1)
-              ?
-              <li key={index} value={discipline}>{discipline}</li>
-              :
-              <li key={index} value={discipline}>{`${discipline}, `}</li>
-            )}
+          <ul className="sk-project__tags">
+            {disciplines.map((discipline, index) => (
+              <li key={index} value={discipline}>
+                {convertCamelToTitle(discipline)}
+              </li>
+            ))}
           </ul>
-        </section>
-        <h3>
-          {projectSummary}
-        </h3>
-        <PreviewImage imageAsset={coverImg} imageType={`cover`}/>
+        </div>
+        <CoverImage imageAsset={cover} />
       </header>
-      <section className={'rec-article__body rec-project__body'}>
-        <BlockContent  className={`rec-project__description`} blocks={_rawProjectDesc} serializers={serializer} />
-        <section className={`rec-project__gallery`}>
-          {productImgs.map((image) => {
-            return (
-              <PreviewImage
-                key={image.asset._id}
-                imageAsset={image}
-              />
-            )
-          })}
-        </section>
-        <section className={`rec-project__metadata`}>
-          <section>
-            <h6>Client</h6>
-            <ul>
-              <li>{client.name}</li>
-            </ul>
-          </section>
-          <section>
-            <h6>Sector</h6>
-            <p>{sector}</p>
-          </section>
-          <section>
-            <h6>Disciplines</h6>
-            <ul>
-              {disciplines.map((discipline, index) =>
-                <li key={index} value={discipline}>{discipline}</li>
-              )}
-            </ul>
-          </section>
-          <section>
-            <h6>Office</h6>
-            <ul>
-              <li key={office._id} value={office.contactInfo.address.city}>{office.contactInfo.address.city}</li>
-            </ul>
-          </section>
-          <section>
-            <h6>Partner</h6>
-            <ul>
-              {projectMembers.map((member) =>
-                <li key={member._key} value={member.person.name}>{member.person.name}</li>
-              )}
-            </ul>
-          </section>
+      <section className="sk-project__body">
+        <section className="sk-project__description markdown">
+          <Markdown>{description}</Markdown>
         </section>
       </section>
-      <footer className={`rec-article__footer rec-project__footer`}>
-        {/* <Link to='/work'>&larr; Work</Link> */}
-      </footer>
+      <section className="sk-project__metadata">
+        <section>
+          <h6>Client</h6>
+          <p>{client.name}</p>
+        </section>
+        <section>
+          <h6>Sector</h6>
+          <p>{convertCamelToTitle(sector)}</p>
+        </section>
+        <section className="sk-project__disciplines">
+          <h6>Disciplines</h6>
+          <ul>
+            {disciplines.map((discipline, index) => (
+              <li key={index} value={discipline}>
+                {convertCamelToTitle(discipline)}
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section>
+          <h6>Office</h6>
+          <ul>
+            <li key={office._id} value={office.contactInfo.address.city}>
+              {office.contactInfo.address.city}
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h6>Team</h6>
+          <ul>
+            {members.map((member) => (
+              <li key={member._key} value={member.name}>
+                {member.name}
+              </li>
+            ))}
+          </ul>
+        </section>
+      </section>
+      <aside className="sk-project__gallery">
+        {productImages.map((image) => {
+          return <PreviewImage key={image.asset._id} imageAsset={image} />;
+        })}
+      </aside>
     </article>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;

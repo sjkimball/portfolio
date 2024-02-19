@@ -3,61 +3,25 @@ export default {
   title: 'Person',
   type: 'document',
   initialValue: {
-    featured: false
+    featured: false,
   },
-  fields: [
+  groups: [
     {
-      name: 'featured',
-      type: 'boolean',
-      title: 'Featured'
+      name: 'admin',
+      title: 'Admin',
     },
+    {
+      name: 'personalInfo',
+      title: 'Personal Info',
+    },
+  ],
+  fields: [
     {
       name: 'name',
       title: 'Name',
       type: 'string',
-      validation: Rule => Rule.required()
-    },
-    {
-      name: 'profileImg',
-      title: 'Profile Image',
-      type: 'figure'
-    },
-    {
-      name: 'jobTitle',
-      title: 'Job Title',
-      type: 'reference',
-      to: {
-        type: 'jobTitle'
-      }
-    },
-    {
-      name: 'office',
-      title: 'Office',
-      type: 'reference',
-      to: [
-        {
-          type: 'office'
-        }
-      ]
-    },
-    {
-      name: 'bio',
-      title: 'Bio',
-      type: 'blockContent',
-      validation: Rule => Rule.required().error('Bio is a required field')
-    },
-    {
-      name: 'contactInfo',
-      title: 'Contact Info',
-      type: 'contact'
-    },
-    {
-      name: 'socialAccounts',
-      title: 'Social Accounts',
-      type: 'array',
-      of: [
-        {type: 'socialAccount'}
-      ]
+      validation: (Rule) => Rule.required(),
+      group: 'personalInfo',
     },
     {
       name: 'slug',
@@ -66,16 +30,67 @@ export default {
       type: 'slug',
       options: {
         source: 'name',
-        maxLength: 96
+        maxLength: 96,
       },
-      validation: Rule => Rule.required().error('Looks like you may have forgotten to generate a slug.:(')
-    }
+      validation: (Rule) =>
+        Rule.required().error(
+          'Looks like you may have forgotten to generate a slug.:(',
+        ),
+      group: 'admin',
+    },
+    {
+      name: 'profileImg',
+      title: 'Profile Image',
+      type: 'mainImage',
+      group: 'personalInfo',
+    },
+    {
+      name: 'biography',
+      title: 'Bio',
+      type: 'markdown',
+      group: 'personalInfo',
+    },
+    {
+      name: 'socialMediaAccounts',
+      title: 'Social Media Accounts',
+      type: 'socialMediaAccounts',
+      group: 'personalInfo',
+    },
+    {
+      name: 'contactInfo',
+      title: 'Contact Info',
+      type: 'contact',
+      group: 'personalInfo',
+    },
+    {
+      name: 'office',
+      title: 'Office',
+      type: 'reference',
+      to: [
+        {
+          type: 'office',
+        },
+      ],
+      group: 'admin',
+    },
+    {
+      name: 'jobTitle',
+      title: 'Job Title',
+      type: 'reference',
+      to: [
+        {
+          type: 'jobTitle',
+        },
+      ],
+      validation: (Rule) => Rule.required(),
+      group: 'admin',
+    },
   ],
   preview: {
     select: {
       title: 'name',
       subtitle: 'jobTitle.name',
-      media: 'profileImg.asset'
-    }
-  }
-}
+      media: 'profileImg.asset',
+    },
+  },
+};

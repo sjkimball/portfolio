@@ -1,98 +1,113 @@
-import React from 'react'
+import React, { Fragment } from 'react';
+import { Link } from 'gatsby';
+import { format, parseISO } from 'date-fns';
+import Markdown from 'react-markdown';
 
-import {Link} from 'gatsby'
+import CoverImage from './coverImage';
+import AvatarImage from './avatarImage';
 
-import BlockContent from '@sanity/block-content-to-react'
+import './post.css';
 
-import PreviewImage from '../components/preview-image'
-
-import { format, parseISO } from 'date-fns'
-
-import './contentLayout.css'
-
-const serializers = {
-  container: 'section',
-  types: {
-    figure: props => (
-      <PreviewImage imageAsset={props.node} showCaption />
-    )
-  }
-}
-function getAvatar(author, prefix, index) {
-  return (
-    <a key={index} href={`${prefix}${author.slug.current}`}><PreviewImage key={index} imageAsset={author.profileImg} imageType={`avatar`}/></a>
-  )
-}
-function getName(author, prefix, index) {
-  return (
-    <a key={index} href={`${prefix}${author.slug.current}`}><span>{author.name}</span></a>
-  )
+function createAvatarLinks(authorArray) {
+  return authorArray.map((author, i) => (
+    <Link key={i} to={`/about/${author.slug.current}`} className="authorAvatar">
+      <AvatarImage imageAsset={author.profileImg} />
+    </Link>
+  ));
 }
 
-function showAuthors(authorArray, prefix) {
+function prepNameLinks(authorArray) {
   if (authorArray.length == 1) {
     return (
-      <>
-      {getAvatar(authorArray[0], prefix)}
-      <p>By {getName(authorArray[0], prefix)}</p>
-      </>
-    )
-  } else {
+      <p>
+        By&nbsp;
+        <Link
+          to={`/about/${authorArray[0].slug.current}`}
+          className="authorName"
+        >
+          {authorArray[0].name}
+        </Link>
+      </p>
+    );
+  } else if (authorArray.length == 2) {
+    const secondAuthor = authorArray.slice(1);
+    const firstAuthor = authorArray.slice(0, 1);
     return (
-      <>
-        <div>{authorArray.map((author)=> {
-          return getAvatar(author, prefix)
-        })}</div>
-        <p>By&nbsp;
-          {authorArray.map((author, i) => [
-            (i > 0 && i !== authorArray.length - 1) && ", ",
-            (i > 0 && ", ") && (i == authorArray.length -1 && " and "),
-            getName(author, prefix)
-            ])}
-        </p>
-      </>
-    )
+      <p>
+        By&nbsp;
+        <Link
+          to={`/about/${firstAuthor[0].slug.current}`}
+          className="authorName"
+        >
+          {firstAuthor[0].name}
+        </Link>
+        <span> and </span>
+        <Link
+          to={`/about/${secondAuthor[0].slug.current}`}
+          className="authorName"
+        >
+          {secondAuthor[0].name}
+        </Link>
+      </p>
+    );
+  } else if (authorArray.length > 2) {
+    const lastAuthor = authorArray.slice(authorArray.length - 1);
+    const otherAuthors = authorArray.slice(0, authorArray.length - 1);
+    return (
+      <p>
+        By&nbsp;
+        {otherAuthors.map((author, i) => {
+          return (
+            <Fragment key={i}>
+              <Link to={`/about/${author.slug.current}`} className="authorName">
+                {author.name}
+              </Link>
+              <span>, </span>
+            </Fragment>
+          );
+        })}
+        <span>and </span>
+        <Link
+          to={`/about/${lastAuthor[0].slug.current}`}
+          className="authorName"
+        >
+          {lastAuthor[0].name}
+        </Link>
+      </p>
+    );
   }
 }
 
-const Post = ({post}) => {
-  const prefix = '/about/'
-  const {
-    authors,
-    _rawBody,
-    coverImg,
-    keywords,
-    publishedAt,
-    title,
-    subtitle
-  } = post
-  const formattedDate = format(parseISO(publishedAt), 'MMMM d, yyyy')
-  const preppedAuthors = showAuthors(authors, prefix)
+function createAuthors(authorArray) {
+  const avatarLinks = createAvatarLinks(authorArray);
+  const nameLinks = prepNameLinks(authorArray);
   return (
-    <article className={`rec-article rec-post`}>
-      <header className={`rec-article__header rec-post__header`}>
-        <h2>
-          {title}
-        </h2>
-        <time dateTime={publishedAt}>{formattedDate}</time>
-        <h3>{subtitle}</h3>
-        <div className={`rec-article__authors`}>
-          {preppedAuthors}
-        </div>
-        <PreviewImage imageAsset={coverImg} imageType={`cover`}/>
-      </header>
-      <section className={`rec-article__body rec-post__body`}>
-        <BlockContent
-          className={`rec-post__description`}
-          blocks={_rawBody}
-          serializers={serializers}
-        />
-      </section>
-      <footer id={`rec-post__footer`} className={`rec-article__footer`}>
-        <Link to='/blog'>&larr; back to all posts</Link>
-      </footer>
-    </article>
-  )
+    <>
+      <div className="authorAvatars">{avatarLinks}</div>
+      {nameLinks}
+    </>
+  );
 }
 
-export default Post
+const Post = ({ post }) => {
+  const { authors, body, cover, keywords, publishedAt, title, subtitle } = post;
+  const formattedDate = format(parseISO(publishedAt), 'MMMM d, yyyy');
+  const authorSection = createAuthors(authors);
+  return (
+    <article className="sk-post">
+      <header className="sk-post__header">
+        <h2>{title}</h2>
+        <h3>{subtitle}</h3>
+        <time dateTime={publishedAt}>{formattedDate}</time>
+        <section className="sk-post__authors">{authorSection}</section>
+        <CoverImage imageAsset={cover} />
+      </header>
+      <section className="sk-post__body markdown">
+        <Markdown>{body}</Markdown>
+      </section>
+      {/* <footer className="sk-post__footer"></footer> */}
+    </article>
+  );
+};
+
+export default Post;

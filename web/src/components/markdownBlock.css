@@ -1,0 +1,10 @@
+@media screen and (min-width: 600px) {
+  .markdown-block {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-auto-flow: row;
+  }
+  .markdown-block > * {
+    grid-column: 1/2;
+  }
+}

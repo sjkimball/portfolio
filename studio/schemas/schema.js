@@ -1,69 +1,66 @@
-// First, we must import the schema creator
-import createSchema from 'part:@sanity/base/schema-creator'
-
-// Then import schema types from any plugins that might expose them
-import schemaTypes from 'all:part:@sanity/base/schema-type'
-
-// We import object and document schemas
 // Objects
-import address from './objects/address'
-import blockContent from './objects/blockContent'
-import contact from './objects/contact'
-import figure from './objects/figure'
-import featuredPeople from './objects/featuredPeople'
-import featuredPosts from './objects/featuredPosts'
-import featuredProjects from './objects/featuredProjects'
-import hero from './objects/hero'
-import personDoc from './objects/personDoc'
-import projectMember from './objects/projectMember'
-import simplePortableText from './objects/simplePortableText'
-import socialAccount from './objects/socialAccount'
-// Documents
-import blogSettings from './documents/blogSettings'
-import client from './documents/client'
-import companyInfo from './documents/companyInfo'
-import jobTitle from './documents/jobTitle'
-import office from './documents/office'
-import page from './documents/page'
-import person from './documents/person'
-import post from './documents/post'
-import project from './documents/project'
-import siteSettings from './documents/siteSettings'
-import socialMediaService from './documents/socialMediaService'
+import address from './objects/address';
+import blockContent from './objects/blockContent';
+import cta from './objects/cta';
+import contact from './objects/contact';
+import designArea from './objects/designArea';
+import designDiscipline from './objects/designDiscipline';
+import hero from './objects/hero';
+import mainImage from './objects/mainImage';
+import officeGroup from './objects/officeGroup';
+import projectContent from './objects/projectContent';
+import projectGroup from './objects/projectGroup';
+import postGroup from './objects/postGroup';
+import peopleGroup from './objects/peopleGroup';
+import markdownBlock from './objects/markdownBlock';
+import messageImage from './objects/messageImage';
+import sector from './objects/sector';
+import socialMediaAccounts from './objects/socialMediaAccounts';
 
-// Then we give our schema to the builder and provide the result to Sanity
-export default createSchema({
-  // We name our schema
-  name: 'default',
-  // Then proceed to concatenate our document type
-  // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([
-    // The following are document types which will appear
-    // in the studio.
-    address,
-    blogSettings,
-    blockContent,
-    client,
-    companyInfo,
-    contact,
-    featuredPeople,
-    featuredPosts,
-    featuredProjects,
-    figure,
-    hero,
-    jobTitle,
-    office,
-    page,
-    person,
-    personDoc,
-    post,
-    project,
-    projectMember,
-    simplePortableText,
-    siteSettings,
-    socialAccount,
-    socialMediaService
-    // When added to this list, object types can be used as
-    // { type: 'typename' } in other document schemas
-  ])
-})
+// Documents
+import blogSettings from './documents/blogSettings';
+import client from './documents/client';
+import companyInfo from './documents/companyInfo';
+import indexPage from './documents/indexPage';
+import jobTitle from './documents/jobTitle';
+import navMenu from './documents/navMenu';
+import office from './documents/office';
+import page from './documents/page';
+import person from './documents/person';
+import post from './documents/post';
+import project from './documents/project';
+import route from './documents/route';
+import siteSettings from './documents/siteSettings';
+
+export default [
+  address,
+  blogSettings,
+  blockContent,
+  client,
+  companyInfo,
+  contact,
+  cta,
+  designArea,
+  designDiscipline,
+  hero,
+  indexPage,
+  jobTitle,
+  mainImage,
+  markdownBlock,
+  messageImage,
+  navMenu,
+  office,
+  officeGroup,
+  page,
+  peopleGroup,
+  person,
+  post,
+  postGroup,
+  project,
+  projectContent,
+  projectGroup,
+  route,
+  sector,
+  siteSettings,
+  socialMediaAccounts,
+];

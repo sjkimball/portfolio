@@ -2,53 +2,72 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
+import Layout from '../containers/layout';
 import Project from '../components/project';
+import GraphQLErrorList from '../components/graphql-error-list';
 
-const ProjectTemplate = ({ data }) => {
-	const project = data.sanityProject;
-
-	return (
-		<Layout>
-			<Project
-				project={project}
-			/>
-		</Layout>
-	);
-};
+import '../styles/_variables.css';
+import '../styles/global.css';
+import '../styles/layout.css';
 
 export const query = graphql`
-	query ($slug: String!) {
-		sanityProject(slug: {current: {eq: $slug}}) {
-		  title
-		  sector
-		  projectSummary
-		  _rawProjectDesc(resolveReferences: {maxDepth: 10})
-		  coverImg {
-				...imageData
-		  }
-		  productImgs {
-				...imageData
-		  }
-		  client {
-		    name
-		  }
-		  office {
-		  	contactInfo {
-			    address {
-			    	city
-			    }
-		  	}
-		  }
-		  disciplines
-		  projectMembers {
-		  	person {
-					name
-				}
-		  	_key
-		  }
-		}
-	}
+  query ($id: String!, $parentRouteID: String!) {
+    project: sanityProject(id: { eq: $id }) {
+      title
+      sector
+      subtitle
+      description
+      cover {
+        ...imageData
+      }
+      productImages {
+        ...imageData
+      }
+      client {
+        name
+      }
+      office {
+        contactInfo {
+          address {
+            city
+          }
+        }
+      }
+      disciplines
+      members {
+        name
+        _key
+      }
+    }
+    parentRoute: sanityRoute(id: { eq: $parentRouteID }) {
+      page {
+        navMenu {
+          ...NavMenu
+        }
+      }
+    }
+  }
 `;
+
+const ProjectTemplate = (props) => {
+  const { data, errors } = props;
+
+  if (errors) {
+    return (
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
+    );
+  }
+
+  const project = data.project;
+  const page = data.parentRoute.page;
+  const menuItems = page.navMenu && (page.navMenu.items || []);
+  return (
+    <Layout navMenuItems={menuItems}>
+      <Project project={project} />
+    </Layout>
+  );
+};
 
 export default ProjectTemplate;

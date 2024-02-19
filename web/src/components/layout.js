@@ -1,37 +1,64 @@
-import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
-import useCompanyInfo from '../hooks/use-company-info'
+import useCompanyInfo from '../hooks/use-company-info';
 
-import Header from './header'
-import Footer from './footer'
+import Header from './header';
+import Footer from './footer';
+import PageHeader from './pageHeader';
 
-import './layout.css'
+const Layout = (props) => {
+  const {
+    children,
+    navMenuItems,
+    isIndex,
+    pageTitle,
+    pageSubtitle,
+    pageDescription,
+  } = props;
 
-const Layout = ({children}) => {
-  const { companyInfo, featuredStaff } = useCompanyInfo()
-  const [darkMode, setDarkMode] = useState(false)
+  const { companyInfo } = useCompanyInfo();
+
+  const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
-    const location = window.location.pathname
+    const location = window.location.pathname;
     if (location.includes('/about')) {
-      document.body.style.backgroundColor = 'var(--gray5)'
-      setDarkMode(true)
+      document.documentElement.setAttribute('data-theme', 'dark');
+      setDarkMode(true);
     } else {
-      document.body.style.backgroundColor = 'white'
-    }    
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
   });
 
+  const pageHeader =
+    pageTitle !== (null || undefined) ? (
+      <PageHeader
+        title={pageTitle}
+        subtitle={pageSubtitle}
+        description={pageDescription}
+      />
+    ) : (
+      ''
+    );
+
   return (
-    <React.Fragment>
-      <Header siteTitle={companyInfo.companyName} darkMode={darkMode} featuredStaff={featuredStaff} />
-      <main id={`mainContainer`} className={`mainContainer`}>{children}</main>
-      <Footer darkMode={darkMode} companyInfo={companyInfo}/>
-    </React.Fragment>
-  )
-}
+    <>
+      <Header navMenuItems={navMenuItems} />
+      {isIndex ? (
+        <main className="index__main">{children}</main>
+      ) : (
+        <main className="mainContainer">
+          {pageHeader}
+          {children}
+        </main>
+      )}
+      <Footer companyInfo={companyInfo} />
+    </>
+  );
+};
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
-}
+  children: PropTypes.node.isRequired,
+};
 
-export default Layout
+export default Layout;

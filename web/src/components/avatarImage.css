@@ -1,0 +1,30 @@
+.avatar {
+  height: 40px;
+  width: 40px;
+}
+.avatar .avatar__image {
+  max-width: 1920px;
+  margin-bottom: 0;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+}
+@media screen and (min-width: 600px) {
+  .avatar {
+    height: 44px;
+    width: 44px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .avatar {
+    height: 48px;
+    width: 48px;
+  }
+}
+@media screen and (min-width: 1040px) {
+  .avatar {
+    height: 52px;
+    width: 52px;
+  }
+}

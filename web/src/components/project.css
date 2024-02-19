@@ -1,0 +1,117 @@
+.sk-project {
+  display: grid;
+  grid-auto-flow: row;
+  gap: var(--sk-spacing-lg) 0;
+}
+/* Project Header */
+.sk-project__header {
+  display: grid;
+  gap: var(--sk-spacing-sm) 0;
+}
+.sk-project__header > * {
+  margin-bottom: 0;
+}
+.sk-project__header h2 {
+  font: var(--sk-display-sm);
+}
+.sk-project__header h3 {
+  font: var(--sk-headline-sm);
+}
+.sk-project__tags {
+  list-style-type: none;
+  margin-left: 0;
+  margin-bottom: 0;
+  display: flex;
+  gap: var(--sk-spacing-sm);
+}
+.sk-project__tags li {
+  font: var(--sk-body-sm);
+  padding-top: var(--sk-spacing-sm);
+  padding-right: var(--sk-spacing-sm);
+  padding-bottom: var(--sk-spacing-sm);
+  padding-left: var(--sk-spacing-sm);
+  background-color: var(--sk-sys-surface-container-low);
+  border-radius: 4px;
+  margin-bottom: 0;
+}
+.sk-project__header .cover {
+  justify-self: center;
+}
+/* Project Body */
+.sk-project__body {
+  display: grid;
+}
+/* Project Metadata */
+.sk-project__metadata {
+  display: grid;
+  gap: var(--sk-spacing-md) 0;
+}
+.sk-project__metadata h6 {
+  font: var(--sk-title-md);
+}
+.sk-project__metadata ul {
+  list-style-type: none;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+.sk-project__metadata li {
+  margin-bottom: 0;
+}
+/* Project Gallery */
+.sk-project__gallery {
+  grid-row: 3;
+}
+
+@media screen and (min-width: 600px) {
+  /* Project Body */
+  .sk-project__body {
+    grid-template-columns: 5fr 1fr;
+  }
+  .sk-project__description {
+    grid-column: 1/2;
+  }
+}
+@media screen and (min-width: 800px) {
+  .sk-project {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: unset;
+    gap: var(--sk-spacing-lg) var(--sk-spacing-lg);
+  }
+  /* Project Header */
+  .sk-project__header {
+    grid-column: 1/3;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sk-spacing-sm) var(--sk-spacing-lg);
+  }
+  .sk-project__header .cover {
+    grid-row: 3;
+    grid-column: 1/3;
+  }
+  /* Project Body */
+  .sk-project__body {
+    grid-column: 1/2;
+    grid-row: 2;
+    grid-template-columns: none;
+  }
+  /* Project Metadata */
+  .sk-project__metadata {
+    grid-column: 1/2;
+    grid-row: 3;
+  }
+  /* Project Gallery */
+  .sk-project__gallery {
+    grid-column: 2/3;
+    grid-row: 2/4;
+  }
+}
+@media screen and (min-width: 1040px) {
+  /* Project Metadata */
+  .sk-project__metadata {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: var(--sk-spacing-md) var(--sk-spacing-md);
+    grid-auto-flow: column;
+  }
+}

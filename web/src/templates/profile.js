@@ -2,57 +2,60 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
+import Layout from '../containers/layout';
 import Profile from '../components/profile';
+import GraphQLErrorList from '../components/graphql-error-list';
 
-const ProfileTemplate = ({ data }) => {
-	const profile = data.profile;
-	const relatedProjects = data.relatedProjects.edges
-
-	return (
-		<Layout>
-			<Profile profile={profile} relatedProjects={relatedProjects} />
-		</Layout>
-	);
-};
+import '../styles/_variables.css';
+import '../styles/global.css';
+import '../styles/layout.css';
 
 export const query = graphql`
-	query ($slug: String!) {
-	  profile: sanityPerson(slug: {current: {eq: $slug}}) {
-	    profileImg {
-				...imageData
-	    }
-	    name
-	    office {
-	    	contactInfo {
-	    		address {
-	    			city
-	    		}
-	    	}
-	    }
-	    _rawBio
-	    _id
-		}
-		relatedProjects: allSanityProject(filter: {projectMembers: {elemMatch: {person: {slug: {current: {eq: $slug}}}}}}) {
-			edges {
-				node {
-					id
-					client {
-						name
-						slug {
-							current
-						}
-					}
-					coverImg {
-						...imageData
-					}
-					slug {
-						current
-					}
-				}
-			}
-		}
+  query ($id: String!, $parentRouteID: String!) {
+    profile: sanityPerson(id: { eq: $id }) {
+      profileImg {
+        ...imageData
+      }
+      name
+      office {
+        contactInfo {
+          address {
+            city
+          }
+        }
+      }
+      biography
+      _id
+    }
+    parentRoute: sanityRoute(id: { eq: $parentRouteID }) {
+      page {
+        navMenu {
+          ...NavMenu
+        }
+      }
+    }
   }
 `;
+
+const ProfileTemplate = (props) => {
+  const { data, errors } = props;
+
+  if (errors) {
+    return (
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
+    );
+  }
+
+  const profile = data.profile;
+  const page = data.parentRoute.page;
+  const menuItems = page.navMenu && (page.navMenu.items || []);
+  return (
+    <Layout navMenuItems={menuItems}>
+      <Profile {...profile} />
+    </Layout>
+  );
+};
 
 export default ProfileTemplate;

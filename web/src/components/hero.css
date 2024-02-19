@@ -1,0 +1,30 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr min-content min-content 1fr;
+  overflow: hidden;
+}
+.hero img {
+  grid-column: 1/3;
+  grid-row: 1/5;
+  justify-self: center;
+  height: 100vh;
+  max-width: none;
+}
+.hero h2 {
+  font: var(--sk-display-lg);
+  grid-column: 2/3;
+  grid-row: 2;
+  order: 1;
+  align-self: center;
+  background-color: red;
+  padding-left: var(--sk-spacing-md);
+  padding-bottom: var(--sk-spacing-md);
+  padding-left: var(--sk-spacing-md);
+}
+.hero h5 {
+  font: var(--sk-display-md);
+  grid-column: 2/3;
+  grid-row: 3;
+  order: 1;
+}

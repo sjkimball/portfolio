@@ -1,0 +1,59 @@
+.sk-post {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 0px var(--sk-spacing-lg);
+}
+/* Header */
+.sk-post__header {
+  display: grid;
+  gap: var(--sk-spacing-sm) 0;
+}
+.sk-post__header h2 {
+  font: var(--sk-display-sm);
+}
+.sk-post__header h3 {
+  font: var(--sk-headline-sm);
+}
+.authorAvatars {
+  display: flex;
+  gap: 0 var(--sk-spacing-xs);
+}
+.sk-post__authors a {
+  color: inherit;
+  text-decoration: underline;
+}
+.sk-post__authors p {
+  align-self: center;
+}
+@media screen and (min-width: 600px) {
+  /* Body */
+  .sk-post__body {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+  }
+  .sk-post__body > * {
+    grid-column: 1/2;
+  }
+}
+@media screen and (min-width: 800px) {
+  .sk-post {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sk-spacing-lg) var(--sk-spacing-lg);
+  }
+  /* Header */
+  .sk-post__header {
+    grid-column: 1/2;
+    grid-row: 1;
+  }
+  /* Body */
+  .sk-post__body {
+    grid-column: 2/3;
+    grid-row: 1/3;
+    grid-template-columns: none;
+  }
+}
+@media screen and (min-width: 1040px) {
+  .sk-post {
+    gap: var(--sk-spacing-lg) var(--sk-spacing-xl);
+  }
+}

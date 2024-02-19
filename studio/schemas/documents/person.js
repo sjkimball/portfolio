@@ -1,6 +1,3 @@
-import { LinkedInUrl } from '../../components/LinkedInUrl';
-import { MyCustomStringInput } from '../../components/MyCustomStringInput';
-
 export default {
   name: 'person',
   title: 'Person',

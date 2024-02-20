@@ -16,6 +16,7 @@
     "test": "sanity check"
   },
   "dependencies": {
+    "@sanity/cli": "^3.30.0",
     "@sanity/client": "^6.11.1",
     "@sanity/color-input": "^3.1.0",
     "@sanity/components": "^2.14.0",

@@ -1,7 +1,7 @@
 #gatsby-focus-wrapper {
   display: grid;
   grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
-  grid-template-rows: 90px auto;
+  grid-template-rows: 90px 1fr 90px;
 }
 #mainHeader {
   position: sticky;
@@ -12,9 +12,9 @@
 }
 .mainContainer {
   grid-column: 2/3;
-  grid-row: 1/3;
-  min-height: calc(100vh - 140px);
-  padding-top: 90px;
+  grid-row: 2/3;
+  min-height: calc(100vh - 180px);
+  /* padding-top: 90px; */
   display: grid;
   grid-template-rows: min-content auto;
   gap: var(--sk-spacing-md) 0;
@@ -26,12 +26,13 @@
 }
 .index__main {
   grid-column: 1/4;
-  grid-row: 1/3;
+  grid-row: 1/4;
   display: grid;
   grid-template-columns: var(--sk-spacing-md) auto var(--sk-spacing-md);
   gap: var(--sk-spacing-md) 0;
   grid-auto-flow: row;
   min-height: 100vh;
+  background-color: var(--sk-neutral-100);
 }
 .index__main .hero {
   grid-column: 1/4;
@@ -47,6 +48,11 @@
   }
   .mainContainer {
     gap: var(--sk-spacing-lg) 0;
+  }
+  .index__main {
+    grid-row: 2/3;
+    min-height: unset;
+    height: calc(100vh - 180px);
   }
 }
 @media screen and (min-width: 1040px) {

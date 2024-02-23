@@ -83,7 +83,7 @@
   .sk-project__header {
     grid-column: 1/3;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--sk-spacing-sm) var(--sk-spacing-lg);
+    gap: var(--sk-spacing-md) var(--sk-spacing-lg);
   }
   .sk-project__header .cover {
     grid-row: 3;

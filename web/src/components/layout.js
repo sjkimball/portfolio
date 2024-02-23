@@ -43,7 +43,7 @@ const Layout = (props) => {
 
   return (
     <>
-      <Header navMenuItems={navMenuItems} />
+      <Header navMenuItems={navMenuItems} isIndex={isIndex} />
       {isIndex ? (
         <main className="index__main">{children}</main>
       ) : (
@@ -52,7 +52,7 @@ const Layout = (props) => {
           {children}
         </main>
       )}
-      <Footer companyInfo={companyInfo} />
+      <Footer companyInfo={companyInfo} isIndex={isIndex} />
     </>
   );
 };

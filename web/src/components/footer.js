@@ -83,13 +83,17 @@ function createLinks(object) {
 }
 
 const Footer = (props) => {
-  const { companyInfo } = props;
+  const { companyInfo, isIndex } = props;
   const companyName = companyInfo.companyName;
   const links = companyInfo.socialMediaAccounts;
   const preppedLinks = createLinks(links);
 
   return (
-    <footer id="mainFooter" className="footer">
+    <footer
+      id="mainFooter"
+      className={`footer`}
+      data-theme={`${isIndex ? 'dark' : 'light'}`}
+    >
       <ul className="footer__links">{preppedLinks}</ul>
       <small className="footer__copyright">© {companyName}</small>
     </footer>

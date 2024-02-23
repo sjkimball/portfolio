@@ -13,6 +13,9 @@
 .headerMask__text--light {
   fill: var(--sk-sys-on-background);
 }
+.headerMask__text--index {
+  fill: var(--sk-neutral-990);
+}
 .headerMask__text--dark {
   /* Dark mode 'on-background' color */
   fill: var(--sk-neutral-900);

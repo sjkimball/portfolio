@@ -2,17 +2,18 @@ import React from 'react';
 
 import './headerMask.css';
 
-const HeaderMask = ({ siteTitle }) => {
+const HeaderMask = (props) => {
+  const { siteTitle, isIndex } = props;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       id="headerMask"
-      className="headerMask"
+      className={`headerMask`}
     >
       <defs>
         <text
           id="defaultText"
-          className="headerMask__text headerMask__text--light"
+          className={`headerMask__text ${isIndex ? 'headerMask__text--index' : 'headerMask__text--light'}`}
         >
           {siteTitle}
         </text>

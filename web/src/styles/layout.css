@@ -42,6 +42,10 @@
   grid-row: 3;
 }
 
+.pageHeader--about {
+  display: none;
+}
+
 @media screen and (min-width: 600px) {
   #gatsby-focus-wrapper {
     grid-template-columns: var(--sk-spacing-lg) auto var(--sk-spacing-lg);

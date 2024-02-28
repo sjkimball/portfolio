@@ -6,10 +6,6 @@ import Layout from '../containers/layout';
 import Project from '../components/project';
 import GraphQLErrorList from '../components/graphql-error-list';
 
-import '../styles/_variables.css';
-import '../styles/global.css';
-import '../styles/layout.css';
-
 export const query = graphql`
   query ($id: String!, $parentRouteID: String!) {
     project: sanityProject(id: { eq: $id }) {

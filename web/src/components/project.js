@@ -1,8 +1,8 @@
 import React from 'react';
 import Markdown from 'react-markdown';
 
-import CoverImage from './coverImage';
 import PreviewImage from './previewImage';
+import CoverImage from './coverImage';
 
 import './project.css';
 

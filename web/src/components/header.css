@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
   background-color: var(--sk-sys-background);
+  color: var(--sk-sys-on-background-muted);
+}
+.header--index {
+  background-color: transparent;
 }
 .header__nav {
   grid-column: 2/3;
@@ -83,12 +87,16 @@
 
 @media screen and (min-width: 600px) {
   .header {
+    background-color: var(--sk-sys-background);
     grid-template-columns: var(--sk-spacing-lg) auto var(--sk-spacing-lg);
   }
   .header__nav {
     position: unset;
     width: unset;
     z-index: unset;
+  }
+  .nav__logo {
+    color: inherit;
   }
   .nav__logo h1 {
     color: var(--sk-sys-on-background);
@@ -99,6 +107,7 @@
     display: none;
   }
   .nav__links {
+    color: inherit;
     background-color: transparent;
     display: flex;
     flex-direction: row;
@@ -115,13 +124,15 @@
     margin-bottom: 0;
   }
   .links__link {
-    /* Dark mode 'on-background' color */
     color: inherit;
     letter-spacing: 0.5px;
     text-align: center;
     text-transform: uppercase;
     font-size: var(--sk-fs-3);
     opacity: unset;
+  }
+  .links__link-active {
+    color: var(--sk-sys-on-background);
   }
   #headerMask {
     display: none;
@@ -131,7 +142,6 @@
 @media screen and (min-width: 1040px) {
   .header {
     grid-template-columns: var(--sk-spacing-xl) auto var(--sk-spacing-xl);
-    height: 80px;
   }
   .nav__logo h1 {
     font-size: 56px;

@@ -39,10 +39,13 @@ class Header extends React.Component {
   };
 
   render() {
-    const { navMenuItems = [] } = this.props;
-    // const headerClass = darkMode ? 'mainHeader--dark' : 'mainHeader--light';
+    const { navMenuItems = [], isIndex } = this.props;
     return (
-      <header id="mainHeader" className="header">
+      <header
+        id="mainHeader"
+        className={`header ${isIndex ? 'header--index' : ''}`}
+        data-theme={`${isIndex ? 'dark' : 'light'}`}
+      >
         <nav className="header__nav" role="navigation">
           <Link to="/" className="nav__logo">
             <h1>SK</h1>
@@ -63,7 +66,6 @@ class Header extends React.Component {
               ))}
             </ul>
           )}
-
           <button className="nav__button" onClick={this.showMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -99,11 +101,16 @@ class Header extends React.Component {
             </svg>
           </button>
         </nav>
-        <HeaderMask siteTitle="SK" showNav={this.state.menuVisible} />
+        <HeaderMask
+          siteTitle="SK"
+          showNav={this.state.menuVisible}
+          isIndex={isIndex}
+        />
       </header>
     );
   }
 }
+
 Header.propTypes = {
   siteTitle: PropTypes.string,
 };

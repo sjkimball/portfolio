@@ -126,6 +126,7 @@
   --sk-sys-outline: var(--sk-neutral-variant-500);
   --sk-sys-background: var(--sk-neutral-990);
   --sk-sys-on-background: var(--sk-neutral-100);
+  --sk-sys-on-background-muted: var(--sk-neutral-800);
   --sk-sys-surface: var(--sk-neutral-980);
   --sk-sys-on-surface: var(--sk-neutral-100);
   --sk-sys-surface-variant: var(--sk-neutral-variant-900);
@@ -188,6 +189,8 @@
   --sk-fs-8: calc(var(--sk-fs-7) * var(--sk-fs-scale));
   --sk-fs-9: calc(var(--sk-fs-8) * var(--sk-fs-scale));
   --sk-fs-10: calc(var(--sk-fs-9) * var(--sk-fs-scale));
+  --sk-fs-11: calc(var(--sk-fs-10) * var(--sk-fs-scale));
+  --sk-fs-12: calc(var(--sk-fs-11) * var(--sk-fs-scale));
 
   /* Font Styles */
 
@@ -297,6 +300,7 @@
   --sk-sys-outline: var(--sk-neutral-variant-600);
   --sk-sys-background: var(--sk-neutral-100);
   --sk-sys-on-background: var(--sk-neutral-900);
+  --sk-sys-on-background-muted: var(--sk-neutral-900);
   --sk-sys-surface: var(--sk-neutral-60);
   --sk-sys-on-surface: var(--sk-neutral-800);
   --sk-sys-surface-variant: var(--sk-neutral-variant-300);

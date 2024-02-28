@@ -18,3 +18,5 @@ studio/staging/
 web/src/style-dictionary-dist/
 
 portfolio.code-workspace
+
+studio/public/

@@ -42,6 +42,7 @@
 .sk-office__images .cover {
   display: none;
   margin-bottom: 0;
+  aspect-ratio: unset;
 }
 .sk-office__images .cover:nth-child(-n + 2) {
   display: block;

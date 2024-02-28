@@ -1,9 +1,10 @@
 .footer {
   display: grid;
   grid-template-columns: var(--sk-spacing-md) auto var(--sk-spacing-md);
-  align-items: end;
-  padding-top: var(--sk-spacing-xl);
-  padding-bottom: var(--sk-spacing-xl);
+  align-items: center;
+  background-color: transparent;
+  color: var(--sk-sys-on-background-muted);
+  fill: var(--sk-sys-on-background-muted);
 }
 .footer__links {
   grid-row: 1;
@@ -24,18 +25,20 @@
   width: 40px;
 }
 .socialLink__icon {
-  fill: #cbcbcb;
+  fill: inherit;
 }
 .footer__copyright {
   grid-row: 1;
   grid-column: 2;
   justify-self: start;
   font: var(--sk-body-md);
-  color: #bbbbbb;
+  font-weight: var(--sk-fw-medium);
+  color: inherit;
 }
 @media screen and (min-width: 600px) {
   .footer {
     grid-template-columns: var(--sk-spacing-lg) auto var(--sk-spacing-lg);
+    background-color: var(--sk-sys-background);
   }
 }
 @media screen and (min-width: 1040px) {

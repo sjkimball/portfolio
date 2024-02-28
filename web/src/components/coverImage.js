@@ -18,7 +18,7 @@ const coverSizes = `
 `;
 
 const CoverImage = (props) => {
-  const { imageAsset, showCaption, imageType } = props;
+  const { imageAsset, showCaption } = props;
 
   const renderedImage = (
     <img

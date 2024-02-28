@@ -14649,6 +14649,7 @@ __metadata:
     js-convert-case: "npm:^4.2.0"
     mitt: "npm:^3.0.1"
     prettier: "npm:^3.2.4"
+    prop-types: "npm:^15.8.1"
     query-string: "npm:^7.1.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"

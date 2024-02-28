@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import useCompanyInfo from '../hooks/use-company-info';
 
@@ -54,6 +55,10 @@ const Layout = (props) => {
       <Footer companyInfo={companyInfo} isIndex={isIndex} />
     </>
   );
+};
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

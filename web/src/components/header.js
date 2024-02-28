@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { gsap } from 'gsap';
 
@@ -109,5 +110,12 @@ class Header extends React.Component {
     );
   }
 }
+
+Header.propTypes = {
+  siteTitle: PropTypes.string,
+};
+Header.defaultProps = {
+  siteTitle: ``,
+};
 
 export default Header;

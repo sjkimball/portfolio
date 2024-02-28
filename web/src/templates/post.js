@@ -10,42 +10,42 @@ import '../styles/_variables.css';
 import '../styles/global.css';
 import '../styles/layout.css';
 
-export const query = graphql`
-  query ($id: String!, $parentRouteID: String!) {
-    post: sanityPost(id: { eq: $id }) {
-      slug {
-        current
-      }
-      authors {
-        name
-        jobTitle {
-          name
-        }
-        profileImg {
-          ...imageData
-        }
-        slug {
-          current
-        }
-      }
-      title
-      subtitle
-      publishedAt
-      keywords
-      cover {
-        ...imageData
-      }
-      body
-    }
-    parentRoute: sanityRoute(id: { eq: $parentRouteID }) {
-      page {
-        navMenu {
-          ...NavMenu
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query ($id: String!, $parentRouteID: String!) {
+//     post: sanityPost(id: { eq: $id }) {
+//       slug {
+//         current
+//       }
+//       authors {
+//         name
+//         jobTitle {
+//           name
+//         }
+//         profileImg {
+//           ...imageData
+//         }
+//         slug {
+//           current
+//         }
+//       }
+//       title
+//       subtitle
+//       publishedAt
+//       keywords
+//       cover {
+//         ...imageData
+//       }
+//       body
+//     }
+//     parentRoute: sanityRoute(id: { eq: $parentRouteID }) {
+//       page {
+//         navMenu {
+//           ...NavMenu
+//         }
+//       }
+//     }
+//   }
+// `;
 
 const PostTemplate = (props) => {
   const { data, errors } = props;

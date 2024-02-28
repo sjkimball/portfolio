@@ -9,6 +9,7 @@
     "empty-cache": "gatsby clean",
     "lint": "eslint .",
     "start": "npm run empty-cache && npm run develop",
+    "dev": "op run --env-file='./.env.development' -- yarn start",
     "format": "prettier-eslint --write \"**/*.js\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },

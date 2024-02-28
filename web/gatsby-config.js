@@ -4,7 +4,6 @@ require('dotenv').config({
 });
 
 const clientConfig = require('./client-config');
-const adapter = require('gatsby-adapter-netlify');
 const token = process.env.SANITY_READ_TOKEN;
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -15,10 +14,6 @@ module.exports = {
     description: `Portfolio highlighting design and development work of Sam Kimball`,
     author: `@sjkimball`,
   },
-  adapter: adapter({
-    excludeDatastoreFromEngineFunction: false,
-    imageCDN: false,
-  }),
   plugins: [
     {
       resolve: 'gatsby-source-sanity',

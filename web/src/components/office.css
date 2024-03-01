@@ -13,6 +13,7 @@
 .sk-office__info {
   grid-row: 3;
   display: grid;
+  position: relative;
   gap: var(--sk-spacing-sm) 0;
 }
 .sk-office__info address {

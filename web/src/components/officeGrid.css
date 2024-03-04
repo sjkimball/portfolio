@@ -1,3 +1,4 @@
 .office-group {
-  display: grid;
+  display: flex;
+  flex-direction: column;
 }

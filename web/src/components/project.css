@@ -62,13 +62,9 @@
 /* Project Gallery */
 .sk-project__gallery {
   grid-row: 3;
-  display: grid;
-  grid-auto-flow: row;
+  display: flex;
+  flex-direction: column;
   gap: var(--sk-spacing-md) 0;
-  grid-template-rows: min-content;
-}
-.sk-project__gallery .preview {
-  aspect-ratio: 16/9;
 }
 
 @media screen and (min-width: 600px) {

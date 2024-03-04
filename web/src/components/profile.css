@@ -13,7 +13,7 @@
 .sk-profile__headshot {
   grid-row: 2;
 }
-.sk-profile__headshot .cover {
+.sk-profile__headshot .cover__image {
   aspect-ratio: 1/1;
 }
 @media screen and (min-width: 600px) {

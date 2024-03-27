@@ -73,7 +73,7 @@ export default {
       title: 'Title',
       type: 'string',
       validation: (Rule) =>
-        Rule.required().min(10).max(100).error('Say more with less.'),
+        Rule.required().max(100).error('Say more with less.'),
       group: 'projectInfo',
     },
     {

@@ -1,5 +1,6 @@
 import React from 'react';
 import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 import PreviewImage from './previewImage';
 import CoverImage from './coverImage';
@@ -23,6 +24,7 @@ const Project = ({ project }) => {
   const {
     client,
     sector,
+    title,
     subtitle,
     description,
     cover,
@@ -35,7 +37,7 @@ const Project = ({ project }) => {
   return (
     <article className="sk-project">
       <header className="sk-project__header">
-        <h2>{client.name}</h2>
+        <h2>{title}</h2>
         <h3>{subtitle}</h3>
         <div className="sk-project__disciplines">
           <h6 hidden>Disciplines</h6>
@@ -51,7 +53,7 @@ const Project = ({ project }) => {
       </header>
       <section className="sk-project__body">
         <section className="sk-project__description markdown">
-          <Markdown>{description}</Markdown>
+          <Markdown rehypePlugins={[rehypeRaw]}>{description}</Markdown>
         </section>
       </section>
       <section className="sk-project__metadata">

@@ -604,3 +604,9 @@ pre tt:after {
 .markdown > *:last-child {
   margin-bottom: 0;
 }
+.markdown > iframe {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  aspect-ratio: 4/3;
+  /* margin-bottom: 0; */
+}

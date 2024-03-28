@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&family=Red+Hat+Text:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;600;700;900&family=Red+Hat+Text:wght@400;500;700&display=swap');
 
 :root {
   --sk-white: white;
@@ -167,10 +167,11 @@
   /* Font Weights */
   --sk-fw-regular: 400;
   --sk-fw-medium: 500;
+  --sk-fw-semibold: 600;
   --sk-fw-bold: 700;
   --sk-fw-black: 900;
   --sk-fw-display: var(--sk-fw-bold);
-  --sk-fw-headline: var(--sk-fw-medium);
+  --sk-fw-headline: var(--sk-fw-semibold);
   --sk-fw-title: var(--sk-fw-medium);
   --sk-fw-label: var(--sk-fw-medium);
   --sk-fw-body: var(--sk-fw-regular);

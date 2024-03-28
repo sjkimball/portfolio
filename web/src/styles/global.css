@@ -597,9 +597,22 @@ pre tt:before,
 pre tt:after {
   content: '';
 }
+.markdown h4 {
+  font: var(--sk-headline-xs);
+}
 .markdown p {
   font: var(--sk-body-lg);
   margin-bottom: 20px;
+}
+.md-artifact {
+  color: inherit;
+  font: var(--sk-label-lg);
+  text-decoration: underline;
+  text-decoration-color: var(--sk-sys-primary);
+}
+.md-artifact:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--sk-sys-primary);
 }
 .markdown > *:last-child {
   margin-bottom: 0;

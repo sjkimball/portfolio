@@ -1,3 +1,4 @@
+/* Project Grids */
 .projectGrid {
   display: grid;
   grid-auto-flow: row;
@@ -28,5 +29,27 @@
 @media screen and (min-width: 1040px) {
   .projectSection__container {
     gap: var(--sk-spacing-lg) var(--sk-spacing-lg);
+  }
+}
+/* People Grids */
+.peopleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--sk-spacing-lg) var(--sk-spacing-md);
+}
+@media screen and (min-width: 1040px) {
+  .peopleGrid {
+    gap: var(--sk-spacing-lg) var(--sk-spacing-lg);
+  }
+}
+/* Post Grids */
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--sk-spacing-lg) 0;
+}
+@media screen and (min-width: 600px) {
+  .postGrid {
+    gap: var(--sk-spacing-lg) var(--sk-spacing-md);
   }
 }

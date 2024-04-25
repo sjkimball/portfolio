@@ -2,9 +2,9 @@ import React from 'react';
 
 import { imageUrlFor } from '../lib/image-url';
 
-import './coverImage.css';
+import './PrimaryImage.css';
 
-const coverSrcSet = (imageAsset) => `
+const imageSrcSet = (imageAsset) => `
 ${imageUrlFor(imageAsset).width(320)} 320w,
 ${imageUrlFor(imageAsset).width(600)} 600w,
 ${imageUrlFor(imageAsset).width(1040)} 1040w,
@@ -12,35 +12,36 @@ ${imageUrlFor(imageAsset).width(1200)} 1200w,
 ${imageUrlFor(imageAsset).width(1920)} 1920w,
 `;
 
+const previewSizes = `
+  (max-width: 600px) 100vw,
+  (max-width: 1040px) 50vw,
+  33vw
+`;
+
 const coverSizes = `
   (min-width: 1600px) 1600w,
   100vw
 `;
 
-const CoverImage = (props) => {
-  const { imageAsset, showCaption } = props;
+const PrimaryImage = (props) => {
+  const { imageAsset, showCaption, imageUse } = props;
+  const imageSizes = imageUse == 'cover' ? coverSizes : previewSizes;
+  const imageClass = imageUse == 'cover' ? 'cover' : 'preview';
 
-  const renderedImage = (
+  return (
     <img
       style={{
         backgroundImage: `url(${imageAsset.asset.metadata.lqip})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}
-      srcSet={coverSrcSet(imageAsset)}
-      sizes={coverSizes}
+      srcSet={imageSrcSet(imageAsset)}
+      sizes={imageSizes}
       src={imageUrlFor(imageAsset).auto('format')}
       alt={imageAsset.altText}
-      className="cover__image"
+      className={imageClass}
     />
-  );
-
-  return (
-    <figure className={'cover'}>
-      {renderedImage}
-      {showCaption ? <figcaption>{imageAsset.caption}</figcaption> : ''}
-    </figure>
   );
 };
 
-export default CoverImage;
+export default PrimaryImage;

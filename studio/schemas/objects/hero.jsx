@@ -6,14 +6,20 @@ export default {
   type: 'object',
   fields: [
     {
-      name: 'heading',
-      title: 'Heading',
+      name: 'headline',
+      title: 'Headline',
       type: 'string',
     },
     {
       name: 'tagline',
       title: 'Tagline',
-      type: 'string',
+      type: 'text',
+    },
+    {
+      name: 'cta',
+      title: 'Call to Action',
+      description: 'This is a description.',
+      type: 'cta',
     },
     {
       name: 'media',
@@ -31,7 +37,7 @@ export default {
   },
   preview: {
     select: {
-      title: 'heading',
+      title: 'headline',
       media: 'media',
     },
   },

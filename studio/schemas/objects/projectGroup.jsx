@@ -9,6 +9,17 @@ export default {
   },
   fields: [
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'subtitle',
+      title: 'Subtitle',
+      description: 'Describes group of projects',
+      type: 'string',
+    },
+    {
       name: 'projects',
       title: 'Projects',
       type: 'array',
@@ -34,14 +45,14 @@ export default {
   ],
   preview: {
     select: {
+      title: 'title',
+      subtitle: 'subtitle',
       disabled: 'disabled',
-      projects: 'projects',
     },
-    prepare: ({ disabled, projects }) => {
-      const numberOfProjects = projects.length;
-      const subtitle = `${numberOfProjects} projects`;
+    prepare: (selection) => {
+      const { title, subtitle, disabled } = selection;
       return {
-        title: `Project Group`,
+        title: title,
         subtitle: subtitle,
         media: (
           <span style={{ fontSize: '1.5rem' }}>

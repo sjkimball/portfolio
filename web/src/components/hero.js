@@ -10,11 +10,12 @@ ${imageUrlFor(imageAsset).width(1920)} 1920w,
 `;
 
 const Hero = (props) => {
-  const { heading, tagline, media } = props;
+  console.log(props);
+  const { headline, tagline, media } = props;
 
   return (
     <section className={`hero`}>
-      <h2>{heading}</h2>
+      <h2>{headline}</h2>
       <h5>{tagline}</h5>
       <img
         style={{

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 
-import PreviewImage from './previewImage';
+import PrimaryImage from './PrimaryImage';
 
 import './profilePreview.css';
 
@@ -14,7 +14,7 @@ const ProfilePreview = (props) => {
     <Link to={`/about/${profileSlug}`} className="profilePreview">
       <h4>{name}</h4>
       <h5>{officeName}</h5>
-      <PreviewImage imageAsset={profileImg} imageType="square" />
+      <PrimaryImage imageAsset={profileImg} imageType="square" />
     </Link>
   );
 };

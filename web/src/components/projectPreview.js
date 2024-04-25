@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 
-import PreviewImage from './previewImage';
+import PrimaryImage from './PrimaryImage';
 
 import './projectPreview.css';
 
@@ -15,7 +15,7 @@ const ProjectPreview = (props) => {
       className="projectPreview"
     >
       <h4>{title}</h4>
-      <PreviewImage imageAsset={cover} imageType="preview" />
+      <PrimaryImage imageAsset={cover} />
     </Link>
   );
 };

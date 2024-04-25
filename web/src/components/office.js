@@ -2,7 +2,7 @@ import React from 'react';
 
 // import { format, utcToZonedTime } from 'date-fns-tz'
 
-import CoverImage from './coverImage';
+import PrimaryImage from './PrimaryImage';
 
 import './office.css';
 
@@ -35,7 +35,13 @@ const Office = (props) => {
       </section>
       <section className="sk-office__images">
         {images.map((image) => {
-          return <CoverImage key={image.asset._id} imageAsset={image} />;
+          return (
+            <PrimaryImage
+              key={image.asset._id}
+              imageAsset={image}
+              imageUse={`cover`}
+            />
+          );
         })}
       </section>
     </section>

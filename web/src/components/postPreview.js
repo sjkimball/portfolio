@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 
-import PreviewImage from './previewImage';
+import PrimaryImage from './PrimaryImage';
 
 import { format, zonedTimeToUtc } from 'date-fns-tz';
 
@@ -17,7 +17,7 @@ const PostPreview = (props) => {
       <h4>{title}</h4>
       <time dateTime={formattedDate}>{formattedDate}</time>
       <p>{subtitle}</p>
-      {<PreviewImage imageAsset={cover} imageType="square" />}
+      {<PrimaryImage imageAsset={cover} imageType="square" />}
     </Link>
   );
 };

@@ -2,8 +2,7 @@ import React from 'react';
 import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 
-import PreviewImage from './previewImage';
-import CoverImage from './coverImage';
+import PrimaryImage from './PrimaryImage';
 
 import './project.css';
 
@@ -49,7 +48,7 @@ const Project = ({ project }) => {
             ))}
           </ul>
         </div>
-        <CoverImage imageAsset={cover} />
+        <PrimaryImage imageAsset={cover} imageUse={`cover`} />
       </header>
       <section className="sk-project__body">
         <section className="sk-project__description markdown">
@@ -96,7 +95,7 @@ const Project = ({ project }) => {
       </section>
       <aside className="sk-project__gallery">
         {productImages.map((image) => {
-          return <PreviewImage key={image.asset._id} imageAsset={image} />;
+          return <PrimaryImage key={image.asset._id} imageAsset={image} />;
         })}
       </aside>
     </article>

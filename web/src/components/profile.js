@@ -1,7 +1,7 @@
 import React from 'react';
 import Markdown from 'react-markdown';
 
-import CoverImage from './coverImage';
+import PrimaryImage from './PrimaryImage';
 
 import './profile.css';
 
@@ -21,7 +21,7 @@ const Profile = (props) => {
         <Markdown>{biography}</Markdown>
       </section>
       <aside className="sk-profile__headshot">
-        <CoverImage imageAsset={profileImg} />
+        <PrimaryImage imageAsset={profileImg} imageUse={`cover`} />
       </aside>
       {/* <button>Download Resume</button> */}
     </article>

@@ -14,7 +14,7 @@ const pageBuilder = (S) =>
             .child(
               S.documentList()
                 .title('Navigation Menus')
-                .apiVersion('2023-06-20')
+                .apiVersion('v2024-04-01')
                 .filter('_type == "navigationMenu"'),
             ),
           S.listItem()
@@ -23,7 +23,7 @@ const pageBuilder = (S) =>
             .child(
               S.documentList()
                 .title('Routes')
-                .apiVersion('2023-06-20')
+                .apiVersion('v2024-04-01')
                 .filter('_type == "route"'),
             ),
           S.listItem()
@@ -32,7 +32,7 @@ const pageBuilder = (S) =>
             .child(
               S.documentList()
                 .title('Pages')
-                .apiVersion('2023-06-20')
+                .apiVersion('v2024-04-01')
                 .filter('_type == "page"')
                 .defaultOrdering([{ field: 'indexPage', direction: 'desc' }]),
             ),

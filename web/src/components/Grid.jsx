@@ -1,24 +1,24 @@
 import React from 'react';
 import { toHeaderCase } from 'js-convert-case';
 import Preview from './Preview';
-import Office from './office';
+import Office from './Office';
 
 import './Grid.css';
 
-function createGridClass(props) {
+function createGridContentClass(props) {
   let className = '';
   switch (props._type) {
     case 'projectGroup':
-      className = 'grid--projects';
+      className = 'projects';
       break;
     case 'peopleGroup':
-      className = 'grid--people';
+      className = 'people';
       break;
     case 'postGroup':
-      className = 'grid--posts';
+      className = 'posts';
       break;
     case 'officeGroup':
-      className = 'grid--offices';
+      className = 'offices';
       break;
     default:
       console.log('Sorry unable to create className for this grid.');
@@ -54,13 +54,19 @@ function createGridContent(props) {
 
 const Grid = (props) => {
   const gridContent = createGridContent(props);
-  const gridClass = createGridClass(props);
+  const gridContentClass = createGridContentClass(props);
 
   return (
-    <section key={props._key} className={`grid ${gridClass}`}>
-      {props.title ? <h3>{props.title}</h3> : ''}
-      {props.subtitle ? <h4>{props.subtitle}</h4> : ''}
-      <div>{gridContent}</div>
+    <section key={props._key} className={`grid`}>
+      {props.title ? <h3 className={`grid__title`}>{props.title}</h3> : ''}
+      {props.subtitle ? (
+        <h4 className={`grid__subtitle`}>{props.subtitle}</h4>
+      ) : (
+        ''
+      )}
+      <div className={`grid__container grid__container--${gridContentClass}`}>
+        {gridContent}
+      </div>
     </section>
   );
 };

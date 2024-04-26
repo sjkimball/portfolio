@@ -1,60 +1,49 @@
+/* General */
+.grid {
+  display: grid;
+  padding: var(--sk-spacing-md) var(--sk-spacing-md);
+}
+.grid__container {
+  display: grid;
+  padding: var(--sk-spacing-md) 0;
+}
 /* Project Grids */
-.projectGrid {
-  display: grid;
-  grid-auto-flow: row;
+.grid__container--projects {
   gap: var(--sk-spacing-lg) 0;
 }
-.projectGrid__section {
-  display: grid;
-  grid-template-rows: min-content;
-  gap: var(--sk-spacing-sm) 0;
+/* People Grids */
+.grid__container--people {
+  gap: var(--sk-spacing-lg) var(--sk-spacing-md);
 }
-.projectGrid__section h3 {
-  display: none;
-  font: var(--sk-headline-sm);
-}
-.projectSection__container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+/* Post Grids */
+.grid__container--posts {
   gap: var(--sk-spacing-lg) 0;
+}
+/* Office Grids */
+.grid__container--offices {
+  display: flex;
+  flex-direction: column;
 }
 @media screen and (min-width: 600px) {
+  /* Project Grids */
   .projectGrid__section h3 {
     display: block;
   }
   .projectSection__container {
     gap: var(--sk-spacing-lg) var(--sk-spacing-md);
   }
-}
-@media screen and (min-width: 1040px) {
-  .projectSection__container {
-    gap: var(--sk-spacing-lg) var(--sk-spacing-lg);
-  }
-}
-/* People Grids */
-.peopleGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: var(--sk-spacing-lg) var(--sk-spacing-md);
-}
-@media screen and (min-width: 1040px) {
-  .peopleGrid {
-    gap: var(--sk-spacing-lg) var(--sk-spacing-lg);
-  }
-}
-/* Post Grids */
-.postGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--sk-spacing-lg) 0;
-}
-@media screen and (min-width: 600px) {
+  /* Post Grids */
   .postGrid {
     gap: var(--sk-spacing-lg) var(--sk-spacing-md);
   }
 }
-/* Office Grids */
-.office-group {
-  display: flex;
-  flex-direction: column;
+@media screen and (min-width: 1040px) {
+  /* Project Grids */
+  .projectSection__container {
+    gap: var(--sk-spacing-lg) var(--sk-spacing-lg);
+  }
+  /* People Grids */
+  .peopleGrid {
+    gap: var(--sk-spacing-lg) var(--sk-spacing-lg);
+  }
 }

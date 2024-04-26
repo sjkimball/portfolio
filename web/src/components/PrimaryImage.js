@@ -26,7 +26,6 @@ const coverSizes = `
 const PrimaryImage = (props) => {
   const { imageAsset, showCaption, imageUse } = props;
   const imageSizes = imageUse == 'cover' ? coverSizes : previewSizes;
-  const imageClass = imageUse == 'cover' ? 'cover' : 'preview';
 
   return (
     <img
@@ -34,12 +33,15 @@ const PrimaryImage = (props) => {
         backgroundImage: `url(${imageAsset.asset.metadata.lqip})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
+        maxWidth: '1920px',
+        marginBottom: '0',
+        objectFit: 'cover',
+        width: '100%',
       }}
       srcSet={imageSrcSet(imageAsset)}
       sizes={imageSizes}
       src={imageUrlFor(imageAsset).auto('format')}
       alt={imageAsset.altText}
-      className={imageClass}
     />
   );
 };

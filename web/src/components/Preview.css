@@ -1,44 +1,35 @@
+/* General */
 .preview {
   cursor: pointer;
   display: grid;
   text-decoration: none;
   color: inherit;
 }
-.preview--project {
-  gap: var(--sk-spacing-xs) 0;
-  grid-auto-flow: row;
-  grid-template-rows: min-content min-content;
+.preview__figure {
+  display: grid;
 }
-.preview--project h4 {
-  font: var(--sk-title-md);
-  grid-row: 2;
-}
-.preview--project:hover h4 {
-  text-decoration: underline;
-}
-.preview--project .preview {
-  grid-row: 1;
-  aspect-ratio: 16/9;
-}
-
-.preview--profile {
-  gap: var(--sk-spacing-xs) 0;
-  grid-auto-flow: row;
-  grid-template-rows: 1fr min-content min-content;
-}
-.preview--profile h4 {
-  font: var(--sk-title-md);
-  grid-row: 2;
-}
-.preview--profile h5 {
-  font: var(--sk-title-sm);
-  grid-row: 3;
-}
-.preview--profile .preview {
-  grid-row: 1;
+.preview__figure img {
   aspect-ratio: 1/1;
 }
-
+.preview__figure figcaption h4 {
+  font: var(--sk-title-md);
+}
+.preview__figure figcaption h5 {
+  font: var(--sk-title-sm);
+}
+/* Projects */
+.preview__figure--project > * {
+  grid-column: 1;
+  grid-row: 1;
+}
+.preview__figure--project figcaption {
+  padding: var(--sk-spacing-lg) var(--sk-spacing-md);
+}
+/* Profiles */
+.preview__figure--profile {
+  gap: var(--sk-spacing-sm) 0;
+}
+/* Posts */
 .preview--post {
   gap: var(--sk-spacing-xs) var(--sk-spacing-md);
   grid-template-columns: 1fr 3fr;

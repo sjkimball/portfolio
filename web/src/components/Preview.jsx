@@ -8,26 +8,34 @@ import PrimaryImage from './PrimaryImage';
 import './Preview.css';
 
 function ProjectPreview(project) {
+  const { client, cover, slug, title } = project;
   return (
     <Link
-      to={`/work/${project.client.slug.current}/${project.slug.current}`}
-      className={`preview preview--project`}
+      to={`/work/${client.slug.current}/${slug.current}`}
+      className={`preview`}
     >
-      <h4>{project.title}</h4>
-      <PrimaryImage imageAsset={project.cover} />
+      <figure className={`preview__figure preview__figure--project`}>
+        <PrimaryImage imageAsset={cover} />
+        <figcaption>
+          <h4>{client.name}</h4>
+          <h5>{title}</h5>
+        </figcaption>
+      </figure>
     </Link>
   );
 }
 
 function ProfilePreview(person) {
   const { profileImg, name, office, slug } = person;
-  const profileSlug = slug.current;
-  const officeName = office.contactInfo.address.city;
   return (
-    <Link to={`/about/${profileSlug}`} className={`preview preview--profile`}>
-      <h4>{name}</h4>
-      <h5>{officeName}</h5>
-      <PrimaryImage imageAsset={profileImg} />
+    <Link to={`/about/${slug.current}`} className={`preview`}>
+      <figure className={`preview__figure preview__figure--profile`}>
+        <PrimaryImage imageAsset={profileImg} />
+        <figcaption>
+          <h4>{name}</h4>
+          <h5>{office.contactInfo.address.city}</h5>
+        </figcaption>
+      </figure>
     </Link>
   );
 }
@@ -37,11 +45,15 @@ function PostPreview(post) {
   // const utcTime = zonedTimeToUtc(publishedAt, 'America/Chicago');
   // const formattedDate = format(utcTime, 'MMMM d, yyyy');
   return (
-    <Link to={`/blog/${slug.current}`} className={`preview preview--post`}>
-      <h4>{title}</h4>
-      {/* <time dateTime={formattedDate}>{formattedDate}</time> */}
-      <p>{subtitle}</p>
-      {<PrimaryImage imageAsset={cover} />}
+    <Link to={`/blog/${slug.current}`} className={`preview`}>
+      <figure className={`preview__figure preview__figure--post`}>
+        <PrimaryImage imageAsset={cover} />
+        <figcaption>
+          <h4>{title}</h4>
+          {/* <time dateTime={formattedDate}>{formattedDate}</time> */}
+          <p>{subtitle}</p>
+        </figcaption>
+      </figure>
     </Link>
   );
 }

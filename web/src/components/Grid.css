@@ -53,3 +53,8 @@
     gap: var(--sk-spacing-lg) var(--sk-spacing-md);
   }
 }
+/* Office Grids */
+.office-group {
+  display: flex;
+  flex-direction: column;
+}

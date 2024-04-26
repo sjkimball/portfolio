@@ -1,8 +1,7 @@
 import React from 'react';
 import { toHeaderCase } from 'js-convert-case';
-import ProjectPreview from './projectPreview';
-import ProfilePreview from './profilePreview';
-import PostPreview from './postPreview';
+import Preview from './Preview';
+import Office from './office';
 
 import './Grid.css';
 
@@ -16,29 +15,35 @@ function createGridClass(props) {
       className = 'grid--people';
       break;
     case 'postGroup':
-      className = 'grid--post';
+      className = 'grid--posts';
+      break;
+    case 'officeGroup':
+      className = 'grid--offices';
       break;
     default:
       console.log('Sorry unable to create className for this grid.');
   }
   return className;
 }
-function createContent(props) {
+function createGridContent(props) {
   let content = [];
   switch (props._type) {
     case 'projectGroup':
       content = props.projects.map((project) => (
-        <ProjectPreview key={project._id} {...project} />
+        <Preview key={project._id} {...project} />
       ));
       break;
     case 'peopleGroup':
       content = props.people.map((person) => (
-        <ProfilePreview key={person._id} {...person} />
+        <Preview key={person._id} {...person} />
       ));
       break;
     case 'postGroup':
-      content = props.posts.map((post) => (
-        <PostPreview key={post._id} {...post} />
+      content = props.posts.map((post) => <Preview key={post._id} {...post} />);
+      break;
+    case 'officeGroup':
+      content = props.offices.map((post) => (
+        <Office key={post._id} {...post} />
       ));
       break;
     default:
@@ -48,7 +53,7 @@ function createContent(props) {
 }
 
 const Grid = (props) => {
-  const gridContent = createContent(props);
+  const gridContent = createGridContent(props);
   const gridClass = createGridClass(props);
 
   return (

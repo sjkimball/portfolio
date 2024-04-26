@@ -5,10 +5,7 @@ import SEO from '../components/seo';
 import GraphQLErrorList from '../components/graphql-error-list';
 import Layout from '../containers/layout';
 import Hero from '../components/hero';
-import ProjectGrid from '../components/projectGrid';
-import PeopleGrid from '../components/peopleGrid';
-import PostGrid from '../components/postGrid';
-import OfficeGrid from '../components/officeGrid';
+import Grid from '../components/Grid';
 import MarkdownBlock from '../components/markdownBlock';
 
 import '../styles/_variables.css';
@@ -62,19 +59,19 @@ const Page = (props) => {
           el = <Hero key={c._key} {...c} />;
           break;
         case 'projectGroup':
-          el = <ProjectGrid key={c._key} {...c} />;
+          el = <Grid key={c._key} {...c} />;
           break;
         case 'peopleGroup':
-          el = <PeopleGrid key={c._key} {...c} />;
+          el = <Grid key={c._key} {...c} />;
           break;
         case 'markdownBlock':
           el = <MarkdownBlock key={c._key} {...c} />;
           break;
         case 'postGroup':
-          el = <PostGrid key={c._key} {...c} />;
+          el = <Grid key={c._key} {...c} />;
           break;
         case 'officeGroup':
-          el = <OfficeGrid key={c._key} {...c} />;
+          el = <Grid key={c._key} {...c} />;
           break;
         default:
           el = null;

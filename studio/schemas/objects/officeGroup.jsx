@@ -22,6 +22,7 @@ export default {
     },
     {
       name: 'disabled',
+      title: 'Disable?',
       type: 'boolean',
     },
   ],

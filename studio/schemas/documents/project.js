@@ -92,7 +92,7 @@ export default {
       name: 'description',
       title: 'Project Description',
       description: 'Detailed description of the project.',
-      type: 'markdown',
+      type: 'blockContent',
       group: 'projectInfo',
     },
     {

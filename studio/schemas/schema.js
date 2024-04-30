@@ -5,6 +5,7 @@ import cta from './objects/cta';
 import contact from './objects/contact';
 import designArea from './objects/designArea';
 import designDiscipline from './objects/designDiscipline';
+import figmaAsset from './objects/figmaAsset';
 import hero from './objects/hero';
 import mainImage from './objects/mainImage';
 import officeGroup from './objects/officeGroup';
@@ -42,6 +43,7 @@ export default [
   cta,
   designArea,
   designDiscipline,
+  figmaAsset,
   hero,
   indexPage,
   jobTitle,

@@ -1,8 +1,7 @@
 import React from 'react';
-import Markdown from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
 
 import PrimaryImage from './PrimaryImage';
+import PortText from './PortableText';
 
 import './project.css';
 
@@ -25,7 +24,7 @@ const Project = ({ project }) => {
     sector,
     title,
     subtitle,
-    description,
+    _rawDescription: description,
     cover,
     productImages,
     office,
@@ -52,7 +51,7 @@ const Project = ({ project }) => {
       </header>
       <section className="sk-project__body">
         <section className="sk-project__description markdown">
-          <Markdown rehypePlugins={[rehypeRaw]}>{description}</Markdown>
+          <PortText content={description} />
         </section>
       </section>
       <section className="sk-project__metadata">

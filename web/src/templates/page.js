@@ -6,7 +6,7 @@ import GraphQLErrorList from '../components/graphql-error-list';
 import Layout from '../containers/layout';
 import Hero from '../components/hero';
 import Grid from '../components/Grid';
-import MarkdownBlock from '../components/markdownBlock';
+import MarkdownBlock from '../components/MarkdownBlock';
 
 import '../styles/_variables.css';
 import '../styles/global.css';

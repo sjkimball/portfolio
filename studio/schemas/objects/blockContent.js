@@ -17,7 +17,7 @@ export default {
       title: 'Block',
       type: 'block',
       // Styles let you set what your user can mark up blocks with. These
-      // corrensponds with HTML tags, but you can set any title or value
+      // correspond with HTML tags, but you can set any title or value
       // you want and decide how you want to deal with it where you want to
       // use your content.
       styles: [
@@ -25,7 +25,7 @@ export default {
         // {title: 'H1', value: 'h1'},
         // {title: 'H2', value: 'h2'},
         // {title: 'H3', value: 'h3'},
-        // {title: 'H4', value: 'h4'},
+        { title: 'H4', value: 'h4' },
         { title: 'Quote', value: 'blockquote' },
       ],
       lists: [{ title: 'Bullet', value: 'bullet' }],
@@ -58,7 +58,12 @@ export default {
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     {
+      title: 'Image',
       type: 'mainImage',
+    },
+    {
+      title: 'Figma Asset',
+      type: 'figmaAsset',
     },
   ],
 };

@@ -3,7 +3,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../containers/layout';
-import Project from '../components/project';
+import Project from '../components/Project';
 import GraphQLErrorList from '../components/graphql-error-list';
 
 export const query = graphql`
@@ -12,7 +12,7 @@ export const query = graphql`
       title
       sector
       subtitle
-      description
+      _rawDescription
       cover {
         ...imageData
       }

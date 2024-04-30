@@ -25,12 +25,15 @@ const coverSizes = `
 
 const PrimaryImage = (props) => {
   const { imageAsset, showCaption, imageUse } = props;
+  const metadata = imageAsset.asset.metadata
+    ? imageAsset.asset.metadata.lqip
+    : '';
   const imageSizes = imageUse == 'cover' ? coverSizes : previewSizes;
 
   return (
     <img
       style={{
-        backgroundImage: `url(${imageAsset.asset.metadata.lqip})`,
+        backgroundImage: `url(${metadata})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         maxWidth: '1920px',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { PortableText } from '@portabletext/react';
-import PrimaryImage from './PrimaryImage';
+import PrimaryImage from './primaryImage';
 
 const portTextComponents = {
   types: {
@@ -8,7 +8,9 @@ const portTextComponents = {
       return (
         <figure>
           <PrimaryImage imageAsset={value} />
-          <figcaption>{value.caption}</figcaption>
+          <figcaption>
+            <p>{value.caption}</p>
+          </figcaption>
         </figure>
       );
     },
@@ -18,7 +20,9 @@ const portTextComponents = {
         <a href={url}>
           <figure>
             <PrimaryImage imageAsset={image} />
-            <figcaption>{image.caption}</figcaption>
+            <figcaption>
+              <p>{image.caption}</p>
+            </figcaption>
           </figure>
         </a>
       );
@@ -27,7 +31,6 @@ const portTextComponents = {
 };
 
 const PortText = (props) => {
-  console.dir('props in PortText', props);
   return <PortableText value={props.content} components={portTextComponents} />;
 };
 

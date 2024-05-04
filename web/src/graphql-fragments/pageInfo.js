@@ -5,7 +5,7 @@ export const PageInfo = graphql`
     id
     title
     subtitle
-    description
+    _rawDescription
     indexPage
     navMenu {
       ...NavMenu

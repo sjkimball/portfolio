@@ -20,7 +20,7 @@ export default {
     {
       name: 'description',
       title: 'Description',
-      type: 'markdown',
+      type: 'blockContent',
       description: 'Optional',
     },
     {
@@ -41,7 +41,7 @@ export default {
         { type: 'postGroup' },
         { type: 'peopleGroup' },
         { type: 'officeGroup' },
-        { type: 'markdownBlock' },
+        { type: 'infoSection' },
       ],
     },
     {

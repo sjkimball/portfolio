@@ -8,11 +8,6 @@ export default {
   },
   fields: [
     {
-      name: 'website',
-      title: 'Website',
-      type: 'url',
-    },
-    {
       name: 'email',
       title: 'Email Address',
       type: 'string',

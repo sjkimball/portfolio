@@ -11,7 +11,7 @@ export default {
     {
       name: 'about',
       title: 'About',
-      type: 'markdown',
+      type: 'blockContent',
     },
     {
       name: 'contactInfo',

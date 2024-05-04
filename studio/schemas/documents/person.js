@@ -17,8 +17,29 @@ export default {
   ],
   fields: [
     {
-      name: 'name',
-      title: 'Name',
+      name: 'firstName',
+      title: 'First Name',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      group: 'personalInfo',
+    },
+    {
+      name: 'preferredName',
+      title: 'Preferred Name',
+      type: 'string',
+      description: 'Optional, e.g. Sam instead of Samuel',
+      group: 'personalInfo',
+    },
+    {
+      name: 'middleName',
+      title: 'Middle Name or Initial',
+      type: 'string',
+      description: 'Optional',
+      group: 'personalInfo',
+    },
+    {
+      name: 'lastName',
+      title: 'Last Name',
       type: 'string',
       validation: (Rule) => Rule.required(),
       group: 'personalInfo',
@@ -29,7 +50,9 @@ export default {
       description: `Click the 'Generate' button to create a slug based on the person's name.`,
       type: 'slug',
       options: {
-        source: 'name',
+        // source: 'name',
+        source: (doc, context) =>
+          `${doc.preferredName ? doc.preferredName : doc.firstName}-${doc.lastName}`,
         maxLength: 96,
       },
       validation: (Rule) =>
@@ -47,7 +70,14 @@ export default {
     {
       name: 'biography',
       title: 'Bio',
-      type: 'markdown',
+      type: 'blockContent',
+      group: 'personalInfo',
+    },
+    {
+      name: 'contactInfo',
+      title: 'Contact Info',
+      type: 'contact',
+      validation: (Rule) => Rule.required(),
       group: 'personalInfo',
     },
     {
@@ -57,10 +87,10 @@ export default {
       group: 'personalInfo',
     },
     {
-      name: 'contactInfo',
-      title: 'Contact Info',
-      type: 'contact',
-      group: 'personalInfo',
+      name: 'links',
+      title: 'Additional Links',
+      type: 'array',
+      of: [{ type: 'link' }],
     },
     {
       name: 'office',
@@ -88,9 +118,18 @@ export default {
   ],
   preview: {
     select: {
-      title: 'name',
-      subtitle: 'jobTitle.name',
+      firstName: 'firstName',
+      preferredName: 'preferredName',
+      lastName: 'lastName',
+      jobtitle: 'jobTitle.name',
       media: 'profileImg.asset',
+    },
+    prepare({ firstName, preferredName, lastName, jobTitle, media }) {
+      return {
+        title: `${preferredName ? preferredName : firstName} ${lastName}`,
+        subtitle: jobTitle,
+        media: media,
+      };
     },
   },
 };

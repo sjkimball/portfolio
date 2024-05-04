@@ -1,5 +1,4 @@
 import { FaFigma } from 'react-icons/fa';
-import FigmaPreview from '../previews/FigmaPreview';
 
 export default {
   name: 'figmaAsset',

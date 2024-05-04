@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'gatsby';
 import { format, parseISO } from 'date-fns';
-import Markdown from 'react-markdown';
 
 import CoverImage from './coverImage';
 import AvatarImage from './avatarImage';
@@ -102,9 +101,7 @@ const Post = ({ post }) => {
         <section className="sk-post__authors">{authorSection}</section>
         <CoverImage imageAsset={cover} />
       </header>
-      <section className="sk-post__body markdown">
-        <Markdown>{body}</Markdown>
-      </section>
+      <section className="sk-post__body"></section>
       {/* <footer className="sk-post__footer"></footer> */}
     </article>
   );

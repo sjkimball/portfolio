@@ -2,7 +2,7 @@ import React from 'react';
 
 // import { format, utcToZonedTime } from 'date-fns-tz'
 
-import PrimaryImage from './PrimaryImage';
+import PrimaryImage from './primaryImage';
 
 import './office.css';
 

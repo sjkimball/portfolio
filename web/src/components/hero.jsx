@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PrimaryImage from './PrimaryImage';
+import PrimaryImage from './primaryImage';
 
 import './hero.css';
 
@@ -10,7 +10,7 @@ const Hero = (props) => {
   return (
     <section className={`hero`}>
       <h2>{headline}</h2>
-      <h5>{tagline}</h5>
+      <p>{tagline}</p>
       <PrimaryImage imageAsset={media} imageUse={`cover`} />
     </section>
   );

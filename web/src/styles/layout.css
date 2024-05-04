@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
   grid-template-rows: 90px 1fr 90px;
+  background-color: var(--sk-sys-background);
 }
 #mainHeader {
   position: sticky;
@@ -26,7 +27,7 @@
 }
 .index__main {
   grid-column: 1/4;
-  grid-row: 1/4;
+  grid-row: 1/3;
   display: grid;
   grid-template-columns: var(--sk-spacing-md) auto var(--sk-spacing-md);
   gap: var(--sk-spacing-md) 0;
@@ -37,13 +38,18 @@
 .index__main .hero {
   grid-column: 1/4;
 }
+.index__main .grid {
+  grid-column: 1/4;
+}
+.index__main .infoSection {
+  grid-column: 1/4;
+}
+.index__main .markdown-block {
+  grid-column: 1/4;
+}
 #mainFooter {
   grid-column: 1/4;
   grid-row: 3;
-}
-
-.pageHeader--about {
-  display: none;
 }
 
 @media screen and (min-width: 600px) {

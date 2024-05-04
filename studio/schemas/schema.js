@@ -7,6 +7,9 @@ import designArea from './objects/designArea';
 import designDiscipline from './objects/designDiscipline';
 import figmaAsset from './objects/figmaAsset';
 import hero from './objects/hero';
+import infoBlock from './objects/infoBlock';
+import infoSection from './objects/infoSection';
+import link from './objects/link';
 import mainImage from './objects/mainImage';
 import officeGroup from './objects/officeGroup';
 import projectContent from './objects/projectContent';
@@ -46,7 +49,10 @@ export default [
   figmaAsset,
   hero,
   indexPage,
+  infoBlock,
+  infoSection,
   jobTitle,
+  link,
   mainImage,
   markdownBlock,
   messageImage,

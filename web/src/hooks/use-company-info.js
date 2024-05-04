@@ -12,7 +12,7 @@ const useCompanyInfo = () => {
           linkedin
         }
         companyName
-        about
+        _rawAbout
       }
     }
   `);

@@ -6,7 +6,8 @@ import GraphQLErrorList from '../components/graphql-error-list';
 import Layout from '../containers/layout';
 import Hero from '../components/hero';
 import Grid from '../components/Grid';
-import MarkdownBlock from '../components/MarkdownBlock';
+import Profile from '../components/profile';
+import InfoSection from '../components/InfoSection';
 
 import '../styles/_variables.css';
 import '../styles/global.css';
@@ -62,16 +63,21 @@ const Page = (props) => {
           el = <Grid key={c._key} {...c} />;
           break;
         case 'peopleGroup':
-          el = <Grid key={c._key} {...c} />;
-          break;
-        case 'markdownBlock':
-          el = <MarkdownBlock key={c._key} {...c} />;
+          el =
+            c.people.length < 2 ? (
+              <Profile key={c._key} {...c.people[0]} />
+            ) : (
+              <Grid key={c._key} {...c} />
+            );
           break;
         case 'postGroup':
           el = <Grid key={c._key} {...c} />;
           break;
         case 'officeGroup':
           el = <Grid key={c._key} {...c} />;
+          break;
+        case 'infoSection':
+          el = <InfoSection key={c._key} {...c} />;
           break;
         default:
           el = null;

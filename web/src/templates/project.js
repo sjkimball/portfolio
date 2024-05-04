@@ -10,18 +10,19 @@ export const query = graphql`
   query ($id: String!, $parentRouteID: String!) {
     project: sanityProject(id: { eq: $id }) {
       title
-      sector
       subtitle
-      _rawDescription
+      disciplines
       cover {
         ...imageData
       }
+      _rawDescription
       productImages {
         ...imageData
       }
       client {
         name
       }
+      sector
       office {
         contactInfo {
           address {
@@ -29,9 +30,10 @@ export const query = graphql`
           }
         }
       }
-      disciplines
       members {
-        name
+        firstName
+        preferredName
+        lastName
         _key
       }
     }

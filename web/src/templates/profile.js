@@ -13,10 +13,17 @@ import '../styles/layout.css';
 export const query = graphql`
   query ($id: String!, $parentRouteID: String!) {
     profile: sanityPerson(id: { eq: $id }) {
+      firstName
+      preferredName
+      lastName
       profileImg {
         ...imageData
       }
-      name
+      _rawBiography
+      links {
+        title
+        url
+      }
       office {
         contactInfo {
           address {
@@ -24,8 +31,6 @@ export const query = graphql`
           }
         }
       }
-      biography
-      _id
     }
     parentRoute: sanityRoute(id: { eq: $parentRouteID }) {
       page {

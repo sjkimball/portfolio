@@ -1,7 +1,7 @@
 import React from 'react';
 import { toHeaderCase } from 'js-convert-case';
-import Preview from './Preview';
-import Office from './Office';
+import Preview from './preview';
+import Office from './office';
 
 import './Grid.css';
 
@@ -30,21 +30,19 @@ function createGridContent(props) {
   switch (props._type) {
     case 'projectGroup':
       content = props.projects.map((project) => (
-        <Preview key={project._id} {...project} />
+        <Preview key={project.id} {...project} />
       ));
       break;
     case 'peopleGroup':
       content = props.people.map((person) => (
-        <Preview key={person._id} {...person} />
+        <Preview key={person.id} {...person} />
       ));
       break;
     case 'postGroup':
-      content = props.posts.map((post) => <Preview key={post._id} {...post} />);
+      content = props.posts.map((post) => <Preview key={post.id} {...post} />);
       break;
     case 'officeGroup':
-      content = props.offices.map((post) => (
-        <Office key={post._id} {...post} />
-      ));
+      content = props.offices.map((post) => <Office key={post.id} {...post} />);
       break;
     default:
       content = null;
@@ -53,11 +51,12 @@ function createGridContent(props) {
 }
 
 const Grid = (props) => {
+  // console.dir('props in Grid', props);
   const gridContent = createGridContent(props);
   const gridContentClass = createGridContentClass(props);
 
   return (
-    <section key={props._key} className={`grid`}>
+    <section className={`grid`}>
       {props.title ? <h3 className={`grid__title`}>{props.title}</h3> : ''}
       {props.subtitle ? (
         <h4 className={`grid__subtitle`}>{props.subtitle}</h4>

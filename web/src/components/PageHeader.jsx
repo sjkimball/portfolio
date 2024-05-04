@@ -1,12 +1,11 @@
 import React from 'react';
 
-import Markdown from 'react-markdown';
-
 import './pageHeader.css';
 
-const PageHeader = ({ title, subtitle, description }) => {
+const PageHeader = (props) => {
+  const { title, subtitle, description } = props;
   return (
-    <header className={`pageHeader pageHeader--${title.toLowerCase()}`}>
+    <header className={`pageHeader}`}>
       <h2 className="pageHeader__title">{title}</h2>
       {subtitle !== null ? (
         <h3 className="pageHeader__subtitle">{subtitle}</h3>
@@ -14,9 +13,7 @@ const PageHeader = ({ title, subtitle, description }) => {
         ''
       )}
       {description !== null ? (
-        <section className="pageHeader__description markdown">
-          <Markdown>{description}</Markdown>
-        </section>
+        <section className="pageHeader__description"></section>
       ) : (
         ''
       )}

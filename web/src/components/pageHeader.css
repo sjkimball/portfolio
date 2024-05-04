@@ -2,9 +2,6 @@
   display: grid;
   grid-auto-flow: row;
 }
-.pageHeader--about {
-  /* display: none; */
-}
 .pageHeader__title {
   font: var(--sk-display-md);
 }

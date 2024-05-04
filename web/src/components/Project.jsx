@@ -1,7 +1,7 @@
 import React from 'react';
 
-import PrimaryImage from './PrimaryImage';
-import PortText from './PortableText';
+import PrimaryImage from './primaryImage';
+import PortText from './portableText';
 
 import './project.css';
 
@@ -50,7 +50,7 @@ const Project = ({ project }) => {
         <PrimaryImage imageAsset={cover} imageUse={`cover`} />
       </header>
       <section className="sk-project__body">
-        <section className="sk-project__description markdown">
+        <section className="sk-project__description">
           <PortText content={description} />
         </section>
       </section>
@@ -84,11 +84,17 @@ const Project = ({ project }) => {
         <section>
           <h6>Team</h6>
           <ul>
-            {members.map((member) => (
-              <li key={member._key} value={member.name}>
-                {member.name}
-              </li>
-            ))}
+            {members.map((member) => {
+              const { firstName, lastName, preferredName } = member;
+              const name = preferredName
+                ? `${preferredName} ${lastName}`
+                : `${firstName} ${lastName}`;
+              return (
+                <li key={member._key} value={name}>
+                  {name}
+                </li>
+              );
+            })}
           </ul>
         </section>
       </section>

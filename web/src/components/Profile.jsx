@@ -1,12 +1,24 @@
 import React from 'react';
-import Markdown from 'react-markdown';
 
-import PrimaryImage from './PrimaryImage';
+import PrimaryImage from './primaryImage';
 
-import './profile.css';
+import './Profile.css';
 
 const Profile = (props) => {
-  const { profileImg, name, office, biography } = props;
+  // console.dir('props in Profile', props);
+  const {
+    firstName,
+    preferredName,
+    lastName,
+    profileImg,
+    links,
+    office,
+    biography,
+  } = props;
+
+  const name = preferredName
+    ? `${preferredName} ${lastName}`
+    : `${firstName} ${lastName}`;
 
   return (
     <article className="sk-profile">
@@ -17,13 +29,19 @@ const Profile = (props) => {
           <span>{office.contactInfo.address.city}</span>
         </h2>
       </header>
-      <section className="sk-profile__body markdown">
-        <Markdown>{biography}</Markdown>
-      </section>
+      <section className="sk-profile__body">{biography}</section>
       <aside className="sk-profile__headshot">
         <PrimaryImage imageAsset={profileImg} imageUse={`cover`} />
       </aside>
-      {/* <button>Download Resume</button> */}
+      <section className="sk-profile__links">
+        {links.map((link, i) => {
+          return (
+            <a key={i} href={link.url}>
+              View {link.title}
+            </a>
+          );
+        })}
+      </section>
     </article>
   );
 };

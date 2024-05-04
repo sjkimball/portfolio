@@ -3,7 +3,7 @@ import React from 'react';
 import { format, zonedTimeToUtc } from 'date-fns-tz';
 
 import { Link } from 'gatsby';
-import PrimaryImage from './PrimaryImage';
+import PrimaryImage from './primaryImage';
 
 import './Preview.css';
 
@@ -26,7 +26,12 @@ function ProjectPreview(project) {
 }
 
 function ProfilePreview(person) {
-  const { profileImg, name, office, slug } = person;
+  // console.dir('person in profile preview', person);
+  const { profileImg, firstName, preferredName, lastName, office, slug } =
+    person;
+  const name = preferredName
+    ? `${preferredName} ${lastName}`
+    : `${firstName} ${lastName}`;
   return (
     <Link to={`/about/${slug.current}`} className={`preview`}>
       <figure className={`preview__figure preview__figure--profile`}>

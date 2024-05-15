@@ -1,16 +1,19 @@
-import React from 'react';
-
 export default {
-  name: 'postGroup',
-  title: 'Post Group',
+  name: 'module.posts',
+  title: 'Posts',
   type: 'object',
   initialValue: {
     disabled: false,
   },
   fields: [
     {
-      name: 'posts',
-      title: 'Posts',
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'content',
+      title: 'Content',
       type: 'array',
       of: [
         {
@@ -28,13 +31,13 @@ export default {
   preview: {
     select: {
       disabled: 'disabled',
-      posts: 'posts',
+      posts: 'content',
     },
     prepare: ({ disabled, posts }) => {
       const numberOfPosts = posts.length;
       const subtitle = `${numberOfPosts} ${numberOfPosts > 1 ? 'posts' : 'post'}`;
       return {
-        title: 'Post Group',
+        title: 'Posts',
         subtitle: subtitle,
         media: (
           <span style={{ fontSize: '1.5rem' }}>

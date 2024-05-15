@@ -1,8 +1,6 @@
-import React from 'react';
-
 export default {
-  name: 'projectGroup',
-  title: 'Project Group',
+  name: 'module.projects',
+  title: 'Projects',
   type: 'object',
   initialValue: {
     disabled: false,
@@ -20,19 +18,13 @@ export default {
       type: 'string',
     },
     {
-      name: 'projects',
-      title: 'Projects',
+      name: 'content',
+      title: 'Content',
       type: 'array',
       of: [
         {
           type: 'reference',
           to: [{ type: 'project' }],
-          options: {
-            filter: 'visibility == $visibility',
-            filterParams: {
-              visibility: true,
-            },
-          },
         },
       ],
       validation: (Rule) => Rule.max(12).unique(),

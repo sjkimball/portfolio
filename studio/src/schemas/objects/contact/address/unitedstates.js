@@ -1,5 +1,5 @@
 export default {
-  name: 'address',
+  name: 'address.us',
   title: 'Address',
   type: 'object',
   fields: [
@@ -28,11 +28,6 @@ export default {
     {
       name: 'postalCode',
       title: 'Postal Code',
-      type: 'string',
-    },
-    {
-      name: 'country',
-      title: 'Country',
       type: 'string',
     },
   ],

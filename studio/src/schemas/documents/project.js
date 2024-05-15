@@ -30,19 +30,12 @@ export default {
   ],
   fields: [
     {
-      name: 'visibility',
-      title: 'Visibility',
-      description: 'Determines whether the project is visible to the public.',
-      type: 'boolean',
-      group: 'admin',
-    },
-    {
-      name: 'featured',
-      title: 'Featured',
-      description:
-        'Determines whether the project should be near top of publicly visible projects.',
-      type: 'boolean',
-      group: 'admin',
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) =>
+        Rule.required().max(100).error('Say more with less.'),
+      group: 'projectInfo',
     },
     {
       name: 'slug',
@@ -59,23 +52,7 @@ export default {
         Rule.required().error('A slug must be generated prior to publishing.'),
       group: 'admin',
     },
-    {
-      name: 'client',
-      title: 'Client',
-      type: 'reference',
-      to: [{ type: 'client' }],
-      validation: (Rule) =>
-        Rule.required().error('Every project needs a client.'),
-      group: 'projectInfo',
-    },
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      validation: (Rule) =>
-        Rule.required().max(100).error('Say more with less.'),
-      group: 'projectInfo',
-    },
+
     {
       name: 'subtitle',
       title: 'Subtitle',
@@ -93,26 +70,6 @@ export default {
       title: 'Project Description',
       description: 'Detailed description of the project.',
       type: 'blockContent',
-      group: 'projectInfo',
-    },
-    {
-      name: 'designArea',
-      title: 'Design Area',
-      type: 'designArea',
-      group: 'projectInfo',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'disciplines',
-      title: 'Disciplines',
-      description: 'Select all that apply.',
-      type: 'designDiscipline',
-      group: 'projectInfo',
-    },
-    {
-      name: 'sector',
-      title: 'Sector',
-      type: 'sector',
       group: 'projectInfo',
     },
     {
@@ -137,13 +94,35 @@ export default {
       group: 'projectInfo',
     },
     {
-      name: 'office',
-      title: 'Office',
-      type: 'reference',
-      to: [{ type: 'office' }],
+      name: 'designArea',
+      title: 'Design Area',
+      type: 'designArea',
+      group: 'projectInfo',
       validation: (Rule) => Rule.required(),
-      group: 'team',
     },
+    {
+      name: 'disciplines',
+      title: 'Disciplines',
+      description: 'Select all that apply.',
+      type: 'designDiscipline',
+      group: 'projectInfo',
+    },
+    {
+      name: 'client',
+      title: 'Client',
+      type: 'reference',
+      to: [{ type: 'company' }],
+      validation: (Rule) =>
+        Rule.required().error('Every project needs a client.'),
+      group: 'projectInfo',
+    },
+    {
+      name: 'sector',
+      title: 'Sector',
+      type: 'sector',
+      group: 'projectInfo',
+    },
+
     {
       name: 'members',
       title: 'Project Members',
@@ -159,11 +138,6 @@ export default {
       title: 'Client, A-Z',
       name: 'clientAsc',
       by: [{ field: 'client.name', direction: 'asc' }],
-    },
-    {
-      title: 'Client, Z-A',
-      name: 'clientDesc',
-      by: [{ field: 'client.name', direction: 'desc' }],
     },
   ],
   preview: {

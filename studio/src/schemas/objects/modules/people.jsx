@@ -1,24 +1,22 @@
-import React from 'react';
-
 export default {
-  name: 'officeGroup',
-  title: 'Office Group',
+  name: 'module.people',
+  title: 'People',
   type: 'object',
   initialValue: {
     disabled: false,
   },
   fields: [
     {
-      name: 'offices',
-      title: 'Offices',
-      description: 'Choose from our offices.',
+      name: 'people',
+      title: 'People',
       type: 'array',
       of: [
         {
           type: 'reference',
-          to: [{ type: 'office' }],
+          to: [{ type: 'person' }],
         },
       ],
+      validation: (Rule) => Rule.max(6).min(1).unique(),
     },
     {
       name: 'disabled',
@@ -29,13 +27,13 @@ export default {
   preview: {
     select: {
       disabled: 'disabled',
-      offices: 'offices',
+      people: 'people',
     },
-    prepare: ({ disabled, offices }) => {
-      const numberOfOffices = offices.length;
-      const subtitle = `${numberOfOffices} ${numberOfOffices > 1 ? 'offices' : 'office'}`;
+    prepare: ({ disabled, people }) => {
+      const numberOfPeople = people.length;
+      const subtitle = `${numberOfPeople} ${numberOfPeople > 1 ? 'people' : 'person'}`;
       return {
-        title: 'Office Group',
+        title: 'People',
         subtitle: subtitle,
         media: (
           <span style={{ fontSize: '1.5rem' }}>

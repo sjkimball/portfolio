@@ -7,12 +7,12 @@ export default {
   },
   groups: [
     {
-      name: 'admin',
-      title: 'Admin',
-    },
-    {
       name: 'personalInfo',
       title: 'Personal Info',
+    },
+    {
+      name: 'admin',
+      title: 'Admin',
     },
   ],
   fields: [
@@ -68,52 +68,37 @@ export default {
       group: 'personalInfo',
     },
     {
+      name: 'company',
+      title: 'Company',
+      type: 'reference',
+      to: [{ type: 'company' }],
+      group: 'admin',
+    },
+    {
+      name: 'jobTitle',
+      title: 'Job Title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      group: 'admin',
+    },
+    {
       name: 'biography',
       title: 'Bio',
       type: 'blockContent',
       group: 'personalInfo',
     },
     {
-      name: 'contactInfo',
-      title: 'Contact Info',
-      type: 'contact',
-      validation: (Rule) => Rule.required(),
-      group: 'personalInfo',
-    },
-    {
-      name: 'socialMediaAccounts',
-      title: 'Social Media Accounts',
-      type: 'socialMediaAccounts',
+      name: 'contact',
+      title: 'Contact',
+      type: 'contact.basic',
+      validation: (rule) => rule.required(),
       group: 'personalInfo',
     },
     {
       name: 'links',
       title: 'Additional Links',
       type: 'array',
-      of: [{ type: 'link' }],
-    },
-    {
-      name: 'office',
-      title: 'Office',
-      type: 'reference',
-      to: [
-        {
-          type: 'office',
-        },
-      ],
-      group: 'admin',
-    },
-    {
-      name: 'jobTitle',
-      title: 'Job Title',
-      type: 'reference',
-      to: [
-        {
-          type: 'jobTitle',
-        },
-      ],
-      validation: (Rule) => Rule.required(),
-      group: 'admin',
+      of: [{ type: 'link.internal' }, { type: 'link.external' }],
     },
   ],
   preview: {
@@ -121,13 +106,13 @@ export default {
       firstName: 'firstName',
       preferredName: 'preferredName',
       lastName: 'lastName',
-      jobtitle: 'jobTitle.name',
+      company: 'company.name',
       media: 'profileImg.asset',
     },
-    prepare({ firstName, preferredName, lastName, jobTitle, media }) {
+    prepare({ firstName, preferredName, lastName, company, media }) {
       return {
         title: `${preferredName ? preferredName : firstName} ${lastName}`,
-        subtitle: jobTitle,
+        subtitle: company,
         media: media,
       };
     },

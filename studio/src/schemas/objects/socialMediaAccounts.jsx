@@ -3,8 +3,8 @@ export default {
   title: 'Social Media Accounts',
   type: 'object',
   options: {
+    collapsed: false,
     collapsible: true,
-    collapsed: true,
   },
   fields: [
     {

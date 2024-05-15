@@ -1,27 +1,31 @@
 export default {
-  name: 'contact',
-  title: 'Contact Information',
+  name: 'contact.complete',
+  title: 'Contact',
   type: 'object',
   options: {
+    collapsed: false,
     collapsible: true,
-    collapsed: true,
   },
   fields: [
     {
       name: 'email',
-      title: 'Email Address',
+      title: 'Email',
       type: 'string',
     },
     {
       name: 'phone',
-      title: 'Phone Number',
-      description: 'e.g. 123 456 7890',
+      title: 'Phone',
       type: 'string',
+    },
+    {
+      name: 'website',
+      title: 'Website',
+      type: 'url',
     },
     {
       name: 'address',
       title: 'Address',
-      type: 'address',
+      type: 'address.us',
     },
   ],
 };

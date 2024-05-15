@@ -1,14 +1,19 @@
-import { FaUserTie } from 'react-icons/fa';
+import { FaBuilding } from 'react-icons/fa';
 
 export default {
-  name: 'client',
-  title: 'Client',
-  icon: FaUserTie,
+  name: 'company',
+  title: 'Company',
+  icon: FaBuilding,
   type: 'document',
   fields: [
     {
       name: 'name',
-      title: 'Client Name',
+      title: 'Company Name',
+      type: 'string',
+    },
+    {
+      name: 'logo',
+      title: 'Company Logo',
       type: 'string',
     },
     {
@@ -28,9 +33,15 @@ export default {
       rows: 5,
     },
     {
-      name: 'contactInfo',
-      title: 'Contact Information',
-      type: 'contact',
+      name: 'people',
+      title: 'People',
+      type: 'array',
+      of: [{ type: 'person' }],
+    },
+    {
+      name: 'contact',
+      title: 'Contact',
+      type: 'contact.complete',
     },
   ],
 

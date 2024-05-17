@@ -1,14 +1,25 @@
 export default {
   name: 'module.people',
-  title: 'People',
+  title: 'People Module',
   type: 'object',
   initialValue: {
     disabled: false,
   },
   fields: [
     {
-      name: 'people',
-      title: 'People',
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'subtitle',
+      title: 'Subtitle',
+      description: 'Describes group of people',
+      type: 'string',
+    },
+    {
+      name: 'content',
+      title: 'Content',
       type: 'array',
       of: [
         {
@@ -26,14 +37,15 @@ export default {
   ],
   preview: {
     select: {
+      title: 'title',
+      people: 'content',
       disabled: 'disabled',
-      people: 'people',
     },
-    prepare: ({ disabled, people }) => {
+    prepare: ({ title, disabled, people }) => {
       const numberOfPeople = people.length;
       const subtitle = `${numberOfPeople} ${numberOfPeople > 1 ? 'people' : 'person'}`;
       return {
-        title: 'People',
+        title: title,
         subtitle: subtitle,
         media: (
           <span style={{ fontSize: '1.5rem' }}>

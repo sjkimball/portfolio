@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { gsap } from 'gsap';
 
-import { iconTl, maskTl, linksTl } from '../animations/menu-animation';
+import { iconTl, maskTl, linksTl } from '../../animations/menu-animation';
 
-import HeaderMask from './headerMask';
+import HeaderMask from './HeaderMask';
 
 import './header.css';
 
@@ -39,7 +39,8 @@ class Header extends React.Component {
   };
 
   render() {
-    const { navMenuItems = [], isIndex } = this.props;
+    // console.log('props in header', this.props);
+    const { menuItems = [], isIndex } = this.props;
     return (
       <header
         id="mainHeader"
@@ -50,12 +51,12 @@ class Header extends React.Component {
           <Link to="/" className="nav__logo">
             <h1>SK</h1>
           </Link>
-          {navMenuItems && (
+          {menuItems && (
             <ul id="mainHeader__nav__links" className="nav__links">
-              {navMenuItems.map((item, index) => (
+              {menuItems.map((item, index) => (
                 <li key={index}>
                   <Link
-                    to={item.route}
+                    to={`/${item.reference.slug.current}`}
                     className={`links__link`}
                     activeClassName={`links__link-active`}
                     partiallyActive={true}

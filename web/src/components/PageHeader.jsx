@@ -1,19 +1,25 @@
 import React from 'react';
 
+import PortText from './portableText';
+
 import './pageHeader.css';
 
 const PageHeader = (props) => {
-  const { title, subtitle, description } = props;
+  // console.log('props in page header', props);
+  const { title, heading, subheading, description } = props;
   return (
     <header className={`pageHeader}`}>
-      <h2 className="pageHeader__title">{title}</h2>
-      {subtitle !== null ? (
-        <h3 className="pageHeader__subtitle">{subtitle}</h3>
+      <h2 className="pageHeader__title">{heading}</h2>
+      {subheading !== null ? (
+        <h3 className="pageHeader__subtitle">{subheading}</h3>
       ) : (
         ''
       )}
       {description !== null ? (
-        <section className="pageHeader__description"></section>
+        <PortText
+          content={description}
+          className="pageHeader__description"
+        ></PortText>
       ) : (
         ''
       )}

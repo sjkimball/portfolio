@@ -3,19 +3,24 @@ import { graphql, useStaticQuery } from 'gatsby';
 const useLandingPage = () => {
   const data = useStaticQuery(graphql`
     query LandingPage {
-      page: sanityIndexPage(_id: { regex: "/(drafts.|)indexPage/" }) {
-        page {
-          ...PageInfo
+      page: sanityHome(_id: { regex: "/(drafts.|)home/" }) {
+        _id
+        hero {
+          ...heroHomeData
+        }
+        _rawContent(resolveReferences: { maxDepth: 10 })
+        seo {
+          ...seoHomeData
         }
       }
-      site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-        title
+      site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
+        ...settingsSiteData
       }
     }
   `);
 
   const newObject = {
-    page: data.page.page,
+    page: data.page,
     site: data.site,
   };
 

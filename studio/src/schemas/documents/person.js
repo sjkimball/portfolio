@@ -7,12 +7,13 @@ export default {
   },
   groups: [
     {
-      name: 'personalInfo',
-      title: 'Personal Info',
+      default: true,
+      name: 'editorial',
+      title: 'Editorial',
     },
     {
-      name: 'admin',
-      title: 'Admin',
+      name: 'seo',
+      title: 'SEO',
     },
   ],
   fields: [
@@ -21,28 +22,28 @@ export default {
       title: 'First Name',
       type: 'string',
       validation: (Rule) => Rule.required(),
-      group: 'personalInfo',
+      group: 'editorial',
     },
     {
       name: 'preferredName',
       title: 'Preferred Name',
       type: 'string',
       description: 'Optional, e.g. Sam instead of Samuel',
-      group: 'personalInfo',
+      group: 'editorial',
     },
     {
       name: 'middleName',
       title: 'Middle Name or Initial',
       type: 'string',
       description: 'Optional',
-      group: 'personalInfo',
+      group: 'editorial',
     },
     {
       name: 'lastName',
       title: 'Last Name',
       type: 'string',
       validation: (Rule) => Rule.required(),
-      group: 'personalInfo',
+      group: 'editorial',
     },
     {
       name: 'slug',
@@ -59,46 +60,39 @@ export default {
         Rule.required().error(
           'Looks like you may have forgotten to generate a slug.:(',
         ),
-      group: 'admin',
+      group: 'editorial',
     },
     {
-      name: 'profileImg',
+      name: 'image',
       title: 'Profile Image',
       type: 'mainImage',
-      group: 'personalInfo',
+      group: 'editorial',
     },
     {
-      name: 'company',
-      title: 'Company',
-      type: 'reference',
-      to: [{ type: 'company' }],
-      group: 'admin',
-    },
-    {
-      name: 'jobTitle',
-      title: 'Job Title',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-      group: 'admin',
-    },
-    {
-      name: 'biography',
-      title: 'Bio',
-      type: 'blockContent',
-      group: 'personalInfo',
+      name: 'bio',
+      title: 'Biography',
+      type: 'body',
+      group: 'editorial',
     },
     {
       name: 'contact',
       title: 'Contact',
       type: 'contact.basic',
       validation: (rule) => rule.required(),
-      group: 'personalInfo',
+      group: 'editorial',
     },
     {
       name: 'links',
       title: 'Additional Links',
       type: 'array',
       of: [{ type: 'link.internal' }, { type: 'link.external' }],
+      group: 'editorial',
+    },
+    {
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo.page',
+      group: 'seo',
     },
   ],
   preview: {
@@ -106,13 +100,11 @@ export default {
       firstName: 'firstName',
       preferredName: 'preferredName',
       lastName: 'lastName',
-      company: 'company.name',
-      media: 'profileImg.asset',
+      media: 'image.asset',
     },
-    prepare({ firstName, preferredName, lastName, company, media }) {
+    prepare({ firstName, preferredName, lastName, media }) {
       return {
         title: `${preferredName ? preferredName : firstName} ${lastName}`,
-        subtitle: company,
         media: media,
       };
     },

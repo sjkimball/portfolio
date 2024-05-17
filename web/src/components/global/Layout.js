@@ -1,23 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import useCompanyInfo from '../hooks/use-company-info';
-
-import Header from './header';
-import Footer from './footer';
-import PageHeader from './pageHeader';
+import Header from './Header';
+import Footer from './Footer';
+import PageHeader from '../pageHeader';
 
 const Layout = (props) => {
-  const {
-    children,
-    navMenuItems,
-    isIndex,
-    pageTitle,
-    pageSubtitle,
-    pageDescription,
-  } = props;
-
-  const { companyInfo } = useCompanyInfo();
+  const { children, menuItems, pageTitle, pageDescription } = props;
 
   const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
@@ -32,27 +21,26 @@ const Layout = (props) => {
 
   const pageHeader =
     pageTitle !== (null || undefined) ? (
-      <PageHeader
-        title={pageTitle}
-        subtitle={pageSubtitle}
-        description={pageDescription}
-      />
+      <PageHeader title={pageTitle} description={pageDescription} />
     ) : (
       ''
     );
 
   return (
     <>
-      <Header navMenuItems={navMenuItems} isIndex={isIndex} />
-      {isIndex ? (
-        <main className="index__main">{children}</main>
-      ) : (
-        <main className="mainContainer">
+      <Header menuItems={menuItems} />
+      {
+        <main className="index__main">
           {pageHeader}
           {children}
         </main>
-      )}
-      <Footer companyInfo={companyInfo} isIndex={isIndex} />
+
+        // <main className="mainContainer">
+        //   {pageHeader}
+        //   {children}
+        // </main>
+      }
+      {/* <Footer isIndex={isIndex} /> */}
     </>
   );
 };

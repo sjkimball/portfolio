@@ -6,7 +6,6 @@ export default {
   options: {
     list: [
       { title: 'Graphic Design', value: 'graphicDesign' },
-      { title: 'Responsive Design', value: 'responsiveDesign' },
       { title: 'UX Design', value: 'uxDesign' },
       { title: 'UI Design', value: 'uiDesign' },
       { title: 'Brand Identity', value: 'brandIdentity' },

@@ -7,42 +7,34 @@ import Project from '../components/Project';
 import GraphQLErrorList from '../components/graphql-error-list';
 
 export const query = graphql`
-  query ($id: String!, $parentRouteID: String!) {
+  query ($id: String!) {
     project: sanityProject(id: { eq: $id }) {
       title
       subtitle
-      disciplines
+      _rawBody
       cover {
         ...imageData
       }
-      _rawDescription
       productImages {
         ...imageData
       }
       client {
         name
       }
+      designArea
+      disciplines
       sector
-      office {
-        contactInfo {
-          address {
-            city
-          }
-        }
-      }
       members {
         firstName
         preferredName
         lastName
-        _key
+      }
+      seo {
+        ...seoPageData
       }
     }
-    parentRoute: sanityRoute(id: { eq: $parentRouteID }) {
-      page {
-        navMenu {
-          ...NavMenu
-        }
-      }
+    site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
+      ...settingsSiteData
     }
   }
 `;
@@ -59,10 +51,11 @@ const ProjectTemplate = (props) => {
   }
 
   const project = data.project;
-  const page = data.parentRoute.page;
-  const menuItems = page.navMenu && (page.navMenu.items || []);
+  const site = data.site;
+  const menuItems = site.menu && (site.menu.links || []);
+
   return (
-    <Layout navMenuItems={menuItems}>
+    <Layout menuItems={menuItems}>
       <Project project={project} />
     </Layout>
   );

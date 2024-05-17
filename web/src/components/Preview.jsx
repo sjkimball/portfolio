@@ -26,19 +26,17 @@ function ProjectPreview(project) {
 }
 
 function ProfilePreview(person) {
-  // console.dir('person in profile preview', person);
-  const { profileImg, firstName, preferredName, lastName, office, slug } =
-    person;
+  const { image, firstName, preferredName, lastName, office, slug } = person;
   const name = preferredName
     ? `${preferredName} ${lastName}`
     : `${firstName} ${lastName}`;
   return (
     <Link to={`/about/${slug.current}`} className={`preview`}>
       <figure className={`preview__figure preview__figure--profile`}>
-        <PrimaryImage imageAsset={profileImg} />
+        <PrimaryImage imageAsset={image} />
         <figcaption>
           <h4>{name}</h4>
-          <h5>{office.contactInfo.address.city}</h5>
+          {/* <h5>{office.contactInfo.address.city}</h5> */}
         </figcaption>
       </figure>
     </Link>
@@ -82,6 +80,7 @@ function createPreviewContent(props) {
 }
 
 const Preview = (props) => {
+  // console.dir('props in preview', props);
   const content = createPreviewContent(props);
   return content;
 };

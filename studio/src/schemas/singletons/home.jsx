@@ -9,6 +9,7 @@ export default {
   icon: HomeIcon,
   groups: [
     {
+      default: true,
       name: 'editorial',
       title: 'Editorial',
     },
@@ -25,10 +26,11 @@ export default {
       group: 'editorial',
     },
     {
-      name: 'modules',
-      title: 'Modules',
+      name: 'content',
+      title: 'Content',
+      description: 'Add content sections to page. 💀 is a zombie, ✅ is alive.',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [{ type: 'module.projects' }],
       group: 'editorial',
     },
     {

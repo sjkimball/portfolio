@@ -36,7 +36,7 @@ export default {
       name: 'people',
       title: 'People',
       type: 'array',
-      of: [{ type: 'person' }],
+      of: [{ type: 'member.staff' }],
     },
     {
       name: 'contact',

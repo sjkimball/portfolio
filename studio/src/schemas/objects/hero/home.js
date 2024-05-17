@@ -15,7 +15,7 @@ export default {
       name: 'links',
       title: 'Link',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [{ type: 'link.internal' }, { type: 'link.external' }],
       validation: (rule) => rule.max(1),
     },
     // Content
@@ -23,7 +23,7 @@ export default {
       name: 'content',
       title: 'Content',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [{ type: 'mainImage' }],
       validation: (rule) => rule.max(1),
     },
   ],

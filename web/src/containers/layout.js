@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Layout from '../components/layout';
+import Layout from '../components/global/Layout';
 
 function LayoutContainer(props) {
   const data = useStaticQuery(graphql`
     query {
-      site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-        title
+      site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
+        seo {
+          title
+          description
+        }
       }
     }
   `);

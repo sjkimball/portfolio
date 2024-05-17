@@ -27,7 +27,6 @@ const Project = ({ project }) => {
     _rawDescription: description,
     cover,
     productImages,
-    office,
     disciplines,
     members,
   } = project;
@@ -71,14 +70,6 @@ const Project = ({ project }) => {
                 {convertCamelToTitle(discipline)}
               </li>
             ))}
-          </ul>
-        </section>
-        <section>
-          <h6>Office</h6>
-          <ul>
-            <li key={office._id} value={office.contactInfo.address.city}>
-              {office.contactInfo.address.city}
-            </li>
           </ul>
         </section>
         <section>

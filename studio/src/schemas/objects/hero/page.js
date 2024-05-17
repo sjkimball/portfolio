@@ -15,7 +15,7 @@ export default {
       name: 'content',
       title: 'Content',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [{ type: 'mainImage' }],
       validation: (rule) => rule.max(1),
     },
   ],

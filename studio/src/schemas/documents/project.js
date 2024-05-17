@@ -6,8 +6,6 @@ export default {
   icon: FaProjectDiagram,
   type: 'document',
   initialValue: {
-    visibility: false,
-    featured: false,
     cover: {
       _type: 'mainImage',
       altText: 'This is placeholder alt text',
@@ -16,16 +14,17 @@ export default {
   },
   groups: [
     {
-      name: 'admin',
-      title: 'Admin',
-    },
-    {
-      name: 'projectInfo',
-      title: 'Project Info',
+      default: true,
+      name: 'editorial',
+      title: 'Editorial',
     },
     {
       name: 'team',
       title: 'Team',
+    },
+    {
+      name: 'seo',
+      title: 'SEO',
     },
   ],
   fields: [
@@ -35,7 +34,7 @@ export default {
       type: 'string',
       validation: (Rule) =>
         Rule.required().max(100).error('Say more with less.'),
-      group: 'projectInfo',
+      group: 'editorial',
     },
     {
       name: 'slug',
@@ -50,34 +49,34 @@ export default {
       },
       validation: (Rule) =>
         Rule.required().error('A slug must be generated prior to publishing.'),
-      group: 'admin',
+      group: 'editorial',
     },
 
     {
       name: 'subtitle',
       title: 'Subtitle',
-      description: 'Keep in short and sweet like an old skool tweet.',
+      description: 'Keep it short and sweet like an old skool tweet.',
       type: 'string',
       validation: (Rule) =>
         Rule.required()
           .min(40)
           .max(120)
           .error('Subtitles need to be between 40 and 120 characters long.'),
-      group: 'projectInfo',
+      group: 'editorial',
     },
     {
-      name: 'description',
+      name: 'body',
       title: 'Project Description',
       description: 'Detailed description of the project.',
-      type: 'blockContent',
-      group: 'projectInfo',
+      type: 'body',
+      group: 'editorial',
     },
     {
       name: 'cover',
       title: 'Cover Image',
       type: 'mainImage',
       validation: (Rule) => Rule.required(),
-      group: 'projectInfo',
+      group: 'editorial',
     },
     {
       name: 'productImages',
@@ -91,21 +90,21 @@ export default {
       options: {
         layout: 'grid',
       },
-      group: 'projectInfo',
+      group: 'editorial',
     },
     {
       name: 'designArea',
       title: 'Design Area',
       type: 'designArea',
-      group: 'projectInfo',
       validation: (Rule) => Rule.required(),
+      group: 'editorial',
     },
     {
       name: 'disciplines',
       title: 'Disciplines',
       description: 'Select all that apply.',
       type: 'designDiscipline',
-      group: 'projectInfo',
+      group: 'editorial',
     },
     {
       name: 'client',
@@ -114,13 +113,13 @@ export default {
       to: [{ type: 'company' }],
       validation: (Rule) =>
         Rule.required().error('Every project needs a client.'),
-      group: 'projectInfo',
+      group: 'editorial',
     },
     {
       name: 'sector',
       title: 'Sector',
       type: 'sector',
-      group: 'projectInfo',
+      group: 'editorial',
     },
 
     {
@@ -132,12 +131,11 @@ export default {
         Rule.required().error('Add at least one contributor.'),
       group: 'team',
     },
-  ],
-  orderings: [
     {
-      title: 'Client, A-Z',
-      name: 'clientAsc',
-      by: [{ field: 'client.name', direction: 'asc' }],
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo.page',
+      group: 'seo',
     },
   ],
   preview: {

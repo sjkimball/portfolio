@@ -4,8 +4,8 @@ import { graphql } from 'gatsby';
 import SEO from '../components/seo';
 import GraphQLErrorList from '../components/graphql-error-list';
 import Layout from '../containers/layout';
-import Hero from '../components/hero';
-import Grid from '../components/Grid';
+import HeroHome from '../components/heroes/Home';
+import Grid from '../components/modules/Grid';
 import Profile from '../components/profile';
 import InfoSection from '../components/InfoSection';
 
@@ -15,22 +15,17 @@ import '../styles/layout.css';
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
-    route: sanityRoute(id: { eq: $id }) {
-      slug {
-        current
-      }
-      useSiteTitle
-      page {
-        ...PageInfo
-      }
+    page: sanityPage(id: { eq: $id }) {
+      ...pageData
     }
-    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      title
+    site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
+      ...settingsSiteData
     }
   }
 `;
 
 const Page = (props) => {
+  console.dir('props in page', props);
   const { data, errors } = props;
 
   if (errors) {
@@ -45,35 +40,35 @@ const Page = (props) => {
 
   if (!site) {
     throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.',
+      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Settings" and restart the development server.',
     );
   }
-  const page = data.page || data.route.page;
+  // Page Content
+  const page = data.page;
 
-  //Inspect page content and determine what components to render.
+  // Hero
+  const hero =
+    page._id && page._id == 'home' ? (
+      <HeroHome {...page.hero} />
+    ) : page.showHero && page.showHero == true ? (
+      <h1>Page Hero</h1>
+    ) : (
+      ''
+    );
+
+  //Content
   const content = (page._rawContent || [])
     .filter((c) => !c.disabled)
     .map((c, i) => {
       let el = null;
       switch (c._type) {
-        case 'hero':
-          el = <Hero key={c._key} {...c} />;
-          break;
-        case 'projectGroup':
+        case 'module.projects':
           el = <Grid key={c._key} {...c} />;
           break;
-        case 'peopleGroup':
-          el =
-            c.people.length < 2 ? (
-              <Profile key={c._key} {...c.people[0]} />
-            ) : (
-              <Grid key={c._key} {...c} />
-            );
-          break;
-        case 'postGroup':
+        case 'module.people':
           el = <Grid key={c._key} {...c} />;
           break;
-        case 'officeGroup':
+        case 'modules.post':
           el = <Grid key={c._key} {...c} />;
           break;
         case 'infoSection':
@@ -85,22 +80,18 @@ const Page = (props) => {
       return el;
     });
 
-  const menuItems = page.navMenu && (page.navMenu.items || []);
-  const pageTitle = data.route && !data.route.useSiteTitle && page.title;
-  const pageSubtitle = page.subtitle;
-  const pageDescription = page.description;
-  const isIndex = page.indexPage;
+  const menuItems = site.menu && (site.menu.links || []);
+  const pageTitle = page.title;
+  const pageDescription = page._rawBody;
 
   return (
     <Layout
-      id="layout"
-      navMenuItems={menuItems}
-      isIndex={isIndex}
+      menuItems={menuItems}
       pageTitle={pageTitle}
-      pageSubtitle={pageSubtitle}
       pageDescription={pageDescription}
     >
-      <SEO title={site.title} />
+      <SEO title={site.seo.title} />
+      {hero}
       {content}
     </Layout>
   );

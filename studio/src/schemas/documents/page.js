@@ -7,6 +7,7 @@ export default {
   icon: DocumentIcon,
   groups: [
     {
+      default: true,
       name: 'editorial',
       title: 'Editorial',
     },
@@ -22,6 +23,7 @@ export default {
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
+      group: 'editorial',
     },
     {
       name: 'slug',
@@ -29,6 +31,7 @@ export default {
       options: {
         source: 'title',
       },
+      group: 'editorial',
     },
     {
       name: 'showHero',
@@ -46,17 +49,10 @@ export default {
       group: 'editorial',
     },
     {
-      name: 'description',
-      title: 'Description',
-      type: 'blockContent',
+      name: 'body',
+      title: 'Body',
+      type: 'body',
       group: 'editorial',
-    },
-    {
-      name: 'navMenu',
-      type: 'reference',
-      title: 'Navigation menu',
-      to: [{ type: 'navigationMenu' }],
-      description: 'Which nav menu should be shown, if any?',
     },
     {
       name: 'content',
@@ -69,6 +65,7 @@ export default {
         { type: 'module.posts' },
         { type: 'infoSection' },
       ],
+      group: 'editorial',
     },
     {
       name: 'seo',
@@ -76,23 +73,15 @@ export default {
       type: 'seo.page',
       group: 'seo',
     },
-    {
-      name: 'indexPage',
-      title: 'Use this page as an index page?',
-      type: 'boolean',
-      initialValue: false,
-    },
   ],
   preview: {
     select: {
       title: 'title',
-      indexPage: 'indexPage',
     },
     prepare(selection) {
-      const { title, indexPage } = selection;
+      const { title } = selection;
       return {
         title: title,
-        subtitle: `${indexPage ? 'Index Page' : ''}`,
       };
     },
   },

@@ -1,6 +1,6 @@
 export default {
   name: 'module.projects',
-  title: 'Projects',
+  title: 'Projects Module',
   type: 'object',
   initialValue: {
     disabled: false,

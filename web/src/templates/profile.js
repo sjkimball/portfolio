@@ -11,33 +11,18 @@ import '../styles/global.css';
 import '../styles/layout.css';
 
 export const query = graphql`
-  query ($id: String!, $parentRouteID: String!) {
+  query ($id: String!) {
     profile: sanityPerson(id: { eq: $id }) {
       firstName
       preferredName
       lastName
-      profileImg {
+      image {
         ...imageData
       }
-      _rawBiography
-      links {
-        title
-        url
-      }
-      office {
-        contactInfo {
-          address {
-            city
-          }
-        }
-      }
+      _rawBio
     }
-    parentRoute: sanityRoute(id: { eq: $parentRouteID }) {
-      page {
-        navMenu {
-          ...NavMenu
-        }
-      }
+    site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
+      ...settingsSiteData
     }
   }
 `;
@@ -54,8 +39,8 @@ const ProfileTemplate = (props) => {
   }
 
   const profile = data.profile;
-  const page = data.parentRoute.page;
-  const menuItems = page.navMenu && (page.navMenu.items || []);
+  const site = data.site;
+  const menuItems = site.menu && (site.menu.links || []);
   return (
     <Layout navMenuItems={menuItems}>
       <Profile {...profile} />

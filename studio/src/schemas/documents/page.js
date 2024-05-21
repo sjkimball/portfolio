@@ -63,7 +63,6 @@ export default {
         { type: 'module.people' },
         { type: 'module.projects' },
         { type: 'module.posts' },
-        { type: 'infoSection' },
       ],
       group: 'editorial',
     },

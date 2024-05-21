@@ -8,8 +8,7 @@ import project from './documents/project';
 // Objects
 // Blocks
 import body from './objects/blocks/body';
-// Custom Blocks
-import blockExternalAsset from './objects/blocks/custom/externalAsset';
+import blockSimple from './objects/blocks/simple';
 // Contact
 import addressUS from './objects/contact/address/unitedstates';
 import contactBasic from './objects/contact/basic';
@@ -21,6 +20,11 @@ import heroPage from './objects/hero/page';
 import linkInternal from './objects/links/internal';
 import linkExternal from './objects/links/external';
 // Modules
+import moduleBlockContent from './objects/modules/blockContent';
+import moduleCallout from './objects/modules/callout';
+import moduleExternalAsset from './objects/modules/externalAsset';
+import gridItem from './objects/modules/gridItem';
+import moduleGrid from './objects/modules/grid';
 import moduleProjects from './objects/modules/projects';
 import modulePeople from './objects/modules/people';
 import modulePosts from './objects/modules/posts';
@@ -33,8 +37,6 @@ import seoSite from './objects/seo/site';
 import designArea from './objects/designArea';
 import designDiscipline from './objects/designDiscipline';
 import footer from './objects/footer';
-import infoBlock from './objects/infoBlock';
-import infoSection from './objects/infoSection';
 import mainImage from './objects/mainImage';
 import memberStaff from './objects/memberStaff';
 import notFoundPage from './objects/notFoundPage';
@@ -52,24 +54,27 @@ export default [
   addressUS,
   body,
   blogSettings,
-  blockExternalAsset,
+  blockSimple,
   company,
   contactBasic,
   contactComplete,
   designArea,
   designDiscipline,
   footer,
+  gridItem,
   heroHome,
   heroPage,
   home,
-  infoBlock,
-  infoSection,
   linkInternal,
   linkExternal,
   mainImage,
   memberStaff,
   menu,
   messageImage,
+  moduleBlockContent,
+  moduleCallout,
+  moduleExternalAsset,
+  moduleGrid,
   modulePeople,
   modulePosts,
   moduleProjects,

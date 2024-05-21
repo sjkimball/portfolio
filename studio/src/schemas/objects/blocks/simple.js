@@ -1,6 +1,6 @@
 export default {
-  name: 'body',
-  title: 'Body',
+  name: 'block.simple',
+  title: 'Simple Block',
   type: 'array',
   of: [
     // Paragraphs
@@ -39,31 +39,7 @@ export default {
     // Custom Blocks
     {
       title: 'Image',
-      type: 'mainImage',
-    },
-    {
-      title: 'Projects',
-      type: 'module.projects',
-    },
-    {
-      title: 'People',
-      type: 'module.people',
-    },
-    {
-      title: 'Posts',
-      type: 'module.posts',
-    },
-    {
-      title: 'Grid',
-      type: 'module.grid',
-    },
-    {
-      title: 'Callout',
-      type: 'module.callout',
-    },
-    {
-      title: 'External Asset',
-      type: 'module.externalAsset',
+      type: 'image',
     },
   ],
 };

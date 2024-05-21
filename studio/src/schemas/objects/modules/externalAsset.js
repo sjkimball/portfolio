@@ -1,7 +1,7 @@
 import { EarthGlobeIcon } from '@sanity/icons';
 
 export default {
-  name: 'block.externalAsset',
+  name: 'module.externalAsset',
   title: 'External Asset',
   type: 'object',
   icon: EarthGlobeIcon,
@@ -25,6 +25,14 @@ export default {
   preview: {
     select: {
       title: 'title',
+      media: 'image',
+    },
+    prepare: (selection) => {
+      const { title, media } = selection;
+      return {
+        title: title,
+        media: media,
+      };
     },
   },
 };

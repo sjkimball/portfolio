@@ -1,10 +1,10 @@
+import { UsersIcon } from '@sanity/icons';
+
 export default {
   name: 'module.people',
   title: 'People Module',
   type: 'object',
-  initialValue: {
-    disabled: false,
-  },
+  icon: UsersIcon,
   fields: [
     {
       name: 'title',
@@ -15,7 +15,8 @@ export default {
       name: 'subtitle',
       title: 'Subtitle',
       description: 'Describes group of people',
-      type: 'string',
+      type: 'text',
+      rows: 3,
     },
     {
       name: 'content',
@@ -29,29 +30,19 @@ export default {
       ],
       validation: (Rule) => Rule.max(6).min(1).unique(),
     },
-    {
-      name: 'disabled',
-      title: 'Disable?',
-      type: 'boolean',
-    },
   ],
   preview: {
     select: {
       title: 'title',
-      people: 'content',
-      disabled: 'disabled',
+      content: 'content',
     },
-    prepare: ({ title, disabled, people }) => {
-      const numberOfPeople = people.length;
-      const subtitle = `${numberOfPeople} ${numberOfPeople > 1 ? 'people' : 'person'}`;
+    prepare(selection) {
+      const { title, content } = selection;
+      const numberOfItems = content.length;
       return {
-        title: title,
-        subtitle: subtitle,
-        media: (
-          <span style={{ fontSize: '1.5rem' }}>
-            {disabled || disabled == null ? '💀' : '✅'}
-          </span>
-        ),
+        title: `${title} - ${numberOfItems} ${numberOfItems > 1 ? 'people' : numberOfItems == 1 ? 'person' : 'No people.'}`,
+        subtitle: 'People',
+        media: UsersIcon,
       };
     },
   },

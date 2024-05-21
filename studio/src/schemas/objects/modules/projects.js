@@ -1,10 +1,10 @@
+import { ProjectsIcon } from '@sanity/icons';
+
 export default {
   name: 'module.projects',
   title: 'Projects Module',
   type: 'object',
-  initialValue: {
-    disabled: false,
-  },
+  icon: ProjectsIcon,
   fields: [
     {
       name: 'title',
@@ -15,7 +15,8 @@ export default {
       name: 'subtitle',
       title: 'Subtitle',
       description: 'Describes group of projects',
-      type: 'string',
+      type: 'text',
+      rows: 3,
     },
     {
       name: 'content',
@@ -27,30 +28,21 @@ export default {
           to: [{ type: 'project' }],
         },
       ],
-      validation: (Rule) => Rule.max(12).unique(),
-    },
-    {
-      name: 'disabled',
-      title: 'Disable?',
-      type: 'boolean',
+      validation: (Rule) => Rule.min(1).max(12).unique(),
     },
   ],
   preview: {
     select: {
       title: 'title',
-      subtitle: 'subtitle',
-      disabled: 'disabled',
+      content: 'content',
     },
-    prepare: (selection) => {
-      const { title, subtitle, disabled } = selection;
+    prepare(selection) {
+      const { title, content } = selection;
+      const numberOfItems = content.length;
       return {
-        title: title,
-        subtitle: subtitle,
-        media: (
-          <span style={{ fontSize: '1.5rem' }}>
-            {disabled || disabled == null ? '💀' : '✅'}
-          </span>
-        ),
+        title: `${title} - ${numberOfItems} ${numberOfItems > 1 ? 'projects' : numberOfItems == 1 ? 'project' : 'No projects.'}`,
+        subtitle: 'Projects',
+        media: ProjectsIcon,
       };
     },
   },

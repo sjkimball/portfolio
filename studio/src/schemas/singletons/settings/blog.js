@@ -1,7 +1,12 @@
+import { ControlsIcon } from '@sanity/icons';
+
+const TITLE = 'Blog Settings';
+
 export default {
-  name: 'blogSettings',
+  name: 'settings.blog',
+  title: TITLE,
   type: 'document',
-  title: 'Blog Settings',
+  icon: ControlsIcon,
   fields: [
     {
       name: 'title',

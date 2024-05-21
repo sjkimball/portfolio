@@ -17,6 +17,7 @@ const hiddenDocTypes = (listItem) =>
     'project',
     'route',
     'settings.site',
+    'settings.blog',
     'media.tag',
   ].includes(listItem.getId());
 

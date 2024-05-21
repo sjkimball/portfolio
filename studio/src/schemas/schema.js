@@ -46,14 +46,13 @@ import sector from './objects/sector';
 import socialMediaAccounts from './objects/socialMediaAccounts';
 
 // Singletons
-import blogSettings from './singletons/blogSettings';
-import home from './singletons/home';
 import settingsSite from './singletons/settings/site';
+import settingsBlog from './singletons/settings/blog';
+import home from './singletons/home';
 
 export default [
   addressUS,
   body,
-  blogSettings,
   blockSimple,
   company,
   contactBasic,
@@ -89,5 +88,6 @@ export default [
   seoProject,
   seoSite,
   settingsSite,
+  settingsBlog,
   socialMediaAccounts,
 ];

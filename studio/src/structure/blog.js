@@ -12,7 +12,9 @@ export const blog = (S) =>
             .title('Blog Settings')
             .icon(ControlsIcon)
             .child(
-              S.editor().schemaType('blogSettings').documentId('blogSettings'),
+              S.document()
+                .schemaType('settings.blog')
+                .documentId('blogSettings'),
             ),
           S.listItem()
             .title('Posts')

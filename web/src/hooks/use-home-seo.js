@@ -1,20 +1,18 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-const useLandingPage = () => {
+const useHomeSeo = () => {
   const data = useStaticQuery(graphql`
     query {
       page: sanityHome(_id: { regex: "/(drafts.|)home/" }) {
         _id
-        hero {
-          ...heroHomeData
+        seo {
+          ...seoHomeData
         }
-        _rawContent(resolveReferences: { maxDepth: 10 })
-        # seo {
-        #   ...seoHomeData
-        # }
       }
       site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
-        ...settingsSiteData
+        seo {
+          ...seoSiteData
+        }
       }
     }
   `);
@@ -22,4 +20,4 @@ const useLandingPage = () => {
   return data;
 };
 
-export default useLandingPage;
+export default useHomeSeo;

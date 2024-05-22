@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PrimaryImage from './primaryImage';
-import PortText from './portableText';
+import PortableText from './portableText/PortableText';
 
 import './project.css';
 
@@ -50,7 +50,7 @@ const Project = ({ project }) => {
       </header>
       <section className="sk-project__body">
         <section className="sk-project__description">
-          <PortText content={description} />
+          <PortableText blocks={description} />
         </section>
       </section>
       <section className="sk-project__metadata">

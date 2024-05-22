@@ -1,6 +1,6 @@
 import React from 'react';
 import { toHeaderCase } from 'js-convert-case';
-import Preview from '../preview';
+import Preview from '../Preview';
 import './Grid.css';
 
 function createGridContentClass(props) {

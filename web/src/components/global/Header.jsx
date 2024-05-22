@@ -40,20 +40,20 @@ class Header extends React.Component {
 
   render() {
     // console.log('props in header', this.props);
-    const { menuItems = [], isIndex } = this.props;
+    const { links = [], isIndex } = this.props;
     return (
       <header
         id="mainHeader"
-        className={`header ${isIndex ? 'header--index' : ''}`}
-        data-theme={`${isIndex ? 'dark' : 'light'}`}
+        className={`header`}
+        // data-theme={`${isIndex ? 'dark' : 'light'}`}
       >
         <nav className="header__nav" role="navigation">
           <Link to="/" className="nav__logo">
             <h1>SK</h1>
           </Link>
-          {menuItems && (
+          {links && (
             <ul id="mainHeader__nav__links" className="nav__links">
-              {menuItems.map((item, index) => (
+              {links.map((item, index) => (
                 <li key={index}>
                   <Link
                     to={`/${item.reference.slug.current}`}

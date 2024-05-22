@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import Header from './Header';
 import Footer from './Footer';
-import PageHeader from '../pageHeader';
 
 const Layout = (props) => {
-  const { children, menuItems, pageTitle, pageDescription } = props;
+  // console.dir('props in layout component', props);
+  const { children, site } = props;
 
   const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
@@ -19,28 +19,13 @@ const Layout = (props) => {
     }
   });
 
-  const pageHeader =
-    pageTitle !== (null || undefined) ? (
-      <PageHeader title={pageTitle} description={pageDescription} />
-    ) : (
-      ''
-    );
-
   return (
     <>
-      <Header menuItems={menuItems} />
-      {
-        <main className="index__main">
-          {pageHeader}
-          {children}
-        </main>
-
-        // <main className="mainContainer">
-        //   {pageHeader}
-        //   {children}
-        // </main>
-      }
-      {/* <Footer isIndex={isIndex} /> */}
+      <Header {...site.menu} />
+      <main id="mainContent" className="mainContainer">
+        {children}
+      </main>
+      <Footer {...site.footer} />
     </>
   );
 };

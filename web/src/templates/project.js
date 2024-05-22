@@ -2,9 +2,10 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 
-import Layout from '../containers/layout';
+import Layout from '../components/global/Layout';
 import Project from '../components/Project';
 import GraphQLErrorList from '../components/graphql-error-list';
+import SEO from '../components/seo';
 
 export const query = graphql`
   query ($id: String!) {
@@ -39,7 +40,17 @@ export const query = graphql`
   }
 `;
 
+// export const Head = ({ location, params, data, pageContext }) => {
+//   return (
+//     <SEO
+//       title={data.page.seo.title || data.page.title}
+//       description={data.page.seo.description || data.site.seo.description}
+//     />
+//   );
+// };
+
 const ProjectTemplate = (props) => {
+  // console.dir('props in project template', props);
   const { data, errors } = props;
 
   if (errors) {
@@ -52,10 +63,9 @@ const ProjectTemplate = (props) => {
 
   const project = data.project;
   const site = data.site;
-  const menuItems = site.menu && (site.menu.links || []);
 
   return (
-    <Layout menuItems={menuItems}>
+    <Layout site={site}>
       <Project project={project} />
     </Layout>
   );

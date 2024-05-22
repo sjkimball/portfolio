@@ -6,8 +6,14 @@ import './Profile.css';
 
 const Profile = (props) => {
   console.dir('props in Profile', props);
-  const { firstName, preferredName, lastName, profileImg, links, biography } =
-    props;
+  const {
+    firstName,
+    preferredName,
+    lastName,
+    image,
+    links,
+    _rawBio: bio,
+  } = props;
 
   const name = preferredName
     ? `${preferredName} ${lastName}`
@@ -22,9 +28,9 @@ const Profile = (props) => {
           {/* <span>{office.contactInfo.address.city}</span> */}
         </h2>
       </header>
-      <section className="sk-profile__body">{biography}</section>
+      {/* <section className="sk-profile__body">{bio}</section> */}
       <aside className="sk-profile__headshot">
-        {/* <PrimaryImage imageAsset={profileImg} imageUse={`cover`} /> */}
+        <PrimaryImage imageAsset={image} imageUse={`cover`} />
       </aside>
       <section className="sk-profile__links">
         {links.map((link, i) => {

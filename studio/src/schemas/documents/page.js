@@ -55,18 +55,6 @@ export default {
       group: 'editorial',
     },
     {
-      name: 'content',
-      title: 'Content',
-      description: 'Add content sections to page. 💀 is a zombie, ✅ is alive.',
-      type: 'array',
-      of: [
-        { type: 'module.people' },
-        { type: 'module.projects' },
-        { type: 'module.posts' },
-      ],
-      group: 'editorial',
-    },
-    {
       name: 'seo',
       title: 'SEO',
       type: 'seo.page',
@@ -76,11 +64,13 @@ export default {
   preview: {
     select: {
       title: 'title',
+      seoImage: 'seo.image',
     },
     prepare(selection) {
-      const { title } = selection;
+      const { title, seoImage } = selection;
       return {
         title: title,
+        media: seoImage,
       };
     },
   },

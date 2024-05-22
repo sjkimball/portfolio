@@ -2,7 +2,7 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 
-import Layout from '../containers/layout';
+import Layout from '../components/global/Layout';
 import Profile from '../components/profile';
 import GraphQLErrorList from '../components/graphql-error-list';
 
@@ -12,7 +12,7 @@ import '../styles/layout.css';
 
 export const query = graphql`
   query ($id: String!) {
-    profile: sanityPerson(id: { eq: $id }) {
+    person: sanityPerson(id: { eq: $id }) {
       firstName
       preferredName
       lastName
@@ -20,6 +20,9 @@ export const query = graphql`
         ...imageData
       }
       _rawBio
+      links {
+        ...externalLinkData
+      }
     }
     site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
       ...settingsSiteData
@@ -38,11 +41,10 @@ const ProfileTemplate = (props) => {
     );
   }
 
-  const profile = data.profile;
+  const profile = data.person;
   const site = data.site;
-  const menuItems = site.menu && (site.menu.links || []);
   return (
-    <Layout navMenuItems={menuItems}>
+    <Layout site={site}>
       <Profile {...profile} />
     </Layout>
   );

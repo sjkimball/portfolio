@@ -7,6 +7,7 @@ export const settingsSiteData = graphql`
         links {
           ...externalLinkData
           ... on SanityLinkInternal {
+            _type
             title
             reference {
               ... on SanityPage {
@@ -24,6 +25,7 @@ export const settingsSiteData = graphql`
         links {
           ...externalLinkData
           ... on SanityLinkInternal {
+            _type
             title
             reference {
               ... on SanityPage {
@@ -34,6 +36,7 @@ export const settingsSiteData = graphql`
             }
           }
         }
+        text
       }
     }
     seo {

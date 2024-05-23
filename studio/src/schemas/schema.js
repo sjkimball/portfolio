@@ -23,10 +23,12 @@ import linkExternal from './objects/links/external';
 import moduleBlockContent from './objects/modules/blockContent';
 import moduleCallout from './objects/modules/callout';
 import moduleExternalAsset from './objects/modules/externalAsset';
+import moduleFigmaEmbed from './objects/modules/figmaEmbed';
 import gridItem from './objects/modules/gridItem';
 import moduleGrid from './objects/modules/grid';
 import moduleProjects from './objects/modules/projects';
 import modulePeople from './objects/modules/people';
+import modulePerson from './objects/modules/person';
 import modulePosts from './objects/modules/posts';
 // SEO
 import seoHome from './objects/seo/home';
@@ -73,8 +75,10 @@ export default [
   moduleBlockContent,
   moduleCallout,
   moduleExternalAsset,
+  moduleFigmaEmbed,
   moduleGrid,
   modulePeople,
+  modulePerson,
   modulePosts,
   moduleProjects,
   notFoundPage,

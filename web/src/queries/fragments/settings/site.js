@@ -15,6 +15,12 @@ export const settingsSiteData = graphql`
                   current
                 }
               }
+              ... on SanityPerson {
+                _type
+                slug {
+                  current
+                }
+              }
             }
           }
         }

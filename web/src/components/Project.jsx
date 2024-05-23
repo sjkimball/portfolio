@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PrimaryImage from './primaryImage';
-import PortableText from './portableText/PortableText';
+import PortableText from './portableText/portableText';
 
 import './project.css';
 
@@ -18,29 +18,31 @@ function convertCamelToTitle(camelString) {
   return acronymPrep(titleStr);
 }
 
-const Project = ({ project }) => {
+const Project = (props) => {
+  // console.dir('props in project', props);
   const {
-    client,
-    sector,
     title,
     subtitle,
-    _rawDescription: description,
-    cover,
-    productImages,
     disciplines,
+    cover,
+    _rawBody: description,
+    productImages,
+    client,
+    sector,
     members,
-  } = project;
+  } = props;
 
   return (
     <article className="sk-project">
       <header className="sk-project__header">
+        <h1>{client.name}</h1>
         <h2>{title}</h2>
         <h3>{subtitle}</h3>
         <div className="sk-project__disciplines">
           <h6 hidden>Disciplines</h6>
           <ul className="sk-project__tags">
-            {disciplines.map((discipline, index) => (
-              <li key={index} value={discipline}>
+            {disciplines.map((discipline, i) => (
+              <li key={i} value={discipline}>
                 {convertCamelToTitle(discipline)}
               </li>
             ))}
@@ -48,12 +50,10 @@ const Project = ({ project }) => {
         </div>
         <PrimaryImage imageAsset={cover} imageUse={`cover`} />
       </header>
-      <section className="sk-project__body">
-        <section className="sk-project__description">
-          <PortableText blocks={description} />
-        </section>
-      </section>
-      <section className="sk-project__metadata">
+      <div className="sk-project__body">
+        <PortableText blocks={description} />
+      </div>
+      <div className="sk-project__metadata">
         <section>
           <h6>Client</h6>
           <p>{client.name}</p>
@@ -65,8 +65,8 @@ const Project = ({ project }) => {
         <section className="sk-project__disciplines">
           <h6>Disciplines</h6>
           <ul>
-            {disciplines.map((discipline, index) => (
-              <li key={index} value={discipline}>
+            {disciplines.map((discipline, i) => (
+              <li key={i} value={discipline}>
                 {convertCamelToTitle(discipline)}
               </li>
             ))}
@@ -75,20 +75,20 @@ const Project = ({ project }) => {
         <section>
           <h6>Team</h6>
           <ul>
-            {members.map((member) => {
+            {members.map((member, i) => {
               const { firstName, lastName, preferredName } = member;
               const name = preferredName
                 ? `${preferredName} ${lastName}`
                 : `${firstName} ${lastName}`;
               return (
-                <li key={member._key} value={name}>
+                <li key={i} value={name}>
                   {name}
                 </li>
               );
             })}
           </ul>
         </section>
-      </section>
+      </div>
       <aside className="sk-project__gallery">
         {productImages.map((image) => {
           return <PrimaryImage key={image.asset._id} imageAsset={image} />;

@@ -26,16 +26,15 @@ export const query = graphql`
 `;
 
 export const Head = ({ location, params, data, pageContext }) => {
-  return (
-    <SEO
-      title={data.page.seo.title || data.page.title}
-      description={data.page.seo.description || data.site.seo.description}
-    />
-  );
+  const title = data.page.seo.title ? data.page.seo.title : data.page.title;
+  const description = data.page.seo.description
+    ? data.page.seo.description
+    : data.site.seo.description;
+  return <SEO title={title} description={description} />;
 };
 
 const Page = (props) => {
-  console.dir('props in page', props);
+  // console.dir('props in page', props);
   const { data, errors } = props;
 
   if (errors) {

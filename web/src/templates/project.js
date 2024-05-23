@@ -9,7 +9,7 @@ import SEO from '../components/seo';
 
 export const query = graphql`
   query ($id: String!) {
-    project: sanityProject(id: { eq: $id }) {
+    page: sanityProject(id: { eq: $id }) {
       title
       subtitle
       _rawBody
@@ -40,14 +40,17 @@ export const query = graphql`
   }
 `;
 
-// export const Head = ({ location, params, data, pageContext }) => {
-//   return (
-//     <SEO
-//       title={data.page.seo.title || data.page.title}
-//       description={data.page.seo.description || data.site.seo.description}
-//     />
-//   );
-// };
+export const Head = ({ location, params, data, pageContext }) => {
+  const title = data.page.seo.title ? data.page.seo.title : data.page.title;
+  const description = data.page.seo
+    ? data.page.seo.description
+    : data.site.seo.description;
+  return (
+    <SEO description={description}>
+      <title id="title">{title}</title>
+    </SEO>
+  );
+};
 
 const ProjectTemplate = (props) => {
   // console.dir('props in project template', props);
@@ -61,12 +64,12 @@ const ProjectTemplate = (props) => {
     );
   }
 
-  const project = data.project;
+  const project = data.page;
   const site = data.site;
 
   return (
     <Layout site={site}>
-      <Project project={project} />
+      <Project {...project} />
     </Layout>
   );
 };

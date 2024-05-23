@@ -1,19 +1,14 @@
 import React from 'react';
 
 import PrimaryImage from './primaryImage';
+import PortableText from './portableText/portableText';
 
 import './Profile.css';
 
 const Profile = (props) => {
   console.dir('props in Profile', props);
-  const {
-    firstName,
-    preferredName,
-    lastName,
-    image,
-    links,
-    _rawBio: bio,
-  } = props;
+  const { firstName, preferredName, lastName, image, links, _rawBio, bio } =
+    props;
 
   const name = preferredName
     ? `${preferredName} ${lastName}`
@@ -29,6 +24,7 @@ const Profile = (props) => {
         </h2>
       </header>
       {/* <section className="sk-profile__body">{bio}</section> */}
+      <PortableText blocks={_rawBio} />
       <aside className="sk-profile__headshot">
         <PrimaryImage imageAsset={image} imageUse={`cover`} />
       </aside>

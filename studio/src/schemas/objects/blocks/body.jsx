@@ -62,8 +62,12 @@ export default {
       type: 'module.callout',
     },
     {
-      title: 'External Asset',
-      type: 'module.externalAsset',
+      title: 'Figma Embed',
+      type: 'module.figmaEmbed',
+    },
+    {
+      title: 'Person',
+      type: 'module.person',
     },
   ],
 };

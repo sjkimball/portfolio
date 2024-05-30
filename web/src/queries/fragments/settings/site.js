@@ -5,42 +5,16 @@ export const settingsSiteData = graphql`
     menu {
       ... on SanityMenu {
         links {
+          ...internalLinkData
           ...externalLinkData
-          ... on SanityLinkInternal {
-            _type
-            title
-            reference {
-              ... on SanityPage {
-                slug {
-                  current
-                }
-              }
-              ... on SanityPerson {
-                _type
-                slug {
-                  current
-                }
-              }
-            }
-          }
         }
       }
     }
     footer {
       ... on SanityFooter {
         links {
+          ...internalLinkData
           ...externalLinkData
-          ... on SanityLinkInternal {
-            _type
-            title
-            reference {
-              ... on SanityPage {
-                slug {
-                  current
-                }
-              }
-            }
-          }
         }
         text
       }

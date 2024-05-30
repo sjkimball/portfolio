@@ -2,14 +2,10 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 
+import GraphQLErrorList from '../components/GraphqlErrorList';
 import Layout from '../components/global/Layout';
-import Profile from '../components/profile';
-import GraphQLErrorList from '../components/graphql-error-list';
-import SEO from '../components/seo';
-
-import '../styles/_variables.css';
-import '../styles/global.css';
-import '../styles/layout.css';
+import Profile from '../components/Profile';
+import SEO from '../components/Seo';
 
 export const query = graphql`
   query ($id: String!) {
@@ -35,15 +31,19 @@ export const query = graphql`
 `;
 
 export const Head = ({ location, params, data, pageContext }) => {
-  const title = data.page.seo ? data.page.seo.title : data.page.title;
+  const title = data.page.seo.title ? data.page.seo.title : data.page.title;
   const description = data.page.seo
     ? data.page.seo.description
     : data.site.seo.description;
-  return <SEO title={title} description={description} />;
+  return (
+    <SEO description={description}>
+      <title id="title">{title}</title>
+    </SEO>
+  );
 };
 
 const ProfileTemplate = (props) => {
-  console.dir('props in ProfileTemplate', props);
+  // console.dir('props in ProfileTemplate', props);
   const { data, errors } = props;
 
   if (errors) {

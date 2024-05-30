@@ -2,7 +2,7 @@ import React from 'react';
 
 import { imageUrlFor } from '../lib/image-url';
 
-import './PrimaryImage.css';
+import { image } from './PrimaryImage.module.css';
 
 const imageSrcSet = (imageAsset) => `
 ${imageUrlFor(imageAsset).width(320)} 320w,
@@ -34,17 +34,12 @@ const PrimaryImage = (props) => {
     <img
       style={{
         backgroundImage: `url(${metadata})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        maxWidth: '1920px',
-        marginBottom: '0',
-        objectFit: 'cover',
-        width: '100%',
       }}
       srcSet={imageSrcSet(imageAsset)}
       sizes={imageSizes}
       src={imageUrlFor(imageAsset).auto('format')}
       alt={imageAsset.altText}
+      className={image}
     />
   );
 };

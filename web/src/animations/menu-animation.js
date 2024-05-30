@@ -43,13 +43,13 @@ const maskTl = () => {
 
 const linksTl = () => {
   const tl = gsap.timeline({ duration: 0.5 });
-  tl.set('#mainHeader__nav__links', { clearProps: true });
-  tl.set('.links__link', { clearProps: true });
-  tl.to('#mainHeader__nav__links', {
+  tl.set('#mainHeader__navLinks', { clearProps: true });
+  tl.set('#mainHeader__navLinks a', { clearProps: true });
+  tl.to('#mainHeader__navLinks', {
     display: 'flex',
     height: 'calc(100vh - 90px)',
   });
-  tl.to('.links__link', {
+  tl.to('#mainHeader__navLinks a', {
     opacity: 1,
     stagger: 0.2,
   });

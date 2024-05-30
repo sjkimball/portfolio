@@ -1,17 +1,21 @@
 import React from 'react';
 
-import PrimaryImage from '../primaryImage';
+import PrimaryImage from '../PrimaryImage';
 
-import './hero.css';
+import { hero } from './Hero.module.css';
 
 const HeroPage = (props) => {
   console.log('props in HeroPage', props);
   const { title, content } = props;
 
   return (
-    <section className={`hero`}>
-      <h2>{title}</h2>
-      <PrimaryImage imageAsset={content[0]} imageUse={`cover`} />
+    <section id="heroPage" className={hero}>
+      <h1>{title}</h1>
+      {content.length !== 0 ? (
+        <PrimaryImage imageAsset={content[0]} imageUse={`cover`} />
+      ) : (
+        ''
+      )}
     </section>
   );
 };

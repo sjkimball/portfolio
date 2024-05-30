@@ -1,0 +1,21 @@
+/* General */
+.grid {
+  display: grid;
+  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  & * {
+    grid-column: 2;
+  }
+}
+.container {
+  display: grid;
+  padding: var(--sk-spacing-md) 0;
+  gap: var(--sk-spacing-lg) 0;
+}
+.gridItem {
+  display: grid;
+  & img {
+    grid-row: 1;
+    margin-bottom: var(--sk-spacing-md);
+    aspect-ratio: 16/9;
+  }
+}

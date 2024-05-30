@@ -1,0 +1,12 @@
+.projectsBlock {
+  padding-top: var(--sk-spacing-lg);
+  padding-right: var(--sk-spacing-md);
+  padding-bottom: var(--sk-spacing-lg);
+  padding-left: var(--sk-spacing-md);
+  & div {
+    display: grid;
+    gap: var(--sk-spacing-md) 0;
+    padding-top: var(--sk-spacing-md);
+    padding-bottom: var(--sk-spacing-md);
+  }
+}

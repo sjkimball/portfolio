@@ -5,28 +5,30 @@
   text-decoration: none;
   color: inherit;
 }
-.preview__figure {
+.figure {
   display: grid;
+  & figcaption {
+    & h4 {
+      font: var(--sk-title-md);
+    }
+    & h5 {
+      font: var(--sk-title-sm);
+    }
+  }
 }
-.preview__figure img {
-  aspect-ratio: 1/1;
+.figureProject {
+  & * {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  & img {
+    aspect-ratio: 1/1;
+  }
+  & figcaption {
+    padding: var(--sk-spacing-lg) var(--sk-spacing-md);
+  }
 }
-.preview__figure figcaption h4 {
-  font: var(--sk-title-md);
-}
-.preview__figure figcaption h5 {
-  font: var(--sk-title-sm);
-}
-/* Projects */
-.preview__figure--project > * {
-  grid-column: 1;
-  grid-row: 1;
-}
-.preview__figure--project figcaption {
-  padding: var(--sk-spacing-lg) var(--sk-spacing-md);
-}
-/* Profiles */
-.preview__figure--profile {
+.figureProfile {
   gap: var(--sk-spacing-sm) 0;
 }
 /* Posts */

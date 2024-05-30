@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Header from './Header';
 import Footer from './Footer';
+import Header from './Header';
+
+import '../../styles/_variables.css';
+import '../../styles/global.css';
+import '../../styles/layout.css';
 
 const Layout = (props) => {
   // console.dir('props in layout component', props);
@@ -22,7 +26,7 @@ const Layout = (props) => {
   return (
     <>
       <Header {...site.menu} />
-      <main id="mainContent" className="mainContainer">
+      <main id="mainContent" className={`mainContent`}>
         {children}
       </main>
       <Footer {...site.footer} />

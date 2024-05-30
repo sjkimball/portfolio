@@ -1,9 +1,19 @@
 import React from 'react';
 
-import PrimaryImage from './primaryImage';
-import PortableText from './portableText/portableText';
+import PortableText from './portableText/PortableText';
+import PrimaryImage from './PrimaryImage';
 
-import './project.css';
+import {
+  project,
+  header,
+  projectClient,
+  projectTitle,
+  projectSubtitle,
+  projectDisciplines,
+  projectBody,
+  metadata,
+  gallery,
+} from './Project.module.css';
 
 function acronymPrep(discipline) {
   function capitalizeAcronym(match, string) {
@@ -25,7 +35,7 @@ const Project = (props) => {
     subtitle,
     disciplines,
     cover,
-    _rawBody: description,
+    _rawBody: body,
     productImages,
     client,
     sector,
@@ -33,27 +43,24 @@ const Project = (props) => {
   } = props;
 
   return (
-    <article className="sk-project">
-      <header className="sk-project__header">
-        <h1>{client.name}</h1>
-        <h2>{title}</h2>
-        <h3>{subtitle}</h3>
-        <div className="sk-project__disciplines">
-          <h6 hidden>Disciplines</h6>
-          <ul className="sk-project__tags">
-            {disciplines.map((discipline, i) => (
-              <li key={i} value={discipline}>
-                {convertCamelToTitle(discipline)}
-              </li>
-            ))}
-          </ul>
-        </div>
+    <article className={project}>
+      <header className={header}>
+        <h1 className={projectClient}>{client.name}</h1>
+        <p className={projectTitle}>{title}</p>
+        <p className={projectSubtitle}>{subtitle}</p>
+        {/* <ul className={projectDisciplines}>
+          {disciplines.map((discipline, i) => (
+            <li key={i} value={discipline}>
+              {convertCamelToTitle(discipline)}
+            </li>
+          ))}
+        </ul> */}
         <PrimaryImage imageAsset={cover} imageUse={`cover`} />
       </header>
-      <div className="sk-project__body">
-        <PortableText blocks={description} />
+      <div className={projectBody}>
+        <PortableText blocks={body} />
       </div>
-      <div className="sk-project__metadata">
+      <div className={metadata}>
         <section>
           <h6>Client</h6>
           <p>{client.name}</p>
@@ -62,7 +69,7 @@ const Project = (props) => {
           <h6>Sector</h6>
           <p>{convertCamelToTitle(sector)}</p>
         </section>
-        <section className="sk-project__disciplines">
+        <section>
           <h6>Disciplines</h6>
           <ul>
             {disciplines.map((discipline, i) => (
@@ -89,11 +96,11 @@ const Project = (props) => {
           </ul>
         </section>
       </div>
-      <aside className="sk-project__gallery">
+      {/* <aside className={gallery}>
         {productImages.map((image) => {
           return <PrimaryImage key={image.asset._id} imageAsset={image} />;
         })}
-      </aside>
+      </aside> */}
     </article>
   );
 };

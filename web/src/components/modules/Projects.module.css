@@ -1,0 +1,37 @@
+.grid {
+  display: grid;
+  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  gap: var(--sk-spacing-md) 0;
+  & * {
+    grid-column: 2;
+  }
+}
+.container {
+  display: grid;
+  gap: var(--sk-spacing-md) 0;
+}
+.preview {
+  cursor: pointer;
+  display: grid;
+  text-decoration: none;
+  color: inherit;
+}
+.figure {
+  display: grid;
+  & * {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  & img {
+    aspect-ratio: 1/1;
+  }
+  & figcaption {
+    padding: var(--sk-spacing-lg) var(--sk-spacing-md);
+    & h4 {
+      font: var(--sk-title-md);
+    }
+    & h5 {
+      font: var(--sk-title-sm);
+    }
+  }
+}

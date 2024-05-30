@@ -1,8 +1,14 @@
-.headerMask {
+.mask {
+  left: 0;
+  position: relative;
+  top: 0;
+  grid-column: 1/4;
+  grid-row: 1;
+  z-index: -10;
   height: 100%;
   width: 100%;
 }
-.headerMask__text {
+.text {
   font-family: var(--sk-font-display);
   font-size: 40px;
   line-height: 40px;
@@ -10,17 +16,14 @@
   font-weight: var(--sk-fw-black);
   transform: translate(16px, 57px);
 }
-.headerMask__text--light {
+.textLight {
   fill: var(--sk-sys-on-background);
 }
-.headerMask__text--index {
-  fill: var(--sk-neutral-990);
-}
-.headerMask__text--dark {
+.textDark {
   /* Dark mode 'on-background' color */
   fill: var(--sk-neutral-900);
 }
-.headerMask__bkgd--dark {
+.background {
   /* Dark mode 'background' color */
   fill: var(--sk-neutral-100);
   width: 100%;

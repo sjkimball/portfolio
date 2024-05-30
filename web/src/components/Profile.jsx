@@ -1,33 +1,26 @@
 import React from 'react';
 
-import PrimaryImage from './primaryImage';
-import PortableText from './portableText/portableText';
+import PortableText from './portableText/PortableText';
+import PrimaryImage from './PrimaryImage';
 
-import './Profile.css';
+import { profile } from './Profile.module.css';
 
 const Profile = (props) => {
-  console.dir('props in Profile', props);
-  const { firstName, preferredName, lastName, image, links, _rawBio, bio } =
-    props;
+  // console.dir('props in Profile', props);
+  const { firstName, preferredName, lastName, image, links, _rawBio } = props;
 
   const name = preferredName
     ? `${preferredName} ${lastName}`
     : `${firstName} ${lastName}`;
 
   return (
-    <article className="sk-profile">
-      <header className="sk-profile__header">
-        <h2>
-          {name}
-          <br />
-          {/* <span>{office.contactInfo.address.city}</span> */}
-        </h2>
-      </header>
-      {/* <section className="sk-profile__body">{bio}</section> */}
-      <PortableText blocks={_rawBio} />
-      <aside className="sk-profile__headshot">
+    <article className={profile}>
+      <header>
+        <h1>{name}</h1>
         <PrimaryImage imageAsset={image} imageUse={`cover`} />
-      </aside>
+      </header>
+      <PortableText blocks={_rawBio} />
+      <aside></aside>
       <section className="sk-profile__links">
         {links.map((link, i) => {
           return (

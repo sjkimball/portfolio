@@ -1,0 +1,4 @@
+.block {
+  padding-top: var(--sk-spacing-lg);
+  padding-bottom: var(--sk-spacing-lg);
+}

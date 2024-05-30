@@ -6,7 +6,7 @@
   color: var(--sk-sys-on-background-muted);
   fill: var(--sk-sys-on-background-muted);
 }
-.footer__links {
+.footerLinks {
   grid-row: 1;
   grid-column: 2;
   display: flex;
@@ -15,19 +15,12 @@
   list-style-type: none;
   margin-left: 0;
   margin-bottom: 0;
+  li {
+    cursor: pointer;
+    margin-bottom: 0;
+  }
 }
-.footer__links li {
-  cursor: pointer;
-  margin-bottom: 0;
-}
-.socialLink {
-  height: 40px;
-  width: 40px;
-}
-.socialLink__icon {
-  fill: inherit;
-}
-.footer__copyright {
+.copyright {
   grid-row: 1;
   grid-column: 2;
   justify-self: start;
@@ -44,10 +37,6 @@
 @media screen and (min-width: 1040px) {
   .footer {
     grid-template-columns: var(--sk-spacing-xl) auto var(--sk-spacing-xl);
-  }
-  .socialLink {
-    height: 44px;
-    width: 44px;
   }
 }
 @media screen and (min-width: 1600px) {

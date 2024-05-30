@@ -1,20 +1,22 @@
 .hero {
   display: grid;
-  grid-template-columns: var(--sk-spacing-md) 1fr 1fr var(--sk-spacing-md);
+  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
   overflow: hidden;
-}
-.hero img {
-  grid-column: 1/-1;
-  grid-row: 1;
-  justify-self: center;
-  align-self: center;
-  height: 100vh;
-  margin-bottom: 0;
-}
-.hero h2 {
-  color: #f8fef0;
-  grid-row: 2;
-  grid-column: 2/4;
+  h1 {
+    color: inherit;
+    grid-row: 2;
+    grid-column: 2;
+    padding-left: unset;
+    padding-right: unset;
+  }
+  img {
+    grid-column: 1/-1;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+    height: 100vh;
+    margin-bottom: 0;
+  }
 }
 .hero p {
   color: #f8fef0;

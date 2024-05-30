@@ -1,18 +1,15 @@
 import React from 'react';
+
 import { graphql } from 'gatsby';
 
-import SEO from '../components/seo';
-import GraphQLErrorList from '../components/graphql-error-list';
-// import Layout from '../containers/layout';
-import Layout from '../components/global/Layout';
-import HeroHome from '../components/heroes/Home';
-import HeroPage from '../components/heroes/Page';
+import GraphQLErrorList from '../components/GraphqlErrorList';
 import Grid from '../components/modules/Grid';
-import PortableText from '../components/portableText/portableText';
-
-import '../styles/_variables.css';
-import '../styles/global.css';
-import '../styles/layout.css';
+import HeroHome from '../components/heroes/home';
+import HeroPage from '../components/heroes/page';
+import Layout from '../components/global/Layout';
+import PortableText from '../components/portableText/PortableText';
+import Projects from '../components/modules/Projects';
+import SEO from '../components/Seo';
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -72,16 +69,13 @@ const Page = (props) => {
       let el = null;
       switch (c._type) {
         case 'module.projects':
-          el = <Grid key={c._key} {...c} />;
+          el = <Projects key={c._key} {...c} />;
           break;
-        case 'module.people':
-          el = <Grid key={c._key} {...c} />;
-          break;
-        case 'module.post':
+        case 'module.grid':
           el = <Grid key={c._key} {...c} />;
           break;
         case 'module.blockContent':
-          el = <PortText key={c._key} {...c} />;
+          el = <PortableText key={c._key} {...c} />;
           break;
         default:
           el = null;
@@ -90,6 +84,7 @@ const Page = (props) => {
     });
 
   const body = page._rawBody || [];
+  console.log('body', body);
 
   return (
     <Layout site={site}>

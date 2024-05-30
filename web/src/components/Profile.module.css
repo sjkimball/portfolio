@@ -1,20 +1,23 @@
-.sk-profile {
+.profile {
   display: grid;
   grid-auto-flow: row;
   gap: var(--sk-spacing-lg) 0;
-}
-.sk-profile__header h2 {
-  font: var(--sk-display-md);
-  font-weight: var(--sk-fw-regular);
-}
-.sk-profile__header h2 span {
-  color: var(--sk-secondary-500);
-}
-.sk-profile__headshot {
-  grid-row: 2;
-}
-.sk-profile__headshot .cover__image {
-  aspect-ratio: 1/1;
+  padding-right: var(--sk-spacing-md);
+  padding-left: var(--sk-spacing-md);
+  & header {
+    & h1 {
+      font: var(--sk-display-md);
+      font-weight: var(--sk-fw-regular);
+      padding-right: unset;
+      padding-left: unset;
+    }
+  }
+  & aside {
+    grid-row: 2;
+    & img {
+      aspect-ratio: 1/1;
+    }
+  }
 }
 @media screen and (min-width: 600px) {
   .sk-profile {

@@ -1,13 +1,14 @@
 import React from 'react';
 import { PortableText as PortableTextReact } from '@portabletext/react';
 import Block from './blocks/Block';
-import ExternalAssetBlock from './blocks/ExternalAsset';
-import GridBlock from './blocks/Grid';
 import CalloutBlock from './blocks/Callout';
-import FigmaEmbedBlock from './blocks/FigmaEmbed';
+import ExternalAssetBlock from './blocks/ExternalAsset';
+import FigmaEmbedBlock from './blocks/FigmaEmbedBlock';
+import GridBlock from './blocks/GridBlock';
 import ImageBlock from './blocks/ImageBlock';
-import ProjectsBlock from './blocks/Projects';
-import PersonBlock from './blocks/Person';
+import ProjectsBlock from './blocks/ProjectsBlock';
+
+import { portableText } from './PortableText.module.css';
 
 const components = {
   block: Block,
@@ -18,14 +19,13 @@ const components = {
     'module.externalAsset': ExternalAssetBlock,
     'module.projects': ProjectsBlock,
     'module.figmaEmbed': FigmaEmbedBlock,
-    'module.person': PersonBlock,
   },
 };
 
 const PortableText = (props) => {
-  console.dir('props in PortableText', props);
+  // console.dir('props in PortableText', props);
   return (
-    <div className={`portText`}>
+    <div className={portableText}>
       <PortableTextReact value={props.blocks} components={components} />
     </div>
   );

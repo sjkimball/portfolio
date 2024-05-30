@@ -1,9 +1,9 @@
 import React from 'react';
 
-import useHomeSeo from '../hooks/use-home-seo';
-import useLandingPage from '../hooks/use-landing-page';
 import Page from '../templates/page';
-import SEO from '../components/seo';
+import SEO from '../components/Seo';
+import useLandingPage from '../hooks/use-landing-page';
+import useHomeSeo from '../hooks/use-home-seo';
 
 export const Head = () => {
   const data = useHomeSeo();

@@ -1,66 +1,76 @@
-.sk-project {
+.project {
   display: grid;
-  grid-auto-flow: row;
-  gap: var(--sk-spacing-lg) 0;
+  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  gap: var(--sk-spacing-md) 0;
+  grid-column: 1/-1;
 }
-/* Project Header */
-.sk-project__header {
+.header {
+  grid-column: 1/-1;
   display: grid;
-  gap: var(--sk-spacing-sm) 0;
+  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  & * {
+    margin-bottom: 0;
+  }
+  & img {
+    grid-column: 1/-1;
+    justify-self: center;
+    aspect-ratio: 3/2;
+    margin-top: var(--sk-spacing-xl);
+    margin-bottom: var(--sk-spacing-lg);
+  }
 }
-.sk-project__header > * {
-  margin-bottom: 0;
-}
-.sk-project__header h2 {
+.projectClient {
   font: var(--sk-display-sm);
+  grid-column: 2;
 }
-.sk-project__header h3 {
-  font: var(--sk-headline-sm);
+.projectTitle {
+  font: var(--sk-body-lg);
+  grid-column: 2;
 }
-.sk-project__tags {
+.projectSubtitle {
+  font: var(--sk-body-lg);
+  padding-top: var(--sk-spacing-md);
+  grid-column: 2;
+}
+.projectDisciplines {
   list-style-type: none;
   margin-left: 0;
   margin-bottom: 0;
   display: flex;
   gap: var(--sk-spacing-sm);
+  & li {
+    font: var(--sk-body-sm);
+    padding-top: var(--sk-spacing-sm);
+    padding-right: var(--sk-spacing-sm);
+    padding-bottom: var(--sk-spacing-sm);
+    padding-left: var(--sk-spacing-sm);
+    background-color: var(--sk-sys-surface-container-low);
+    border-radius: 4px;
+    margin-bottom: 0;
+  }
 }
-.sk-project__tags li {
-  font: var(--sk-body-sm);
-  padding-top: var(--sk-spacing-sm);
-  padding-right: var(--sk-spacing-sm);
-  padding-bottom: var(--sk-spacing-sm);
-  padding-left: var(--sk-spacing-sm);
-  background-color: var(--sk-sys-surface-container-low);
-  border-radius: 4px;
-  margin-bottom: 0;
+.projectBody {
+  grid-column: 2;
 }
-.sk-project__header .cover {
-  justify-self: center;
-}
-/* Project Body */
-.sk-project__body {
-  display: grid;
-}
-/* Project Metadata */
-.sk-project__metadata {
+.metadata {
+  grid-column: 2;
   display: grid;
   gap: var(--sk-spacing-md) 0;
+  & h6 {
+    font: var(--sk-title-md);
+  }
+  & ul {
+    list-style-type: none;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    & li {
+      margin-bottom: 0;
+    }
+  }
 }
-.sk-project__metadata h6 {
-  font: var(--sk-title-md);
-}
-.sk-project__metadata ul {
-  list-style-type: none;
-  margin-left: 0;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0;
-}
-.sk-project__metadata li {
-  margin-bottom: 0;
-}
-/* Project Gallery */
-.sk-project__gallery {
+.gallery {
   grid-row: 3;
   display: flex;
   flex-direction: column;

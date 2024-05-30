@@ -7,7 +7,17 @@ import { iconTl, maskTl, linksTl } from '../../animations/menu-animation';
 
 import HeaderMask from './HeaderMask';
 
-import './header.css';
+import {
+  header,
+  nav,
+  logo,
+  button,
+  icon,
+  line,
+  navLinks,
+  link,
+  linkActive,
+} from './header.module.css';
 
 class Header extends React.Component {
   constructor(props) {
@@ -42,37 +52,50 @@ class Header extends React.Component {
     // console.log('props in header', this.props);
     const { links = [] } = this.props;
     return (
-      <header id="mainHeader" className={`header`}>
-        <nav className="header__nav" role="navigation">
-          <Link to="/" className="nav__logo">
+      <header id="mainHeader" className={header}>
+        <nav className={nav} role="navigation">
+          <Link to="/" className={logo}>
             <h1>SK</h1>
           </Link>
           {links && (
-            <ul id="mainHeader__nav__links" className="nav__links">
-              {links.map((item, index) => (
-                <li key={index}>
-                  <Link
-                    to={`/${item.reference.slug.current}`}
-                    className={`links__link`}
-                    activeClassName={`links__link-active`}
-                    partiallyActive={true}
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
+            <ul id="mainHeader__navLinks" className={navLinks}>
+              {links.map((item, index) => {
+                return item.reference._type == 'person' ? (
+                  <li key={index}>
+                    <Link
+                      to={`/${item.title.toLowerCase()}/${item.reference.slug.current}`}
+                      className={link}
+                      activeClassName={linkActive}
+                      partiallyActive={true}
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ) : (
+                  <li key={index}>
+                    <Link
+                      to={`/${item.reference.slug.current}`}
+                      className={link}
+                      activeClassName={linkActive}
+                      partiallyActive={true}
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           )}
-          <button className="nav__button" onClick={this.showMenu}>
+          <button className={button} onClick={this.showMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 100 100"
-              className="button__icon"
+              className={icon}
             >
               <g>
                 <line
                   id="top"
-                  className="icon__line"
+                  className={line}
                   x1="5"
                   y1="16"
                   x2="95"
@@ -80,7 +103,7 @@ class Header extends React.Component {
                 />
                 <line
                   id="middle"
-                  className="icon__line"
+                  className={line}
                   x1="5"
                   y1="51"
                   x2="95"
@@ -88,7 +111,7 @@ class Header extends React.Component {
                 />
                 <line
                   id="bottom"
-                  className="icon__line"
+                  className={line}
                   x1="5"
                   y1="86"
                   x2="95"

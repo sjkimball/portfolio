@@ -3,18 +3,23 @@ import React from 'react';
 import { format, zonedTimeToUtc } from 'date-fns-tz';
 
 import { Link } from 'gatsby';
-import PrimaryImage from './primaryImage';
+import PrimaryImage from './PrimaryImage';
 
-import './Preview.css';
+import {
+  preview,
+  figure,
+  figureProject,
+  figureProfile,
+} from './Preview.module.css';
 
 function ProjectPreview(project) {
   const { client, cover, slug, title } = project;
   return (
     <Link
       to={`/work/${client.slug.current}/${slug.current}`}
-      className={`preview`}
+      className={preview}
     >
-      <figure className={`preview__figure preview__figure--project`}>
+      <figure className={`${figure} ${figureProject}`}>
         <PrimaryImage imageAsset={cover} />
         <figcaption>
           <h4>{client.name}</h4>
@@ -26,17 +31,16 @@ function ProjectPreview(project) {
 }
 
 function ProfilePreview(person) {
-  const { image, firstName, preferredName, lastName, office, slug } = person;
+  const { image, firstName, preferredName, lastName, slug } = person;
   const name = preferredName
     ? `${preferredName} ${lastName}`
     : `${firstName} ${lastName}`;
   return (
-    <Link to={`/about/${slug.current}`} className={`preview`}>
-      <figure className={`preview__figure preview__figure--profile`}>
+    <Link to={`/about/${slug.current}`} className={preview}>
+      <figure className={`${figure} ${figureProfile}`}>
         <PrimaryImage imageAsset={image} />
         <figcaption>
           <h4>{name}</h4>
-          {/* <h5>{office.contactInfo.address.city}</h5> */}
         </figcaption>
       </figure>
     </Link>

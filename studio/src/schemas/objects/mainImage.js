@@ -8,11 +8,6 @@ export default {
   },
   fields: [
     {
-      name: 'caption',
-      title: 'Caption',
-      type: 'string',
-    },
-    {
       name: 'altText',
       title: 'Alternative Text',
       description: 'Important for SEO and accessibility.',
@@ -23,11 +18,33 @@ export default {
           .max(80)
           .required(),
     },
+    {
+      name: 'caption',
+      title: 'Caption',
+      type: 'string',
+    },
+    {
+      name: 'showCaption',
+      title: 'Show Caption?',
+      type: 'boolean',
+      initialValue: false,
+    },
   ],
   preview: {
     select: {
-      imageUrl: 'asset.url',
-      title: 'caption',
+      altText: 'altText',
+      caption: 'caption',
+      showCaption: 'showCaption',
+      image: 'asset',
+    },
+    prepare(selection) {
+      const { altText, caption, showCaption, image } = selection;
+      const subtitle = showCaption == true ? caption : 'Hidden';
+      return {
+        title: `Alt Text: ${altText}`,
+        subtitle: `Caption: ${subtitle}`,
+        media: image,
+      };
     },
   },
 };

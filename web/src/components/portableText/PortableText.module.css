@@ -1,0 +1,7 @@
+.portableText {
+  display: grid;
+  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  & * {
+    grid-column: 2;
+  }
+}

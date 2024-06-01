@@ -2,17 +2,29 @@
 .grid {
   display: grid;
   grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  padding-top: var(--sk-spacing-xl);
+  padding-bottom: var(--sk-spacing-xl);
+  background-color: var(--sk-sys-background);
+  color: var(--sk-sys-on-background);
   & * {
     grid-column: 2;
+  }
+  & h2 {
+    font: var(--sk-headline-lg);
+    margin-bottom: var(--sk-spacing-lg);
   }
 }
 .container {
   display: grid;
-  padding: var(--sk-spacing-md) 0;
   gap: var(--sk-spacing-lg) 0;
 }
 .gridItem {
   display: grid;
+  & h3 {
+    font: var(--sk-title-lg);
+    margin-top: var(--sk-spacing-xs);
+    margin-bottom: var(--sk-spacing-sm);
+  }
   & img {
     grid-row: 1;
     margin-bottom: var(--sk-spacing-md);

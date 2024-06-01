@@ -1,22 +1,20 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import { footer, footerLinks, copyright } from './Footer.module.css';
+import { footer, footerLinks, copyright, logo } from './Footer.module.css';
 
 const Footer = (props) => {
   // console.dir('props in footer', props);
   const { links, text } = props;
   return (
-    <footer
-      id="mainFooter"
-      className={footer}
-      // data-theme={`${isIndex ? 'dark' : 'light'}`}
-    >
+    <footer id="mainFooter" data-theme="dark" className={footer}>
       <ul className={footerLinks}>
         {links.map((item, i) =>
           item._type == 'link.internal' ? (
             <li key={i}>
-              <Link to={`/${item.reference.slug.current}`}>{item.title}</Link>
+              <Link to={`/${item.reference.slug.current}`} className={link}>
+                {item.title}
+              </Link>
             </li>
           ) : item._type == 'link.external' ? (
             <li key={i}>
@@ -32,6 +30,7 @@ const Footer = (props) => {
           ),
         )}
       </ul>
+      <div className={logo}>SK</div>
       <small className={copyright}>{text}</small>
     </footer>
   );

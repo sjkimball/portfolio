@@ -1,7 +1,8 @@
 import React from 'react';
 import { PortableText as PortableTextReact } from '@portabletext/react';
 import Block from './blocks/Block';
-import CalloutBlock from './blocks/Callout';
+import CalloutBlock from './blocks/CalloutBlock';
+import CalloutLinkBlock from './blocks/CalloutLinkBlock';
 import ExternalAssetBlock from './blocks/ExternalAsset';
 import FigmaEmbedBlock from './blocks/FigmaEmbedBlock';
 import GridBlock from './blocks/GridBlock';
@@ -14,8 +15,10 @@ const components = {
   block: Block,
   types: {
     mainImage: ImageBlock,
+    'module.image': ImageBlock,
     'module.grid': GridBlock,
     'module.callout': CalloutBlock,
+    'module.calloutLink': CalloutLinkBlock,
     'module.externalAsset': ExternalAssetBlock,
     'module.projects': ProjectsBlock,
     'module.figmaEmbed': FigmaEmbedBlock,

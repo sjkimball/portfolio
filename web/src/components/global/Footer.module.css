@@ -1,37 +1,81 @@
 .footer {
   display: grid;
-  grid-template-columns: var(--sk-spacing-md) auto var(--sk-spacing-md);
-  align-items: center;
-  background-color: transparent;
-  color: var(--sk-sys-on-background-muted);
-  fill: var(--sk-sys-on-background-muted);
+  grid-template-columns: var(--sk-spacing-md) 1fr 1fr var(--sk-spacing-md);
+  align-items: baseline;
+  background-color: var(--sk-sys-background);
+  color: var(--sk-sys-on-background);
 }
-.footerLinks {
+.logo {
   grid-row: 1;
   grid-column: 2;
+  color: var(--sk-sys-on-background);
+  font-family: var(--sk-font-display);
+  font-weight: var(--sk-fw-black);
+  font-size: 32px;
+  line-height: 32px;
+  position: relative;
+  width: 50px;
+  align-self: center;
+}
+/* .logo::after {
+  content: 'Sam Kimball';
+  font-size: var(--sk-fs-3);
+  text-transform: uppercase;
+  font-family: var(--sk-font-body);
+  font-weight: var(--sk-fw-medium);
+  letter-spacing: 0.5px;
+  position: absolute;
+  right: 0;
+  width: 200px;
+  margin-right: -195px;
+} */
+.footerLinks {
+  grid-row: 1;
+  grid-column: 3;
   display: flex;
   gap: 0 var(--sk-spacing-sm);
   justify-self: end;
   list-style-type: none;
   margin-left: 0;
   margin-bottom: 0;
-  li {
+  align-self: center;
+  & li {
     cursor: pointer;
     margin-bottom: 0;
+    & a {
+      color: inherit;
+      font-weight: var(--sk-fw-medium);
+    }
+    & a:hover {
+      border-bottom: 2px solid var(--sk-sys-primary);
+    }
   }
 }
 .copyright {
-  grid-row: 1;
+  grid-row: 2;
   grid-column: 2;
   justify-self: start;
   font: var(--sk-body-md);
   font-weight: var(--sk-fw-medium);
   color: inherit;
+  align-self: start;
 }
 @media screen and (min-width: 600px) {
   .footer {
-    grid-template-columns: var(--sk-spacing-lg) auto var(--sk-spacing-lg);
+    grid-template-columns: var(--sk-spacing-lg) 1fr 1fr var(--sk-spacing-lg);
     background-color: var(--sk-sys-background);
+  }
+  .logo::after {
+    content: 'Sam Kimball';
+    font-size: var(--sk-fs-3);
+    text-transform: uppercase;
+    font-family: var(--sk-font-body);
+    font-weight: var(--sk-fw-medium);
+    letter-spacing: 0.5px;
+    position: absolute;
+    right: 0;
+    width: 200px;
+    margin-right: -195px;
   }
 }
 @media screen and (min-width: 1040px) {

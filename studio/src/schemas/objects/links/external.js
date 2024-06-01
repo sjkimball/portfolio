@@ -20,7 +20,8 @@ export default {
       name: 'url',
       title: 'URL',
       type: 'url',
-      validation: (rule) => rule.required().uri({ scheme: ['http', 'https'] }),
+      validation: (rule) =>
+        rule.required().uri({ scheme: ['http', 'https', 'mailto', 'tel'] }),
     },
     // Open in a new window
     {

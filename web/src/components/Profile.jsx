@@ -3,7 +3,7 @@ import React from 'react';
 import PortableText from './portableText/PortableText';
 import PrimaryImage from './PrimaryImage';
 
-import { profile } from './Profile.module.css';
+import { profile, header, additionalLinks } from './Profile.module.css';
 
 const Profile = (props) => {
   // console.dir('props in Profile', props);
@@ -15,13 +15,12 @@ const Profile = (props) => {
 
   return (
     <article className={profile}>
-      <header>
+      <header className={header}>
         <h1>{name}</h1>
         <PrimaryImage imageAsset={image} imageUse={`cover`} />
       </header>
       <PortableText blocks={_rawBio} />
-      <aside></aside>
-      <section className="sk-profile__links">
+      <section className={additionalLinks}>
         {links.map((link, i) => {
           return (
             <a key={i} href={link.url}>

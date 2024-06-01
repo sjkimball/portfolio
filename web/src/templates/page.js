@@ -84,13 +84,12 @@ const Page = (props) => {
     });
 
   const body = page._rawBody || [];
-  console.log('body', body);
 
   return (
     <Layout site={site}>
       {hero}
       {modules}
-      <PortableText blocks={body} />
+      {body.length !== 0 ? <PortableText blocks={body} /> : ''}
     </Layout>
   );
 };

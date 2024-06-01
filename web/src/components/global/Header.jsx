@@ -55,7 +55,7 @@ class Header extends React.Component {
       <header id="mainHeader" className={header}>
         <nav className={nav} role="navigation">
           <Link to="/" className={logo}>
-            <h1>SK</h1>
+            SK
           </Link>
           {links && (
             <ul id="mainHeader__navLinks" className={navLinks}>

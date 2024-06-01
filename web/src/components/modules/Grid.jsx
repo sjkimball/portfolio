@@ -16,7 +16,7 @@ const Grid = (props) => {
   const gridContent = props.content;
 
   return (
-    <section className={grid}>
+    <section data-theme="light" className={grid}>
       {props.title ? <h2>{props.title}</h2> : ''}
       <div className={container}>
         {gridContent.map((item, i) => (

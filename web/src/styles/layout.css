@@ -5,6 +5,7 @@
 }
 #mainHeader {
   grid-row: 1;
+  grid-column: 1/-1;
 }
 #mainContent {
   grid-column: 1/-1;
@@ -12,37 +13,16 @@
 .mainContent {
   display: grid;
   grid-template-rows: min-content auto;
-  gap: var(--sk-spacing-md) 0;
-  grid-auto-flow: row;
+  padding-top: var(--sk-spacing-lg);
   & > h1 {
+    font: var(--sk-display-md);
     padding-left: var(--sk-spacing-md);
     padding-right: var(--sk-spacing-md);
   }
 }
 #mainFooter {
   grid-row: 3;
-}
-.index__main {
-  grid-column: 1/4;
-  grid-row: 1/3;
-  display: grid;
-  grid-template-columns: var(--sk-spacing-md) auto var(--sk-spacing-md);
-  gap: var(--sk-spacing-md) 0;
-  grid-auto-flow: row;
-  min-height: 100vh;
-  background-color: var(--sk-neutral-100);
-}
-.index__main .hero {
-  grid-column: 1/4;
-}
-.index__main .grid {
-  grid-column: 1/4;
-}
-.index__main .infoSection {
-  grid-column: 1/4;
-}
-.index__main .markdown-block {
-  grid-column: 1/4;
+  grid-column: 1/-1;
 }
 
 @media screen and (min-width: 600px) {
@@ -51,11 +31,6 @@
   }
   .mainContainer {
     gap: var(--sk-spacing-lg) 0;
-  }
-  .index__main {
-    grid-row: 2/3;
-    min-height: unset;
-    height: calc(100vh - 180px);
   }
 }
 @media screen and (min-width: 1040px) {

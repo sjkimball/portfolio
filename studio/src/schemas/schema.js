@@ -22,10 +22,12 @@ import linkExternal from './objects/links/external';
 // Modules
 import moduleBlockContent from './objects/modules/blockContent';
 import moduleCallout from './objects/modules/callout';
+import moduleCalloutLink from './objects/modules/calloutLink';
 import moduleExternalAsset from './objects/modules/externalAsset';
 import moduleFigmaEmbed from './objects/modules/figmaEmbed';
 import gridItem from './objects/modules/gridItem';
 import moduleGrid from './objects/modules/grid';
+import moduleImage from './objects/modules/image';
 import moduleProjects from './objects/modules/projects';
 import modulePeople from './objects/modules/people';
 import modulePerson from './objects/modules/person';
@@ -74,9 +76,11 @@ export default [
   messageImage,
   moduleBlockContent,
   moduleCallout,
+  moduleCalloutLink,
   moduleExternalAsset,
   moduleFigmaEmbed,
   moduleGrid,
+  moduleImage,
   modulePeople,
   modulePerson,
   modulePosts,

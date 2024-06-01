@@ -1,0 +1,9 @@
+.block {
+  grid-column: 2;
+  display: block;
+  color: var(--sk-sys-primary);
+  font-weight: var(--sk-fw-medium);
+  font-size: var(--sk-fs-5);
+  padding-top: var(--sk-spacing-md);
+  padding-bottom: var(--sk-spacing-md);
+}

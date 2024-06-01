@@ -10,7 +10,6 @@ import {
   projectTitle,
   projectSubtitle,
   projectDisciplines,
-  projectBody,
   metadata,
   gallery,
 } from './Project.module.css';
@@ -57,9 +56,7 @@ const Project = (props) => {
         </ul> */}
         <PrimaryImage imageAsset={cover} imageUse={`cover`} />
       </header>
-      <div className={projectBody}>
-        <PortableText blocks={body} />
-      </div>
+      <PortableText blocks={body} />
       <div className={metadata}>
         <section>
           <h6>Client</h6>

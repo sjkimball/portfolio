@@ -1,5 +1,6 @@
 .gridBlock {
   display: grid;
+  grid-column: 1/-1;
   gap: var(--sk-spacing-lg) 0;
   padding-top: var(--sk-spacing-lg);
   padding-right: var(--sk-spacing-md);

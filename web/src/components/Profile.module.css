@@ -1,24 +1,38 @@
 .profile {
   display: grid;
+  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
   grid-auto-flow: row;
   gap: var(--sk-spacing-lg) 0;
-  padding-right: var(--sk-spacing-md);
-  padding-left: var(--sk-spacing-md);
-  & header {
-    & h1 {
-      font: var(--sk-display-md);
-      font-weight: var(--sk-fw-regular);
-      padding-right: unset;
-      padding-left: unset;
-    }
-  }
-  & aside {
-    grid-row: 2;
-    & img {
-      aspect-ratio: 1/1;
-    }
+  & > * {
+    grid-column: 1/-1;
   }
 }
+.header {
+  display: grid;
+  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  & h1 {
+    grid-column: 2;
+    font: var(--sk-display-md);
+    font-weight: var(--sk-fw-regular);
+    margin-bottom: var(--sk-spacing-lg);
+  }
+  & img {
+    grid-column: 1/-1;
+  }
+}
+.additionalLinks {
+  display: flex;
+  padding-left: var(--sk-spacing-md);
+  padding-right: var(--sk-spacing-md);
+  & a {
+    display: inline-block;
+    color: var(--sk-sys-primary);
+    padding: var(--sk-spacing-sm) var(--sk-spacing-md);
+    border: 1px solid var(--sk-sys-primary);
+    border-radius: 10px;
+  }
+}
+
 @media screen and (min-width: 600px) {
   .sk-profile {
     grid-auto-flow: unset;

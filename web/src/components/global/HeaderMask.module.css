@@ -29,3 +29,8 @@
   width: 100%;
   height: 90px;
 }
+@media screen and (min-width: 600px) {
+  .mask {
+    display: none;
+  }
+}

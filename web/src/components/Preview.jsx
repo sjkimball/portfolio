@@ -5,30 +5,7 @@ import { format, zonedTimeToUtc } from 'date-fns-tz';
 import { Link } from 'gatsby';
 import PrimaryImage from './PrimaryImage';
 
-import {
-  preview,
-  figure,
-  figureProject,
-  figureProfile,
-} from './Preview.module.css';
-
-function ProjectPreview(project) {
-  const { client, cover, slug, title } = project;
-  return (
-    <Link
-      to={`/work/${client.slug.current}/${slug.current}`}
-      className={preview}
-    >
-      <figure className={`${figure} ${figureProject}`}>
-        <PrimaryImage imageAsset={cover} />
-        <figcaption>
-          <h4>{client.name}</h4>
-          <h5>{title}</h5>
-        </figcaption>
-      </figure>
-    </Link>
-  );
-}
+import { preview, figure, figureProfile } from './Preview.module.css';
 
 function ProfilePreview(person) {
   const { image, firstName, preferredName, lastName, slug } = person;
@@ -68,9 +45,6 @@ function PostPreview(post) {
 function createPreviewContent(props) {
   let el = null;
   switch (props._type) {
-    case 'project':
-      el = ProjectPreview(props);
-      break;
     case 'person':
       el = ProfilePreview(props);
       break;

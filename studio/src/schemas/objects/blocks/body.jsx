@@ -42,6 +42,10 @@ export default {
       type: 'mainImage',
     },
     {
+      title: 'Image Test',
+      type: 'module.image',
+    },
+    {
       title: 'Projects',
       type: 'module.projects',
     },
@@ -60,6 +64,10 @@ export default {
     {
       title: 'Callout',
       type: 'module.callout',
+    },
+    {
+      title: 'Callout Link',
+      type: 'module.calloutLink',
     },
     {
       title: 'Figma Embed',

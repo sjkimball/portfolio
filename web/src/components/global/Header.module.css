@@ -18,13 +18,11 @@
   z-index: 10;
 }
 .logo {
-  & h1 {
-    color: transparent;
-    font-family: var(--sk-font-display);
-    font-weight: var(--sk-fw-black);
-    font-size: 40px;
-    line-height: 40px;
-  }
+  color: transparent;
+  font-family: var(--sk-font-display);
+  font-weight: var(--sk-fw-black);
+  font-size: 40px;
+  line-height: 40px;
 }
 .navLinks {
   align-items: center;
@@ -83,23 +81,33 @@
     background-color: var(--sk-sys-background);
     grid-template-columns: var(--sk-spacing-lg) auto var(--sk-spacing-lg);
   }
-  .header__nav {
+  .nav {
     position: unset;
     width: unset;
     z-index: unset;
   }
-  .nav__logo {
-    color: inherit;
-  }
-  .nav__logo h1 {
+  .logo {
     color: var(--sk-sys-on-background);
     font-size: 44px;
     line-height: 44px;
+    position: relative;
   }
-  .nav__button {
+  .logo::after {
+    content: 'Sam Kimball';
+    font-size: var(--sk-fs-3);
+    text-transform: uppercase;
+    font-family: var(--sk-font-body);
+    font-weight: var(--sk-fw-medium);
+    letter-spacing: 0.5px;
+    position: absolute;
+    right: 0;
+    width: 200px;
+    margin-right: -202px;
+  }
+  .button {
     display: none;
   }
-  .nav__links {
+  .navLinks {
     color: inherit;
     background-color: transparent;
     display: flex;
@@ -112,11 +120,11 @@
     width: unset;
     margin-left: unset;
     margin-right: unset;
+    & li {
+      margin-bottom: 0;
+    }
   }
-  .nav__links li {
-    margin-bottom: 0;
-  }
-  .links__link {
+  .link {
     color: inherit;
     letter-spacing: 0.5px;
     text-align: center;
@@ -124,11 +132,8 @@
     font-size: var(--sk-fs-3);
     opacity: unset;
   }
-  .links__link-active {
+  .linkActive {
     color: var(--sk-sys-on-background);
-  }
-  #headerMask {
-    display: none;
   }
 }
 

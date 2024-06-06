@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import GraphQLErrorList from '../components/GraphqlErrorList';
 import Grid from '../components/modules/Grid';
 import HeroHome from '../components/heroes/Home';
-import HeroPage from '../components/heroes/page';
+import HeroPage from '../components/heroes/Page';
 import Layout from '../components/global/Layout';
 import PortableText from '../components/portableText/PortableText';
 import Projects from '../components/modules/Projects';

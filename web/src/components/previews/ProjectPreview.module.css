@@ -1,0 +1,25 @@
+.preview {
+  cursor: pointer;
+  display: grid;
+  text-decoration: none;
+  color: var(--sk-white);
+}
+.figure {
+  display: grid;
+  & img {
+    aspect-ratio: 1/1;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  & figcaption {
+    grid-column: 1;
+    grid-row: 1;
+    padding: var(--sk-spacing-lg) var(--sk-spacing-md);
+    & h4 {
+      font: var(--sk-title-md);
+    }
+    & h5 {
+      font: var(--sk-title-sm);
+    }
+  }
+}

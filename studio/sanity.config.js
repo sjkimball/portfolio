@@ -7,8 +7,8 @@ import { structureTool } from 'sanity/structure';
 import { media } from 'sanity-plugin-media';
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash';
 import { markdownSchema } from 'sanity-plugin-markdown';
-import schemas from './schemas/schema';
-import structure from './src/structure/structure';
+import schemas from './src/schemas/schema';
+import { myStructure } from './src/structure/index';
 
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID;
 
@@ -46,7 +46,7 @@ export default defineConfig([
         ],
       }),
       structureTool({
-        structure,
+        myStructure,
       }),
       visionTool(),
       media(),
@@ -96,7 +96,7 @@ export default defineConfig([
         ],
       }),
       structureTool({
-        structure,
+        structure: myStructure,
       }),
       visionTool(),
       media(),

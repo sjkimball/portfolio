@@ -1,0 +1,158 @@
+.header {
+  display: grid;
+  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  background-color: var(--sk-sys-background);
+  color: var(--sk-sys-on-background-muted);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav {
+  grid-column: 2/3;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+.logo {
+  color: transparent;
+  font-family: var(--sk-font-display);
+  font-weight: var(--sk-fw-black);
+  font-size: 40px;
+  line-height: 40px;
+}
+.navLinks {
+  align-items: center;
+  /* Dark mode 'background' color */
+  background-color: var(--sk-neutral-100);
+  display: none;
+  flex-direction: column;
+  gap: var(--sk-spacing-lg) 0;
+  height: 0;
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-left: calc(var(--sk-spacing-md) * -1);
+  margin-right: calc(var(--sk-spacing-md) * -1);
+  opacity: 0.95;
+  padding-top: 2rem;
+  position: absolute;
+  top: 90px;
+  width: calc(100% + var(--sk-spacing-md) * 2);
+}
+.link {
+  /* Dark mode 'on-background' color */
+  color: var(--sk-neutral-900);
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: var(--sk-fs-5);
+  opacity: 0;
+}
+.linkActive {
+  border-bottom: 2px solid var(--sk-sys-primary);
+  font-weight: var(--sk-fw-medium);
+}
+.button {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  width: 48px;
+  justify-content: center;
+  margin-right: calc(var(--sk-spacing-sm) * -1);
+  padding: 0 var(--sk-spacing-sm);
+  .icon {
+    height: 48px;
+    .line {
+      stroke: var(--sk-sys-on-background);
+      stroke-linecap: round;
+      stroke-width: 10;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .header {
+    background-color: var(--sk-sys-background);
+    grid-template-columns: var(--sk-spacing-lg) auto var(--sk-spacing-lg);
+  }
+  .nav {
+    position: unset;
+    width: unset;
+    z-index: unset;
+  }
+  .logo {
+    color: var(--sk-sys-on-background);
+    font-size: 44px;
+    line-height: 44px;
+    position: relative;
+  }
+  .logo::after {
+    content: 'Sam Kimball';
+    font-size: var(--sk-fs-3);
+    text-transform: uppercase;
+    font-family: var(--sk-font-body);
+    font-weight: var(--sk-fw-medium);
+    letter-spacing: 0.5px;
+    position: absolute;
+    right: 0;
+    width: 200px;
+    margin-right: -202px;
+  }
+  .button {
+    display: none;
+  }
+  .navLinks {
+    color: inherit;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    gap: 0 var(--sk-spacing-md);
+    height: auto;
+    opacity: unset;
+    padding-top: unset;
+    position: unset;
+    width: unset;
+    margin-left: unset;
+    margin-right: unset;
+    & li {
+      margin-bottom: 0;
+    }
+  }
+  .link {
+    color: inherit;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: var(--sk-fs-3);
+    opacity: unset;
+  }
+  .linkActive {
+    color: var(--sk-sys-on-background);
+  }
+}
+
+@media screen and (min-width: 1040px) {
+  .header {
+    grid-template-columns: var(--sk-spacing-xl) auto var(--sk-spacing-xl);
+  }
+  .nav__logo h1 {
+    font-size: 56px;
+    line-height: 56px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .header {
+    grid-template-columns: 1fr 1504px 1fr;
+    height: 90px;
+  }
+  .nav__logo h1 {
+    font-size: 60px;
+    line-height: 60px;
+  }
+}

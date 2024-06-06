@@ -2,50 +2,58 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 
-import Layout from '../containers/layout';
-import Project from '../components/project';
-import GraphQLErrorList from '../components/graphql-error-list';
+import GraphQLErrorList from '../components/GraphqlErrorList';
+import Layout from '../components/global/Layout';
+import Project from '../components/Project';
+import SEO from '../components/Seo';
 
 export const query = graphql`
-  query ($id: String!, $parentRouteID: String!) {
-    project: sanityProject(id: { eq: $id }) {
+  query ($id: String!) {
+    page: sanityProject(id: { eq: $id }) {
       title
-      sector
       subtitle
-      description
+      _rawBody(resolveReferences: { maxDepth: 10 })
       cover {
-        ...imageData
+        ...imageModuleData
       }
       productImages {
-        ...imageData
+        ...imageModuleData
       }
       client {
         name
       }
-      office {
-        contactInfo {
-          address {
-            city
-          }
-        }
-      }
+      designArea
       disciplines
+      sector
       members {
-        name
-        _key
+        firstName
+        preferredName
+        lastName
+      }
+      seo {
+        ...seoPageData
       }
     }
-    parentRoute: sanityRoute(id: { eq: $parentRouteID }) {
-      page {
-        navMenu {
-          ...NavMenu
-        }
-      }
+    site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
+      ...settingsSiteData
     }
   }
 `;
 
+export const Head = ({ location, params, data, pageContext }) => {
+  const title = data.page.seo.title ? data.page.seo.title : data.page.title;
+  const description = data.page.seo
+    ? data.page.seo.description
+    : data.site.seo.description;
+  return (
+    <SEO description={description}>
+      <title id="title">{title}</title>
+    </SEO>
+  );
+};
+
 const ProjectTemplate = (props) => {
+  // console.dir('props in project template', props);
   const { data, errors } = props;
 
   if (errors) {
@@ -56,12 +64,12 @@ const ProjectTemplate = (props) => {
     );
   }
 
-  const project = data.project;
-  const page = data.parentRoute.page;
-  const menuItems = page.navMenu && (page.navMenu.items || []);
+  const project = data.page;
+  const site = data.site;
+
   return (
-    <Layout navMenuItems={menuItems}>
-      <Project project={project} />
+    <Layout site={site}>
+      <Project {...project} />
     </Layout>
   );
 };

@@ -1,0 +1,13 @@
+.gridBlock {
+  display: grid;
+  grid-column: 1/-1;
+  gap: var(--sk-spacing-lg) 0;
+  padding-top: var(--sk-spacing-lg);
+  padding-right: var(--sk-spacing-md);
+  padding-bottom: var(--sk-spacing-lg);
+  padding-left: var(--sk-spacing-md);
+  & div {
+    display: grid;
+    gap: var(--sk-spacing-sm) 0;
+  }
+}

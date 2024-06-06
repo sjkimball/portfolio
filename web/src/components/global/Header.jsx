@@ -17,7 +17,7 @@ import {
   navLinks,
   link,
   linkActive,
-} from './header.module.css';
+} from './Header.module.css';
 
 class Header extends React.Component {
   constructor(props) {

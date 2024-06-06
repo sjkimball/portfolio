@@ -12,12 +12,12 @@ export const query = graphql`
     page: sanityProject(id: { eq: $id }) {
       title
       subtitle
-      _rawBody
+      _rawBody(resolveReferences: { maxDepth: 10 })
       cover {
-        ...imageData
+        ...imageModuleData
       }
       productImages {
-        ...imageData
+        ...imageModuleData
       }
       client {
         name

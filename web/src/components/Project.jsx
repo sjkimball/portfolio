@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PortableText from './portableText/PortableText';
-import PrimaryImage from './PrimaryImage';
+import ImageModule from './modules/Image';
 
 import {
   project,
@@ -28,7 +28,7 @@ function convertCamelToTitle(camelString) {
 }
 
 const Project = (props) => {
-  // console.dir('props in project', props);
+  // console.dir('props in project', props.cover);
   const {
     title,
     subtitle,
@@ -47,16 +47,9 @@ const Project = (props) => {
         <h1 className={projectClient}>{client.name}</h1>
         <p className={projectTitle}>{title}</p>
         <p className={projectSubtitle}>{subtitle}</p>
-        {/* <ul className={projectDisciplines}>
-          {disciplines.map((discipline, i) => (
-            <li key={i} value={discipline}>
-              {convertCamelToTitle(discipline)}
-            </li>
-          ))}
-        </ul> */}
-        <PrimaryImage imageAsset={cover} imageUse={`cover`} />
+        <ImageModule {...cover} />
       </header>
-      <PortableText blocks={body} />
+      <PortableText blocks={body} context="project" />
       <div className={metadata}>
         <section>
           <h6>Client</h6>
@@ -94,9 +87,9 @@ const Project = (props) => {
         </section>
       </div>
       {/* <aside className={gallery}>
-        {productImages.map((image) => {
-          return <PrimaryImage key={image.asset._id} imageAsset={image} />;
-        })}
+        {productImages.map((image, i) => (
+          <ImageModule key={i} {...image} />
+        ))}
       </aside> */}
     </article>
   );

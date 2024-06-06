@@ -6,16 +6,15 @@ import CalloutLinkBlock from './blocks/CalloutLinkBlock';
 import ExternalAssetBlock from './blocks/ExternalAsset';
 import FigmaEmbedBlock from './blocks/FigmaEmbedBlock';
 import GridBlock from './blocks/GridBlock';
-import ImageBlock from './blocks/ImageBlock';
+import ImagesBlock from './blocks/ImagesBlock';
 import ProjectsBlock from './blocks/ProjectsBlock';
 
-import { portableText } from './PortableText.module.css';
+import './PortableText.css';
 
 const components = {
   block: Block,
   types: {
-    mainImage: ImageBlock,
-    'module.image': ImageBlock,
+    'module.images': ImagesBlock,
     'module.grid': GridBlock,
     'module.callout': CalloutBlock,
     'module.calloutLink': CalloutLinkBlock,
@@ -28,7 +27,9 @@ const components = {
 const PortableText = (props) => {
   // console.dir('props in PortableText', props);
   return (
-    <div className={portableText}>
+    <div
+      className={`portableText ${props.context ? `portableText--${props.context}` : ''}`}
+    >
       <PortableTextReact value={props.blocks} components={components} />
     </div>
   );

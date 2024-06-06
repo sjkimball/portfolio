@@ -3,10 +3,15 @@ import React from 'react';
 import PortableText from './portableText/PortableText';
 import PrimaryImage from './PrimaryImage';
 
-import { profile, header, additionalLinks } from './Profile.module.css';
+import {
+  profile,
+  header,
+  profileBody,
+  additionalLinks,
+} from './Profile.module.css';
 
 const Profile = (props) => {
-  // console.dir('props in Profile', props);
+  console.dir('props in Profile', props);
   const { firstName, preferredName, lastName, image, links, _rawBio } = props;
 
   const name = preferredName
@@ -17,9 +22,9 @@ const Profile = (props) => {
     <article className={profile}>
       <header className={header}>
         <h1>{name}</h1>
-        <PrimaryImage imageAsset={image} imageUse={`cover`} />
+        <PrimaryImage imageAsset={image.image} imageUse={`cover`} />
       </header>
-      <PortableText blocks={_rawBio} />
+      <PortableText blocks={_rawBio} styles={profileBody} />
       <section className={additionalLinks}>
         {links.map((link, i) => {
           return (

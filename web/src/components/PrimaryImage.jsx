@@ -24,7 +24,8 @@ const coverSizes = `
 `;
 
 const PrimaryImage = (props) => {
-  const { imageAsset, showCaption, imageUse } = props;
+  // console.dir('props in Primary Image', props);
+  const { imageAsset, imageUse } = props;
   const metadata = imageAsset.asset.metadata
     ? imageAsset.asset.metadata.lqip
     : '';
@@ -38,7 +39,7 @@ const PrimaryImage = (props) => {
       srcSet={imageSrcSet(imageAsset)}
       sizes={imageSizes}
       src={imageUrlFor(imageAsset).auto('format')}
-      alt={imageAsset.altText}
+      alt={imageAsset.asset.altText}
       className={image}
     />
   );

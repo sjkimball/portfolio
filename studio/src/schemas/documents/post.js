@@ -5,12 +5,6 @@ export default {
   initialValue: {
     featured: false,
     cover: {
-      _type: 'mainImage',
-      asset: {
-        _type: 'reference',
-        _ref: 'image-316e2b9591cd93c7c36db93a570410bdd5ba7ad9-2400x1344-jpg',
-      },
-      altText: 'This is placeholder alt text',
       caption: 'This is a placeholder caption.',
     },
   },
@@ -40,7 +34,7 @@ export default {
     {
       name: 'cover',
       title: 'Cover Image',
-      type: 'mainImage',
+      type: 'module.image',
     },
     {
       name: 'body',

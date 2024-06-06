@@ -1,15 +1,21 @@
 import React from 'react';
-import PrimaryImage from '../PrimaryImage';
+import ImageModule from './Image';
 
 import { container, grid, gridItem } from './Grid.module.css';
 
-const GridItem = (item) => (
-  <div className={gridItem}>
-    <h3>{item.title}</h3>
-    <p>{item.body}</p>
-    {item.image ? <PrimaryImage imageAsset={item.image} /> : ''}
-  </div>
-);
+const GridItem = (props) => {
+  // console.log('props in Grid Item', props);
+  const { title, body, image: imageAsset } = props;
+  return (
+    <div className={gridItem}>
+      <h3>{title}</h3>
+      <p>{body}</p>
+      {imageAsset ? <ImageModule {...imageAsset} /> : ''}
+    </div>
+  );
+};
+
+// TODO Add grid item for external assets.
 
 const Grid = (props) => {
   // console.dir('props in Grid', props);

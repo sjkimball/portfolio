@@ -12,7 +12,7 @@
 }
 .mainContent {
   display: grid;
-  grid-template-rows: min-content auto;
+  /* grid-template-rows: min-content auto; */
   padding-top: var(--sk-spacing-lg);
   & > h1 {
     font: var(--sk-display-md);
@@ -29,8 +29,14 @@
   #gatsby-focus-wrapper {
     grid-template-columns: var(--sk-spacing-lg) auto var(--sk-spacing-lg);
   }
-  .mainContainer {
-    gap: var(--sk-spacing-lg) 0;
+  /* .portableText {
+    grid-template-columns: var(--sk-spacing-lg) 1fr var(--sk-spacing-lg);
+  } */
+  .mainContent {
+    & > h1 {
+      padding-left: var(--sk-spacing-lg);
+      padding-right: var(--sk-spacing-lg);
+    }
   }
 }
 @media screen and (min-width: 1040px) {

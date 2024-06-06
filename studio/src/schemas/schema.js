@@ -28,6 +28,7 @@ import moduleFigmaEmbed from './objects/modules/figmaEmbed';
 import gridItem from './objects/modules/gridItem';
 import moduleGrid from './objects/modules/grid';
 import moduleImage from './objects/modules/image';
+import moduleImages from './objects/modules/images';
 import moduleProjects from './objects/modules/projects';
 import modulePeople from './objects/modules/people';
 import modulePerson from './objects/modules/person';
@@ -41,11 +42,9 @@ import seoSite from './objects/seo/site';
 import designArea from './objects/designArea';
 import designDiscipline from './objects/designDiscipline';
 import footer from './objects/footer';
-import mainImage from './objects/mainImage';
 import memberStaff from './objects/memberStaff';
 import notFoundPage from './objects/notFoundPage';
 import menu from './objects/menu';
-import messageImage from './objects/messageImage';
 import sector from './objects/sector';
 import socialMediaAccounts from './objects/socialMediaAccounts';
 
@@ -70,10 +69,8 @@ export default [
   home,
   linkInternal,
   linkExternal,
-  mainImage,
   memberStaff,
   menu,
-  messageImage,
   moduleBlockContent,
   moduleCallout,
   moduleCalloutLink,
@@ -81,6 +78,7 @@ export default [
   moduleFigmaEmbed,
   moduleGrid,
   moduleImage,
+  moduleImages,
   modulePeople,
   modulePerson,
   modulePosts,

@@ -1,68 +1,52 @@
 .profile {
+  --profile-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
   display: grid;
-  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
-  grid-auto-flow: row;
-  gap: var(--sk-spacing-lg) 0;
+  grid-template-columns: var(--profile-template-columns);
   & > * {
-    grid-column: 1/-1;
+    grid-column: 2;
   }
 }
 .header {
   display: grid;
-  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
   & h1 {
-    grid-column: 2;
     font: var(--sk-display-md);
     font-weight: var(--sk-fw-regular);
     margin-bottom: var(--sk-spacing-lg);
   }
-  & img {
-    grid-column: 1/-1;
-  }
 }
 .additionalLinks {
   display: flex;
-  padding-left: var(--sk-spacing-md);
-  padding-right: var(--sk-spacing-md);
+  margin-bottom: var(--sk-spacing-lg);
   & a {
     display: inline-block;
     color: var(--sk-sys-primary);
     padding: var(--sk-spacing-sm) var(--sk-spacing-md);
     border: 1px solid var(--sk-sys-primary);
     border-radius: 10px;
+    font: var(--sk-label-lg);
   }
 }
 
 @media screen and (min-width: 600px) {
-  .sk-profile {
-    grid-auto-flow: unset;
+  .header {
     grid-template-columns: 1fr 1fr;
-    gap: var(--sk-spacing-lg) var(--sk-spacing-lg);
-  }
-  .sk-profile__header {
-    grid-column: 1/2;
-    grid-row: 1;
-  }
-  .sk-profile__body {
-    grid-column: 1/3;
-    grid-row: 3;
-    padding-right: 16.7%;
-  }
-  .sk-profile__headshot {
-    grid-column: 2/3;
-    grid-row: 1/3;
-  }
-  .sk-profile button {
-    grid-row: 4;
+    gap: 0 var(--sk-spacing-lg);
   }
 }
 @media screen and (min-width: 800px) {
-  .sk-profile {
-    gap: var(--sk-spacing-lg) var(--sk-spacing-xl);
+  .profile {
+    --profile-template-columns: var(--sk-spacing-lg) 1fr 1fr
+      var(--sk-spacing-lg);
+    gap: 0 var(--sk-spacing-lg);
   }
-  .sk-profile__body {
-    grid-column: 1/2;
-    grid-row: 2/4;
-    padding-right: 0;
+  .header {
+    grid-column: 2/4;
+    grid-template-columns: unset;
+    position: relative;
+    & img {
+      position: absolute;
+      right: 0;
+      width: calc(50% - var(--sk-spacing-md));
+    }
   }
 }

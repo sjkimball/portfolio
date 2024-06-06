@@ -33,6 +33,7 @@ export default {
         { type: 'module.projects' },
         { type: 'module.blockContent' },
         { type: 'module.grid' },
+        { type: 'module.images' },
       ],
       group: 'editorial',
     },

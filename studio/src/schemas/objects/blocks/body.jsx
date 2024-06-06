@@ -38,24 +38,12 @@ export default {
     },
     // Custom Blocks
     {
-      title: 'Image',
-      type: 'mainImage',
-    },
-    {
-      title: 'Image Test',
-      type: 'module.image',
+      title: 'Images',
+      type: 'module.images',
     },
     {
       title: 'Projects',
       type: 'module.projects',
-    },
-    {
-      title: 'People',
-      type: 'module.people',
-    },
-    {
-      title: 'Posts',
-      type: 'module.posts',
     },
     {
       title: 'Grid',
@@ -72,10 +60,6 @@ export default {
     {
       title: 'Figma Embed',
       type: 'module.figmaEmbed',
-    },
-    {
-      title: 'Person',
-      type: 'module.person',
     },
   ],
 };

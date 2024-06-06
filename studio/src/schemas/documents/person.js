@@ -65,7 +65,8 @@ export default {
     {
       name: 'image',
       title: 'Profile Image',
-      type: 'mainImage',
+      type: 'module.image',
+      initialValue: { variant: 'cover' },
       group: 'editorial',
     },
     {
@@ -100,12 +101,12 @@ export default {
       firstName: 'firstName',
       preferredName: 'preferredName',
       lastName: 'lastName',
-      media: 'image.asset',
+      media: 'image',
     },
     prepare({ firstName, preferredName, lastName, media }) {
       return {
         title: `${preferredName ? preferredName : firstName} ${lastName}`,
-        media: media,
+        media: media.image,
       };
     },
   },

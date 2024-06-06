@@ -23,7 +23,7 @@ export default {
       name: 'content',
       title: 'Content',
       type: 'array',
-      of: [{ type: 'mainImage' }],
+      of: [{ type: 'module.image', initialValue: { variant: 'cover' } }],
       validation: (rule) => rule.max(1),
     },
   ],

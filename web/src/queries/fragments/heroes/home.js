@@ -7,7 +7,7 @@ export const heroHomeData = graphql`
       ...externalLinkData
     }
     content {
-      ...imageData
+      ...imageModuleData
     }
   }
 `;

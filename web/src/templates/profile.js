@@ -14,7 +14,7 @@ export const query = graphql`
       preferredName
       lastName
       image {
-        ...imageData
+        ...imageModuleData
       }
       _rawBio
       links {

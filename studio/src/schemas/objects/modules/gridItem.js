@@ -7,17 +7,19 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (rule) => rule.required(),
     },
     {
       name: 'body',
       title: 'Body',
       type: 'text',
       rows: 3,
+      validation: (rule) => rule.required(),
     },
     {
       name: 'image',
       title: 'Image',
-      type: 'image',
+      type: 'module.image',
     },
   ],
   preview: {
@@ -31,7 +33,7 @@ export default {
       return {
         title: title,
         subtitle: body,
-        media: image,
+        media: image.image,
       };
     },
   },

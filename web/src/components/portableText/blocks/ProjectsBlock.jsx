@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Preview from '../../Preview';
-
 import ProjectPreview from '../../previews/ProjectPreview';
 
 import { block, container } from './ProjectsBlock.module.css';

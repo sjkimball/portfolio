@@ -12,9 +12,9 @@ const Projects = (props) => {
       {props.title ? <h2>{props.title}</h2> : ''}
       {props.subtitle ? <p>{props.subtitle}</p> : ''}
       <div className={container}>
-        {gridContent.map((item, i) => (
-          <ProjectPreview key={i} {...item} />
-        ))}
+        {gridContent.map((item, i) => {
+          return <ProjectPreview key={i} {...item} />;
+        })}
       </div>
     </section>
   );

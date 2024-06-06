@@ -7,8 +7,6 @@ export default {
   type: 'document',
   initialValue: {
     cover: {
-      _type: 'mainImage',
-      altText: 'This is placeholder alt text',
       caption: 'This is a placeholder caption',
     },
   },
@@ -74,7 +72,8 @@ export default {
     {
       name: 'cover',
       title: 'Cover Image',
-      type: 'mainImage',
+      type: 'module.image',
+      initialValue: { variant: 'cover' },
       validation: (Rule) => Rule.required(),
       group: 'editorial',
     },
@@ -84,7 +83,7 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'mainImage',
+          type: 'module.image',
         },
       ],
       options: {
@@ -142,7 +141,7 @@ export default {
     select: {
       title: 'client.name',
       subtitle: 'title',
-      media: 'cover.asset',
+      media: 'cover.image.asset',
     },
   },
 };

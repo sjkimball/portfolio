@@ -14,3 +14,9 @@
   padding-top: var(--sk-spacing-md);
   padding-bottom: var(--sk-spacing-md);
 }
+@media screen and (min-width: 600px) {
+  .block {
+    padding-right: var(--sk-spacing-lg);
+    padding-left: var(--sk-spacing-lg);
+  }
+}

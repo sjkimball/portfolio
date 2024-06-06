@@ -1,6 +1,7 @@
 .project {
+  --project-grid-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
   display: grid;
-  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  grid-template-columns: var(--project-grid-columns);
   grid-column: 1/-1;
   & > * {
     grid-column: 1/-1;
@@ -8,15 +9,14 @@
 }
 .header {
   display: grid;
-  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  grid-template-columns: var(--project-grid-columns);
   & * {
     margin-bottom: 0;
   }
   & img {
     grid-column: 1/-1;
     justify-self: center;
-    aspect-ratio: 3/2;
-    margin-top: var(--sk-spacing-xl);
+    margin-top: var(--sk-spacing-lg);
   }
 }
 .projectClient {
@@ -54,7 +54,7 @@
 }
 .metadata {
   display: grid;
-  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  grid-template-columns: var(--project-grid-columns);
   gap: var(--sk-spacing-md) 0;
   padding-bottom: var(--sk-spacing-xl);
   & > * {
@@ -82,59 +82,21 @@
 }
 
 @media screen and (min-width: 600px) {
-  /* Project Body */
-  .sk-project__body {
-    grid-template-columns: 5fr 1fr;
-  }
-  .sk-project__description {
-    grid-column: 1/2;
+  .project {
+    --project-grid-columns: var(--sk-spacing-lg) 1fr var(--sk-spacing-lg);
   }
 }
 @media screen and (min-width: 800px) {
-  .sk-project {
-    grid-template-columns: 1fr 1fr;
-    grid-auto-flow: unset;
-    gap: var(--sk-spacing-lg) var(--sk-spacing-lg);
-  }
-  /* Project Header */
-  .sk-project__header {
-    grid-column: 1/3;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0 var(--sk-spacing-lg);
-  }
-  .sk-project__header h3 {
-    grid-column: 2;
-    grid-row: 1/4;
-  }
-  .sk-project__header .cover {
-    grid-row: 4;
-    grid-column: 1/3;
-    padding-top: var(--sk-spacing-lg);
-    padding-bottom: var(--sk-spacing-lg);
-  }
-  /* Project Body */
-  .sk-project__body {
-    grid-column: 1/2;
-    grid-row: 2;
-    grid-template-columns: none;
-  }
-  /* Project Metadata */
-  .sk-project__metadata {
-    grid-column: 1/2;
-    grid-row: 3;
-  }
-  /* Project Gallery */
-  .sk-project__gallery {
-    grid-column: 2/3;
-    grid-row: 2/5;
-  }
 }
 @media screen and (min-width: 1040px) {
-  /* Project Metadata */
-  .sk-project__metadata {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, auto);
-    gap: var(--sk-spacing-md) var(--sk-spacing-md);
-    grid-auto-flow: column;
+  .project {
+    --project-grid-columns: var(--sk-spacing-xl) 1fr var(--sk-spacing-xl);
+  }
+  .projectBody {
+    grid-template-columns: var(--sk-spacing-xl) 1fr 1fr var(--sk-spacing-xl);
+    grid-auto-flow: rows;
+    & p {
+      grid-column: 2;
+    }
   }
 }

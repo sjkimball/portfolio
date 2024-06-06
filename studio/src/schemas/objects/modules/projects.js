@@ -26,6 +26,7 @@ export default {
         {
           type: 'reference',
           to: [{ type: 'project' }],
+          weak: true,
         },
       ],
       validation: (Rule) => Rule.min(1).max(12).unique(),

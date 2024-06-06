@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 
 import GraphQLErrorList from '../components/GraphqlErrorList';
 import Grid from '../components/modules/Grid';
-import HeroHome from '../components/heroes/home';
+import HeroHome from '../components/heroes/Home';
 import HeroPage from '../components/heroes/page';
 import Layout from '../components/global/Layout';
 import PortableText from '../components/portableText/PortableText';
@@ -31,7 +31,6 @@ export const Head = ({ location, params, data, pageContext }) => {
 };
 
 const Page = (props) => {
-  // console.dir('props in page', props);
   const { data, errors } = props;
 
   if (errors) {
@@ -89,7 +88,7 @@ const Page = (props) => {
     <Layout site={site}>
       {hero}
       {modules}
-      {body.length !== 0 ? <PortableText blocks={body} /> : ''}
+      {body.length !== 0 ? <PortableText blocks={body} context="page" /> : ''}
     </Layout>
   );
 };

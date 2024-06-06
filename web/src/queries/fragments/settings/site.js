@@ -19,6 +19,10 @@ export const settingsSiteData = graphql`
         text
       }
     }
+    notFoundPage {
+      body
+      title
+    }
     seo {
       ...seoSiteData
     }

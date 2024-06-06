@@ -9,9 +9,9 @@ const useLandingPage = () => {
           ...heroHomeData
         }
         _rawContent(resolveReferences: { maxDepth: 10 })
-        # seo {
-        #   ...seoHomeData
-        # }
+        seo {
+          ...seoHomeData
+        }
       }
       site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
         ...settingsSiteData

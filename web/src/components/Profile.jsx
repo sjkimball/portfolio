@@ -20,15 +20,17 @@ const Profile = (props) => {
         <PrimaryImage imageAsset={image.image} imageUse={`cover`} />
       </header>
       <PortableText blocks={_rawBio} />
-      <section className={additionalLinks}>
-        {links.map((link, i) => {
-          return (
-            <a key={i} href={link.url}>
-              View {link.title}
-            </a>
-          );
-        })}
-      </section>
+      <div className={additionalLinks}>
+        <ul>
+          {links.map((link, i) => {
+            return (
+              <li key={i}>
+                <a href={link.url}>View {link.title}</a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </article>
   );
 };

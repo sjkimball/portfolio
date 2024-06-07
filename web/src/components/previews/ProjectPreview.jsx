@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import PrimaryImage from '../PrimaryImage';
 import ImageModule from '../modules/Image';
 
-import { preview, figure } from './ProjectPreview.module.css';
+import { preview, container } from './ProjectPreview.module.css';
 
 const ProjectPreview = (props) => {
   // console.log('props in Project Preview', props);
@@ -14,9 +13,11 @@ const ProjectPreview = (props) => {
       to={`/work/${client.slug.current}/${slug.current}`}
       className={preview}
     >
-      <div className={figure}>
-        <h4>{client.name}</h4>
-        <h5>{title}</h5>
+      <div className={container}>
+        <hgroup>
+          <h4>{client.name}</h4>
+          <h5>{title}</h5>
+        </hgroup>
         <ImageModule {...cover} />
       </div>
     </Link>

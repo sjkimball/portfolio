@@ -1,19 +1,20 @@
 .preview {
   cursor: pointer;
-  display: grid;
+  display: block;
   text-decoration: none;
   color: var(--sk-white);
 }
-.figure {
+.container {
   display: grid;
   & img {
     aspect-ratio: 1/1;
     grid-column: 1;
     grid-row: 1;
   }
-  & figcaption {
+  & hgroup {
     grid-column: 1;
     grid-row: 1;
+    order: 1;
     padding: var(--sk-spacing-lg) var(--sk-spacing-md);
     & h4 {
       font: var(--sk-title-md);

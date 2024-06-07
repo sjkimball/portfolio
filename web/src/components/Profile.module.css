@@ -3,27 +3,40 @@
   display: grid;
   grid-template-columns: var(--profile-template-columns);
   & > * {
-    grid-column: 2;
+    grid-column: 1/-1;
   }
 }
 .header {
   display: grid;
+  grid-template-columns: var(--profile-template-columns);
   & h1 {
-    font: var(--sk-display-md);
-    font-weight: var(--sk-fw-regular);
+    grid-column: 2;
     margin-bottom: var(--sk-spacing-lg);
+  }
+  & img {
+    grid-column: 1/-1;
   }
 }
 .additionalLinks {
-  display: flex;
+  display: grid;
+  grid-template-columns: var(--profile-template-columns);
   margin-bottom: var(--sk-spacing-lg);
-  & a {
-    display: inline-block;
-    color: var(--sk-sys-primary);
-    padding: var(--sk-spacing-sm) var(--sk-spacing-md);
-    border: 1px solid var(--sk-sys-primary);
-    border-radius: 10px;
-    font: var(--sk-label-lg);
+  & ul {
+    grid-column: 2;
+    display: flex;
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 0;
+    & li {
+      margin-bottom: 0;
+      & a {
+        color: var(--sk-sys-primary);
+        padding: var(--sk-spacing-sm) var(--sk-spacing-md);
+        border: 1px solid var(--sk-sys-primary);
+        border-radius: 10px;
+        font: var(--sk-label-lg);
+      }
+    }
   }
 }
 

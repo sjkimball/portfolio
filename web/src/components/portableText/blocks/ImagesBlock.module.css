@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-spacing-lg) 0;
+  & img {
+    display: block;
+  }
+  .captionImage {
+    & figcaption {
+      padding-top: var(--sk-spacing-sm);
+      padding-bottom: var(--sk-spacing-sm);
+      font: var(--sk-label-lg);
+    }
+  }
+}

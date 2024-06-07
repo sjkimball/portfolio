@@ -49,7 +49,7 @@ const Project = (props) => {
         <p className={projectSubtitle}>{subtitle}</p>
         <ImageModule {...cover} />
       </header>
-      <PortableText blocks={body} context="project" />
+      <PortableText blocks={body} />
       <div className={metadata}>
         <section>
           <h6>Client</h6>

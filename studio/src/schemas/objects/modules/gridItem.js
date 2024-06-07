@@ -1,3 +1,5 @@
+import { ThLargeIcon } from '@sanity/icons';
+
 export default {
   name: 'gridItem',
   title: 'Grid Item',
@@ -29,11 +31,10 @@ export default {
       image: 'image',
     },
     prepare: (selection) => {
-      const { title, body, image } = selection;
+      const { title, body } = selection;
       return {
         title: title,
         subtitle: body,
-        media: image.image,
       };
     },
   },

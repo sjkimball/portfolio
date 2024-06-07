@@ -15,7 +15,7 @@
   /* grid-template-rows: min-content auto; */
   padding-top: var(--sk-spacing-lg);
   & > h1 {
-    font: var(--sk-display-md);
+    text-transform: uppercase;
     padding-left: var(--sk-spacing-md);
     padding-right: var(--sk-spacing-md);
   }

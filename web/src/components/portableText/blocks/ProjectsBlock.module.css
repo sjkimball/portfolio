@@ -1,22 +1,13 @@
 .block {
-  grid-column: 1/-1;
-  padding-top: var(--sk-spacing-lg);
-  padding-right: var(--sk-spacing-md);
-  padding-bottom: var(--sk-spacing-lg);
-  padding-left: var(--sk-spacing-md);
-  & h3 {
-    font: var(--sk-headline-sm);
+  display: grid;
+  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  padding-top: var(--sk-spacing-md);
+  padding-bottom: var(--sk-spacing-md);
+  & > * {
+    grid-column: 2;
   }
 }
 .container {
   display: grid;
   gap: var(--sk-spacing-md) 0;
-  padding-top: var(--sk-spacing-md);
-  padding-bottom: var(--sk-spacing-md);
-}
-@media screen and (min-width: 600px) {
-  .block {
-    padding-right: var(--sk-spacing-lg);
-    padding-left: var(--sk-spacing-lg);
-  }
 }

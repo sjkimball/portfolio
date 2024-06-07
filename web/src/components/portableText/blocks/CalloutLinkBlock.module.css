@@ -1,5 +1,4 @@
-.block {
-  grid-column: 2;
+.anchor {
   display: block;
   color: var(--sk-sys-primary);
   font-weight: var(--sk-fw-medium);

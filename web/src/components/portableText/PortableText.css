@@ -1,36 +1,40 @@
 .portableText {
+  display: grid;
+  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
   padding-top: var(--sk-spacing-lg);
   padding-bottom: var(--sk-spacing-lg);
+  .block {
+    grid-column: 2;
+  }
   & *:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
   }
-  .block {
+  .block--text {
     max-width: 65ch;
   }
-}
-.portableText--page {
-  .block {
-    padding-right: var(--sk-spacing-md);
-    padding-left: var(--sk-spacing-md);
+  /* ? Should these be moved into a local module? */
+  h2.block--text {
+    padding-top: var(--sk-spacing-sm);
+    padding-bottom: var(--sk-spacing-sm);
   }
-}
-.portableText--project {
-  display: grid;
-  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
-  .block {
-    grid-column: 2;
+  h4.block--text {
+    padding-top: var(--sk-spacing-md);
+    padding-bottom: var(--sk-spacing-xs);
   }
-  .block--image {
-    grid-column: 2;
-    padding-top: var(--sk-spacing-lg);
-    padding-bottom: var(--sk-spacing-lg);
+  p.block--text {
+    padding-top: var(--sk-spacing-sm);
+    padding-bottom: var(--sk-spacing-sm);
+  }
+  .block--images {
+    padding-top: var(--sk-spacing-md);
+    padding-bottom: var(--sk-spacing-md);
     &.fullWidth {
       grid-column: 1/-1;
     }
   }
-  .block--images {
-    grid-column: 2;
+  .block--projects {
+    grid-column: 1/-1;
   }
 }
 @media screen and (min-width: 600px) {

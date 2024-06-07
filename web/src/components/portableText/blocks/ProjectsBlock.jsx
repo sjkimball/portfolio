@@ -13,7 +13,7 @@ const ProjectsBlock = (props) => {
   ));
 
   return (
-    <div className={block}>
+    <div className={`block block--projects ${block}`}>
       {value.title ? <h3>{value.title}</h3> : ''}
       {value.subtitle ? <p>{value.subtitle}</p> : ''}
       <div className={container}>{content}</div>

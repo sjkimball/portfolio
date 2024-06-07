@@ -41,7 +41,9 @@ export const query = graphql`
 `;
 
 export const Head = ({ location, params, data, pageContext }) => {
-  const title = data.page.seo.title ? data.page.seo.title : data.page.title;
+  const title = data.page.seo.title
+    ? data.page.seo.title
+    : data.page.client.name;
   const description = data.page.seo
     ? data.page.seo.description
     : data.site.seo.description;

@@ -88,7 +88,7 @@ const Page = (props) => {
     <Layout site={site}>
       {hero}
       {modules}
-      {body.length !== 0 ? <PortableText blocks={body} context="page" /> : ''}
+      <PortableText blocks={body} />
     </Layout>
   );
 };

@@ -10,9 +10,6 @@
 .header {
   display: grid;
   grid-template-columns: var(--project-grid-columns);
-  & * {
-    margin-bottom: 0;
-  }
   & img {
     grid-column: 1/-1;
     justify-self: center;
@@ -20,18 +17,15 @@
   }
 }
 .projectClient {
-  font: var(--sk-display-sm);
   grid-column: 2;
 }
 .projectTitle {
-  font: var(--sk-body-lg);
   font-weight: var(--sk-fw-medium);
   color: var(--sk-neutral-600);
   grid-column: 2;
 }
 .projectSubtitle {
   font: var(--sk-title-lg);
-  /* font-weight: var(--sk-fw-medium); */
   padding-top: var(--sk-spacing-md);
   grid-column: 2;
 }

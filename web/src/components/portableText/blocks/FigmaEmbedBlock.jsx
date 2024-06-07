@@ -1,8 +1,6 @@
 import React from 'react';
 import FigmaEmbed from 'react-figma-embed';
 
-import { block } from './FigmaEmbedBlock.module.css';
-
 const styles = {
   width: '100%',
   height: 'unset',
@@ -13,7 +11,7 @@ const styles = {
 const FigmaEmbedBlock = (props) => {
   const { value } = props;
   return (
-    <div className={block}>
+    <div className={`block block--figma`}>
       <FigmaEmbed url={value.url} style={styles} />
     </div>
   );

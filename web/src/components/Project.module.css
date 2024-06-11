@@ -1,16 +1,20 @@
-.project {
-  --project-grid-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
-  display: grid;
-  grid-template-columns: var(--project-grid-columns);
+.article {
+  --article-marginX: var(--sk-spacing-md);
+  --article-paddingY: var(--sk-spacing-xl);
+  --article-grid-columns: var(--article-marginX) 1fr var(--article-marginX);
   grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: var(--article-grid-columns);
+  padding: var(--article-paddingY) 0;
   & > * {
     grid-column: 1/-1;
   }
 }
 .header {
   display: grid;
-  grid-template-columns: var(--project-grid-columns);
+  grid-template-columns: var(--article-grid-columns);
   & img {
+    aspect-ratio: 1/1;
     grid-column: 1/-1;
     justify-self: center;
     margin-top: var(--sk-spacing-lg);
@@ -48,7 +52,7 @@
 }
 .metadata {
   display: grid;
-  grid-template-columns: var(--project-grid-columns);
+  grid-template-columns: var(--article-grid-columns);
   gap: var(--sk-spacing-md) 0;
   padding-bottom: var(--sk-spacing-xl);
   & > * {
@@ -76,21 +80,34 @@
 }
 
 @media screen and (min-width: 600px) {
-  .project {
-    --project-grid-columns: var(--sk-spacing-lg) 1fr var(--sk-spacing-lg);
+  .article {
+    --article-marginX: var(--sk-spacing-lg);
+  }
+  .header {
+    & img {
+      aspect-ratio: 16/9;
+    }
   }
 }
 @media screen and (min-width: 800px) {
+  .article {
+    --article-paddingY: calc(var(--sk-spacing-lg) * 2);
+  }
 }
 @media screen and (min-width: 1040px) {
-  .project {
-    --project-grid-columns: var(--sk-spacing-xl) 1fr var(--sk-spacing-xl);
+  .article {
+    --article-marginX: var(--sk-spacing-xl);
+    --article-paddingY: calc(var(--sk-spacing-xl) * 2);
   }
-  .projectBody {
-    grid-template-columns: var(--sk-spacing-xl) 1fr 1fr var(--sk-spacing-xl);
-    grid-auto-flow: rows;
-    & p {
-      grid-column: 2;
+  .header {
+    grid-template-columns: var(--article-marginX) 1fr 1fr var(--article-marginX);
+    & img {
+      margin-top: calc(var(--sk-spacing-lg) * 3);
     }
+  }
+  .projectSubtitle {
+    grid-column: 3;
+    grid-row: 1/4;
+    padding-top: 0;
   }
 }

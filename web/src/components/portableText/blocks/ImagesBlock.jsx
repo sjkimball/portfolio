@@ -9,7 +9,7 @@ const ImagesBlock = (props) => {
   const { value } = props;
   return (
     <div
-      className={`block block--images ${value.fullWidth == true ? 'fullWidth' : ''}`}
+      className={`block block--images ${value.fullWidth == true ? 'fullWidth' : ''} ${value.content.length > 1 ? 'multiple' : ''}`}
     >
       <div className={container}>
         {value.content.map((item, i) => {

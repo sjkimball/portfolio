@@ -1,14 +1,17 @@
 .portableText {
+  --portableText-margin-left: var(--sk-spacing-md);
+  --portableText-margin-right: var(--sk-spacing-md);
+  --portableText-padding-top: var(--sk-spacing-lg);
+  --portableText-padding-bottom: var(--sk-spacing-lg);
+  --portableText-template-columns: var(--portableText-margin-left) 1fr
+    var(--portableText-margin-right);
   display: grid;
-  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
-  padding-top: var(--sk-spacing-lg);
-  padding-bottom: var(--sk-spacing-lg);
+  grid-template-columns: var(--portableText-template-columns);
   .block {
     grid-column: 2;
   }
-  & *:last-child {
+  & > *:last-child {
     margin-bottom: 0;
-    padding-bottom: 0;
   }
   .block--text {
     max-width: 65ch;
@@ -29,8 +32,13 @@
   .block--images {
     padding-top: var(--sk-spacing-md);
     padding-bottom: var(--sk-spacing-md);
-    &.fullWidth {
-      grid-column: 1/-1;
+  }
+  .captionImage {
+    width: 100%;
+    & figcaption {
+      padding-top: var(--sk-spacing-sm);
+      padding-bottom: var(--sk-spacing-sm);
+      font: var(--sk-label-lg);
     }
   }
   .block--projects {
@@ -38,15 +46,52 @@
   }
 }
 @media screen and (min-width: 600px) {
-  .portableText--project {
-    grid-template-columns: var(--sk-spacing-lg) 1fr var(--sk-spacing-lg);
+  .portableText {
+    --portableText-margin-left: var(--sk-spacing-lg);
+    --portableText-margin-right: var(--sk-spacing-lg);
+  }
+}
+@media screen and (min-width: 800px) {
+  .profile {
+    .portableText {
+      grid-template-columns: var(--portableText-margin-left) 1fr 1fr var(
+          --portableText-margin-right
+        );
+      & > * {
+        grid-column: 2;
+        margin-right: var(--sk-spacing-md);
+      }
+    }
   }
 }
 @media screen and (min-width: 1040px) {
-  .portableText--project {
-    grid-template-columns: var(--sk-spacing-xl) 1fr 1fr var(--sk-spacing-xl);
-    .block--image {
-      grid-column: 2/4;
+  .portableText {
+    --portableText-margin-left: var(--sk-spacing-xl);
+    --portableText-margin-right: var(--sk-spacing-xl);
+  }
+  .project {
+    .portableText {
+      grid-template-columns: var(--portableText-margin-left) 1fr 1fr var(
+          --portableText-margin-right
+        );
+      .block--images {
+        &.fullWidth {
+          grid-column: 2/4;
+          & figcaption {
+            display: none;
+          }
+        }
+        &.multiple {
+          grid-column: 2/4;
+        }
+      }
+    }
+  }
+  .profile {
+    .portableText {
+      & > * {
+        margin-right: var(--sk-spacing-lg);
+      }
     }
   }
 }

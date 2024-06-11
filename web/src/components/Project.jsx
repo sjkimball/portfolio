@@ -4,7 +4,7 @@ import PortableText from './portableText/PortableText';
 import ImageModule from './modules/Image';
 
 import {
-  project,
+  article,
   header,
   projectClient,
   projectTitle,
@@ -42,7 +42,7 @@ const Project = (props) => {
   } = props;
 
   return (
-    <article className={project}>
+    <article className={`project ${article}`}>
       <header className={header}>
         <h1 className={projectClient}>{client.name}</h1>
         <p className={projectTitle}>{title}</p>

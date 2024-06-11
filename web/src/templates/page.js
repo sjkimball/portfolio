@@ -58,7 +58,9 @@ const Page = (props) => {
     ) : page.showHero && page.showHero == true ? (
       <HeroPage {...page.hero} />
     ) : (
-      <h1>{page.title}</h1>
+      <header>
+        <h1>{page.title}</h1>
+      </header>
     );
 
   //Home Page Content
@@ -88,7 +90,7 @@ const Page = (props) => {
     <Layout site={site}>
       {hero}
       {modules}
-      <PortableText blocks={body} />
+      {body.length > 0 ? <PortableText blocks={body} /> : ''}
     </Layout>
   );
 };

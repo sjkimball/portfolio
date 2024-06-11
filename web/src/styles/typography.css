@@ -79,3 +79,9 @@ blockquote {
 blockquote *:last-child {
   margin-bottom: 0;
 }
+
+@media screen and (min-width: 1400px) {
+  h1 {
+    font: var(--sk-display-lg);
+  }
+}

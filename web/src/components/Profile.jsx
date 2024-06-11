@@ -3,7 +3,7 @@ import React from 'react';
 import PortableText from './portableText/PortableText';
 import PrimaryImage from './PrimaryImage';
 
-import { profile, header, additionalLinks } from './Profile.module.css';
+import { article, header, additionalLinks } from './Profile.module.css';
 
 const Profile = (props) => {
   // console.dir('props in Profile', props);
@@ -14,7 +14,7 @@ const Profile = (props) => {
     : `${firstName} ${lastName}`;
 
   return (
-    <article className={profile}>
+    <article className={`profile ${article}`}>
       <header className={header}>
         <h1>{name}</h1>
         <PrimaryImage imageAsset={image.image} imageUse={`cover`} />

@@ -1,4 +1,4 @@
-.grid {
+.moduleProjects {
   display: grid;
   grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
   padding-top: var(--sk-spacing-xl);
@@ -21,7 +21,7 @@
   gap: var(--sk-spacing-md) 0;
 }
 @media screen and (min-width: 600px) {
-  .grid {
+  .moduleProjects {
     grid-template-columns: var(--sk-spacing-lg) 1fr var(--sk-spacing-lg);
   }
 }

@@ -5,11 +5,10 @@
   & img {
     display: block;
   }
-  .captionImage {
-    & figcaption {
-      padding-top: var(--sk-spacing-sm);
-      padding-bottom: var(--sk-spacing-sm);
-      font: var(--sk-label-lg);
-    }
+}
+@media screen and (min-width: 800px) {
+  .container {
+    flex-direction: row;
+    gap: 0 var(--sk-spacing-lg);
   }
 }

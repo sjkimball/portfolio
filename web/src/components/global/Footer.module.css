@@ -17,18 +17,6 @@
   width: 50px;
   align-self: center;
 }
-/* .logo::after {
-  content: 'Sam Kimball';
-  font-size: var(--sk-fs-3);
-  text-transform: uppercase;
-  font-family: var(--sk-font-body);
-  font-weight: var(--sk-fw-medium);
-  letter-spacing: 0.5px;
-  position: absolute;
-  right: 0;
-  width: 200px;
-  margin-right: -195px;
-} */
 .footerLinks {
   grid-row: 1;
   grid-column: 3;
@@ -78,13 +66,5 @@
     margin-right: -195px;
   }
 }
-@media screen and (min-width: 1040px) {
-  .footer {
-    grid-template-columns: var(--sk-spacing-xl) auto var(--sk-spacing-xl);
-  }
-}
 @media screen and (min-width: 1600px) {
-  .footer {
-    grid-template-columns: 1fr 1504px 1fr;
-  }
 }

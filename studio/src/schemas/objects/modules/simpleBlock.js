@@ -1,9 +1,10 @@
-import { ThLargeIcon } from '@sanity/icons';
+import { BlockContentIcon } from '@sanity/icons';
 
 export default {
-  name: 'gridItem',
-  title: 'Grid Item',
+  name: 'module.simpleBlockContent',
+  title: 'Simple Block',
   type: 'object',
+  icon: BlockContentIcon,
   fields: [
     {
       name: 'title',
@@ -14,27 +15,19 @@ export default {
     {
       name: 'body',
       title: 'Body',
-      type: 'text',
-      rows: 3,
+      type: 'block.simple',
       validation: (rule) => rule.required(),
-    },
-    {
-      name: 'image',
-      title: 'Image',
-      type: 'module.image',
     },
   ],
   preview: {
     select: {
       title: 'title',
-      body: 'body',
-      image: 'image',
     },
     prepare: (selection) => {
-      const { title, body } = selection;
+      const { title } = selection;
       return {
         title: title,
-        subtitle: body,
+        media: BlockContentIcon,
       };
     },
   },

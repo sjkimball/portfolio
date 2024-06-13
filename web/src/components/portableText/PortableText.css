@@ -5,10 +5,11 @@
   --portableText-padding-bottom: var(--sk-spacing-lg);
   --portableText-template-columns: var(--portableText-margin-left) 1fr
     var(--portableText-margin-right);
+  --portableText-block-paddingY: var(--sk-spacing-xl);
   display: grid;
   grid-template-columns: var(--portableText-template-columns);
-  .block {
-    grid-column: 2;
+  & > .block:first-child {
+    padding-top: 0;
   }
   & > *:last-child {
     margin-bottom: 0;
@@ -16,7 +17,6 @@
   .block--text {
     max-width: 65ch;
   }
-  /* ? Should these be moved into a local module? */
   h2.block--text {
     padding-top: var(--sk-spacing-sm);
     padding-bottom: var(--sk-spacing-sm);
@@ -26,12 +26,13 @@
     padding-bottom: var(--sk-spacing-xs);
   }
   p.block--text {
-    padding-top: var(--sk-spacing-sm);
-    padding-bottom: var(--sk-spacing-sm);
+    padding: var(--sk-spacing-sm) 0;
   }
   .block--images {
-    padding-top: var(--sk-spacing-md);
-    padding-bottom: var(--sk-spacing-md);
+    padding: var(--sk-spacing-md) 0;
+  }
+  .block--figma {
+    padding: var(--sk-spacing-md) 0;
   }
   .captionImage {
     width: 100%;
@@ -41,8 +42,61 @@
       font: var(--sk-label-lg);
     }
   }
-  .block--projects {
-    grid-column: 1/-1;
+}
+.mainContent {
+  & > .portableText {
+    & > .block:first-child {
+      padding-top: 0;
+    }
+    & > .block {
+      grid-column: 2;
+      &.fullWidth {
+        grid-column: 1/-1;
+      }
+    }
+    .block--images.fullWidth {
+      grid-column: 1/-1;
+      & figcaption {
+        display: none;
+      }
+    }
+    .block--images:last-child {
+      padding-bottom: 0;
+      align-self: end;
+    }
+    .block--projects {
+      padding: var(--portableText-block-paddingY) 0;
+      &.fullWidth {
+        grid-column: 1/-1;
+        grid-template-columns: var(--portableText-template-columns);
+        & > * {
+          grid-column: 2;
+        }
+      }
+    }
+    .block--grid {
+      padding: var(--portableText-block-paddingY) 0;
+      &.fullWidth {
+        grid-template-columns: var(--portableText-template-columns);
+        & > * {
+          grid-column: 2;
+        }
+      }
+    }
+  }
+}
+.project {
+  & > .portableText {
+    .block {
+      grid-column: 2;
+    }
+  }
+}
+.profile {
+  & > .portableText {
+    .block {
+      grid-column: 2;
+    }
   }
 }
 @media screen and (min-width: 600px) {
@@ -52,6 +106,15 @@
   }
 }
 @media screen and (min-width: 800px) {
+  .portableText {
+    --portableText-block-paddingY: calc(var(--sk-spacing-xl) * 2);
+    & .block--figma {
+      padding: var(--sk-spacing-xl) 0;
+    }
+    & .block--images {
+      padding: var(--sk-spacing-xl) 0;
+    }
+  }
   .profile {
     .portableText {
       grid-template-columns: var(--portableText-margin-left) 1fr 1fr var(
@@ -59,7 +122,7 @@
         );
       & > * {
         grid-column: 2;
-        margin-right: var(--sk-spacing-md);
+        margin-right: calc(var(--sk-spacing-lg) / 2);
       }
     }
   }
@@ -90,7 +153,54 @@
   .profile {
     .portableText {
       & > * {
+        margin-right: calc(var(--sk-spacing-xl) / 2);
+      }
+    }
+  }
+}
+@media screen and (min-width: 1600px) {
+  .portableText {
+    grid-template-columns: unset;
+  }
+  .mainContent {
+    & > .portableText {
+      .block {
+        grid-column: unset;
+      }
+    }
+  }
+  .project {
+    .portableText {
+      grid-template-columns: 1fr 1fr;
+      .block {
+        grid-column: 1;
+      }
+      .block--images {
+        &.fullWidth {
+          grid-column: 1/-1;
+        }
+        &.multiple {
+          grid-column: 1/-1;
+        }
+      }
+    }
+  }
+  .profile {
+    .portableText {
+      grid-template-columns: 1fr 1fr;
+      & > * {
         margin-right: var(--sk-spacing-lg);
+      }
+      .block {
+        grid-column: 1;
+      }
+      .block--images {
+        &.fullWidth {
+          grid-column: 1/-1;
+        }
+        &.multiple {
+          grid-column: 1/-1;
+        }
       }
     }
   }

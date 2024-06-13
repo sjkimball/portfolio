@@ -25,7 +25,7 @@ import moduleCallout from './objects/modules/callout';
 import moduleCalloutLink from './objects/modules/calloutLink';
 import moduleExternalAsset from './objects/modules/externalAsset';
 import moduleFigmaEmbed from './objects/modules/figmaEmbed';
-import gridItem from './objects/modules/gridItem';
+import moduleFigure from './objects/modules/figure';
 import moduleGrid from './objects/modules/grid';
 import moduleImage from './objects/modules/image';
 import moduleImages from './objects/modules/images';
@@ -33,6 +33,7 @@ import moduleProjects from './objects/modules/projects';
 import modulePeople from './objects/modules/people';
 import modulePerson from './objects/modules/person';
 import modulePosts from './objects/modules/posts';
+import moduleSimpleBlockContent from './objects/modules/simpleBlock';
 // SEO
 import seoHome from './objects/seo/home';
 import seoPage from './objects/seo/page';
@@ -63,7 +64,6 @@ export default [
   designArea,
   designDiscipline,
   footer,
-  gridItem,
   heroHome,
   heroPage,
   home,
@@ -76,6 +76,7 @@ export default [
   moduleCalloutLink,
   moduleExternalAsset,
   moduleFigmaEmbed,
+  moduleFigure,
   moduleGrid,
   moduleImage,
   moduleImages,
@@ -83,6 +84,7 @@ export default [
   modulePerson,
   modulePosts,
   moduleProjects,
+  moduleSimpleBlockContent,
   notFoundPage,
   page,
   person,

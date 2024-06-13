@@ -1,17 +1,18 @@
 .article {
   --article-marginX: var(--sk-spacing-md);
-  --article-paddingY: var(--sk-spacing-xl);
   --article-template-columns: var(--article-marginX) 1fr var(--article-marginX);
   display: grid;
   grid-template-columns: var(--article-template-columns);
-  padding: var(--article-paddingY) 0;
+  padding-bottom: var(--sk-spacing-xl);
   & > * {
     grid-column: 1/-1;
   }
 }
 .header {
+  --header-paddingY: var(--sk-spacing-xl);
   display: grid;
   grid-template-columns: var(--article-template-columns);
+  padding: var(--header-paddingY) 0;
   & h1 {
     grid-column: 2;
     margin-bottom: var(--sk-spacing-lg);
@@ -23,16 +24,18 @@
 .additionalLinks {
   display: grid;
   grid-template-columns: var(--article-template-columns);
-  margin-bottom: var(--sk-spacing-lg);
+  padding: var(--sk-spacing-lg) 0;
   & ul {
     grid-column: 2;
     display: flex;
+    gap: 0 var(--sk-spacing-md);
     list-style: none;
     margin-left: 0;
     margin-bottom: 0;
     & li {
       margin-bottom: 0;
       & a {
+        display: block;
         color: var(--sk-sys-primary);
         padding: var(--sk-spacing-sm) var(--sk-spacing-md);
         border: 1px solid var(--sk-sys-primary);
@@ -61,9 +64,10 @@
 }
 @media screen and (min-width: 800px) {
   .article {
-    --article-paddingY: calc(var(--sk-spacing-lg) * 2);
+    padding-bottom: calc(var(--sk-spacing-xl) * 2);
   }
   .header {
+    --header-paddingY: calc(var(--sk-spacing-xl) * 2);
     grid-template-rows: min-content auto;
     position: relative;
     & h1 {
@@ -71,12 +75,32 @@
     }
     & img {
       position: absolute;
+      top: var(--header-paddingY);
     }
   }
 }
 @media screen and (min-width: 1040px) {
   .article {
     --article-marginX: var(--sk-spacing-xl);
-    --article-paddingY: calc(var(--sk-spacing-xl) * 2);
+  }
+  .header {
+    gap: 0 var(--sk-spacing-xl);
+  }
+}
+@media screen and (min-width: 1600px) {
+  .article {
+    grid-template-columns: unset;
+    & > * {
+      grid-column: unset;
+    }
+  }
+  .header {
+    gap: 0 calc(var(--sk-spacing-lg) * 2);
+  }
+  .additionalLinks {
+    grid-template-columns: unset;
+    & ul {
+      grid-column: unset;
+    }
   }
 }

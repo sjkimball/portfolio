@@ -13,8 +13,11 @@ const ProjectsBlock = (props) => {
   ));
 
   return (
-    <div className={`block block--projects ${block}`}>
-      {value.title ? <h3>{value.title}</h3> : ''}
+    <div
+      data-theme={value.darkMode == true ? 'dark' : 'light'}
+      className={`block block--projects ${value.fullWidth == true ? 'fullWidth' : ''} ${block}`}
+    >
+      {value.title ? <h2>{value.title}</h2> : ''}
       {value.subtitle ? <p>{value.subtitle}</p> : ''}
       <div className={container}>{content}</div>
     </div>

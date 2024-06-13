@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import { h2, paragraph } from './Block.module.css';
-
 const Block = ({ children, value }) => {
   if (value.style === 'h2') {
     return <h2 className={`block block--text`}>{children}</h2>;

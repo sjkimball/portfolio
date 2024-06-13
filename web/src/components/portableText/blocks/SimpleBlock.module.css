@@ -1,0 +1,7 @@
+.container {
+  & h3 {
+    text-decoration: underline var(--sk-sys-primary) 2px;
+    text-underline-offset: var(--sk-spacing-sm);
+    margin-bottom: var(--sk-spacing-md);
+  }
+}

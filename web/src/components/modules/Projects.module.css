@@ -1,15 +1,11 @@
 .moduleProjects {
   display: grid;
-  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
-  padding-top: var(--sk-spacing-xl);
-  padding-bottom: var(--sk-spacing-xl);
   background-color: var(--sk-sys-background);
   color: var(--sk-sys-on-background);
   & > * {
     grid-column: 2;
   }
   & h2 {
-    font: var(--sk-headline-lg);
     margin-bottom: var(--sk-spacing-lg);
   }
   & p {
@@ -19,9 +15,4 @@
 .container {
   display: grid;
   gap: var(--sk-spacing-md) 0;
-}
-@media screen and (min-width: 600px) {
-  .moduleProjects {
-    grid-template-columns: var(--sk-spacing-lg) 1fr var(--sk-spacing-lg);
-  }
 }

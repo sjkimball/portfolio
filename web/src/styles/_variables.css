@@ -180,7 +180,7 @@
   --sk-fw-extraBold: 700;
   --sk-fw-black: 900;
   --sk-fw-display: var(--sk-fw-regular);
-  --sk-fw-headline: var(--sk-fw-semibold);
+  --sk-fw-headline: var(--sk-fw-regular);
   --sk-fw-title: var(--sk-fw-medium);
   --sk-fw-label: var(--sk-fw-medium);
   --sk-fw-body: var(--sk-fw-regular);

@@ -1,18 +1,19 @@
 .article {
   --article-marginX: var(--sk-spacing-md);
-  --article-paddingY: var(--sk-spacing-xl);
   --article-grid-columns: var(--article-marginX) 1fr var(--article-marginX);
   grid-column: 1/-1;
   display: grid;
   grid-template-columns: var(--article-grid-columns);
-  padding: var(--article-paddingY) 0;
+  padding-bottom: var(--sk-spacing-xl);
   & > * {
     grid-column: 1/-1;
   }
 }
 .header {
+  --header-paddingY: var(--sk-spacing-xl);
   display: grid;
   grid-template-columns: var(--article-grid-columns);
+  padding: var(--header-paddingY) 0;
   & img {
     aspect-ratio: 1/1;
     grid-column: 1/-1;
@@ -54,7 +55,7 @@
   display: grid;
   grid-template-columns: var(--article-grid-columns);
   gap: var(--sk-spacing-md) 0;
-  padding-bottom: var(--sk-spacing-xl);
+  padding: var(--sk-spacing-md) 0;
   & > * {
     grid-column: 2;
   }
@@ -91,15 +92,21 @@
 }
 @media screen and (min-width: 800px) {
   .article {
-    --article-paddingY: calc(var(--sk-spacing-lg) * 2);
+    padding-bottom: calc(var(--sk-spacing-lg) * 2);
+  }
+  .header {
+    --header-paddingY: calc(var(--sk-spacing-lg) * 2);
+  }
+  .metadata {
+    padding: var(--sk-spacing-xl) 0;
   }
 }
 @media screen and (min-width: 1040px) {
   .article {
     --article-marginX: var(--sk-spacing-xl);
-    --article-paddingY: calc(var(--sk-spacing-xl) * 2);
   }
   .header {
+    --header-paddingY: calc(var(--sk-spacing-xl) * 2);
     grid-template-columns: var(--article-marginX) 1fr 1fr var(--article-marginX);
     & img {
       margin-top: calc(var(--sk-spacing-lg) * 3);
@@ -109,5 +116,31 @@
     grid-column: 3;
     grid-row: 1/4;
     padding-top: 0;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .article {
+    grid-template-columns: unset;
+  }
+  .header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .projectClient {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .projectTitle {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .projectSubtitle {
+    grid-column: 2;
+    grid-row: 1/4;
+  }
+  .metadata {
+    grid-template-columns: unset;
+    & > * {
+      grid-column: unset;
+    }
   }
 }

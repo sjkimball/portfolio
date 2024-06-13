@@ -31,6 +31,18 @@ export default {
       ],
       validation: (Rule) => Rule.min(1).max(12).unique(),
     },
+    {
+      name: 'fullWidth',
+      title: 'Full Width',
+      type: 'boolean',
+      initialValue: false,
+    },
+    {
+      name: 'darkMode',
+      title: 'Dark Mode',
+      type: 'boolean',
+      initialValue: false,
+    },
   ],
   preview: {
     select: {

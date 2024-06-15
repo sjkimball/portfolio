@@ -42,6 +42,7 @@ export default {
       title: 'Dark Mode',
       type: 'boolean',
       initialValue: false,
+      // hidden: ({ parent }) => parent?.fullWidth !== true,
     },
   ],
   preview: {

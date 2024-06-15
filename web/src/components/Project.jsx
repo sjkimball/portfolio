@@ -44,9 +44,11 @@ const Project = (props) => {
   return (
     <article className={`project ${article}`}>
       <header className={header}>
-        <h1 className={projectClient}>{client.name}</h1>
-        <p className={projectTitle}>{title}</p>
-        <p className={projectSubtitle}>{subtitle}</p>
+        <hgroup>
+          <h1 className={projectClient}>{client.name}</h1>
+          <p className={projectTitle}>{title}</p>
+          <p className={projectSubtitle}>{subtitle}</p>
+        </hgroup>
         <ImageModule {...cover} />
       </header>
       <PortableText blocks={body} />

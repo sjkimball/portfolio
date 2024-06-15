@@ -2,7 +2,12 @@ import React from 'react';
 
 import ProjectPreview from '../../previews/ProjectPreview';
 
-import { block, container } from './ProjectsBlock.module.css';
+import {
+  blockProjects,
+  header,
+  container,
+  containerItems,
+} from './ProjectsBlock.module.css';
 
 const ProjectsBlock = (props) => {
   // console.dir('props in ProjectsBlock', props);
@@ -15,11 +20,15 @@ const ProjectsBlock = (props) => {
   return (
     <div
       data-theme={value.darkMode == true ? 'dark' : 'light'}
-      className={`block block--projects ${value.fullWidth == true ? 'fullWidth' : ''} ${block}`}
+      className={`block block--projects ${value.fullWidth == true ? 'fullWidth' : ''} ${blockProjects}`}
     >
-      {value.title ? <h2>{value.title}</h2> : ''}
-      {value.subtitle ? <p>{value.subtitle}</p> : ''}
-      <div className={container}>{content}</div>
+      <div className={container}>
+        <hgroup className={header}>
+          {value.title ? <h2>{value.title}</h2> : ''}
+          {value.subtitle ? <p>{value.subtitle}</p> : ''}
+        </hgroup>
+        <div className={containerItems}>{content}</div>
+      </div>
     </div>
   );
 };

@@ -1,24 +1,24 @@
 .article {
-  --article-marginX: var(--sk-spacing-md);
-  --article-grid-columns: var(--article-marginX) 1fr var(--article-marginX);
-  grid-column: 1/-1;
-  display: grid;
-  grid-template-columns: var(--article-grid-columns);
-  padding-bottom: var(--sk-spacing-xl);
-  & > * {
-    grid-column: 1/-1;
-  }
+  --article-paddingX: var(--wrapper-marginX);
+  --article-paddingY: calc(var(--sk-spacing-lg) * 2);
+  padding: var(--article-paddingY) 0;
 }
+/* * Header */
 .header {
-  --header-paddingY: var(--sk-spacing-xl);
   display: grid;
-  grid-template-columns: var(--article-grid-columns);
-  padding: var(--header-paddingY) 0;
+  grid-template-columns: var(--content-template-columns);
+  margin-bottom: var(--sk-spacing-xl);
+  & hgroup {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: var(--sk-spacing-lg);
+  }
   & img {
-    aspect-ratio: 1/1;
     grid-column: 1/-1;
+    grid-row: 2;
     justify-self: center;
-    margin-top: var(--sk-spacing-lg);
+    aspect-ratio: 1/1;
+    max-width: 1600px;
   }
 }
 .projectClient {
@@ -34,26 +34,20 @@
   padding-top: var(--sk-spacing-md);
   grid-column: 2;
 }
-.projectDisciplines {
-  list-style-type: none;
-  margin-left: 0;
-  margin-bottom: 0;
-  display: flex;
-  gap: var(--sk-spacing-sm);
-  & li {
-    font: var(--sk-body-sm);
-    padding-top: var(--sk-spacing-sm);
-    padding-right: var(--sk-spacing-sm);
-    padding-bottom: var(--sk-spacing-sm);
-    padding-left: var(--sk-spacing-sm);
-    background-color: var(--sk-sys-surface-container-low);
-    border-radius: 4px;
-    margin-bottom: 0;
+/* * Body */
+.article {
+  & :global(.portableText) {
+    display: grid;
+    grid-template-columns: var(--content-template-columns);
+    & > * {
+      grid-column: 2;
+    }
   }
 }
+/* * Metadata */
 .metadata {
   display: grid;
-  grid-template-columns: var(--article-grid-columns);
+  grid-template-columns: var(--content-template-columns);
   gap: var(--sk-spacing-md) 0;
   padding: var(--sk-spacing-md) 0;
   & > * {
@@ -80,50 +74,32 @@
   gap: var(--sk-spacing-md) 0;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
   .article {
-    --article-marginX: var(--sk-spacing-lg);
+    --article-paddingY: calc(var(--sk-spacing-xl) * 2);
   }
+  /* * Header */
   .header {
+    margin-bottom: calc(var(--sk-spacing-lg) * 2);
+    & hgroup {
+      margin-bottom: var(--sk-spacing-xl);
+    }
     & img {
       aspect-ratio: 16/9;
     }
   }
-}
-@media screen and (min-width: 800px) {
-  .article {
-    padding-bottom: calc(var(--sk-spacing-lg) * 2);
-  }
-  .header {
-    --header-paddingY: calc(var(--sk-spacing-lg) * 2);
-  }
+  /* * Metadata */
   .metadata {
     padding: var(--sk-spacing-xl) 0;
   }
 }
 @media screen and (min-width: 1040px) {
-  .article {
-    --article-marginX: var(--sk-spacing-xl);
-  }
+  /* * Header */
   .header {
-    --header-paddingY: calc(var(--sk-spacing-xl) * 2);
-    grid-template-columns: var(--article-marginX) 1fr 1fr var(--article-marginX);
-    & img {
-      margin-top: calc(var(--sk-spacing-lg) * 3);
+    & hgroup {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
-  }
-  .projectSubtitle {
-    grid-column: 3;
-    grid-row: 1/4;
-    padding-top: 0;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .article {
-    grid-template-columns: unset;
-  }
-  .header {
-    grid-template-columns: 1fr 1fr;
   }
   .projectClient {
     grid-column: 1;
@@ -137,10 +113,30 @@
     grid-column: 2;
     grid-row: 1/4;
   }
-  .metadata {
-    grid-template-columns: unset;
-    & > * {
-      grid-column: unset;
+  /* * Body */
+  .article {
+    & :global(.portableText) {
+      grid-template-columns: var(--article-paddingX) 1fr 1fr var(
+          --article-paddingX
+        );
+    }
+    & :global(.portableText .block--images.multiple) {
+      grid-column: 2/4;
+    }
+    & :global(.portableText .block--figma) {
+      grid-column: 3;
+      margin-left: var(--sk-spacing-xl);
+      padding-top: 0;
+    }
+  }
+}
+@media screen and (min-width: 1600px) {
+  /* * Body */
+  .article {
+    & :global(.portableText) {
+      grid-template-columns:
+        var(--article-paddingX) minmax(auto, 800px) minmax(auto, 800px)
+        var(--article-paddingX);
     }
   }
 }

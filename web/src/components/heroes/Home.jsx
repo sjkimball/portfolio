@@ -14,9 +14,11 @@ const HeroHome = (props) => {
   const { title, links, content } = props;
   const splitTitle = splitString(title, /\r?\n/);
   return (
-    <section id="heroHome" className={hero} data-theme="dark">
-      <h1>{splitTitle[0]}</h1>
-      <p>{splitTitle[1]}</p>
+    <section id="heroHome" className={`hero ${hero}`} data-theme="light">
+      <hgroup>
+        <h1>{splitTitle[0]}</h1>
+        <p>{splitTitle[1]}</p>
+      </hgroup>
       <ImageModule {...content[0]} />
     </section>
   );

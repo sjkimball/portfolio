@@ -1,13 +1,12 @@
-.preview {
+.container {
   cursor: pointer;
   display: block;
   text-decoration: none;
   color: var(--sk-white);
 }
-.container {
+.content {
   display: grid;
   & img {
-    /* aspect-ratio: 1/1; */
     grid-column: 1;
     grid-row: 1;
   }

@@ -1,10 +1,15 @@
 import React from 'react';
 import SimpleBlock from './SimpleBlock';
 
-import { block, container } from './GridBlock.module.css';
+import {
+  blockGrid,
+  header,
+  container,
+  containerItems,
+} from './GridBlock.module.css';
 
 const GridBlock = (props) => {
-  // console.log('props in GridBlock', props);
+  console.log('props in GridBlock', props);
   const {
     value: { content, darkMode, fullWidth, title },
   } = props;
@@ -24,10 +29,20 @@ const GridBlock = (props) => {
   return (
     <div
       data-theme={darkMode == true ? 'dark' : 'light'}
-      className={`block block--grid ${fullWidth == true ? 'fullWidth' : ''} ${block}`}
+      className={`block block--grid ${fullWidth == true ? 'fullWidth' : ''} ${blockGrid}`}
     >
-      {title ? <h2>{title}</h2> : ''}
-      <div className={container}>{gridContent}</div>
+      <div
+        className={`${props.variant ? `container--${props.variant}` : ''} ${container}`}
+      >
+        {title ? (
+          <hgroup className={header}>
+            <h2>{title}</h2>
+          </hgroup>
+        ) : (
+          ''
+        )}
+        <div className={containerItems}>{gridContent}</div>
+      </div>
     </div>
   );
 };

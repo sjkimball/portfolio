@@ -16,7 +16,9 @@ const Profile = (props) => {
   return (
     <article className={`profile ${article}`}>
       <header className={header}>
-        <h1>{name}</h1>
+        <hgroup>
+          <h1>{name}</h1>
+        </hgroup>
         <PrimaryImage imageAsset={image.image} imageUse={`cover`} />
       </header>
       <PortableText blocks={_rawBio} />

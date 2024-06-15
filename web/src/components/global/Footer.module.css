@@ -83,6 +83,9 @@
 }
 @media screen and (min-width: 1600px) {
   .footer {
-    grid-template-columns: 1fr 800px 800px 1fr;
+    grid-template-columns: minmax(48px, 1fr) minmax(auto, 800px) minmax(
+        auto,
+        800px
+      ) minmax(48px, 1fr);
   }
 }

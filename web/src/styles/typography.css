@@ -84,4 +84,7 @@ blockquote *:last-child {
   h1 {
     font: var(--sk-display-lg);
   }
+  h2 {
+    font: var(--sk-display-md);
+  }
 }

@@ -1,15 +1,20 @@
 import React from 'react';
 
-import PrimaryImage from '../../PrimaryImage';
 import ImageModule from '../../modules/Image';
 
+import { container } from './ImagesBlock.module.css';
+
 const ImagesBlock = (props) => {
-  // console.dir('props in ImagesBlock', props);
-  const { value } = props;
+  console.dir('props in ImagesBlock', props);
+  const {
+    value: { content, fullWidth, verticalAlign },
+  } = props;
   return (
-    <div className={`block--images`}>
-      <div className={`block--images__container`}>
-        {value.content.map((item, i) => {
+    <div
+      className={`block block--images ${fullWidth == true && content.length < 2 ? 'fullWidth' : ''}`}
+    >
+      <div className={`${container}`}>
+        {content.map((item, i) => {
           return <ImageModule key={i} {...item} />;
         })}
       </div>

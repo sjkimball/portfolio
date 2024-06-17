@@ -1,48 +1,65 @@
 .portableText {
-  padding-top: var(--sk-spacing-lg);
-  padding-bottom: var(--sk-spacing-lg);
-  & *:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
+  --portableText-margin-left: var(--sk-spacing-md);
+  --portableText-margin-right: var(--sk-spacing-md);
+  --portableText-padding-top: var(--sk-spacing-lg);
+  --portableText-padding-bottom: var(--sk-spacing-lg);
+  --portableText-block-paddingY: var(--sk-spacing-xl);
+  & > .block:first-child {
+    padding-top: 0;
   }
-  .block {
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+  .block--text,
+  .block--figma {
     max-width: 65ch;
   }
-}
-.portableText--page {
-  .block {
-    padding-right: var(--sk-spacing-md);
-    padding-left: var(--sk-spacing-md);
+  h2.block--text {
+    padding-top: var(--sk-spacing-sm);
+    padding-bottom: var(--sk-spacing-sm);
   }
-}
-.portableText--project {
-  display: grid;
-  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
-  .block {
-    grid-column: 2;
+  h4.block--text {
+    padding-top: var(--sk-spacing-md);
+    padding-bottom: var(--sk-spacing-xs);
   }
-  .block--image {
-    grid-column: 2;
-    padding-top: var(--sk-spacing-lg);
-    padding-bottom: var(--sk-spacing-lg);
-    &.fullWidth {
-      grid-column: 1/-1;
-    }
+  p.block--text {
+    padding: var(--sk-spacing-sm) 0;
   }
   .block--images {
-    grid-column: 2;
+    padding: var(--sk-spacing-md) 0;
+  }
+  .block--figma {
+    padding: var(--sk-spacing-md) 0;
+  }
+  .captionImage {
+    width: 100%;
+    & figcaption {
+      padding-top: var(--sk-spacing-sm);
+      padding-bottom: var(--sk-spacing-sm);
+      font: var(--sk-label-lg);
+    }
   }
 }
 @media screen and (min-width: 600px) {
-  .portableText--project {
-    grid-template-columns: var(--sk-spacing-lg) 1fr var(--sk-spacing-lg);
+  .portableText {
+    --portableText-margin-left: var(--sk-spacing-lg);
+    --portableText-margin-right: var(--sk-spacing-lg);
+  }
+}
+@media screen and (min-width: 800px) {
+  .portableText {
+    --portableText-block-paddingY: calc(var(--sk-spacing-xl) * 2);
+    & .block--figma {
+      padding: var(--sk-spacing-xl) 0;
+    }
+    & .block--images {
+      padding: var(--sk-spacing-xl) 0;
+    }
   }
 }
 @media screen and (min-width: 1040px) {
-  .portableText--project {
-    grid-template-columns: var(--sk-spacing-xl) 1fr 1fr var(--sk-spacing-xl);
-    .block--image {
-      grid-column: 2/4;
-    }
+  .portableText {
+    --portableText-margin-left: var(--sk-spacing-xl);
+    --portableText-margin-right: var(--sk-spacing-xl);
   }
 }

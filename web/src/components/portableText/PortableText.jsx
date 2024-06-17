@@ -27,9 +27,7 @@ const components = {
 const PortableText = (props) => {
   // console.dir('props in PortableText', props);
   return (
-    <div
-      className={`portableText ${props.context ? `portableText--${props.context}` : ''}`}
-    >
+    <div className={`portableText`}>
       <PortableTextReact value={props.blocks} components={components} />
     </div>
   );

@@ -1,32 +1,50 @@
 import React from 'react';
+import SimpleBlock from './SimpleBlock';
 
-import PrimaryImage from '../../PrimaryImage';
-
-import { gridBlock } from './GridBlock.module.css';
-
-const GridItem = (item) => (
-  <div>
-    <h3>{item.title}</h3>
-    <p>{item.body}</p>
-    {item.image ? <PrimaryImage imageAsset={item.image} /> : ''}
-  </div>
-);
+import {
+  blockGrid,
+  header,
+  container,
+  containerItems,
+} from './GridBlock.module.css';
 
 const GridBlock = (props) => {
-  // console.log('props in GridBlock', value);
-  const { value } = props;
+  console.log('props in GridBlock', props);
+  const {
+    value: { content, darkMode, fullWidth, title },
+  } = props;
 
-  const content = value.content.map((item, i) =>
-    item._type == 'gridItem' ? (
-      <GridItem key={i} {...item} />
-    ) : item._type == 'module.externalAsset' ? (
-      'ExternalAsset'
-    ) : (
-      ''
-    ),
+  const gridContent = content.map((item, i) => {
+    let el = null;
+    switch (item._type) {
+      case 'module.simpleBlockContent':
+        el = <SimpleBlock key={i} {...item} />;
+        break;
+      default:
+        el = null;
+    }
+    return el;
+  });
+
+  return (
+    <div
+      data-theme={darkMode == true ? 'dark' : 'light'}
+      className={`block block--grid ${fullWidth == true ? 'fullWidth' : ''} ${blockGrid}`}
+    >
+      <div
+        className={`${props.variant ? `container--${props.variant}` : ''} ${container}`}
+      >
+        {title ? (
+          <hgroup className={header}>
+            <h2>{title}</h2>
+          </hgroup>
+        ) : (
+          ''
+        )}
+        <div className={containerItems}>{gridContent}</div>
+      </div>
+    </div>
   );
-
-  return <div className={gridBlock}>{content}</div>;
 };
 
 export default GridBlock;

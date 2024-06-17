@@ -2,19 +2,31 @@ import React from 'react';
 
 import ProjectPreview from '../previews/ProjectPreview';
 
-import { grid, container } from './Projects.module.css';
+import {
+  moduleProjects,
+  header,
+  container,
+  containerItems,
+} from './Projects.module.css';
 
 const Projects = (props) => {
   // console.dir('props in Projects', props);
-  const gridContent = props.content;
+  const { content, darkMode, fullWidth, subtitle, title } = props;
   return (
-    <section data-theme="dark" className={grid}>
-      {props.title ? <h2>{props.title}</h2> : ''}
-      {props.subtitle ? <p>{props.subtitle}</p> : ''}
+    <section
+      data-theme={darkMode == true ? 'dark' : 'light'}
+      className={`module--projects ${fullWidth == true ? 'fullWidth' : ''} ${moduleProjects}`}
+    >
       <div className={container}>
-        {gridContent.map((item, i) => {
-          return <ProjectPreview key={i} {...item} />;
-        })}
+        <hgroup className={`${header}`}>
+          {title ? <h2>{title}</h2> : ''}
+          {subtitle ? <p>{subtitle}</p> : ''}
+        </hgroup>
+        <div className={containerItems}>
+          {content.map((item, i) => (
+            <ProjectPreview key={i} {...item} />
+          ))}
+        </div>
       </div>
     </section>
   );

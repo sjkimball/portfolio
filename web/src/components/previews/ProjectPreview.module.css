@@ -1,25 +1,28 @@
-.preview {
+.container {
   cursor: pointer;
-  display: grid;
+  display: block;
   text-decoration: none;
   color: var(--sk-white);
 }
-.figure {
+.content {
   display: grid;
   & img {
-    aspect-ratio: 1/1;
     grid-column: 1;
     grid-row: 1;
   }
-  & figcaption {
+  & hgroup {
     grid-column: 1;
     grid-row: 1;
+    order: 1;
     padding: var(--sk-spacing-lg) var(--sk-spacing-md);
     & h4 {
       font: var(--sk-title-md);
+      font-weight: var(--sk-fw-semibold);
+      text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.2);
     }
     & h5 {
-      font: var(--sk-title-sm);
+      font: var(--sk-body-md);
+      text-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.2);
     }
   }
 }

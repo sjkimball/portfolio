@@ -148,8 +148,10 @@
 }
 @media screen and (min-width: 1600px) {
   .header {
-    grid-template-columns: 1fr 1504px 1fr;
-    height: 90px;
+    grid-template-columns: minmax(48px, 1fr) minmax(auto, 1600px) minmax(
+        48px,
+        1fr
+      );
   }
   .nav__logo h1 {
     font-size: 60px;

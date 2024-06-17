@@ -1,33 +1,46 @@
 import React from 'react';
-import ImageModule from './Image';
 
-import { container, grid, gridItem } from './Grid.module.css';
+import SimpleBlock from '../portableText/blocks/SimpleBlock';
+import FigureBlock from '../portableText/blocks/FigureBlock';
 
-const GridItem = (props) => {
-  // console.log('props in Grid Item', props);
-  const { title, body, image: imageAsset } = props;
-  return (
-    <div className={gridItem}>
-      <h3>{title}</h3>
-      <p>{body}</p>
-      {imageAsset ? <ImageModule {...imageAsset} /> : ''}
-    </div>
-  );
-};
+import {
+  moduleGrid,
+  header,
+  container,
+  containerItems,
+} from './Grid.module.css';
 
 // TODO Add grid item for external assets.
 
 const Grid = (props) => {
   // console.dir('props in Grid', props);
-  const gridContent = props.content;
+  const { content, darkMode, fullWidth, title } = props;
+
+  const gridContent = content.map((item, i) => {
+    let el = null;
+    switch (item._type) {
+      case 'module.simpleBlockContent':
+        el = <SimpleBlock key={i} {...item} />;
+        break;
+      case 'module.figure':
+        el = <FigureBlock key={i} {...item} />;
+        break;
+      default:
+        el = null;
+    }
+    return el;
+  });
 
   return (
-    <section data-theme="light" className={grid}>
-      {props.title ? <h2>{props.title}</h2> : ''}
-      <div className={container}>
-        {gridContent.map((item, i) => (
-          <GridItem key={i} {...item} />
-        ))}
+    <section
+      data-theme={darkMode == true ? 'dark' : 'light'}
+      className={`module--grid ${fullWidth == true ? 'fullWidth' : ''} ${moduleGrid}`}
+    >
+      <div
+        className={`${props.variant ? `container--${props.variant}` : ''} ${container}`}
+      >
+        <hgroup className={header}>{title ? <h2>{title}</h2> : ''}</hgroup>
+        <div className={containerItems}>{gridContent}</div>
       </div>
     </section>
   );

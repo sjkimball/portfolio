@@ -198,10 +198,6 @@ html {
 }
 body {
   margin: 0;
-  color: var(--sk-sys-on-background);
-  background-color: var(--sk-sys-background);
-  font-family: var(--sk-font-body);
-  font-size: calc(var(--sk-fs-3) * var(--sk-nr-body));
   word-wrap: break-word;
   font-kerning: normal;
   -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
@@ -596,30 +592,4 @@ pre code:after,
 pre tt:before,
 pre tt:after {
   content: '';
-}
-.markdown h4 {
-  font: var(--sk-headline-xs);
-}
-.markdown p {
-  font: var(--sk-body-lg);
-  margin-bottom: 20px;
-}
-.md-artifact {
-  color: inherit;
-  font: var(--sk-label-lg);
-  text-decoration: underline;
-  text-decoration-color: var(--sk-sys-primary);
-}
-.md-artifact:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--sk-sys-primary);
-}
-.markdown > *:last-child {
-  margin-bottom: 0;
-}
-.markdown > iframe {
-  width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  aspect-ratio: 4/3;
-  /* margin-bottom: 0; */
 }

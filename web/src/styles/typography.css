@@ -1,0 +1,90 @@
+body {
+  color: var(--sk-sys-on-background);
+  background-color: var(--sk-sys-background);
+  font: var(--sk-body-lg);
+}
+
+h1 {
+  font: var(--sk-display-md);
+}
+h2 {
+  font: var(--sk-display-sm);
+}
+h3 {
+  font: var(--sk-headline-lg);
+}
+h4 {
+  font: var(--sk-headline-md);
+}
+h5 {
+  font: var(--sk-headline-sm);
+}
+h6 {
+  font: var(--sk-headline-xs);
+}
+ul {
+  margin-left: 1.45rem;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.25rem;
+  list-style-position: outside;
+  list-style-image: none;
+}
+ol {
+  margin-left: 1.45rem;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.25rem;
+  list-style-position: outside;
+  list-style-image: none;
+}
+dl {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.45rem;
+}
+dd {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.45rem;
+}
+blockquote {
+  margin-left: 1.45rem;
+  margin-right: 1.45rem;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.45rem;
+}
+blockquote *:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 1400px) {
+  h1 {
+    font: var(--sk-display-lg);
+  }
+  h2 {
+    font: var(--sk-display-md);
+  }
+}

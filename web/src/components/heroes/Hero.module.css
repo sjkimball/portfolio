@@ -47,7 +47,7 @@
         grid-column: 2;
         font: var(--sk-headline-sm);
         font-weight: var(--sk-fw-medium);
-        margin-top: 0;
+        margin-top: var(--sk-spacing-sm);
         margin-bottom: 0;
         letter-spacing: unset;
       }

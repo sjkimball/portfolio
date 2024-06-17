@@ -10,7 +10,8 @@
   & > *:last-child {
     margin-bottom: 0;
   }
-  .block--text {
+  .block--text,
+  .block--figma {
     max-width: 65ch;
   }
   h2.block--text {

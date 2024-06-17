@@ -120,13 +120,8 @@
           --article-paddingX
         );
     }
-    & :global(.portableText .block--images.multiple) {
+    & :global(.portableText .block--images) {
       grid-column: 2/4;
-    }
-    & :global(.portableText .block--figma) {
-      grid-column: 3;
-      margin-left: var(--sk-spacing-xl);
-      padding-top: 0;
     }
   }
 }

@@ -54,15 +54,14 @@
         grid-column: 2;
       }
     }
-    .block--images:last-child {
-      padding-bottom: 0;
-      align-self: end;
-      max-width: 1600px;
-    }
     .block--images.fullWidth {
       & > * {
         grid-column: 1/-1;
       }
+    }
+    .block--images:last-child {
+      padding-bottom: 0;
+      align-self: end;
     }
   }
   & > .module--projects {

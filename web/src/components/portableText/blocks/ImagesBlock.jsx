@@ -6,13 +6,15 @@ import { container } from './ImagesBlock.module.css';
 
 const ImagesBlock = (props) => {
   console.dir('props in ImagesBlock', props);
-  const { value } = props;
+  const {
+    value: { content, fullWidth, verticalAlign },
+  } = props;
   return (
     <div
-      className={`block block--images ${value.fullWidth == true ? 'fullWidth' : ''} ${value.content.length > 1 ? 'multiple' : ''}`}
+      className={`block block--images ${fullWidth == true && content.length < 2 ? 'fullWidth' : ''}`}
     >
-      <div className={container}>
-        {value.content.map((item, i) => {
+      <div className={`${container}`}>
+        {content.map((item, i) => {
           return <ImageModule key={i} {...item} />;
         })}
       </div>

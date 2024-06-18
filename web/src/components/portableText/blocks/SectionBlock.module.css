@@ -1,0 +1,70 @@
+/* * Classes to handle title position variants */
+/* All Section Blocks */
+.block {
+  --block-paddingY: calc(var(--sk-spacing-lg) * 2);
+  padding: var(--block-paddingY) 0;
+  container-name: block;
+  container-type: inline-size;
+}
+/* Section Blocks with title on top */
+/* Section Blocks with title to left */
+/* Section Block container variant 1 */
+/* Section Block container variant 2 */
+.container {
+  container-type: inline-size;
+}
+.container:global(.double) {
+  container-name: double;
+}
+.container:global(.triple) {
+  container-name: triple;
+}
+.container:global(.quadruple) {
+  container-name: quadruple;
+}
+@container block (width >= 600px) {
+  .container:global(.double) {
+    background-color: steelblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .container:global(.triple) {
+    background-color: red;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .container:global(.quadruple) {
+    background-color: green;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+:global(.block--section.clients) {
+  & h2 {
+    /* display: none; */
+  }
+  & h3 {
+    text-decoration: underline var(--sk-sys-primary) 2px;
+    text-underline-offset: var(--sk-spacing-sm);
+    margin-bottom: var(--sk-spacing-md);
+    font-weight: var(--sk-fw-light);
+  }
+}
+
+@media screen and (min-width: 1040px) {
+  :global(.container.clients) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-auto-flow: column;
+    gap: 0 var(--sk-spacing-lg);
+    & ul {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin-left: 0;
+      list-style-type: none;
+    }
+  }
+}

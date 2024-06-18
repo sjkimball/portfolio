@@ -9,6 +9,7 @@ import project from './documents/project';
 // Blocks
 import body from './objects/blocks/body';
 import blockSimple from './objects/blocks/simple';
+import blockSection from './objects/blocks/section';
 // Contact
 import addressUS from './objects/contact/address/unitedstates';
 import contactBasic from './objects/contact/basic';
@@ -33,6 +34,7 @@ import moduleProjects from './objects/modules/projects';
 import modulePeople from './objects/modules/people';
 import modulePerson from './objects/modules/person';
 import modulePosts from './objects/modules/posts';
+import moduleBlockSection from './objects/modules/section';
 import moduleSimpleBlockContent from './objects/modules/simpleBlock';
 // SEO
 import seoHome from './objects/seo/home';
@@ -57,6 +59,7 @@ import home from './singletons/home';
 export default [
   addressUS,
   body,
+  blockSection,
   blockSimple,
   company,
   contactBasic,
@@ -84,6 +87,7 @@ export default [
   modulePerson,
   modulePosts,
   moduleProjects,
+  moduleBlockSection,
   moduleSimpleBlockContent,
   notFoundPage,
   page,

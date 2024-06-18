@@ -8,6 +8,7 @@ import FigmaEmbedBlock from './blocks/FigmaEmbedBlock';
 import GridBlock from './blocks/GridBlock';
 import ImagesBlock from './blocks/ImagesBlock';
 import ProjectsBlock from './blocks/ProjectsBlock';
+import SectionBlock from './blocks/SectionBlock';
 
 import './PortableText.css';
 
@@ -19,8 +20,9 @@ const components = {
     'module.callout': CalloutBlock,
     'module.calloutLink': CalloutLinkBlock,
     'module.externalAsset': ExternalAssetBlock,
-    'module.projects': ProjectsBlock,
     'module.figmaEmbed': FigmaEmbedBlock,
+    'module.projects': ProjectsBlock,
+    'module.section': SectionBlock,
   },
 };
 

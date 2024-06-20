@@ -31,3 +31,7 @@
     --block-padding-x: var(--sk-spacing-xl);
   }
 }
+.notFound {
+  padding-inline: var(--main-padding-x);
+  padding-block: var(--main-padding-y);
+}

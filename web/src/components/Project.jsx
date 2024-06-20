@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PortableText from './portableText/PortableText';
-import ImageModule from './modules/Image';
+import ImageModule from './portableText/blocks/Image';
 
 import {
   article,

@@ -1,38 +1,62 @@
 .article {
-  --article-paddingX: var(--wrapper-marginX);
-  --article-paddingY: calc(var(--sk-spacing-lg) * 2);
-  padding: var(--article-paddingY) 0;
+  display: grid;
+  padding-inline: var(--block-padding-x);
+  padding-block: var(--main-padding-y);
+  background-color: var(--sk-sys-surface);
+  color: var(--sk-sys-on-surface);
+  gap: 32px;
 }
+@media (width >= 800px) {
+  .article {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* * Header */
 .header {
   display: grid;
-  grid-template-columns: var(--content-template-columns);
-  margin-bottom: var(--sk-spacing-xl);
+  gap: 32px;
+  margin-bottom: var(--block-padding-y);
   & hgroup {
-    grid-column: 2;
-    grid-row: 1;
-    margin-bottom: var(--sk-spacing-lg);
-  }
-  & img {
-    grid-column: 1/-1;
+    margin-bottom: 0;
   }
 }
-/* * Body */
-.article {
-  & :global(.portableText) {
-    display: grid;
-    grid-template-columns: var(--content-template-columns);
-    & > * {
-      grid-column: 2;
+@media (width >= 600px) {
+  .header {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (width >= 800px) {
+  .header {
+    grid-column: 1/-1;
+    position: relative;
+    & img {
+      position: absolute;
+      width: 50%;
+      right: 0;
     }
   }
 }
+
+/* * Body */
+article:global(.profile .portableText .block--text) {
+  padding-inline: 0;
+}
+@media (width >= 800px) {
+  article:global(.profile .portableText) {
+    margin-right: var(--sk-spacing-lg);
+  }
+}
+@media (width >= 1040px) {
+  article:global(.profile .portableText) {
+    margin-right: var(--sk-spacing-xl);
+  }
+}
+
+/* * Links */
 .additionalLinks {
   display: grid;
-  grid-template-columns: var(--content-template-columns);
-  padding: var(--sk-spacing-lg) 0;
   & ul {
-    grid-column: 2;
     display: flex;
     gap: 0 var(--sk-spacing-md);
     list-style: none;
@@ -40,90 +64,19 @@
     margin-bottom: 0;
     & li {
       margin-bottom: 0;
-      & a {
-        display: block;
-        color: var(--sk-sys-primary);
-        padding: var(--sk-spacing-sm) var(--sk-spacing-md);
-        border: 1px solid var(--sk-sys-primary);
-        border-radius: 10px;
-        font: var(--sk-label-lg);
-      }
     }
+  }
+  & li a {
+    display: block;
+    color: var(--sk-sys-primary);
+    padding: var(--sk-spacing-sm) var(--sk-spacing-md);
+    border: 1px solid var(--sk-sys-primary);
+    border-radius: 10px;
+    font: var(--sk-label-lg);
   }
 }
-
-@media screen and (min-width: 600px) {
-  .header {
-    grid-template-columns: var(--article-paddingX) 1fr 1fr var(
-        --article-paddingX
-      );
-    & hgroup {
-      grid-column: 2;
-      margin-right: var(--sk-spacing-lg);
-      margin-bottom: 0;
-    }
-    & img {
-      grid-column: 3;
-    }
-  }
-}
-@media screen and (min-width: 800px) {
-  .article {
-    --article-paddingY: calc(var(--sk-spacing-xl) * 2);
-  }
-  /* * Header */
-  .header {
-    margin-bottom: calc(var(--sk-spacing-lg) * 2);
-    grid-template-rows: min-content;
-    position: relative;
-    & h1 {
-      margin-bottom: 0;
-    }
-    & img {
-      position: absolute;
-      width: calc(100% - var(--article-paddingX));
-      left: 0;
-      max-width: 800px;
-    }
-  }
-  /* * Body */
-  .article {
-    & :global(.portableText) {
-      grid-template-columns: var(--article-paddingX) 1fr 1fr var(
-          --article-paddingX
-        );
-      & > * {
-        margin-right: var(--sk-spacing-lg);
-      }
-    }
-  }
-}
-@media screen and (min-width: 1040px) {
-  /* * Body */
-  .article {
-    & :global(.portableText) {
-      & > * {
-        margin-right: var(--sk-spacing-xl);
-      }
-    }
-  }
-}
-@media screen and (min-width: 1600px) {
-  /* * Header */
-  .header {
-    grid-template-columns:
-      var(--article-paddingX) minmax(auto, 800px) minmax(auto, 800px)
-      var(--article-paddingX);
-    & img {
-      width: calc(100% - var(--sk-spacing-xl));
-    }
-  }
-  /* * Body */
-  .article {
-    & :global(.portableText) {
-      grid-template-columns:
-        var(--article-paddingX) minmax(auto, 800px) minmax(auto, 800px)
-        var(--article-paddingX);
-    }
+@media (width >= 800px) {
+  .additionalLinks {
+    grid-column: 1/-1;
   }
 }

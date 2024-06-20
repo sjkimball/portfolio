@@ -275,6 +275,7 @@
   --sk-dimension-0048: 48px;
   --sk-dimension-0064: 64px;
   --sk-dimension-0100: 100px;
+  --sk-dimension-0128: 128px;
   --sk-dimension-0600: 600px;
   --sk-dimension-0900: 900px;
   --sk-dimension-1200: 1200px;
@@ -286,8 +287,8 @@
   --sk-spacing-sm: var(--sk-dimension-0008);
   --sk-spacing-md: var(--sk-dimension-0016);
   --sk-spacing-lg: var(--sk-dimension-0032);
-  --sk-spacing-xl: var(--sk-dimension-0048);
-  --sk-spacing-xxl: var(--sk-dimension-0064);
+  --sk-spacing-xl: var(--sk-dimension-0064);
+  --sk-spacing-xxl: var(--sk-dimension-0128);
 }
 
 [data-theme='dark'] {

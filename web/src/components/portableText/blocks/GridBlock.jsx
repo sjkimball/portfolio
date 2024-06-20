@@ -1,24 +1,22 @@
 import React from 'react';
 import SimpleBlock from './SimpleBlock';
+import FigureBlock from './FigureBlock';
 
-import {
-  blockGrid,
-  header,
-  container,
-  containerItems,
-} from './GridBlock.module.css';
+import { section, header, container } from './GridBlock.module.css';
 
 const GridBlock = (props) => {
-  console.log('props in GridBlock', props);
-  const {
-    value: { content, darkMode, fullWidth, title },
-  } = props;
+  // console.log('props in GridBlock', props);
+  const contentObject = props.value ? props.value : props;
+  const { content, darkMode, fullWidth, title } = contentObject;
 
   const gridContent = content.map((item, i) => {
     let el = null;
     switch (item._type) {
       case 'module.simpleBlockContent':
         el = <SimpleBlock key={i} {...item} />;
+        break;
+      case 'module.figure':
+        el = <FigureBlock key={i} {...item} />;
         break;
       default:
         el = null;
@@ -27,23 +25,16 @@ const GridBlock = (props) => {
   });
 
   return (
-    <div
+    <section
       data-theme={darkMode == true ? 'dark' : 'light'}
-      className={`block block--grid ${fullWidth == true ? 'fullWidth' : ''} ${blockGrid}`}
+      className={`block block--grid ${section}`}
     >
-      <div
-        className={`${props.variant ? `container--${props.variant}` : ''} ${container}`}
-      >
-        {title ? (
-          <hgroup className={header}>
-            <h2>{title}</h2>
-          </hgroup>
-        ) : (
-          ''
-        )}
-        <div className={containerItems}>{gridContent}</div>
-      </div>
-    </div>
+      <hgroup className={header}>
+        <h2>{title}</h2>
+      </hgroup>
+
+      <div className={`${container}`}>{gridContent}</div>
+    </section>
   );
 };
 

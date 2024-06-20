@@ -1,0 +1,3 @@
+.paragraph {
+  margin-bottom: calc(var(--sk-fs-root) * 1.3);
+}

@@ -1,6 +1,6 @@
 export default {
-  name: 'body',
-  title: 'Body',
+  name: 'block.section',
+  title: 'Section',
   type: 'array',
   of: [
     // Paragraphs
@@ -35,35 +35,6 @@ export default {
           },
         ],
       },
-    },
-    // Custom Blocks
-    {
-      title: 'Images',
-      type: 'module.images',
-    },
-    {
-      title: 'Projects',
-      type: 'module.projects',
-    },
-    {
-      title: 'Grid',
-      type: 'module.grid',
-    },
-    {
-      title: 'Callout',
-      type: 'module.callout',
-    },
-    {
-      title: 'Callout Link',
-      type: 'module.calloutLink',
-    },
-    {
-      title: 'Figma Embed',
-      type: 'module.figmaEmbed',
-    },
-    {
-      title: 'Section',
-      type: 'module.section',
     },
   ],
 };

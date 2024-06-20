@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ImageModule from '../../modules/Image';
+import ImageModule from './Image';
 
 import { container } from './ImagesBlock.module.css';
 

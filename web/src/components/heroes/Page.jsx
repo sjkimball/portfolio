@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ImageModule from '../modules/Image';
+import ImageModule from '../portableText/blocks/Image';
 
 import { hero } from './Hero.module.css';
 

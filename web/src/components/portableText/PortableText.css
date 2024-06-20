@@ -1,9 +1,4 @@
 .portableText {
-  --portableText-margin-left: var(--sk-spacing-md);
-  --portableText-margin-right: var(--sk-spacing-md);
-  --portableText-padding-top: var(--sk-spacing-lg);
-  --portableText-padding-bottom: var(--sk-spacing-lg);
-  --portableText-block-paddingY: var(--sk-spacing-xl);
   & > .block:first-child {
     padding-top: 0;
   }
@@ -14,52 +9,7 @@
   .block--figma {
     max-width: 65ch;
   }
-  h2.block--text {
-    padding-top: var(--sk-spacing-sm);
-    padding-bottom: var(--sk-spacing-sm);
-  }
-  h4.block--text {
-    padding-top: var(--sk-spacing-md);
-    padding-bottom: var(--sk-spacing-xs);
-  }
-  p.block--text {
-    padding: var(--sk-spacing-sm) 0;
-  }
-  .block--images {
-    padding: var(--sk-spacing-md) 0;
-  }
-  .block--figma {
-    padding: var(--sk-spacing-md) 0;
-  }
-  .captionImage {
-    width: 100%;
-    & figcaption {
-      padding-top: var(--sk-spacing-sm);
-      padding-bottom: var(--sk-spacing-sm);
-      font: var(--sk-label-lg);
-    }
-  }
-}
-@media screen and (min-width: 600px) {
-  .portableText {
-    --portableText-margin-left: var(--sk-spacing-lg);
-    --portableText-margin-right: var(--sk-spacing-lg);
-  }
-}
-@media screen and (min-width: 800px) {
-  .portableText {
-    --portableText-block-paddingY: calc(var(--sk-spacing-xl) * 2);
-    & .block--figma {
-      padding: var(--sk-spacing-xl) 0;
-    }
-    & .block--images {
-      padding: var(--sk-spacing-xl) 0;
-    }
-  }
-}
-@media screen and (min-width: 1040px) {
-  .portableText {
-    --portableText-margin-left: var(--sk-spacing-xl);
-    --portableText-margin-right: var(--sk-spacing-xl);
+  > .block--text {
+    padding-inline: var(--block-padding-x);
   }
 }

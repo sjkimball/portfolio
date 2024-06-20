@@ -1,8 +1,8 @@
 import React from 'react';
 
-import ImageModule from '../modules/Image';
+import ImageModule from '../portableText/blocks/Image';
 
-import { hero } from './Hero.module.css';
+import { heroHome } from './Hero.module.css';
 
 function splitString(stringToSplit, separator) {
   const arrayOfStrings = stringToSplit.split(separator);
@@ -14,7 +14,7 @@ const HeroHome = (props) => {
   const { title, links, content } = props;
   const splitTitle = splitString(title, /\r?\n/);
   return (
-    <section id="heroHome" className={`hero ${hero}`} data-theme="light">
+    <section id="heroHome" className={`hero ${heroHome}`} data-theme="light">
       <hgroup>
         <h1>{splitTitle[0]}</h1>
         <p>{splitTitle[1]}</p>

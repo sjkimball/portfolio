@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PrimaryImage from '../PrimaryImage';
+import PrimaryImage from '../../PrimaryImage';
 
 const CaptionImage = (props) => {
   // console.dir('props in captionImage', props);

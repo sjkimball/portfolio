@@ -2,7 +2,7 @@ import React from 'react';
 import { PortableText as PortableTextReact } from '@portabletext/react';
 import Block from './Block';
 
-import { block, container } from './SectionBlock.module.css';
+import { block } from './SectionBlock.module.css';
 
 const kebabCase = (string) =>
   string
@@ -16,26 +16,19 @@ const components = {
 };
 
 const SectionBlock = (props) => {
-  console.dir('props in Section Block', props);
-  const {
-    value: { title, content },
-  } = props;
+  // console.dir('props in Section Block', props);
+  const contentObject = props.value ? props.value : props;
+  const { title, content } = contentObject;
   return (
-    <div
+    <section
       id={`${kebabCase(title)}`}
-      className={`block block--section ${block} ${title.toLowerCase()}`}
+      className={`block block--section ${block}`}
     >
       <h2>{title}</h2>
-      <div className={`${container} double`}>
+      <div className={`container`}>
         <PortableTextReact value={content} components={components} />
       </div>
-      <div className={`${container} triple`}>
-        <PortableTextReact value={content} components={components} />
-      </div>
-      <div className={`${container} quadruple`}>
-        <PortableTextReact value={content} components={components} />
-      </div>
-    </div>
+    </section>
   );
 };
 

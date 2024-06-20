@@ -1,6 +1,7 @@
 .header {
-  display: grid;
-  grid-template-columns: var(--sk-spacing-md) 1fr var(--sk-spacing-md);
+  max-width: 1600px;
+  margin-inline: auto;
+  min-height: 90px;
   background-color: var(--sk-sys-background);
   color: var(--sk-sys-on-background-muted);
   position: sticky;
@@ -8,8 +9,6 @@
   z-index: 10;
 }
 .nav {
-  grid-column: 2/3;
-  grid-row: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;

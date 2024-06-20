@@ -30,10 +30,10 @@ export default {
       title: 'Modules',
       type: 'array',
       of: [
-        { type: 'module.projects' },
-        { type: 'module.blockContent' },
-        { type: 'module.grid' },
+        { type: 'module.section' },
         { type: 'module.images' },
+        { type: 'module.grid' },
+        { type: 'module.projects' },
       ],
       group: 'editorial',
     },

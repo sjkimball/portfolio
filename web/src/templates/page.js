@@ -3,12 +3,13 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import GraphQLErrorList from '../components/GraphqlErrorList';
-import Grid from '../components/modules/Grid';
 import HeroHome from '../components/heroes/Home';
 import HeroPage from '../components/heroes/Page';
 import Layout from '../components/global/Layout';
 import PortableText from '../components/portableText/PortableText';
-import Projects from '../components/modules/Projects';
+import SectionBlock from '../components/portableText/blocks/SectionBlock';
+import ProjectsBlock from '../components/portableText/blocks/ProjectsBlock';
+import GridBlock from '../components/portableText/blocks/GridBlock';
 import SEO from '../components/Seo';
 
 export const query = graphql`
@@ -70,13 +71,13 @@ const Page = (props) => {
       let el = null;
       switch (c._type) {
         case 'module.projects':
-          el = <Projects key={c._key} {...c} />;
+          el = <ProjectsBlock key={c._key} {...c} />;
           break;
         case 'module.grid':
-          el = <Grid key={c._key} {...c} />;
+          el = <GridBlock key={c._key} {...c} />;
           break;
-        case 'module.blockContent':
-          el = <PortableText key={c._key} {...c} />;
+        case 'module.section':
+          el = <SectionBlock key={c._key} {...c} />;
           break;
         default:
           el = null;

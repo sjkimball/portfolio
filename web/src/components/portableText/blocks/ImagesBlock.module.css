@@ -1,3 +1,7 @@
+.block {
+  padding-block: var(--block-padding-y);
+}
+
 .container {
   display: grid;
   gap: var(--sk-spacing-lg) var(--sk-spacing-lg);

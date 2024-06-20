@@ -7,7 +7,12 @@ const Footer = (props) => {
   // console.dir('props in footer', props);
   const { links, text } = props;
   return (
-    <footer id="mainFooter" data-theme="dark" className={footer}>
+    <footer
+      id="mainFooter"
+      data-theme="dark"
+      className={`mainFooter ${footer}`}
+    >
+      <div className={logo}>SK</div>
       <ul className={footerLinks}>
         {links.map((item, i) =>
           item._type == 'link.internal' ? (
@@ -30,7 +35,6 @@ const Footer = (props) => {
           ),
         )}
       </ul>
-      <div className={logo}>SK</div>
       <small className={copyright}>{text}</small>
     </footer>
   );

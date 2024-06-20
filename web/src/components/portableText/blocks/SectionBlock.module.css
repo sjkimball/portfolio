@@ -1,7 +1,10 @@
 /* All Section Blocks */
 .block {
+  display: grid;
   padding-inline: var(--block-padding-x);
   padding-block: var(--block-padding-y);
+  background-color: var(--sk-sys-surface);
+  color: var(--sk-sys-on-surface);
   & h2 {
     margin-bottom: var(--block-header-padding-y);
   }
@@ -9,8 +12,9 @@
 /* * Principles */
 :global(#principles .container) {
   display: grid;
+  gap: var(--sk-spacing-md);
   & h3 {
-    margin-bottom: var(--sk-spacing-md);
+    font: var(--sk-headline-sm);
   }
 }
 @media (width >= 800px) {
@@ -18,16 +22,39 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, auto);
     grid-auto-flow: column;
+    gap: var(--sk-spacing-md) 48px;
   }
 }
+@media (width >= 1040px) {
+  :global(#principles) {
+    grid-template-columns: auto 1fr;
+  }
+  :global(#principles h2) {
+    padding-right: 48px;
+  }
+}
+
 /* * Clients and Industries */
+:global(#clients-and-industries h2) {
+  display: none;
+}
 :global(#clients-and-industries .container) {
   display: grid;
+  gap: var(--sk-spacing-md) 48px;
   & h3 {
     text-decoration: underline var(--sk-sys-primary) 2px;
     text-underline-offset: var(--sk-spacing-sm);
-    margin-bottom: var(--sk-spacing-md);
     font-weight: var(--sk-fw-light);
+  }
+  & ul {
+    margin-bottom: 0;
+    margin-left: var(--sk-spacing-md);
+    & li {
+      margin-bottom: var(--sk-spacing-md);
+    }
+    & li::marker {
+      color: var(--sk-sys-primary);
+    }
   }
 }
 @media (width >= 1040px) {
@@ -54,9 +81,25 @@
 /* * Capabilities */
 :global(#capabilities .container) {
   display: grid;
+  gap: var(--sk-spacing-md) 32px;
   & h3 {
-    margin-bottom: var(--sk-spacing-md);
     color: var(--sk-sys-primary);
+    font: var(--sk-headline-sm);
+  }
+  & p {
+    margin-bottom: var(--sk-spacing-lg);
+  }
+  & ul {
+    margin-bottom: 0;
+    margin-left: 0;
+    list-style-type: none;
+    & li {
+      margin-bottom: var(--sk-spacing-md);
+      font-weight: var(--sk-fw-medium);
+    }
+    & li::marker {
+      color: var(--sk-sys-primary);
+    }
   }
 }
 @media (width >= 800px) {
@@ -68,7 +111,7 @@
 }
 @media (width >= 1040px) {
   :global(#capabilities .container) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, auto);
     grid-template-rows: repeat(2, auto);
     grid-auto-flow: column;
   }

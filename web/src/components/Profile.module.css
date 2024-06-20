@@ -1,7 +1,9 @@
 .article {
   display: grid;
   padding-inline: var(--block-padding-x);
-  padding-block: var(--block-padding-y);
+  padding-block: var(--main-padding-y);
+  background-color: var(--sk-sys-surface);
+  color: var(--sk-sys-on-surface);
   gap: 32px;
 }
 @media (width >= 800px) {
@@ -14,6 +16,7 @@
 .header {
   display: grid;
   gap: 32px;
+  margin-bottom: var(--block-padding-y);
   & hgroup {
     margin-bottom: 0;
   }
@@ -38,6 +41,16 @@
 /* * Body */
 article:global(.profile .portableText .block--text) {
   padding-inline: 0;
+}
+@media (width >= 800px) {
+  article:global(.profile .portableText) {
+    margin-right: var(--sk-spacing-lg);
+  }
+}
+@media (width >= 1040px) {
+  article:global(.profile .portableText) {
+    margin-right: var(--sk-spacing-xl);
+  }
 }
 
 /* * Links */

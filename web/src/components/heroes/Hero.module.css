@@ -1,7 +1,7 @@
 .heroHome {
   --header-gap: var(--sk-spacing-lg);
-  background-color: var(--sk-sys-background);
-  color: var(--sk-sys-on-background);
+  background-color: var(--sk-sys-surface);
+  color: var(--sk-sys-on-surface);
   overflow: hidden;
   & hgroup {
     display: grid;

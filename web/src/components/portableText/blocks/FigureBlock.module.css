@@ -16,9 +16,10 @@
     margin-bottom: var(--sk-spacing-md);
   }
 }
-@container (width >= 400px) {
+@container (width >= 500px) {
   .figure {
     grid-template-columns: 200px 1fr;
+    gap: var(--sk-spacing-lg);
     & img {
       grid-column: 1;
       aspect-ratio: 1/1;

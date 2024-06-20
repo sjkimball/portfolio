@@ -16,13 +16,14 @@ const components = {
 };
 
 const SectionBlock = (props) => {
-  // console.dir('props in Section Block', props);
+  console.dir('props in Section Block', props);
   const contentObject = props.value ? props.value : props;
-  const { title, content } = contentObject;
+  const { title, content, darkMode } = contentObject;
   return (
     <section
       id={`${kebabCase(title)}`}
       className={`block block--section ${block}`}
+      data-theme={darkMode == true ? 'dark' : 'light'}
     >
       <h2>{title}</h2>
       <div className={`container`}>

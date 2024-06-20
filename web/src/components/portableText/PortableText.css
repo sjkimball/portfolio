@@ -12,4 +12,7 @@
   > .block--text {
     padding-inline: var(--block-padding-x);
   }
+  > .block--images:last-child {
+    padding-bottom: 0;
+  }
 }

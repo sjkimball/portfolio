@@ -52,7 +52,7 @@ class Header extends React.Component {
     // console.log('props in header', this.props);
     const { links = [] } = this.props;
     return (
-      <header id="mainHeader" className={header}>
+      <header id="mainHeader" className={`mainHeader ${header}`}>
         <nav className={nav} role="navigation">
           <Link to="/" className={logo}>
             SK

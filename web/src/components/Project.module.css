@@ -1,16 +1,17 @@
 .article {
   display: grid;
-  padding-block: var(--block-padding-y);
+  padding-block: var(--main-padding-y);
   gap: 32px;
 }
 /* * Header */
 .header {
   display: grid;
   gap: 32px;
+  margin-bottom: var(--block-padding-y);
   & hgroup {
     display: grid;
     padding-inline: var(--block-padding-x);
-    margin-bottom: 0;
+    margin-bottom: var(--block-padding-y);
   }
   & img {
     justify-self: center;
@@ -67,6 +68,7 @@ article:global(.project .portableText .block--text) {
     }
     & :global(.block--figma) {
       grid-column: 2;
+      padding-block: var(--sk-spacing-md);
     }
     & :global(.block--images) {
       grid-column: 1/-1;

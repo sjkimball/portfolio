@@ -2,13 +2,15 @@ import React from 'react';
 
 import PrimaryImage from '../../PrimaryImage';
 
+import { figcaption } from './Image.module.css';
+
 const CaptionImage = (props) => {
   // console.dir('props in captionImage', props);
   const { image, caption } = props;
   return (
     <figure className={`captionImage`}>
       <PrimaryImage imageAsset={image} />
-      <figcaption>{caption}</figcaption>
+      <figcaption className={` ${figcaption}`}>{caption}</figcaption>
     </figure>
   );
 };

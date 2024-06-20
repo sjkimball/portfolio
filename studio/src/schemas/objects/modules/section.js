@@ -18,6 +18,12 @@ export default {
       type: 'block.section',
       validation: (rule) => rule.required(),
     },
+    {
+      name: 'darkMode',
+      title: 'Dark Mode',
+      type: 'boolean',
+      initialValue: false,
+    },
   ],
   preview: {
     select: {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import ImageModule from './Image';
 
-import { container } from './ImagesBlock.module.css';
+import { block, container } from './ImagesBlock.module.css';
 
 const ImagesBlock = (props) => {
   console.dir('props in ImagesBlock', props);
@@ -11,7 +11,7 @@ const ImagesBlock = (props) => {
   } = props;
   return (
     <div
-      className={`block block--images ${fullWidth == true && content.length < 2 ? 'fullWidth' : ''}`}
+      className={`block block--images ${block} ${fullWidth == true && content.length < 2 ? 'fullWidth' : ''}`}
     >
       <div className={`${container}`}>
         {content.map((item, i) => {

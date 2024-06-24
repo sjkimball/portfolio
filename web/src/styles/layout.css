@@ -23,8 +23,8 @@
 
 /* * Main Content */
 .mainContent {
-  --main-padding-x: var(--sk-spacing-md);
-  --main-padding-y: var(--sk-spacing-xl);
+  /* --main-padding-x: var(--sk-spacing-md);
+  --main-padding-y: var(--sk-spacing-xl); */
   --block-padding-x: var(--sk-spacing-md);
   --block-padding-y: var(--sk-spacing-xl);
   --block-header-padding-y: var(--sk-spacing-xl);
@@ -38,19 +38,19 @@
     background-color: var(--sk-sys-surface);
   }
 }
-@media (width >= 600px) {
+/* @media (width >= 600px) {
   .mainContent {
     --main-padding-x: var(--sk-spacing-lg);
     --block-padding-x: var(--sk-spacing-lg);
   }
-}
-@media (width >= 1040px) {
+} */
+/* @media (width >= 1040px) {
   .mainContent {
     --main-padding-x: var(--sk-spacing-xl);
     --main-padding-y: var(--sk-spacing-xxl);
     --block-padding-x: var(--sk-spacing-xl);
   }
-}
+} */
 
 /* * Main Footer */
 .mainFooter {

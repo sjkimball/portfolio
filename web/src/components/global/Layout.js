@@ -7,7 +7,8 @@ import Header from './Header';
 import '../../styles/_variables.css';
 import '../../styles/global.css';
 import '../../styles/typography.css';
-import '../../styles/layout.css';
+// import '../../styles/layout.css';
+import * as layoutStyles from './Layout.module.css';
 
 const Layout = (props) => {
   // console.dir('props in layout component', props);
@@ -27,7 +28,10 @@ const Layout = (props) => {
   return (
     <>
       <Header {...site.menu} />
-      <main id="mainContent" className={`mainContent`}>
+      <main
+        id="mainContent"
+        className={`mainContent ${layoutStyles.mainContent}`}
+      >
         {children}
       </main>
       <Footer {...site.footer} />

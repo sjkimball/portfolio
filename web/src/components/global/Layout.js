@@ -7,7 +7,6 @@ import Header from './Header';
 import '../../styles/_variables.css';
 import '../../styles/global.css';
 import '../../styles/typography.css';
-// import '../../styles/layout.css';
 import * as layoutStyles from './Layout.module.css';
 
 const Layout = (props) => {

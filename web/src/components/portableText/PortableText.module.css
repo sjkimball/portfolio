@@ -1,0 +1,29 @@
+.portableText {
+  --_padding-x: var(--sk-spacing-md, 16px);
+  & > :global(.block:first-child) {
+    padding-top: 0;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+  :global(.block--text),
+  :global(.block--figma) {
+    max-width: 65ch;
+  }
+  > :global(.block--text) {
+    padding-inline: var(--_padding-x);
+  }
+  > :global(.block--images:last-child) {
+    padding-bottom: 0;
+  }
+}
+@media (width >= 600px) {
+  .portableText {
+    --_padding-x: var(--sk-spacing-lg, 32px);
+  }
+}
+@media (width >= 1040px) {
+  .portableText {
+    --_padding-x: var(--sk-spacing-xl, 64px);
+  }
+}

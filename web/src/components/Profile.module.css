@@ -1,14 +1,26 @@
 .article {
+  --_padding-x: var(--sk-spacing-md, 16px);
+  --_padding-y: var(--sk-spacing-xl, 64px);
   display: grid;
-  padding-inline: var(--block-padding-x);
-  padding-block: var(--main-padding-y);
+  padding-inline: var(--_padding-x);
+  padding-block: var(--_padding-y);
   background-color: var(--sk-sys-surface);
   color: var(--sk-sys-on-surface);
   gap: 32px;
 }
+@media (width >= 600px) {
+  .article {
+    --_padding-x: var(--sk-spacing-lg, 32px);
+  }
+}
 @media (width >= 800px) {
   .article {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (width >= 1040px) {
+  .article {
+    --_padding-x: var(--sk-spacing-xl, 64px);
   }
 }
 
@@ -16,7 +28,7 @@
 .header {
   display: grid;
   gap: 32px;
-  margin-bottom: var(--block-padding-y);
+  margin-bottom: var(--_padding-y);
   & hgroup {
     margin-bottom: 0;
   }

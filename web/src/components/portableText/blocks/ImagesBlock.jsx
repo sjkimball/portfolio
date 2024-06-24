@@ -5,7 +5,7 @@ import ImageModule from './Image';
 import { block, container } from './ImagesBlock.module.css';
 
 const ImagesBlock = (props) => {
-  console.dir('props in ImagesBlock', props);
+  // console.dir('props in ImagesBlock', props);
   const {
     value: { content, fullWidth, verticalAlign },
   } = props;

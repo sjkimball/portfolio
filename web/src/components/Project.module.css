@@ -1,17 +1,29 @@
 .article {
+  --_padding-x: var(--sk-spacing-md, 16px);
+  --_padding-y: var(--sk-spacing-xl, 64px);
   display: grid;
-  padding-block: var(--main-padding-y);
+  padding-block: var(--_padding-y);
   gap: 32px;
+}
+@media (width >= 600px) {
+  .article {
+    --_padding-x: var(--sk-spacing-lg, 32px);
+  }
+}
+@media (width >= 1040px) {
+  .article {
+    --_padding-x: var(--sk-spacing-xl, 64px);
+  }
 }
 /* * Header */
 .header {
   display: grid;
   gap: 32px;
-  margin-bottom: var(--block-padding-y);
+  margin-bottom: var(--_padding-y);
   & hgroup {
     display: grid;
-    padding-inline: var(--block-padding-x);
-    margin-bottom: var(--block-padding-y);
+    padding-inline: var(--_padding-x);
+    margin-bottom: var(--_padding-y);
   }
   & img {
     justify-self: center;
@@ -53,7 +65,7 @@
 /* * Body */
 article:global(.project .portableText) {
   display: grid;
-  padding-inline: var(--block-padding-x);
+  padding-inline: var(--_padding-x);
 }
 article:global(.project .portableText .block--text) {
   padding-inline: 0;
@@ -78,7 +90,7 @@ article:global(.project .portableText .block--text) {
 /* * Metadata */
 .metadata {
   display: grid;
-  padding-inline: var(--block-padding-x);
+  padding-inline: var(--_padding-x);
   gap: 16px;
   & h6 {
     font: var(--sk-title-md);

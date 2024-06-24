@@ -16,7 +16,7 @@ const components = {
 };
 
 const SectionBlock = (props) => {
-  console.dir('props in Section Block', props);
+  // console.dir('props in Section Block', props);
   const contentObject = props.value ? props.value : props;
   const { title, content, darkMode } = contentObject;
   return (

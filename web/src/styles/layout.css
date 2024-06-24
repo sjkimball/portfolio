@@ -4,22 +4,22 @@
 }
 
 /* * Main Header */
-.mainHeader {
+/* .mainHeader {
   --header-padding-x: var(--sk-spacing-md);
   --header-padding-y: var(--sk-spacing-md);
-}
-@media (width >= 600px) {
+} */
+/* @media (width >= 600px) {
   .mainHeader {
     --header-padding-x: var(--sk-spacing-lg);
     --header-padding-y: var(--sk-spacing-lg);
   }
-}
-@media (width >= 1040px) {
+} */
+/* @media (width >= 1040px) {
   .mainHeader {
     --header-padding-x: var(--sk-spacing-xl);
     --header-padding-y: var(--sk-spacing-xl);
   }
-}
+} */
 
 /* * Main Content */
 .mainContent {

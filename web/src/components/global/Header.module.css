@@ -31,6 +31,8 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
+  max-width: 1600px;
+  margin-inline: auto;
   height: 100%;
   z-index: 10;
 }

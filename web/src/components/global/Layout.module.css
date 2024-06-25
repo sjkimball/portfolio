@@ -1,15 +1,10 @@
-:global(#gatsby-focus-wrapper) {
-  max-width: 1600px;
-  margin-inline: auto;
-}
-
 .mainContent {
-  /* * Local Variables*/
   --_padding-x: var(--sk-spacing-md, 16px);
   --_padding-y: var(--sk-spacing-xl, 64px);
   --_background-color: var(--sk-sys-surface, lightgrey);
-  /* * Modifiers */
   min-height: calc(100vh - 180px);
+  max-width: 1600px;
+  margin-inline: auto;
   display: grid;
   & > header {
     padding-inline: var(--_padding-x);

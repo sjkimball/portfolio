@@ -3,11 +3,6 @@
   --_padding-y: var(--sk-spacing-md, 16px);
   --_gap-row: var(--sk-spacing-md, 16px);
   --_gap-column: var(--sk-spacing-md, 16px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(2, auto);
-  gap: var(--_gap-row) 0;
-  align-items: baseline;
   background-color: var(--sk-sys-surface);
   color: var(--sk-sys-on-surface);
   padding-inline: var(--_padding-x);
@@ -18,6 +13,8 @@
   .footer {
     --_padding-x: var(--sk-spacing-lg, 32px);
     --_padding-y: var(--sk-spacing-lg, 32px);
+    --_gap-row: var(--sk-spacing-lg, 32px);
+    --_gap-column: var(--sk-spacing-lg, 32px);
   }
 }
 @media (width >= 1040px) {
@@ -27,11 +24,14 @@
     min-height: 100px;
   }
 }
-@media (width >= 600px) {
-  .footer {
-    --_gap-row: var(--sk-spacing-lg, 32px);
-    --_gap-column: var(--sk-spacing-lg, 32px);
-  }
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, auto);
+  gap: var(--_gap-row) 0;
+  align-items: baseline;
+  max-width: 1600px;
+  margin-inline: auto;
 }
 .logo {
   grid-column: 1;

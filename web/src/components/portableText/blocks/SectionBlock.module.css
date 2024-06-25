@@ -1,18 +1,33 @@
-/* All Section Blocks */
+/* * All Section Blocks */
 .block {
+  --_padding-x: var(--sk-spacing-md, 16px);
+  --_padding-y: var(--sk-spacing-xl, 64px);
+  --_gap-row: var(--sk-spacing-lg, 16px);
+  --_gap-column: var(--sk-spacing-lg, 16px);
+  --_accent-color: var(--sk-sys-primary, black);
   display: grid;
-  padding-inline: var(--block-padding-x);
-  padding-block: var(--block-padding-y);
+  padding-inline: var(--_padding-x);
+  padding-block: var(--_padding-y);
   background-color: var(--sk-sys-surface);
   color: var(--sk-sys-on-surface);
   & h2 {
-    margin-bottom: var(--block-header-padding-y);
+    margin-bottom: var(--_padding-y);
+  }
+}
+@media (width >= 600px) {
+  .block {
+    --_padding-x: var(--sk-spacing-lg, 32px);
+  }
+}
+@media (width >= 1040px) {
+  .block {
+    --_padding-x: var(--sk-spacing-xl, 64px);
   }
 }
 /* * Principles */
 :global(#principles .container) {
   display: grid;
-  gap: var(--sk-spacing-md);
+  gap: var(--_gap-row);
   & h3 {
     font: var(--sk-headline-sm);
   }
@@ -22,7 +37,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, auto);
     grid-auto-flow: column;
-    gap: var(--sk-spacing-md) 48px;
+    gap: var(--_gap-row) 48px;
   }
 }
 @media (width >= 1040px) {
@@ -40,9 +55,9 @@
 }
 :global(#clients-and-industries .container) {
   display: grid;
-  gap: var(--sk-spacing-md) 48px;
+  gap: var(--_gap-row) 48px;
   & h3 {
-    text-decoration: underline var(--sk-sys-primary) 2px;
+    text-decoration: underline var(--_accent-color) 2px;
     text-underline-offset: var(--sk-spacing-sm);
     font-weight: var(--sk-fw-light);
   }
@@ -53,7 +68,7 @@
       margin-bottom: var(--sk-spacing-md);
     }
     & li::marker {
-      color: var(--sk-sys-primary);
+      color: var(--_accent-color);
     }
   }
 }
@@ -81,9 +96,9 @@
 /* * Capabilities */
 :global(#capabilities .container) {
   display: grid;
-  gap: var(--sk-spacing-md) 32px;
+  gap: var(--_gap-row) 32px;
   & h3 {
-    color: var(--sk-sys-primary);
+    color: var(--_accent-color);
     font: var(--sk-headline-sm);
   }
   & p {
@@ -98,7 +113,7 @@
       font-weight: var(--sk-fw-medium);
     }
     & li::marker {
-      color: var(--sk-sys-primary);
+      color: var(--_accent-color);
     }
   }
 }

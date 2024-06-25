@@ -10,7 +10,7 @@ import ImagesBlock from './blocks/ImagesBlock';
 import ProjectsBlock from './blocks/ProjectsBlock';
 import SectionBlock from './blocks/SectionBlock';
 
-import './PortableText.css';
+import * as ptStyles from './PortableText.module.css';
 
 const components = {
   block: Block,
@@ -29,7 +29,7 @@ const components = {
 const PortableText = (props) => {
   // console.dir('props in PortableText', props);
   return (
-    <div className={`portableText`}>
+    <div className={`portableText ${ptStyles.portableText}`}>
       <PortableTextReact value={props.blocks} components={components} />
     </div>
   );

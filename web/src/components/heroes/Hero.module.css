@@ -1,4 +1,6 @@
 .heroHome {
+  --_padding-x: var(--sk-spacing-md, 16px);
+  --_padding-y: var(--sk-spacing-xl, 64px);
   --header-gap: var(--sk-spacing-lg);
   background-color: var(--sk-sys-surface);
   color: var(--sk-sys-on-surface);
@@ -6,8 +8,8 @@
   & hgroup {
     display: grid;
     gap: var(--header-gap);
-    padding-inline: var(--block-padding-x);
-    padding-block: var(--block-padding-y);
+    padding-inline: var(--_padding-x);
+    padding-block: var(--_padding-y);
     margin-bottom: 0;
     & h1 {
       color: var(--sk-sys-primary);
@@ -24,6 +26,11 @@
   }
   & img {
     display: none;
+  }
+}
+@media (width >= 600px) {
+  .heroHome {
+    --_padding-x: var(--sk-spacing-lg, 32px);
   }
 }
 
@@ -48,5 +55,10 @@
       justify-self: center;
       aspect-ratio: 16/9;
     }
+  }
+}
+@media (width >= 1040px) {
+  .heroHome {
+    --_padding-x: var(--sk-spacing-xl, 64px);
   }
 }

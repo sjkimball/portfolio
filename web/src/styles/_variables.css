@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:wght@100..900&display=swap');
 
 :root {
+  /* * Color */
+
+  /* * Color - Primitive */
   --sk-white: white;
   --sk-black: black;
   --sk-primary-40: hsla(152, 69%, 4%, 1);
@@ -108,6 +111,8 @@
   --sk-neutral-variant-980: #f8f9ff;
   --sk-neutral-variant-990: #fdfcff;
 
+  /* * Color - Theme */
+
   --sk-sys-primary: var(--sk-primary-400);
   --sk-sys-on-primary: var(--sk-white);
   --sk-sys-primary-container: var(--sk-primary-900);
@@ -147,29 +152,39 @@
   --sk-sys-surface-bright: var(--sk-neutral-980);
   --sk-sys-surface-dim: var(--sk-neutral-870);
 
-  /* Fonts */
+  /* * Font Families */
+
+  /* * Font Families - Core */
   --sk-font-redHatDisplay: 'Red Hat Display';
   --sk-font-redHatText: 'Red Hat Text';
   --sk-font-fjallaOne: 'Fjalla One';
   --sk-font-inter: 'Inter';
+
+  /* * Font Families - Primitive */
   --sk-font-display: var(--sk-font-fjallaOne);
   --sk-font-headline: var(--sk-font-inter);
   --sk-font-title: var(--sk-font-inter);
   --sk-font-label: var(--sk-font-inter);
   --sk-font-body: var(--sk-font-inter);
 
-  /* Normalization Ratios */
+  /* * Normalization Ratios */
+
+  /* * Normalization Ratios - Core */
   --sk-nr-redHatDisplay: 1.02;
   --sk-nr-redHatText: 1.02;
   --sk-nr-fjallaOne: 1;
   --sk-nr-inter: 1;
+
+  /* * Normalization Ratios - Primitive */
   --sk-nr-display: var(--sk-nr-fjallaOne);
   --sk-nr-headline: var(--sk-nr-inter);
   --sk-nr-title: var(--sk-nr-inter);
   --sk-nr-label: var(--sk-nr-inter);
   --sk-nr-body: var(--sk-nr-inter);
 
-  /* Font Weights */
+  /* * Font Weights /
+
+  /* * Font Weights - Core */
   --sk-fw-thin: 100;
   --sk-fw-extraLight: 200;
   --sk-fw-light: 300;
@@ -179,13 +194,22 @@
   --sk-fw-bold: 700;
   --sk-fw-extraBold: 700;
   --sk-fw-black: 900;
+
+  /* * Font Weights -  Primitive */
   --sk-fw-display: var(--sk-fw-regular);
   --sk-fw-headline: var(--sk-fw-semibold);
   --sk-fw-title: var(--sk-fw-medium);
   --sk-fw-label: var(--sk-fw-medium);
   --sk-fw-body: var(--sk-fw-regular);
 
-  /* Font Sizes */
+  /* * Paragraph Spacing */
+
+  /* * Paragraph Spacing - Core */
+  --sk-ps-0: '0';
+
+  /* * Font Sizes */
+
+  /* * Font Sizes - Primitive */
   --sk-fs-root: 16px;
   --sk-fs-scale: 1.2;
   --sk-fs-0: calc(var(--sk-fs-1) / var(--sk-fs-scale));
@@ -202,9 +226,9 @@
   --sk-fs-11: calc(var(--sk-fs-10) * var(--sk-fs-scale));
   --sk-fs-12: calc(var(--sk-fs-11) * var(--sk-fs-scale));
 
-  /* Font Styles */
+  /* * Typography */
 
-  /* Display */
+  /* * Display */
   --sk-display-lg: var(--sk-fw-display)
     calc(var(--sk-fs-10) * var(--sk-nr-display)) / 120% var(--sk-font-display);
 
@@ -214,7 +238,7 @@
   --sk-display-sm: var(--sk-fw-display)
     calc(var(--sk-fs-8) * var(--sk-nr-display)) / 120% var(--sk-font-display);
 
-  /* Headline */
+  /* * Headline */
   --sk-headline-lg: var(--sk-fw-headline)
     calc(var(--sk-fs-7) * var(--sk-nr-headline)) / 120% var(--sk-font-headline);
 
@@ -227,7 +251,7 @@
   --sk-headline-xs: var(--sk-fw-headline)
     calc(var(--sk-fs-4) * var(--sk-nr-headline)) / 120% var(--sk-font-headline);
 
-  /* Title */
+  /* * Title */
   --sk-title-lg: var(--sk-fw-title) calc(var(--sk-fs-4) * var(--sk-nr-title)) /
     120% var(--sk-font-title);
 
@@ -237,7 +261,7 @@
   --sk-title-sm: var(--sk-fw-title) calc(var(--sk-fs-2) * var(--sk-nr-title)) /
     120% var(--sk-font-title);
 
-  /* Label */
+  /* * Label */
   --sk-label-lg: var(--sk-fw-label) calc(var(--sk-fs-2) * var(--sk-nr-label)) /
     120% var(--sk-font-label);
 
@@ -247,7 +271,7 @@
   --sk-label-sm: var(--sk-fw-label) calc(var(--sk-fs-0) * var(--sk-nr-label)) /
     120% var(--sk-font-label);
 
-  /* Body */
+  /* * Body */
   --sk-body-lg: var(--sk-fw-body) calc(var(--sk-fs-3) * var(--sk-nr-body)) /
     150% var(--sk-font-body);
 
@@ -257,10 +281,9 @@
   --sk-body-sm: var(--sk-fw-body) calc(var(--sk-fs-1) * var(--sk-nr-body)) /
     130% var(--sk-font-body);
 
-  /* Paragraph Spacing */
-  --sk-ps-0: '0';
+  /* * Dimensions */
 
-  /* Absolute Dimensions */
+  /* * Absolute */
   --sk-dimension-0000: 0px;
   --sk-dimension-0001: 1px;
   --sk-dimension-0002: 2px;
@@ -282,7 +305,11 @@
   --sk-dimension-1440: 1440px;
   --sk-dimension-1600: 1600px;
 
-  /* Spacing Dimensions */
+  /* * Spacing */
+
+  /* * Spacing - Primitive */
+
+  /* * Absolute */
   --sk-spacing-xs: var(--sk-dimension-0004);
   --sk-spacing-sm: var(--sk-dimension-0008);
   --sk-spacing-md: var(--sk-dimension-0016);
@@ -290,8 +317,29 @@
   --sk-spacing-xl: var(--sk-dimension-0064);
   --sk-spacing-xxl: var(--sk-dimension-0128);
 }
-
+@media screen and (min-width: 600px) {
+  :root {
+    --sk-fs-root: 17px;
+  }
+}
+@media screen and (min-width: 800px) {
+  :root {
+    --sk-fs-root: 18px;
+  }
+}
+@media screen and (min-width: 1040px) {
+  :root {
+    --sk-fs-root: 19px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  :root {
+    --sk-fs-root: 20px;
+  }
+}
 [data-theme='dark'] {
+  /* * Color - Theme */
+
   --sk-sys-primary: var(--sk-primary-800);
   --sk-sys-on-primary: var(--sk-primary-200);
   --sk-sys-primary-container: var(--sk-primary-300);
@@ -330,25 +378,4 @@
   --sk-sys-surface-container-lowest: var(--sk-neutral-40);
   --sk-sys-surface-bright: var(--sk-neutral-240);
   --sk-sys-surface-dim: var(--sk-neutral-60);
-}
-
-@media screen and (min-width: 600px) {
-  :root {
-    --sk-fs-root: 17px;
-  }
-}
-@media screen and (min-width: 800px) {
-  :root {
-    --sk-fs-root: 18px;
-  }
-}
-@media screen and (min-width: 1040px) {
-  :root {
-    --sk-fs-root: 19px;
-  }
-}
-@media screen and (min-width: 1600px) {
-  :root {
-    --sk-fs-root: 20px;
-  }
 }

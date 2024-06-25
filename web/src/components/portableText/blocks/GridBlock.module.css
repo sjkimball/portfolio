@@ -1,17 +1,29 @@
 .section {
-  --container-gap-row: var(--sk-spacing-lg);
-  --container-gap-column: var(--sk-spacing-lg);
+  --_padding-x: var(--sk-spacing-md, 16px);
+  --_padding-y: var(--sk-spacing-xl, 64px);
+  --_gap-row: var(--sk-spacing-lg, 16px);
+  --_gap-column: var(--sk-spacing-lg, 16px);
   background-color: var(--sk-sys-surface);
   color: var(--sk-sys-on-surface);
-  padding-inline: var(--block-padding-x);
-  padding-block: var(--block-padding-y);
+  padding-inline: var(--_padding-x);
+  padding-block: var(--_padding-y);
+}
+@media (width >= 600px) {
+  .section {
+    --_padding-x: var(--sk-spacing-lg, 32px);
+  }
+}
+@media (width >= 1040px) {
+  .section {
+    --_padding-x: var(--sk-spacing-xl, 64px);
+  }
 }
 .header {
-  margin-bottom: var(--block-padding-y);
+  margin-bottom: var(--_padding-y);
 }
 .container {
   display: grid;
-  gap: var(--container-gap-row);
+  gap: var(--_gap-row);
   container-type: inline-size;
 }
 @media (width >= 800px) {

@@ -1,11 +1,25 @@
 .header {
+  --_padding-x: var(--sk-spacing-md, 16px);
+  --_padding-y: var(--sk-spacing-md, 16px);
   height: 90px;
   background-color: var(--sk-sys-surface);
   color: var(--sk-sys-on-background-muted);
-  padding-inline: var(--header-padding-x);
+  padding-inline: var(--_padding-x);
   position: sticky;
   top: 0;
   z-index: 10;
+}
+@media (width >= 600px) {
+  .header {
+    --_padding-x: var(--sk-spacing-lg, 32px);
+    --_padding-y: var(--sk-spacing-lg, 32px);
+  }
+}
+@media (width >= 1040px) {
+  .header {
+    --_padding-x: var(--sk-spacing-xl, 64px);
+    --_padding-y: var(--sk-spacing-xl, 64px);
+  }
 }
 @media (width >= 800px) {
   .header {

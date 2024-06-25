@@ -1,0 +1,35 @@
+:global(#gatsby-focus-wrapper) {
+  max-width: 1600px;
+  margin-inline: auto;
+}
+
+.mainContent {
+  /* * Local Variables*/
+  --_padding-x: var(--sk-spacing-md, 16px);
+  --_padding-y: var(--sk-spacing-xl, 64px);
+  --_background-color: var(--sk-sys-surface, lightgrey);
+  /* * Modifiers */
+  min-height: calc(100vh - 180px);
+  display: grid;
+  & > header {
+    padding-inline: var(--_padding-x);
+    padding-block: var(--_padding-y);
+    background-color: var(--_background-color);
+  }
+}
+@media (width >= 600px) {
+  .mainContent {
+    --_padding-x: var(--sk-spacing-lg, 32px);
+  }
+}
+@media (width >= 1040px) {
+  .mainContent {
+    --_padding-x: var(--sk-spacing-xl, 64px);
+    --_padding-y: var(--sk-spacing-xxl, 128px);
+  }
+}
+
+:global(.notFound) {
+  padding-inline: var(--_padding-x);
+  padding-block: var(--_padding-y);
+}

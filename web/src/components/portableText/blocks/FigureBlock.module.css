@@ -1,0 +1,32 @@
+.container {
+  container-type: inline-size;
+}
+.figure {
+  display: grid;
+  gap: var(--sk-spacing-md);
+  & img {
+    grid-row: 1;
+    aspect-ratio: 16/9;
+  }
+}
+.caption {
+  grid-row: 2;
+  & h3 {
+    font: var(--sk-title-lg);
+    margin-bottom: var(--sk-spacing-md);
+  }
+}
+@container (width >= 500px) {
+  .figure {
+    grid-template-columns: 200px 1fr;
+    gap: var(--sk-spacing-lg);
+    & img {
+      grid-column: 1;
+      aspect-ratio: 1/1;
+    }
+  }
+  .caption {
+    grid-row: 1;
+    grid-column: 2;
+  }
+}

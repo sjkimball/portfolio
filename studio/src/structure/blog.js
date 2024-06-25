@@ -1,18 +1,20 @@
-import { FaBullhorn, FaCog } from 'react-icons/fa';
+import { ComposeIcon, ControlsIcon } from '@sanity/icons';
 
-const blog = (S) =>
+export const blog = (S) =>
   S.listItem()
     .title('Blog')
-    .icon(FaBullhorn)
+    .icon(ComposeIcon)
     .child(
       S.list()
         .title('Blog')
         .items([
           S.listItem()
             .title('Blog Settings')
-            .icon(FaCog)
+            .icon(ControlsIcon)
             .child(
-              S.editor().schemaType('blogSettings').documentId('blogSettings'),
+              S.document()
+                .schemaType('settings.blog')
+                .documentId('blogSettings'),
             ),
           S.listItem()
             .title('Posts')
@@ -38,5 +40,3 @@ const blog = (S) =>
             ),
         ]),
     );
-
-export default blog;

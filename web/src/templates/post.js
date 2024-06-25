@@ -2,13 +2,9 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 
-import Layout from '../containers/layout';
-import Post from '../components/post';
-import GraphQLErrorList from '../components/graphql-error-list';
-
-import '../styles/_variables.css';
-import '../styles/global.css';
-import '../styles/layout.css';
+import Layout from '../containers/Layout';
+import Post from '../components/Post';
+import GraphQLErrorList from '../components/GraphqlErrorList';
 
 // export const query = graphql`
 //   query ($id: String!, $parentRouteID: String!) {

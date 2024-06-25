@@ -12,7 +12,7 @@ module.exports = {
   siteMetadata: {
     title: `Sam Kimball`,
     description: `Portfolio highlighting design and development work of Sam Kimball`,
-    author: `@sjkimball`,
+    siteUrl: `https://sjkimball.me`,
   },
   plugins: [
     {

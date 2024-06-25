@@ -1,36 +1,35 @@
 import React from 'react';
+
 import { graphql } from 'gatsby';
 
-import SEO from '../components/seo';
-import GraphQLErrorList from '../components/graphql-error-list';
-import Layout from '../containers/layout';
-import Hero from '../components/hero';
-import ProjectGrid from '../components/projectGrid';
-import PeopleGrid from '../components/peopleGrid';
-import PostGrid from '../components/postGrid';
-import OfficeGrid from '../components/officeGrid';
-import MarkdownBlock from '../components/markdownBlock';
-
-import '../styles/_variables.css';
-import '../styles/global.css';
-import '../styles/layout.css';
+import GraphQLErrorList from '../components/GraphqlErrorList';
+import HeroHome from '../components/heroes/Home';
+import HeroPage from '../components/heroes/Page';
+import Layout from '../components/global/Layout';
+import PortableText from '../components/portableText/PortableText';
+import SectionBlock from '../components/portableText/blocks/SectionBlock';
+import ProjectsBlock from '../components/portableText/blocks/ProjectsBlock';
+import GridBlock from '../components/portableText/blocks/GridBlock';
+import SEO from '../components/Seo';
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
-    route: sanityRoute(id: { eq: $id }) {
-      slug {
-        current
-      }
-      useSiteTitle
-      page {
-        ...PageInfo
-      }
+    page: sanityPage(id: { eq: $id }) {
+      ...pageData
     }
-    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      title
+    site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
+      ...settingsSiteData
     }
   }
 `;
+
+export const Head = ({ location, params, data, pageContext }) => {
+  const title = data.page.seo.title ? data.page.seo.title : data.page.title;
+  const description = data.page.seo.description
+    ? data.page.seo.description
+    : data.site.seo.description;
+  return <SEO title={title} description={description} />;
+};
 
 const Page = (props) => {
   const { data, errors } = props;
@@ -47,34 +46,38 @@ const Page = (props) => {
 
   if (!site) {
     throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.',
+      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Settings" and restart the development server.',
     );
   }
-  const page = data.page || data.route.page;
 
-  //Inspect page content and determine what components to render.
-  const content = (page._rawContent || [])
+  // Page Content
+  const page = data.page;
+  // Hero
+  const hero =
+    page._id && page._id == 'home' ? (
+      <HeroHome {...page.hero} />
+    ) : page.showHero && page.showHero == true ? (
+      <HeroPage {...page.hero} />
+    ) : (
+      <header>
+        <h1>{page.title}</h1>
+      </header>
+    );
+
+  //Home Page Content
+  const modules = (page._rawContent || [])
     .filter((c) => !c.disabled)
     .map((c, i) => {
       let el = null;
       switch (c._type) {
-        case 'hero':
-          el = <Hero key={c._key} {...c} />;
+        case 'module.projects':
+          el = <ProjectsBlock key={c._key} {...c} />;
           break;
-        case 'projectGroup':
-          el = <ProjectGrid key={c._key} {...c} />;
+        case 'module.grid':
+          el = <GridBlock key={c._key} {...c} />;
           break;
-        case 'peopleGroup':
-          el = <PeopleGrid key={c._key} {...c} />;
-          break;
-        case 'markdownBlock':
-          el = <MarkdownBlock key={c._key} {...c} />;
-          break;
-        case 'postGroup':
-          el = <PostGrid key={c._key} {...c} />;
-          break;
-        case 'officeGroup':
-          el = <OfficeGrid key={c._key} {...c} />;
+        case 'module.section':
+          el = <SectionBlock key={c._key} {...c} />;
           break;
         default:
           el = null;
@@ -82,23 +85,13 @@ const Page = (props) => {
       return el;
     });
 
-  const menuItems = page.navMenu && (page.navMenu.items || []);
-  const pageTitle = data.route && !data.route.useSiteTitle && page.title;
-  const pageSubtitle = page.subtitle;
-  const pageDescription = page.description;
-  const isIndex = page.indexPage;
+  const body = page._rawBody || [];
 
   return (
-    <Layout
-      id="layout"
-      navMenuItems={menuItems}
-      isIndex={isIndex}
-      pageTitle={pageTitle}
-      pageSubtitle={pageSubtitle}
-      pageDescription={pageDescription}
-    >
-      <SEO title={site.title} />
-      {content}
+    <Layout site={site}>
+      {hero}
+      {modules}
+      {body.length > 0 ? <PortableText blocks={body} /> : ''}
     </Layout>
   );
 };

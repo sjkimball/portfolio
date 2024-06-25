@@ -1,0 +1,22 @@
+.container {
+  & h3 {
+    text-decoration: underline var(--sk-sys-primary) 2px;
+    text-underline-offset: var(--sk-spacing-sm);
+    margin-bottom: var(--sk-spacing-md);
+    font-weight: var(--sk-fw-light);
+  }
+  & h4 {
+    text-decoration: underline var(--sk-sys-primary) 2px;
+    text-underline-offset: var(--sk-spacing-sm);
+    font: var(--sk-title-lg);
+    font-weight: var(--sk-fw-semibold);
+    margin-bottom: var(--sk-spacing-md);
+  }
+  & h4 + ul {
+    list-style-type: none;
+    margin-left: 0;
+    margin-bottom: 0;
+    font: var(--sk-body-md);
+    font-weight: var(--sk-fw-semibold);
+  }
+}

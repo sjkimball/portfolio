@@ -2,42 +2,48 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 
-import Layout from '../containers/layout';
-import Profile from '../components/profile';
-import GraphQLErrorList from '../components/graphql-error-list';
-
-import '../styles/_variables.css';
-import '../styles/global.css';
-import '../styles/layout.css';
+import GraphQLErrorList from '../components/GraphqlErrorList';
+import Layout from '../components/global/Layout';
+import Profile from '../components/Profile';
+import SEO from '../components/Seo';
 
 export const query = graphql`
-  query ($id: String!, $parentRouteID: String!) {
-    profile: sanityPerson(id: { eq: $id }) {
-      profileImg {
-        ...imageData
+  query ($id: String!) {
+    page: sanityPerson(id: { eq: $id }) {
+      firstName
+      preferredName
+      lastName
+      image {
+        ...imageModuleData
       }
-      name
-      office {
-        contactInfo {
-          address {
-            city
-          }
-        }
+      _rawBio
+      links {
+        ...externalLinkData
       }
-      biography
-      _id
+      seo {
+        ...seoPageData
+      }
     }
-    parentRoute: sanityRoute(id: { eq: $parentRouteID }) {
-      page {
-        navMenu {
-          ...NavMenu
-        }
-      }
+    site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
+      ...settingsSiteData
     }
   }
 `;
 
+export const Head = ({ location, params, data, pageContext }) => {
+  const title = data.page.seo.title ? data.page.seo.title : data.page.title;
+  const description = data.page.seo
+    ? data.page.seo.description
+    : data.site.seo.description;
+  return (
+    <SEO description={description}>
+      <title id="title">{title}</title>
+    </SEO>
+  );
+};
+
 const ProfileTemplate = (props) => {
+  // console.dir('props in ProfileTemplate', props);
   const { data, errors } = props;
 
   if (errors) {
@@ -48,11 +54,10 @@ const ProfileTemplate = (props) => {
     );
   }
 
-  const profile = data.profile;
-  const page = data.parentRoute.page;
-  const menuItems = page.navMenu && (page.navMenu.items || []);
+  const profile = data.page;
+  const site = data.site;
   return (
-    <Layout navMenuItems={menuItems}>
+    <Layout site={site}>
       <Profile {...profile} />
     </Layout>
   );

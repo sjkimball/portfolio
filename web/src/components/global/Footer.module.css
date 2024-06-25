@@ -1,0 +1,90 @@
+.footer {
+  --_padding-x: var(--sk-spacing-md, 16px);
+  --_padding-y: var(--sk-spacing-md, 16px);
+  --_gap-row: var(--sk-spacing-md, 16px);
+  --_gap-column: var(--sk-spacing-md, 16px);
+  background-color: var(--sk-sys-surface);
+  color: var(--sk-sys-on-surface);
+  padding-inline: var(--_padding-x);
+  padding-block: var(--_padding-y);
+  min-height: 90px;
+}
+@media (width >= 600px) {
+  .footer {
+    --_padding-x: var(--sk-spacing-lg, 32px);
+    --_padding-y: var(--sk-spacing-lg, 32px);
+    --_gap-row: var(--sk-spacing-lg, 32px);
+    --_gap-column: var(--sk-spacing-lg, 32px);
+  }
+}
+@media (width >= 1040px) {
+  .footer {
+    --_padding-x: var(--sk-spacing-xl, 64px);
+    --_padding-y: var(--sk-spacing-xl, 64px);
+    min-height: 100px;
+  }
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, auto);
+  gap: var(--_gap-row) 0;
+  align-items: baseline;
+  max-width: 1600px;
+  margin-inline: auto;
+}
+.logo {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: var(--sk-font-display);
+  font-weight: var(--sk-fw-black);
+  font-size: 32px;
+  line-height: 32px;
+  width: 50px;
+  align-self: center;
+  position: relative;
+}
+@media (width >= 600px) {
+  .logo::after {
+    content: 'Sam Kimball';
+    font-size: 17px;
+    text-transform: uppercase;
+    font-family: var(--sk-font-body);
+    font-weight: var(--sk-fw-medium);
+    letter-spacing: 0.5px;
+    position: absolute;
+    right: 0;
+    width: 200px;
+    margin-right: -185px;
+  }
+}
+.footerLinks {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  gap: 0 var(--_gap-column);
+  justify-self: end;
+  list-style-type: none;
+  margin-left: 0;
+  margin-bottom: 0;
+  align-self: center;
+  & li {
+    cursor: pointer;
+    margin-bottom: 0;
+    & a {
+      color: inherit;
+      font-weight: var(--sk-fw-medium);
+    }
+    & a:hover {
+      border-bottom: 2px solid var(--sk-sys-primary);
+    }
+  }
+}
+.copyright {
+  grid-row: 2;
+  grid-column: 1/-1;
+  justify-self: start;
+  font: var(--sk-body-md);
+  font-weight: var(--sk-fw-medium);
+  align-self: start;
+}

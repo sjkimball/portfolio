@@ -1,0 +1,4 @@
+.block {
+  --_padding-y: var(--sk-spacing-lg, 32px);
+  padding-block: var(--_padding-y);
+}

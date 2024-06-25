@@ -1,0 +1,9 @@
+.image {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 1920px;
+  margin-bottom: 0;
+  object-fit: cover;
+  width: 100%;
+}

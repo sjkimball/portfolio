@@ -1,5 +1,17 @@
 .block {
-  padding-block: var(--block-padding-y);
+  --_padding-x: var(--sk-spacing-md, 16px);
+  --_padding-y: var(--sk-spacing-xl, 64px);
+  padding-block: var(--_padding-y);
+}
+@media (width >= 600px) {
+  .block {
+    --_padding-x: var(--sk-spacing-lg, 32px);
+  }
+}
+@media (width >= 1040px) {
+  .block {
+    --_padding-x: var(--sk-spacing-xl, 64px);
+  }
 }
 
 .container {

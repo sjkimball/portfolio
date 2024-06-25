@@ -1,4 +1,4 @@
-/* All Section Blocks */
+/* * All Section Blocks */
 .block {
   --_padding-x: var(--sk-spacing-md, 16px);
   --_padding-y: var(--sk-spacing-xl, 64px);

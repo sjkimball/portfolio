@@ -1,7 +1,7 @@
 body {
   color: var(--sk-sys-on-background);
   background-color: var(--sk-sys-background);
-  font: var(--sk-body-lg);
+  font: var(--sk-body-md);
 }
 
 h1 {

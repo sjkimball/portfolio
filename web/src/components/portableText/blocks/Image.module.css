@@ -1,3 +1,4 @@
 .figcaption {
   padding-block: var(--sk-spacing-md);
+  font: var(--sk-body-sm);
 }

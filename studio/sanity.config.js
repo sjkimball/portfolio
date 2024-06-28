@@ -46,7 +46,7 @@ export default defineConfig([
         ],
       }),
       structureTool({
-        myStructure,
+        structure: myStructure,
       }),
       visionTool(),
       media(),

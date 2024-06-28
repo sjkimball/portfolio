@@ -276,10 +276,10 @@
     150% var(--sk-font-body);
 
   --sk-body-md: var(--sk-fw-body) calc(var(--sk-fs-2) * var(--sk-nr-body)) /
-    130% var(--sk-font-body);
+    150% var(--sk-font-body);
 
   --sk-body-sm: var(--sk-fw-body) calc(var(--sk-fs-1) * var(--sk-nr-body)) /
-    130% var(--sk-font-body);
+    150% var(--sk-font-body);
 
   /* * Dimensions */
 

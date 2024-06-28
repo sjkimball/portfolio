@@ -5,12 +5,21 @@ import PrimaryImage from '../../PrimaryImage';
 import { figcaption } from './Image.module.css';
 
 const CaptionImage = (props) => {
-  // console.dir('props in captionImage', props);
+  console.dir('props in captionImage', props);
   const { image, caption } = props;
+  const imageCaption = caption
+    ? caption
+    : image.asset.title
+      ? image.asset.title
+      : null;
   return (
     <figure className={`captionImage`}>
       <PrimaryImage imageAsset={image} />
-      <figcaption className={` ${figcaption}`}>{caption}</figcaption>
+      {imageCaption !== null ? (
+        <figcaption className={`${figcaption}`}>{imageCaption}</figcaption>
+      ) : (
+        ''
+      )}
     </figure>
   );
 };
@@ -26,9 +35,7 @@ const ImageModule = (props) => {
       {props.variant === 'cover' && (
         <PrimaryImage imageAsset={props.image} imageUse="cover" />
       )}
-      {props.variant === 'caption' && props.caption && (
-        <CaptionImage {...props} />
-      )}
+      {props.variant === 'caption' && <CaptionImage {...props} />}
     </>
   );
 };

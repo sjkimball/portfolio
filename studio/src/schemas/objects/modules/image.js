@@ -32,6 +32,7 @@ export default {
     {
       name: 'caption',
       title: 'Caption',
+      description: 'If empty, will use title of uploaded image.',
       type: 'text',
       rows: 2,
       hidden: ({ parent }) => parent?.variant !== 'caption',

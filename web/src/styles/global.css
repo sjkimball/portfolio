@@ -63,10 +63,6 @@ mark {
 small {
   font-size: 80%;
 }
-figcaption {
-  font-size: var(--size-caption);
-  line-height: var(--lh-xsmall);
-}
 sub,
 sup {
   font-size: 75%;

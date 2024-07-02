@@ -1,6 +1,6 @@
 .block {
   --_padding-x: var(--sk-spacing-md, 16px);
-  --_padding-y: var(--sk-spacing-xl, 64px);
+  --_padding-y: var(--sk-spacing-lg, 32px);
   padding-block: var(--_padding-y);
 }
 @media (width >= 600px) {

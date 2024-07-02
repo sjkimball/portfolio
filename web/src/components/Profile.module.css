@@ -6,7 +6,6 @@
   padding-block: var(--_padding-y);
   background-color: var(--sk-sys-surface);
   color: var(--sk-sys-on-surface);
-  gap: 32px;
 }
 @media (width >= 600px) {
   .article {
@@ -27,7 +26,7 @@
 /* * Header */
 .header {
   display: grid;
-  gap: 32px;
+  grid-template-rows: auto;
   margin-bottom: var(--_padding-y);
   & hgroup {
     margin-bottom: 0;
@@ -36,10 +35,12 @@
 @media (width >= 600px) {
   .header {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0 32px;
   }
 }
 @media (width >= 800px) {
   .header {
+    grid-template-rows: min-content min-content;
     grid-column: 1/-1;
     position: relative;
     & img {
@@ -71,6 +72,7 @@ article:global(.profile .portableText .block--text) {
 
 /* * Links */
 .additionalLinks {
+  padding-block: var(--_padding-y);
   display: grid;
   & ul {
     display: flex;

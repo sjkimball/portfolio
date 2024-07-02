@@ -3,7 +3,6 @@
   --_padding-y: var(--sk-spacing-xl, 64px);
   display: grid;
   padding-block: var(--_padding-y);
-  gap: 32px;
 }
 @media (width >= 600px) {
   .article {
@@ -18,16 +17,11 @@
 /* * Header */
 .header {
   display: grid;
-  gap: 32px;
   margin-bottom: var(--_padding-y);
   & hgroup {
     display: grid;
     padding-inline: var(--_padding-x);
     margin-bottom: var(--_padding-y);
-  }
-  & img {
-    justify-self: center;
-    aspect-ratio: 1/1;
   }
 }
 .projectTitle {
@@ -44,9 +38,7 @@
     & hgroup {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: auto;
-    }
-    & img {
-      aspect-ratio: 16/9;
+      gap: 0 32px;
     }
   }
   .projectClient {
@@ -90,6 +82,7 @@ article:global(.project .portableText .block--text) {
 .metadata {
   display: grid;
   padding-inline: var(--_padding-x);
+  padding-block: var(--_padding-y);
   gap: 16px;
   & h6 {
     font: var(--sk-title-md);

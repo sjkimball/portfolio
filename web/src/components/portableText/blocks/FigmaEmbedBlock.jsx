@@ -16,7 +16,7 @@ const FigmaEmbedBlock = (props) => {
   const { value } = props;
   return (
     <div className={`block block--figma ${block}`}>
-      <FigmaEmbed url={value.url} style={styles} />
+      <FigmaEmbed url={value.url} style={styles} loading="lazy" />
     </div>
   );
 };

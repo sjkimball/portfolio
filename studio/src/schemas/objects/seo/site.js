@@ -16,13 +16,18 @@ export default {
     },
     {
       name: 'description',
-      title: 'Description',
+      title: 'Site Description',
       type: 'text',
       rows: 2,
       validation: (rule) =>
         rule
           .max(150)
           .warning('Longer descriptions may be truncated by search engines'),
+    },
+    {
+      name: 'url',
+      title: 'Site URL',
+      type: 'url',
     },
   ],
   validation: (rule) => rule.required(),

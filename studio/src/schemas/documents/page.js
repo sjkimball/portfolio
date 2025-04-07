@@ -15,6 +15,10 @@ export default {
       name: 'seo',
       title: 'SEO',
     },
+    {
+      name: 'options',
+      title: 'Options',
+    },
   ],
   fields: [
     // Title
@@ -59,6 +63,13 @@ export default {
       title: 'SEO',
       type: 'seo.page',
       group: 'seo',
+    },
+    {
+      name: 'useAsHomePage',
+      title: 'Use as Home Page?',
+      type: 'boolean',
+      initialValue: false,
+      group: 'options',
     },
   ],
   preview: {

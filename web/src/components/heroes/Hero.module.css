@@ -1,4 +1,4 @@
-.heroHome {
+.hero {
   --_padding-x: var(--sk-spacing-md, 16px);
   --_padding-y: var(--sk-spacing-xl, 64px);
   --header-gap: var(--sk-spacing-lg);
@@ -29,13 +29,13 @@
   }
 }
 @media (width >= 600px) {
-  .heroHome {
+  .hero {
     --_padding-x: var(--sk-spacing-lg, 32px);
   }
 }
 
 @media (width >= 800px) {
-  .heroHome {
+  .hero {
     --header-gap: var(--sk-spacing-xl);
     & hgroup {
       grid-template-columns: repeat(2, 1fr);
@@ -58,7 +58,7 @@
   }
 }
 @media (width >= 1040px) {
-  .heroHome {
+  .hero {
     --_padding-x: var(--sk-spacing-xl, 64px);
   }
 }

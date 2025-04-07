@@ -35,7 +35,7 @@ export const query = graphql`
       }
     }
     site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
-      ...settingsSiteData
+      ...settingsSite
     }
   }
 `;

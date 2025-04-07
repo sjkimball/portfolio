@@ -4,19 +4,26 @@ import Page from '../templates/page';
 import SEO from '../components/Seo';
 import useLandingPage from '../hooks/use-landing-page';
 import useHomeSeo from '../hooks/use-home-seo';
+import useSiteSettings from '../hooks/use-site-settings';
 
 export const Head = () => {
-  const data = useHomeSeo();
+  const {
+    seo: { title: homeSeoTitle },
+    homePage: {
+      seo: { description: homeSeoDescription },
+    },
+  } = useHomeSeo();
+  const { seo: siteSeo } = useSiteSettings();
   return (
     <SEO
-      title={data.page.seo.title || data.site.seo.title}
-      description={data.page.seo.description || data.site.seo.description}
+      title={homeSeoTitle || siteSeo.title}
+      description={homeSeoDescription || siteSeo.description}
     />
   );
 };
 
 const IndexPage = () => {
-  const data = useLandingPage();
+  const data = { page: useLandingPage(), site: useSiteSettings() };
   return <Page data={data} />;
 };
 

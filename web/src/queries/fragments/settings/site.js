@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
-export const settingsSiteData = graphql`
-  fragment settingsSiteData on SanitySettingsSite {
+export const settingsSite = graphql`
+  fragment settingsSite on SanitySettingsSite {
     menu {
       ... on SanityMenu {
         links {
@@ -23,8 +23,6 @@ export const settingsSiteData = graphql`
       body
       title
     }
-    seo {
-      ...seoSiteData
-    }
+    ...settingsSiteSeo
   }
 `;

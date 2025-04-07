@@ -5,21 +5,22 @@ const useLandingPage = () => {
     query {
       page: sanityHome(_id: { regex: "/(drafts.|)home/" }) {
         _id
-        hero {
-          ...heroHomeData
+        homePage {
+          title
+          showHero
+          hero {
+            ...heroData
+          }
+          _rawBody(resolveReferences: { maxDepth: 10 })
+          seo {
+            ...seoPageData
+          }
         }
-        _rawContent(resolveReferences: { maxDepth: 10 })
-        seo {
-          ...seoHomeData
-        }
-      }
-      site: sanitySettingsSite(_id: { regex: "/(drafts.|)settings/" }) {
-        ...settingsSiteData
       }
     }
   `);
 
-  return data;
+  return data.page;
 };
 
 export default useLandingPage;

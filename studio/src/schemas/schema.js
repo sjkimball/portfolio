@@ -15,7 +15,6 @@ import addressUS from './objects/contact/address/unitedstates';
 import contactBasic from './objects/contact/basic';
 import contactComplete from './objects/contact/complete';
 // Hero
-import heroHome from './objects/hero/home';
 import heroPage from './objects/hero/page';
 // Links
 import linkInternal from './objects/links/internal';
@@ -67,7 +66,6 @@ export default [
   designArea,
   designDiscipline,
   footer,
-  heroHome,
   heroPage,
   home,
   linkInternal,

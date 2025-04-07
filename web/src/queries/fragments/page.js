@@ -8,7 +8,7 @@ export const pageData = graphql`
     }
     showHero
     hero {
-      ...heroPageData
+      ...heroData
     }
     _rawBody(resolveReferences: { maxDepth: 10 })
     seo {

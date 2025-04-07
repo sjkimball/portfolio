@@ -9,11 +9,6 @@ const token = process.env.SANITY_READ_TOKEN;
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  siteMetadata: {
-    title: `Sam Kimball`,
-    description: `Portfolio highlighting design and development work of Sam Kimball`,
-    siteUrl: `https://sjkimball.me`,
-  },
   plugins: [
     {
       resolve: 'gatsby-source-sanity',

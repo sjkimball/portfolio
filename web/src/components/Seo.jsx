@@ -1,17 +1,15 @@
 import React from 'react';
-import useSiteMetadata from '../hooks/use-site-metadata';
+import useSiteSettings from '../hooks/use-site-settings';
 
 const SEO = ({ title, description, pathname, children }) => {
   const {
-    title: defaultTitle,
-    description: defaultDescription,
-    siteUrl,
-  } = useSiteMetadata();
+    seo: { title: defaultTitle, description: defaultDescription, url },
+  } = useSiteSettings();
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    url: `${siteUrl}${pathname || ``}`,
+    url: `${url}${pathname || ``}`,
   };
 
   return (

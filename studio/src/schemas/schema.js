@@ -59,6 +59,7 @@ import socialMediaAccounts from './objects/socialMediaAccounts';
 import settingsSite from './singletons/settings/site';
 import settingsBlog from './singletons/settings/blog';
 import home from './singletons/home';
+import company from './singletons/company';
 
 export default [
   addressUS,

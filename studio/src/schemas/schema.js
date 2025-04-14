@@ -48,6 +48,7 @@ import seoProject from './objects/seo/project';
 import seoSite from './objects/seo/site';
 
 import baseImage from './objects/baseImage';
+import clientEmployee from './objects/clientEmployee';
 import designDiscipline from './objects/designDiscipline';
 import employeeInfo from './objects/employeeInfo';
 import footer from './objects/footer';

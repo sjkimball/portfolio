@@ -1,11 +1,11 @@
+import { blog } from './blog';
 import { clients } from './clients';
 import { company } from './company';
 import { home } from './home';
 import { offices } from './offices';
 import { pages } from './pages';
-import { projects } from './projects';
-import { blog } from './blog';
 import { people } from './people';
+import { projects } from './projects';
 import { settings } from './settings';
 
 const hiddenDocTypes = (listItem) =>

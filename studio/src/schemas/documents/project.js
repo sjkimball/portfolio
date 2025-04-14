@@ -109,7 +109,7 @@ export default {
       name: 'client',
       title: 'Client',
       type: 'reference',
-      to: [{ type: 'company' }],
+      to: [{ type: 'client' }],
       validation: (Rule) =>
         Rule.required().error('Every project needs a client.'),
       group: 'editorial',
@@ -120,7 +120,6 @@ export default {
       type: 'sector',
       group: 'editorial',
     },
-
     {
       name: 'members',
       title: 'Project Members',

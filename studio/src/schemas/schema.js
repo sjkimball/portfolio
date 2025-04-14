@@ -1,5 +1,5 @@
 // Documents
-import company from './documents/company';
+import client from './documents/client';
 import office from './documents/office';
 import page from './documents/page';
 import person from './documents/person';
@@ -76,6 +76,8 @@ export default [
   bodyPerson,
   bodyProject,
   bodySection,
+  clientEmployee,
+  client,
   company,
   contactBasic,
   contactComplete,

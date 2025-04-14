@@ -1,9 +1,9 @@
+import { clients } from './clients';
 import { company } from './company';
 import { home } from './home';
 import { offices } from './offices';
 import { pages } from './pages';
 import { projects } from './projects';
-import { companies } from './companies';
 import { blog } from './blog';
 import { people } from './people';
 import { settings } from './settings';
@@ -11,6 +11,7 @@ import { settings } from './settings';
 const hiddenDocTypes = (listItem) =>
   ![
     'blogSettings',
+    'client',
     'company',
     'home',
     'office',
@@ -31,7 +32,9 @@ export const myStructure = (S) =>
       home(S),
       pages(S),
       S.divider(),
+      clients(S),
       projects(S),
+      S.divider(),
       blog(S),
       S.divider(),
       company(S),

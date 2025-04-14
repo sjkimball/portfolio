@@ -5,6 +5,12 @@ import person from './documents/person';
 import post from './documents/post';
 import project from './documents/project';
 
+//Helpers
+import department from './helpers/department';
+import designArea from './helpers/designArea';
+import role from './helpers/role';
+import sector from './helpers/sector';
+
 // Objects
 
 // Portable Text/Body
@@ -40,13 +46,12 @@ import seoPage from './objects/seo/page';
 import seoProject from './objects/seo/project';
 import seoSite from './objects/seo/site';
 
-import designArea from './objects/designArea';
+import baseImage from './objects/baseImage';
 import designDiscipline from './objects/designDiscipline';
+import employeeInfo from './objects/employeeInfo';
 import footer from './objects/footer';
-import memberStaff from './objects/memberStaff';
-import notFoundPage from './objects/notFoundPage';
 import menu from './objects/menu';
-import sector from './objects/sector';
+import notFoundPage from './objects/notFoundPage';
 import socialMediaAccounts from './objects/socialMediaAccounts';
 
 // Singletons
@@ -72,8 +77,10 @@ export default [
   company,
   contactBasic,
   contactComplete,
+  department,
   designArea,
   designDiscipline,
+  employeeInfo,
   footer,
   heroPage,
   home,
@@ -87,6 +94,7 @@ export default [
   person,
   post,
   project,
+  role,
   sector,
   seoHome,
   seoPage,

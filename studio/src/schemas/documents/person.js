@@ -9,6 +9,10 @@ export default {
       title: 'Editorial',
     },
     {
+      name: 'admin',
+      title: 'Administrative',
+    },
+    {
       name: 'seo',
       title: 'SEO',
     },
@@ -85,6 +89,11 @@ export default {
       type: 'array',
       of: [{ type: 'link.internal' }, { type: 'link.external' }],
       group: 'editorial',
+    },
+    {
+      name: 'employeeInfo',
+      type: 'employeeInfo',
+      group: 'admin',
     },
     {
       name: 'seo',

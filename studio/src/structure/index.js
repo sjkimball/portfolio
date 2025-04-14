@@ -1,4 +1,6 @@
+import { company } from './company';
 import { home } from './home';
+import { offices } from './offices';
 import { pages } from './pages';
 import { projects } from './projects';
 import { companies } from './companies';
@@ -11,6 +13,7 @@ const hiddenDocTypes = (listItem) =>
     'blogSettings',
     'company',
     'home',
+    'office',
     'page',
     'person',
     'post',
@@ -31,7 +34,8 @@ export const myStructure = (S) =>
       projects(S),
       blog(S),
       S.divider(),
-      companies(S),
+      company(S),
+      offices(S),
       people(S),
       S.divider(),
       settings(S),

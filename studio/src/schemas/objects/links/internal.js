@@ -20,7 +20,6 @@ export default {
       name: 'reference',
       title: 'Reference',
       type: 'reference',
-      weak: true,
       validation: (rule) => rule.required(),
       to: PAGE_REFERENCES,
     },

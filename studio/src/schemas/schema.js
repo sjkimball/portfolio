@@ -6,10 +6,25 @@ import post from './documents/post';
 import project from './documents/project';
 
 // Objects
-// Blocks
-import body from './objects/blocks/body';
-import blockSimple from './objects/blocks/simple';
-import blockSection from './objects/blocks/section';
+
+// Portable Text/Body
+import bodyPage from './objects/portableText/body/page';
+import bodyProject from './objects/portableText/body/project';
+import bodyPerson from './objects/portableText/body/person';
+import bodySection from './objects/portableText/body/section';
+
+// Portable Text/Blocks
+import blockCallout from './objects/portableText/blocks/callout';
+import blockCalloutLink from './objects/portableText/blocks/calloutLink';
+import blockExternalAsset from './objects/portableText/blocks/externalAsset';
+import blockFigmaEmbed from './objects/portableText/blocks/figmaEmbed';
+import blockFigure from './objects/portableText/blocks/figure';
+import moduleImage from './objects/portableText/blocks/image';
+import blockImages from './objects/portableText/blocks/images';
+import modulePerson from './objects/portableText/blocks/person';
+import blockSection from './objects/portableText/blocks/section';
+import blockGrid from './objects/portableText/blocks/grid';
+
 // Contact
 import addressUS from './objects/contact/address/unitedstates';
 import contactBasic from './objects/contact/basic';
@@ -19,22 +34,6 @@ import heroPage from './objects/hero/page';
 // Links
 import linkInternal from './objects/links/internal';
 import linkExternal from './objects/links/external';
-// Modules
-import moduleBlockContent from './objects/modules/blockContent';
-import moduleCallout from './objects/modules/callout';
-import moduleCalloutLink from './objects/modules/calloutLink';
-import moduleExternalAsset from './objects/modules/externalAsset';
-import moduleFigmaEmbed from './objects/modules/figmaEmbed';
-import moduleFigure from './objects/modules/figure';
-import moduleGrid from './objects/modules/grid';
-import moduleImage from './objects/modules/image';
-import moduleImages from './objects/modules/images';
-import moduleProjects from './objects/modules/projects';
-import modulePeople from './objects/modules/people';
-import modulePerson from './objects/modules/person';
-import modulePosts from './objects/modules/posts';
-import moduleBlockSection from './objects/modules/section';
-import moduleSimpleBlockContent from './objects/modules/simpleBlock';
 // SEO
 import seoHome from './objects/seo/home';
 import seoPage from './objects/seo/page';
@@ -57,9 +56,19 @@ import home from './singletons/home';
 
 export default [
   addressUS,
-  body,
+  baseImage,
+  blockCallout,
+  blockCalloutLink,
+  blockExternalAsset,
+  blockFigmaEmbed,
+  blockFigure,
+  blockGrid,
+  blockImages,
   blockSection,
-  blockSimple,
+  bodyPage,
+  bodyPerson,
+  bodyProject,
+  bodySection,
   company,
   contactBasic,
   contactComplete,
@@ -70,23 +79,9 @@ export default [
   home,
   linkInternal,
   linkExternal,
-  memberStaff,
   menu,
-  moduleBlockContent,
-  moduleCallout,
-  moduleCalloutLink,
-  moduleExternalAsset,
-  moduleFigmaEmbed,
-  moduleFigure,
-  moduleGrid,
   moduleImage,
-  moduleImages,
-  modulePeople,
   modulePerson,
-  modulePosts,
-  moduleProjects,
-  moduleBlockSection,
-  moduleSimpleBlockContent,
   notFoundPage,
   page,
   person,

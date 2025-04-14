@@ -63,18 +63,18 @@ export default {
       group: 'editorial',
     },
     {
-      name: 'body',
-      title: 'Project Description',
-      description: 'Detailed description of the project.',
-      type: 'body',
-      group: 'editorial',
-    },
-    {
       name: 'cover',
       title: 'Cover Image',
       type: 'module.image',
       initialValue: { variant: 'cover' },
       validation: (Rule) => Rule.required(),
+      group: 'editorial',
+    },
+    {
+      name: 'body',
+      title: 'Project Description',
+      description: 'Detailed description of the project.',
+      type: 'body.project',
       group: 'editorial',
     },
     {

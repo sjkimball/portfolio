@@ -2,9 +2,6 @@ export default {
   name: 'person',
   title: 'Person',
   type: 'document',
-  initialValue: {
-    featured: false,
-  },
   groups: [
     {
       default: true,
@@ -72,7 +69,7 @@ export default {
     {
       name: 'bio',
       title: 'Biography',
-      type: 'body',
+      type: 'body.person',
       group: 'editorial',
     },
     {

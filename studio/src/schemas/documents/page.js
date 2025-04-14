@@ -55,7 +55,7 @@ export default {
     {
       name: 'body',
       title: 'Body',
-      type: 'body',
+      type: 'body.page',
       group: 'editorial',
     },
     {

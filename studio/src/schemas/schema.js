@@ -1,5 +1,6 @@
 // Documents
 import company from './documents/company';
+import office from './documents/office';
 import page from './documents/page';
 import person from './documents/person';
 import post from './documents/post';
@@ -90,6 +91,7 @@ export default [
   moduleImage,
   modulePerson,
   notFoundPage,
+  office,
   page,
   person,
   post,

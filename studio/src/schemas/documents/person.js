@@ -66,8 +66,8 @@ export default {
     {
       name: 'image',
       title: 'Profile Image',
-      type: 'module.image',
-      initialValue: { variant: 'cover' },
+      type: 'image',
+      options: { hotspot: true },
       group: 'editorial',
     },
     {
@@ -112,7 +112,7 @@ export default {
     prepare({ firstName, preferredName, lastName, media }) {
       return {
         title: `${preferredName ? preferredName : firstName} ${lastName}`,
-        media: media.image,
+        media: media,
       };
     },
   },

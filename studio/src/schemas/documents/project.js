@@ -35,22 +35,6 @@ export default {
       group: 'editorial',
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      description:
-        'Add a custom slug or use Generate button to create based on project title.',
-      options: {
-        source: 'title',
-        maxLength: 200,
-        slugify: (input) => input.toLowerCase().replace(/\s+/g, '-'),
-      },
-      validation: (Rule) =>
-        Rule.required().error('A slug must be generated prior to publishing.'),
-      group: 'editorial',
-    },
-
-    {
       name: 'subtitle',
       title: 'Subtitle',
       description: 'Keep it short and sweet like an old skool tweet.',
@@ -65,8 +49,8 @@ export default {
     {
       name: 'cover',
       title: 'Cover Image',
-      type: 'module.image',
-      initialValue: { variant: 'cover' },
+      type: 'image',
+      options: { hotspot: true },
       validation: (Rule) => Rule.required(),
       group: 'editorial',
     },
@@ -83,7 +67,7 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'module.image',
+          type: 'baseImage',
         },
       ],
       options: {
@@ -124,10 +108,32 @@ export default {
       name: 'members',
       title: 'Project Members',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'person' }] }],
+      of: [
+        {
+          title: 'Add Project Member',
+          type: 'reference',
+          to: [{ type: 'person' }],
+          weak: true,
+        },
+      ],
       validation: (Rule) =>
         Rule.required().error('Add at least one contributor.'),
       group: 'team',
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      description:
+        'Add a custom slug or use Generate button to create based on project title.',
+      options: {
+        source: 'title',
+        maxLength: 200,
+        slugify: (input) => input.toLowerCase().replace(/\s+/g, '-'),
+      },
+      validation: (Rule) =>
+        Rule.required().error('A slug must be generated prior to publishing.'),
+      group: 'editorial',
     },
     {
       name: 'seo',
@@ -140,7 +146,7 @@ export default {
     select: {
       title: 'client.name',
       subtitle: 'title',
-      media: 'cover.image.asset',
+      media: 'cover.asset',
     },
   },
 };

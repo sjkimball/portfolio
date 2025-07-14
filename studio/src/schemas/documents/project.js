@@ -67,7 +67,7 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'baseImage',
+          type: 'block.image',
         },
       ],
       options: {

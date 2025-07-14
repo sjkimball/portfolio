@@ -24,7 +24,7 @@ export default {
     {
       name: 'image',
       title: 'Image',
-      type: 'baseImage',
+      type: 'block.image',
     },
     // Links
     {

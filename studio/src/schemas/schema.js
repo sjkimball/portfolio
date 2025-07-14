@@ -27,7 +27,7 @@ import blockCalloutLink from './objects/blocks/calloutLink';
 import blockExternalAsset from './objects/blocks/externalAsset';
 import blockFigmaEmbed from './objects/blocks/figmaEmbed';
 import blockFigure from './objects/blocks/figure';
-import moduleImage from './objects/blocks/image';
+import blockImage from './objects/blocks/image';
 import blockImages from './objects/blocks/images';
 import modulePerson from './objects/blocks/person';
 import blockSection from './objects/blocks/section';
@@ -56,7 +56,6 @@ import footer from './objects/settings/footer';
 import menu from './objects/settings/menu';
 import notFoundPage from './objects/settings/notFoundPage';
 
-import baseImage from './objects/baseImage';
 import clientEmployee from './objects/clientEmployee';
 import designDiscipline from './objects/designDiscipline';
 import employeeInfo from './objects/employeeInfo';
@@ -70,13 +69,13 @@ import sector from './helpers/sector';
 
 export default [
   addressUS,
-  baseImage,
   blockCallout,
   blockCalloutLink,
   blockExternalAsset,
   blockFigmaEmbed,
   blockFigure,
   blockGrid,
+  blockImage,
   blockImages,
   blockSection,
   bodyPage,
@@ -98,7 +97,6 @@ export default [
   linkExternal,
   linkInternal,
   menu,
-  moduleImage,
   modulePerson,
   notFoundPage,
   office,

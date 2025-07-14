@@ -23,7 +23,7 @@ export default {
       name: 'images',
       title: 'Office Images',
       type: 'array',
-      of: [{ type: 'baseImage' }],
+      of: [{ type: 'block.image' }],
     },
     {
       name: 'slug',

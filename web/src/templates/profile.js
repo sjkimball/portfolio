@@ -14,7 +14,26 @@ export const query = graphql`
       preferredName
       lastName
       image {
-        ...imageModuleData
+        asset {
+          altText
+          title
+          _id
+          metadata {
+            lqip
+          }
+        }
+        crop {
+          bottom
+          left
+          right
+          top
+        }
+        hotspot {
+          height
+          width
+          x
+          y
+        }
       }
       _rawBio
       links {
@@ -30,6 +49,7 @@ export const query = graphql`
   }
 `;
 
+//TODO Update Head so it uses the person's name if no SEO title
 export const Head = ({ location, params, data, pageContext }) => {
   const title = data.page.seo.title ? data.page.seo.title : data.page.title;
   const description = data.page.seo

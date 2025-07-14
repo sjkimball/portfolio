@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import ImageModule from '../portableText/blocks/Image';
 
-import { link, content } from './ProjectPreview.module.css';
+import { link, content } from './Preview.module.css';
 
 const ProjectPreview = (props) => {
   // console.log('props in Project Preview', props);

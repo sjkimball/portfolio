@@ -6,7 +6,7 @@ import PrimaryImage from './PrimaryImage';
 import { article, header, additionalLinks } from './Profile.module.css';
 
 const Profile = (props) => {
-  // console.dir('props in Profile', props);
+  console.dir('props in Profile', props);
   const { firstName, preferredName, lastName, image, links, _rawBio } = props;
 
   const name = preferredName
@@ -19,7 +19,7 @@ const Profile = (props) => {
         <hgroup>
           <h1>{name}</h1>
         </hgroup>
-        <PrimaryImage imageAsset={image.image} imageUse={`cover`} />
+        <PrimaryImage imageAsset={image} imageUse={`cover`} />
       </header>
       <PortableText blocks={_rawBio} />
       <div className={additionalLinks}>

@@ -1,8 +1,5 @@
 .portableText {
   --_padding-x: var(--sk-spacing-md, 16px);
-  & > :global(.block:first-child) {
-    padding-top: 0;
-  }
   & > *:last-child {
     margin-bottom: 0;
   }

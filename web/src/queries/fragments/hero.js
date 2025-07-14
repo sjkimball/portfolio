@@ -8,8 +8,5 @@ export const heroData = graphql`
       ...externalLinkData
       ...internalLinkData
     }
-    content {
-      ...imageModuleData
-    }
   }
 `;

@@ -17,6 +17,7 @@ const components = {
   types: {
     'module.images': ImagesBlock,
     'module.grid': GridBlock,
+    'block.grid': GridBlock,
     'module.callout': CalloutBlock,
     'module.calloutLink': CalloutLinkBlock,
     'module.externalAsset': ExternalAssetBlock,
@@ -29,9 +30,9 @@ const components = {
 const PortableText = (props) => {
   // console.dir('props in PortableText', props);
   return (
-    <div className={`portableText ${ptStyles.portableText}`}>
+    <section className={`portableText ${ptStyles.portableText}`}>
       <PortableTextReact value={props.blocks} components={components} />
-    </div>
+    </section>
   );
 };
 

@@ -14,7 +14,26 @@ export const query = graphql`
       subtitle
       _rawBody(resolveReferences: { maxDepth: 10 })
       cover {
-        ...imageModuleData
+        asset {
+          altText
+          title
+          _id
+          metadata {
+            lqip
+          }
+        }
+        crop {
+          bottom
+          left
+          right
+          top
+        }
+        hotspot {
+          height
+          width
+          x
+          y
+        }
       }
       productImages {
         ...imageModuleData
@@ -41,15 +60,15 @@ export const query = graphql`
 `;
 
 export const Head = ({ location, params, data, pageContext }) => {
-  const title = data.page.seo.title
-    ? data.page.seo.title
-    : data.page.client.name;
-  const description = data.page.seo
-    ? data.page.seo.description
-    : data.site.seo.description;
+  const { title, description, image } = data.page.seo || {};
+  const fallbackTitle = `${data.page.client.name} | ${data.page.title}`;
+  const fallbackDescription = data.page.subtitle;
+  const seoTitle = title == undefined ? fallbackTitle : data.page.seo.title;
+  const seoDescription =
+    description == undefined ? fallbackDescription : data.page.seo.description;
   return (
-    <SEO description={description}>
-      <title id="title">{title}</title>
+    <SEO description={seoDescription}>
+      <title id="title">{seoTitle}</title>
     </SEO>
   );
 };

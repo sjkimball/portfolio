@@ -1,6 +1,9 @@
 import React from 'react';
 import SimpleBlock from './SimpleBlock';
 import FigureBlock from './FigureBlock';
+import ProjectPreview from '../../previews/ProjectPreview';
+import ProfilePreview from '../../previews/ProfilePreview';
+// import Preview from '../../Preview';
 
 import { section, header, container } from './GridBlock.module.css';
 
@@ -17,6 +20,12 @@ const GridBlock = (props) => {
         break;
       case 'module.figure':
         el = <FigureBlock key={i} {...item} />;
+        break;
+      case 'project':
+        el = <ProjectPreview key={i} {...item} />;
+        break;
+      case 'person':
+        el = <ProfilePreview key={i} {...item} />;
         break;
       default:
         el = null;

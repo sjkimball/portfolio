@@ -38,6 +38,10 @@ export default {
     },
     // Custom Blocks
     {
+      title: 'Section',
+      type: 'block.section',
+    },
+    {
       title: 'Images',
       type: 'block.images',
     },
@@ -52,10 +56,6 @@ export default {
     {
       title: 'Callout Link',
       type: 'block.calloutLink',
-    },
-    {
-      title: 'Section',
-      type: 'block.section',
     },
   ],
 };

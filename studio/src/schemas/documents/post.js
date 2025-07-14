@@ -34,7 +34,7 @@ export default {
     {
       name: 'cover',
       title: 'Cover Image',
-      type: 'module.image',
+      type: 'baseImage',
     },
     {
       name: 'body',

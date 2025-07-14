@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const imageModuleData = graphql`
-  fragment imageModuleData on SanityModuleImage {
+  fragment imageModuleData on SanityBaseImage {
     image {
       asset {
         altText
@@ -25,6 +25,5 @@ export const imageModuleData = graphql`
       }
     }
     caption
-    variant
   }
 `;

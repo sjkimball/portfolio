@@ -20,20 +20,18 @@ export default {
       type: 'text',
       rows: 3,
     },
+    // Image
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'baseImage',
+    },
     // Links
     {
       name: 'links',
       title: 'Link',
       type: 'array',
       of: [{ type: 'link.internal' }, { type: 'link.external' }],
-      validation: (rule) => rule.max(1),
-    },
-    // Content
-    {
-      name: 'content',
-      title: 'Content',
-      type: 'array',
-      of: [{ type: 'module.image', initialValue: { variant: 'cover' } }],
       validation: (rule) => rule.max(1),
     },
   ],

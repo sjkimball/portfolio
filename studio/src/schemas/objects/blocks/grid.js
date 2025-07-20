@@ -1,9 +1,8 @@
 import { ThLargeIcon } from '@sanity/icons';
 
 const GRIDVARIANTS = [
-  { title: 'Grid', value: 'grid' },
-  { title: 'Flex', value: 'flex' },
-  { title: 'Unbalanced', value: 'unbalanced' },
+  { title: 'Unbalanced Right', value: 'unbalancedRight' },
+  { title: 'Unbalanced Left', value: 'unbalancedLeft' },
 ];
 
 export default {
@@ -26,21 +25,9 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      description:
+        'This is used only for clarity in content editor. It will not appear in the site.',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'subtitle',
-      title: 'Subtitle',
-      type: 'string',
-      description: 'Optional',
-    },
-    //TODO Should this be labeled 'description' in all blocks?
-    {
-      name: 'copy',
-      title: 'Copy or Description',
-      type: 'text',
-      rows: 2,
-      description: 'Optional',
     },
     {
       name: 'content',
@@ -83,30 +70,30 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'gridType',
-      title: 'Grid Type',
+      name: 'layout',
+      title: 'Layout',
       type: 'string',
-      description: 'Choose from grid options.',
+      description: 'Choose from grid layout options.',
       options: {
         list: GRIDVARIANTS,
       },
       initialValue: 'grid',
       fieldset: 'layoutOptions',
     },
-    {
-      name: 'fullWidth',
-      title: 'Full Width',
-      type: 'boolean',
-      initialValue: false,
-      fieldset: 'layoutOptions',
-    },
-    {
-      name: 'darkMode',
-      title: 'Dark Mode',
-      type: 'boolean',
-      initialValue: false,
-      fieldset: 'layoutOptions',
-    },
+    // {
+    //   name: 'fullWidth',
+    //   title: 'Full Width',
+    //   type: 'boolean',
+    //   initialValue: false,
+    //   fieldset: 'layoutOptions',
+    // },
+    // {
+    //   name: 'darkMode',
+    //   title: 'Dark Mode',
+    //   type: 'boolean',
+    //   initialValue: false,
+    //   fieldset: 'layoutOptions',
+    // },
   ],
   preview: {
     select: {

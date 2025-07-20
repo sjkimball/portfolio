@@ -1,7 +1,7 @@
 import React from 'react';
 
-import PortableText from './portableText/PortableText';
-import PrimaryImage from './PrimaryImage';
+import PortableText from '../portableText/PortableText';
+import ImageFactory from '../ImageFactory';
 
 import { article, header, additionalLinks } from './Profile.module.css';
 
@@ -19,7 +19,7 @@ const Profile = (props) => {
         <hgroup>
           <h1>{name}</h1>
         </hgroup>
-        <PrimaryImage imageAsset={image} imageUse={`cover`} />
+        <ImageFactory {...image} imageUse={`cover`} />
       </header>
       <PortableText blocks={_rawBio} />
       <div className={additionalLinks}>

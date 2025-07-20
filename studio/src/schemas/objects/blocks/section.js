@@ -25,12 +25,6 @@ export default {
       validation: (rule) => rule.required(),
     },
     {
-      name: 'showTitle',
-      title: 'Show Title?',
-      type: 'boolean',
-      initialValue: true,
-    },
-    {
       name: 'subtitle',
       title: 'Subtitle',
       type: 'string',

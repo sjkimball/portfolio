@@ -3,7 +3,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../containers/Layout';
-import Post from '../components/Post';
+import Post from '../components/documents/Post';
 import GraphQLErrorList from '../components/GraphqlErrorList';
 
 // export const query = graphql`

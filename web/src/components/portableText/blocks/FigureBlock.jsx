@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageModule from './Image';
+import ImageModule from './Figure';
 
 import { container, figure, caption } from './FigureBlock.module.css';
 

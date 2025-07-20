@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ExternalAssetBlock = () => {
+const ExternalAsset = () => {
   return <p>External Asset Block</p>;
 };
 
-export default ExternalAssetBlock;
+export default ExternalAsset;

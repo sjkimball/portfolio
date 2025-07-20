@@ -42,5 +42,9 @@ export default {
       title: 'Image',
       type: 'image',
     },
+    {
+      title: 'Grid',
+      type: 'block.grid',
+    },
   ],
 };

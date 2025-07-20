@@ -2,7 +2,7 @@ import React from 'react';
 
 import { imageUrlFor } from '../lib/image-url';
 
-import { image } from './PrimaryImage.module.css';
+import { image } from './ImageFactory.module.css';
 
 const imageSrcSet = (imageAsset) => `
 ${imageUrlFor(imageAsset).width(320)} 320w,
@@ -23,12 +23,10 @@ const coverSizes = `
   100vw
 `;
 
-const PrimaryImage = (props) => {
-  // console.dir('props in Primary Image', props);
-  const { imageAsset, imageUse } = props;
-  const metadata = imageAsset.asset.metadata
-    ? imageAsset.asset.metadata.lqip
-    : '';
+const ImageFactory = (props) => {
+  // console.dir('props in Image Factory', props);
+  const { asset: imageAsset, imageUse } = props;
+  const metadata = imageAsset.metadata ? imageAsset.metadata.lqip : '';
   const imageSizes = imageUse == 'cover' ? coverSizes : previewSizes;
 
   return (
@@ -39,10 +37,10 @@ const PrimaryImage = (props) => {
       srcSet={imageSrcSet(imageAsset)}
       sizes={imageSizes}
       src={imageUrlFor(imageAsset).auto('format')}
-      alt={imageAsset.asset.altText}
+      alt={imageAsset.altText}
       className={image}
     />
   );
 };
 
-export default PrimaryImage;
+export default ImageFactory;

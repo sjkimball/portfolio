@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 
 import GraphQLErrorList from '../components/GraphqlErrorList';
 import Layout from '../components/global/Layout';
-import Project from '../components/Project';
+import Project from '../components/documents/Project';
 import SEO from '../components/Seo';
 
 export const query = graphql`

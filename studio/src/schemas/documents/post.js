@@ -1,12 +1,12 @@
+import { CommentIcon } from '@sanity/icons';
+
 export default {
   name: 'post',
   title: 'Post',
+  icon: CommentIcon,
   type: 'document',
   initialValue: {
     featured: false,
-    cover: {
-      caption: 'This is a placeholder caption.',
-    },
   },
   fields: [
     {

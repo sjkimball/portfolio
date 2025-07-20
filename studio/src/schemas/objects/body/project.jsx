@@ -38,8 +38,8 @@ export default {
     },
     // Custom Blocks
     {
-      title: 'Images',
-      type: 'block.images',
+      title: 'Image',
+      type: 'block.image',
     },
     {
       title: 'Grid',

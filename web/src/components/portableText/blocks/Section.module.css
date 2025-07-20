@@ -51,7 +51,7 @@
 
 /* * Clients and Industries */
 :global(#clients-and-industries h2) {
-  display: none;
+  /* display: none; */
 }
 :global(#clients-and-industries .container) {
   display: grid;

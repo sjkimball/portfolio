@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { anchor } from './CalloutLinkBlock.module.css';
+import { anchor } from './CalloutLink.module.css';
 
-const CalloutLinkBlock = (props) => {
+const CalloutLink = (props) => {
   // console.dir('props in CalloutLinkBlock', props);
   const { value } = props;
   return (
@@ -12,4 +12,4 @@ const CalloutLinkBlock = (props) => {
   );
 };
 
-export default CalloutLinkBlock;
+export default CalloutLink;

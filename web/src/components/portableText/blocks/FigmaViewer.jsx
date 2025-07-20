@@ -1,7 +1,7 @@
 import React from 'react';
 import FigmaEmbed from 'react-figma-embed';
 
-import { block } from './FigmaEmbedBlock.module.css';
+import { block } from './FigmaViewer.module.css';
 
 const styles = {
   display: 'block',
@@ -12,7 +12,7 @@ const styles = {
   borderColor: 'var(--sk-sys-outline)',
 };
 
-const FigmaEmbedBlock = (props) => {
+const FigmaViewer = (props) => {
   const { value } = props;
   return (
     <div className={`block block--figma ${block}`}>
@@ -21,4 +21,4 @@ const FigmaEmbedBlock = (props) => {
   );
 };
 
-export default FigmaEmbedBlock;
+export default FigmaViewer;

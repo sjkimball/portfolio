@@ -1,8 +1,9 @@
 import React from 'react';
 import { PortableText as PortableTextReact } from '@portabletext/react';
 import Block from './Block';
+import Grid from './Grid';
 
-import { block } from './SectionBlock.module.css';
+import { block } from './Section.module.css';
 
 const kebabCase = (string) =>
   string
@@ -12,25 +13,39 @@ const kebabCase = (string) =>
 
 const components = {
   block: Block,
-  types: {},
+  types: {
+    'block.grid': Grid,
+  },
 };
 
-const SectionBlock = (props) => {
+const Section = (props) => {
   // console.dir('props in Section Block', props);
   const contentObject = props.value ? props.value : props;
-  const { title, content, darkMode } = contentObject;
+  const {
+    title,
+    subtitle,
+    description,
+    body,
+    layoutType,
+    fullWidth,
+    darkMode,
+  } = contentObject;
   return (
     <section
       id={`${kebabCase(title)}`}
       className={`block block--section ${block}`}
       data-theme={darkMode == true ? 'dark' : 'light'}
     >
-      <h2>{title}</h2>
+      <hgroup>
+        <h2>{title}</h2>
+        <h4>{subtitle}</h4>
+        <p>{description}</p>
+      </hgroup>
       <div className={`container`}>
-        <PortableTextReact value={content} components={components} />
+        <PortableTextReact value={body} components={components} />
       </div>
     </section>
   );
 };
 
-export default SectionBlock;
+export default Section;

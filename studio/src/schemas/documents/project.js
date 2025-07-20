@@ -5,11 +5,6 @@ export default {
   title: 'Project',
   icon: FaProjectDiagram,
   type: 'document',
-  initialValue: {
-    cover: {
-      caption: 'This is a placeholder caption',
-    },
-  },
   groups: [
     {
       default: true,

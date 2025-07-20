@@ -1,38 +1,35 @@
 import React from 'react';
 import { PortableText as PortableTextReact } from '@portabletext/react';
 import Block from './blocks/Block';
-import CalloutBlock from './blocks/CalloutBlock';
-import CalloutLinkBlock from './blocks/CalloutLinkBlock';
-import ExternalAssetBlock from './blocks/ExternalAsset';
-import FigmaEmbedBlock from './blocks/FigmaEmbedBlock';
-import GridBlock from './blocks/GridBlock';
-import ImagesBlock from './blocks/ImagesBlock';
-import ProjectsBlock from './blocks/ProjectsBlock';
-import SectionBlock from './blocks/SectionBlock';
+import Callout from './blocks/Callout';
+import CalloutLink from './blocks/CalloutLink';
+import ExternalAsset from './blocks/ExternalAsset';
+import FigmaViewer from './blocks/FigmaViewer';
+import Grid from './blocks/Grid';
+import Figure from './blocks/Figure';
+import Section from './blocks/Section';
 
 import * as ptStyles from './PortableText.module.css';
 
 const components = {
   block: Block,
   types: {
-    'module.images': ImagesBlock,
-    'module.grid': GridBlock,
-    'block.grid': GridBlock,
-    'module.callout': CalloutBlock,
-    'module.calloutLink': CalloutLinkBlock,
-    'module.externalAsset': ExternalAssetBlock,
-    'module.figmaEmbed': FigmaEmbedBlock,
-    'module.projects': ProjectsBlock,
-    'module.section': SectionBlock,
+    'block.image': ({ value }) => <Figure {...value} />,
+    'block.grid': Grid,
+    'module.callout': Callout,
+    'module.calloutLink': CalloutLink,
+    'module.externalAsset': ExternalAsset,
+    'module.figmaEmbed': FigmaViewer,
+    'block.section': Section,
   },
 };
 
 const PortableText = (props) => {
   // console.dir('props in PortableText', props);
   return (
-    <section className={`portableText ${ptStyles.portableText}`}>
+    <div className={`portableText ${ptStyles.portableText}`}>
       <PortableTextReact value={props.blocks} components={components} />
-    </section>
+    </div>
   );
 };
 

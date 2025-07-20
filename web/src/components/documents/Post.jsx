@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'gatsby';
 import { format, parseISO } from 'date-fns';
 
-import AvatarImage from './AvatarImage';
+import AvatarImage from '../AvatarImage';
 
 import './post.css';
 

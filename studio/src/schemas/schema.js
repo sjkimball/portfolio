@@ -57,13 +57,13 @@ import menu from './objects/settings/menu';
 import notFoundPage from './objects/settings/notFoundPage';
 
 import clientEmployee from './objects/clientEmployee';
-import designDiscipline from './objects/designDiscipline';
 import employeeInfo from './objects/employeeInfo';
 import socialMediaAccounts from './objects/socialMediaAccounts';
 
 // Helpers
 import department from './helpers/department';
 import designArea from './helpers/designArea';
+import designDiscipline from './helpers/designDiscipline';
 import role from './helpers/role';
 import sector from './helpers/sector';
 

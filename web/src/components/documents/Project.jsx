@@ -1,7 +1,7 @@
 import React from 'react';
 
-import PortableText from './portableText/PortableText';
-import ImageModule from './portableText/blocks/Image';
+import PortableText from '../portableText/PortableText';
+import ImageFactory from '../ImageFactory';
 
 import {
   article,
@@ -49,7 +49,7 @@ const Project = (props) => {
           <p className={projectTitle}>{title}</p>
           <p className={projectSubtitle}>{subtitle}</p>
         </hgroup>
-        <ImageModule {...cover} />
+        <ImageFactory asset={cover} variant={'cover'} />
       </header>
       <PortableText blocks={body} />
       <div className={metadata}>
@@ -59,7 +59,7 @@ const Project = (props) => {
         </section>
         <section>
           <h6>Sector</h6>
-          <p>{convertCamelToTitle(sector)}</p>
+          {/* <p>{convertCamelToTitle(sector)}</p> */}
         </section>
         <section>
           <h6>Disciplines</h6>
